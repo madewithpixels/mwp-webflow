@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>madewithpixels — Design Guide</title>
+<style>
+  :root{
+    --transparent:hsla(0,0%,100%,0);
+    --offwhite:#e6e6e6;
+    --darkgrey:#323232;
+    --white:#fff;
+    --lightgrey:#ededed;
+    --slate:#2b464e;
+    --keylines:#4f6469;
+    --coral:#ef8965;
+    --raspberry:hsl(344.5,66%,56.27%);
+    --teal:#37907f;
+    --scrollbar-thumb:#565656;
+    --scrollbar-track:#363636;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--slate);color:var(--offwhite);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;font-weight:300;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:4rem 7vw}
+  header{border-bottom:1px solid var(--keylines);padding-bottom:2.5rem;margin-bottom:3rem}
+  .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:600}
+  h1.title{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;letter-spacing:-.02em;margin:.4rem 0 .6rem;color:#fff}
+  .sub{color:#a9bcc0;max-width:60ch}
+  h2.sec{font-size:1.6rem;font-weight:700;color:#fff;margin:3.5rem 0 1.2rem;letter-spacing:-.01em}
+  h2.sec .n{color:var(--coral);font-variant-numeric:tabular-nums;margin-right:.6rem;font-size:1rem;vertical-align:middle}
+  h3.sub2{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#8ba0a5;font-weight:700;margin:2rem 0 1rem}
+  p.lead{max-width:65ch;color:#c8d4d6;margin-bottom:1rem}
+  /* swatches */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem}
+  .sw{border-radius:14px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid var(--keylines)}
+  .sw .chip{height:96px;border-bottom:1px solid rgba(0,0,0,.2)}
+  .sw .meta{padding:.7rem .85rem}
+  .sw .nm{font-weight:600;color:#fff;font-size:.95rem}
+  .sw .hex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;color:#9fb2b6;margin-top:.15rem}
+  .sw .css{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;color:#7c9095;margin-top:.1rem}
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.9rem}
+  th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid rgba(79,100,105,.5);vertical-align:top}
+  th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#8ba0a5;font-weight:700}
+  td.mono,code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;color:#c9e0dc}
+  td .nm{color:#fff;font-weight:600}
+  .card{background:rgba(255,255,255,.04);border:1px solid var(--keylines);border-radius:16px;padding:1.4rem 1.6rem;margin-top:1rem}
+  .pill{display:inline-block;background:rgba(239,137,101,.14);color:var(--coral);border-radius:99px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;letter-spacing:.03em;margin-left:.4rem}
+  .type-row{border-bottom:1px solid rgba(79,100,105,.5);padding:1.1rem 0}
+  .type-row:last-child{border-bottom:0}
+  .type-row .label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#8ba0a5;font-weight:700;margin-bottom:.35rem}
+  .type-row .spec{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:#7c9095;margin-top:.4rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+  footer{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--keylines);color:#7c9095;font-size:.82rem}
+  a{color:var(--coral)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Webflow Design System</div>
+    <h1 class="title">madewithpixels — Design Guide</h1>
+    <p class="sub">Extracted from the live Webflow project (<code>madewithpixels-dev</code>). Covers colour palette, typography, structural spacing, logo construction and motion tokens as defined in the site's variable collections and base styles.</p>
+  </header>
+
+  <!-- COLOUR -->
+  <h2 class="sec"><span class="n">01</span>Colour Palette</h2>
+  <p class="lead">The <strong>Palette</strong> collection. Core surface is <em>Slate</em> (page background) with <em>OffWhite</em> text; <em>Coral</em>, <em>Raspberry</em> and <em>Teal</em> are the accent trio.</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#2b464e"></div><div class="meta"><div class="nm">Slate</div><div class="hex">#2B464E</div><div class="css">--slate · page bg</div></div></div>
+    <div class="sw"><div class="chip" style="background:#4f6469"></div><div class="meta"><div class="nm">Keylines</div><div class="hex">#4F6469</div><div class="css">--keylines · borders</div></div></div>
+    <div class="sw"><div class="chip" style="background:#323232"></div><div class="meta"><div class="nm">DarkGrey</div><div class="hex">#323232</div><div class="css">--darkgrey</div></div></div>
+    <div class="sw"><div class="chip" style="background:#e6e6e6"></div><div class="meta"><div class="nm">OffWhite</div><div class="hex">#E6E6E6</div><div class="css">--offwhite · body text</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ededed"></div><div class="meta"><div class="nm">LightGrey</div><div class="hex">#EDEDED</div><div class="css">--lightgrey</div></div></div>
+    <div class="sw"><div class="chip" style="background:#fff"></div><div class="meta"><div class="nm">White</div><div class="hex">#FFFFFF</div><div class="css">--white</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ef8965"></div><div class="meta"><div class="nm">Coral</div><div class="hex">#EF8965</div><div class="css">--coral · accent</div></div></div>
+    <div class="sw"><div class="chip" style="background:hsl(344.5,66%,56.27%)"></div><div class="meta"><div class="nm">Raspberry</div><div class="hex">#D2466F</div><div class="css">--raspberry · accent</div></div></div>
+    <div class="sw"><div class="chip" style="background:#37907f"></div><div class="meta"><div class="nm">Teal</div><div class="hex">#37907F</div><div class="css">--teal · accent</div></div></div>
+  </div>
+  <h3 class="sub2">Interface / scrollbar</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#565656"></div><div class="meta"><div class="nm">Scrollbar Thumb</div><div class="hex">#565656</div><div class="css">--scrollbar-thumb</div></div></div>
+    <div class="sw"><div class="chip" style="background:#363636"></div><div class="meta"><div class="nm">Scrollbar Track</div><div class="hex">#363636</div><div class="css">--scrollbar-track</div></div></div>
+    <div class="sw"><div class="chip" style="background:hsl(344.5,66%,56.27%)"></div><div class="meta"><div class="nm">Scrollbar Thumb Hover</div><div class="hex">→ Raspberry</div><div class="css">alias of --raspberry</div></div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(45deg,#334 25%,#556 25% 50%,#334 50% 75%,#556 75%);background-size:20px 20px"></div><div class="meta"><div class="nm">Transparent</div><div class="hex">hsla(0,0%,100%,0)</div><div class="css">--transparent</div></div></div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <h2 class="sec"><span class="n">02</span>Typography</h2>
+  <p class="lead">Three type families drive the system, stored in the <strong>Typography</strong> collection.</p>
+  <div class="grid2">
+    <div class="card"><div class="label" style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#8ba0a5;font-weight:700">Brand</div><div style="font-size:2rem;font-weight:700;color:#fff;margin:.3rem 0">Apercu <span class="pill">Custom · uploaded</span></div><div class="type-row spec" style="border:0;padding:0">--_typography---brand · weights 400 / 700 · woff2, woff, ttf</div></div>
+    <div class="card"><div class="label" style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#8ba0a5;font-weight:700">Serif</div><div style="font-size:2rem;font-weight:400;color:#fff;margin:.3rem 0;font-family:Georgia,serif">Source Serif 4</div><div class="type-row spec" style="border:0;padding:0">--_typography---serif · headings, quotes, figures</div></div>
+    <div class="card"><div class="label" style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#8ba0a5;font-weight:700">Sans Serif</div><div style="font-size:2rem;font-weight:300;color:#fff;margin:.3rem 0">soleil</div><div class="type-row spec" style="border:0;padding:0">--_typography---sans-serif · body &amp; UI (Adobe Fonts)</div></div>
+    <div class="card"><div class="label" style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#8ba0a5;font-weight:700">Also referenced</div><div style="font-size:1.4rem;font-weight:400;color:#fff;margin:.3rem 0">rival</div><div class="type-row spec" style="border:0;padding:0">Used on the <code>h1</code> corner label (Adobe Fonts)</div></div>
+  </div>
+
+  <h3 class="sub2">Type scale — base HTML tags</h3>
+  <p class="lead">Sizes use fluid <code>clamp()</code> so headings scale between the min (mobile) and max (desktop) values.</p>
+  <table>
+    <thead><tr><th>Element</th><th>Family</th><th>Size</th><th>Weight</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="nm">body</span></td><td>soleil (sans)</td><td class="mono">16px</td><td>300</td><td>line-height 1.0, colour OffWhite on Slate</td></tr>
+      <tr><td><span class="nm">p</span></td><td>soleil (sans)</td><td class="mono">1.125rem</td><td>300</td><td>line-height 1.5, tight kerning</td></tr>
+      <tr><td><span class="nm">h1</span></td><td>rival</td><td class="mono">clamp(1.125rem, 1.5vw, 1.5rem)</td><td>300</td><td>corner label, right-aligned, DarkGrey</td></tr>
+      <tr><td><span class="nm">h2</span></td><td>Apercu (brand)</td><td class="mono">clamp(3rem, 7em, 6rem)</td><td>700</td><td>hero display, line-height 0.9</td></tr>
+      <tr><td><span class="nm">h3</span></td><td>Source Serif 4</td><td class="mono">clamp(2.2rem, 3.25vw, 3rem)</td><td>200</td><td>DarkGrey, light weight</td></tr>
+      <tr><td><span class="nm">h4</span></td><td>Source Serif 4</td><td class="mono">clamp(1.875rem, 3.5vw, 2.5rem)</td><td>300</td><td>DarkGrey</td></tr>
+      <tr><td><span class="nm">h5</span></td><td>inherit</td><td class="mono">1rem</td><td>700</td><td>UPPERCASE, wide kerning (0.05em)</td></tr>
+      <tr><td><span class="nm">h6</span></td><td>inherit</td><td class="mono">0.8rem</td><td>700</td><td>UPPERCASE, extra-wide kerning (0.175em)</td></tr>
+      <tr><td><span class="nm">blockquote</span></td><td>Source Serif 4</td><td class="mono">clamp(1rem, 2vw, 1.125rem)</td><td>300</td><td>italic, white card, DarkGrey text</td></tr>
+      <tr><td><span class="nm">ul</span></td><td>inherit</td><td class="mono">1.125rem</td><td>—</td><td>flex column</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub2">Line-height (leading) tokens</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">--_typography---leading-s</td><td>0.8</td></tr>
+      <tr><td class="mono">--_typography---leading-r</td><td>1.0</td></tr>
+      <tr><td class="mono">--_typography---leading-l</td><td>1.25</td></tr>
+      <tr><td class="mono">--_typography---leading-xl</td><td>1.5</td></tr>
+      <tr><td class="mono">--_typography---leading-xxl</td><td>1.75</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub2">Letter-spacing (kerning) tokens</h3>
+  <div class="grid2">
+    <table>
+      <thead><tr><th>Tighten</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">kerntight-xxs</td><td>-0.05em</td></tr>
+        <tr><td class="mono">kerntight-xs</td><td>-0.025em</td></tr>
+        <tr><td class="mono">kerntight-s</td><td>-0.015em</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Widen</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">kernwide-l</td><td>0.05em</td></tr>
+        <tr><td class="mono">kernwide-xl</td><td>0.175em</td></tr>
+        <tr><td class="mono">kernwide-xxl</td><td>0.6em</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- STRUCTURE -->
+  <h2 class="sec"><span class="n">03</span>Structure &amp; Spacing</h2>
+  <p class="lead">The <strong>Structure</strong> collection is responsive — values shift across breakpoints (base → 1280+ → 1440+ → 1920+ and down to Mobile). Base and notable overrides shown.</p>
+  <table>
+    <thead><tr><th>Token</th><th>Base</th><th>Responsive overrides</th></tr></thead>
+    <tbody>
+      <tr><td><span class="nm">Section Padding</span><br><span class="css" style="font-size:.7rem;color:#7c9095">--_structure---section-padding</span></td><td class="mono">7.5vw</td><td class="mono">5vw at 1280+ / 1440+ / 1920+</td></tr>
+      <tr><td><span class="nm">Max Width</span><br><span class="css" style="font-size:.7rem;color:#7c9095">--_structure---max-width</span></td><td class="mono">1200px</td><td class="mono">1400px @1440+ · 1600px @1920+</td></tr>
+      <tr><td><span class="nm">Border Radius</span><br><span class="css" style="font-size:.7rem;color:#7c9095">--_structure---border-radius</span></td><td class="mono">3rem</td><td class="mono">2rem on mobile</td></tr>
+      <tr><td><span class="nm">Hero Height</span><br><span class="css" style="font-size:.7rem;color:#7c9095">--_structure---hero-height</span></td><td class="mono">100svh</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Folio Block Height</span></td><td class="mono">70svh</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Carousel Height</span></td><td class="mono">30svh</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Paragraph Padding</span></td><td class="mono">2vw</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Separator Height</span></td><td class="mono">0.4em</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Button Border Thickness</span></td><td class="mono">2px</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Scrollbar Size</span></td><td class="mono">6px</td><td class="mono">—</td></tr>
+      <tr><td><span class="nm">Split Line Distance</span></td><td class="mono">0.05em</td><td class="mono">—</td></tr>
+    </tbody>
+  </table>
+
+  <!-- LOGO -->
+  <h2 class="sec"><span class="n">04</span>Logo Construction</h2>
+  <p class="lead">The pixel logo is built from tokens in the <strong>Logo</strong> collection, sized per breakpoint (Mobile → Tablet → 1280+ → 1440+ → 1920+).</p>
+  <table>
+    <thead><tr><th>Token</th><th>Base</th><th>Mobile</th><th>1920+</th></tr></thead>
+    <tbody>
+      <tr><td><span class="nm">Pixel Size</span></td><td class="mono">20px</td><td class="mono">12px</td><td class="mono">22px</td></tr>
+      <tr><td><span class="nm">Pixel Gap</span></td><td class="mono">2px</td><td class="mono">1px</td><td class="mono">2px</td></tr>
+      <tr><td><span class="nm">Pixel Corner</span></td><td class="mono">3px</td><td class="mono">2px</td><td class="mono">3px</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub2">The pixel heart — glyph composition</h3>
+  <p class="lead">The mark is a single 9&times;7 grid of 63 pixel cells (<code>&lt;div class="logo"&gt;</code> with 63 empty <code>&lt;div&gt;</code> children). Three <code>:nth-child()</code> CSS rules colour specific cells so that the three glyphs <strong>M · W · P</strong> (madewithpixels) interlock into a heart — one accent colour each. Cells not targeted stay blank.</p>
+  <div class="glyphs">
+    <figure class="glyph">
+      <div class="grid" data-glyph="M" data-color="#D2466F"></div>
+      <figcaption><span class="gnm">M</span><span class="ghex">#D2466F · Raspberry (pink)</span><span class="ghex">left lobe &amp; down-stroke</span></figcaption>
+    </figure>
+    <figure class="glyph">
+      <div class="grid" data-glyph="W" data-color="#37907F"></div>
+      <figcaption><span class="gnm">W</span><span class="ghex">#37907F · Teal (cyan)</span><span class="ghex">centre valley &amp; point</span></figcaption>
+    </figure>
+    <figure class="glyph">
+      <div class="grid" data-glyph="P" data-color="#EF8965"></div>
+      <figcaption><span class="gnm">P</span><span class="ghex">#EF8965 · Coral (yellow)</span><span class="ghex">right lobe</span></figcaption>
+    </figure>
+  </div>
+  <p class="lead" style="margin-top:1.2rem">On the live site the pixels are 7px (10px at &ge;1024px) with a 1px gap, and each colour group animates in from grey (<code>rotate-grey-pink</code> / <code>-cyan</code> / <code>-yellow</code>) staggered by 50ms. The <strong>M</strong> sits at columns&nbsp;1–4, the <strong>W</strong> nests in at columns&nbsp;3–7 (one row down), and the <strong>P</strong> anchors columns&nbsp;6–9.</p>
+
+  <h3 class="sub2">Assembled mark</h3>
+  <p class="lead">The three glyphs placed on the shared 9-column grid — this is the exact cell layout from the site's <code>:nth-child()</code> rules, rendered here at the base Logo tokens (20px cell, 2px gap, 3px corner).</p>
+  <div class="composite-wrap">
+    <div class="composite" id="logoComposite"></div>
+  </div>
+
+  <style>
+    .glyphs{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:1.2rem}
+    .glyph{margin:0}
+    .glyph .grid{display:grid;gap:2px;background:rgba(255,255,255,.03);padding:10px;border-radius:10px;border:1px solid var(--keylines);width:max-content}
+    .glyph .grid .cell{width:15px;height:15px;border-radius:3px}
+    .glyph .grid .off{background:rgba(255,255,255,.05)}
+    .glyph figcaption{margin-top:.7rem;display:flex;flex-direction:column;gap:.15rem}
+    .glyph .gnm{font-weight:700;color:#fff;font-size:1.1rem}
+    .glyph .ghex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.75rem;color:#9fb2b6}
+    .composite-wrap{display:inline-block;margin-top:1.2rem;padding:22px;border-radius:16px;background:#1f333a;border:1px solid var(--keylines)}
+    .composite{display:grid;grid-template-columns:repeat(9,20px);gap:2px}
+    .composite .cell{width:20px;height:20px;border-radius:3px}
+    .composite .cell.off{background:transparent}
+  </style>
+  <script>
+    (function(){
+      // Individual glyph shapes (as coloured on the live site)
+      var maps = {
+        M: ["-**-","****","**-*","**-*","-*-*","----","----"],
+        W: ["-----","--*-*","*-*-*","*-*-*","*-*--","-**--"],
+        P: ["-**-","*-**","*-**","*-**","***-","*---","*---"]
+      };
+      document.querySelectorAll('.glyph .grid').forEach(function(g){
+        var rows = maps[g.dataset.glyph], color = g.dataset.color;
+        var cols = rows[0].length;
+        g.style.gridTemplateColumns = 'repeat('+cols+',15px)';
+        rows.forEach(function(r){
+          for(var i=0;i<cols;i++){
+            var c = document.createElement('div');
+            var on = r[i] === '*';
+            c.className = 'cell' + (on ? '' : ' off');
+            if(on) c.style.background = color;
+            g.appendChild(c);
+          }
+        });
+      });
+
+      // Assembled 9x7 heart — exact cell colours decoded from the .logo :nth-child() rules
+      // m = raspberry #D2466F, w = teal #37907F, p = coral #EF8965, . = blank
+      var COL = {m:'#D2466F', w:'#37907F', p:'#EF8965'};
+      var heart = [
+        ".mm...pp.",
+        "mmmmwpwpp",
+        "mmwmwpwpp",
+        "mmwmwpwpp",
+        ".mwmwppp.",
+        "...wwp...",
+        ".....p..."
+      ];
+      var host = document.getElementById('logoComposite');
+      if(host){
+        heart.forEach(function(row){
+          for(var i=0;i<row.length;i++){
+            var ch = row[i];
+            var c = document.createElement('div');
+            if(COL[ch]){ c.className='cell'; c.style.background=COL[ch]; }
+            else { c.className='cell off'; }
+            host.appendChild(c);
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- ANIMATION -->
+  <h2 class="sec"><span class="n">05</span>Motion Tokens</h2>
+  <p class="lead">Driver variables for the site's animations (mutated at runtime via JS/interactions).</p>
+  <table>
+    <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">--_animation---text-blur</td><td>0px</td><td>animated blur on hero text</td></tr>
+      <tr><td class="mono">--_animation---angle</td><td>0</td><td>rotation driver</td></tr>
+      <tr><td class="mono">--_animation---centre-pixel-start-height</td><td>1000</td><td>logo pixel entrance</td></tr>
+      <tr><td class="mono">--_animation---px-z</td><td>0px</td><td>pixel Z-depth</td></tr>
+    </tbody>
+  </table>
+  <p class="lead" style="margin-top:1rem">Common transition used on interactive elements (buttons, dock chevrons): <code>transform 200ms ease</code>.</p>
+
+  <footer>
+    Source: Webflow site <strong>madewithpixels</strong> (short name <code>madewithpixels-dev</code>, ID 683cced1…847a3), workspace 667429a5… · last published 18 Jul 2026.<br>
+    Extracted via Webflow MCP 2.0 · generated 22 Jul 2026. Palette, Typography, Structure, Logo and Animation variable collections plus base tag styles.
+  </footer>
+</div>
+</body>
+</html>

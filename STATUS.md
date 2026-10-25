@@ -79,3 +79,8 @@
 **Next useful action:** Phase 1: copy every script and style block from Webflow's custom code into this repo (R-029).
 
 **Handoff:** for the next agent. Read STATUS, then ROADMAP's Phase 1. The site's code is still in Webflow's custom code boxes (site head and footer; home page head and footer; project template). Local working copies from 24 October are not in this repo yet. This folder isn't registered with boss yet (no `boss.repo` key in its git config), and the shared shell on Michael's Mac can't commit here (git needs to delete its lock files, which that shell isn't allowed to do), so leave committing to Michael or a Claude Code session on the Mac.
+
+## 25 October 2026, 16:23 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 25 October 2026 — Accepted by Michael in boss: R-033 (checked: not stated)
+

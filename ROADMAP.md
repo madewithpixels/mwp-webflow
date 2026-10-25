@@ -46,8 +46,8 @@
 **From:** your task list. 'Wondering about the cost of your site?'
 **Note:** part of the native "Pricing Section Desktop" interaction, so a Designer change.
 
-### R-033 · Reduce the 'is-blurred' time on the primary nav
-**State:** built (25 October 2026, not yet published) · **Evidence:** none (the Designer doesn't run custom code; needs checking on published staging) · **Acceptance:** pending
+### R-033 · Reduce the 'is-blurred' time on the primary nav *(accepted by Michael in boss, 25 Oct 2026)*
+**State:** built (25 October 2026, not yet published) · **Evidence:** none (the Designer doesn't run custom code; needs checking on published staging) · **Acceptance:** accepted (25 October 2026)
 **Task:** 43612303 in your boss list
 **From:** your task list: "After a link in the primary nav is used, there's a delay - i want to reduce it by 50%".
 **Try:** The page blur after a menu jump now lifts in about half the time.

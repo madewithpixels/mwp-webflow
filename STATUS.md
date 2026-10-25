@@ -17,7 +17,7 @@
 
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
 **Last updated:** 24 October 2026 — Claude (Cowork)
-**Reviewed at commit:** fe844e6, the commit this snapshot was checked against (the four docs, AGENTS.md and CLAUDE.md are new and not yet committed)
+**Reviewed at commit:** c4a4d11, including the R-031 blocker record below
 **Next action:** Phase 1: put the site's custom code in this repo (R-029), then the desktop polish (Phase 2).
 **Needs Michael:**
 - Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).

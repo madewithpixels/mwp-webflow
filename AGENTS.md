@@ -35,7 +35,7 @@ Adapted on 24 October 2026 from boss's AGENTS.md (the rules agreed by Michael, C
 - **Never:** edit a settled decision in place (supersede it); delete history; set Acceptance (except to record his verdict); drop work.
 
 ## 5. Michael's task lists, time and billing are his
-- Never create, edit or reorder tasks in boss's task lists. Agent work is tracked against R- items here.
+- Create, edit, reorder or tick tasks in boss's task lists only when Michael asks in that session, and quote him in STATUS; never on your own, and don't suggest tasks (boss D-105, 25 October 2026). Agent work is tracked against R- items here; a ticked task linked by an item's **Task:** line is his acceptance of that item.
 - Never create, edit or estimate time entries **unless Michael asks in that session**, and then say exactly what was written and how it was worked out (as on 24 October 2026).
 
 ## 6. Working in Webflow

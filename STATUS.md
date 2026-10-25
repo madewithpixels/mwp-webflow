@@ -1,4 +1,20 @@
 # madewithpixels website — Status
+
+## 25 October 2026 — Codex (night shift) — Testimonials background fade blocked (R-031)
+**Changed:** No Webflow changes. The required “before” backup could not be made because Chrome rejected access to Webflow after the site access prompt was declined. R-031 is marked blocked; acceptance remains pending.
+
+**Outputs:** No snapshot exported. The required backup “boss · brief #103 · before” was not created or confirmed, so Webflow tools were not used. The matching “after” backup also could not be made or confirmed.
+
+**Checked how:** Opened a fresh Chrome tab to the madewithpixels Backups page; Chrome reported that origin approval for webflow.com was declined.
+
+**Still open:** The before/after backups and the fade itself.
+
+**Needs Michael:** Allow Chrome access to Webflow on this brief so the backup and site work can proceed.
+
+**Next useful action:** Re-run brief #103 once Chrome can open Webflow.
+
+**Handoff:** For the next agent: R-031 is blocked before any Webflow mutation. Read this entry and the boss report first. No backup or snapshot exists; create the named before backup and confirm it before calling any Webflow tool.
+
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
 **Last updated:** 24 October 2026 — Claude (Cowork)
 **Reviewed at commit:** fe844e6, the commit this snapshot was checked against (the four docs, AGENTS.md and CLAUDE.md are new and not yet committed)

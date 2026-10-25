@@ -6,6 +6,11 @@
 **Needs Michael:**
 - Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).
 
+## 25 October 2026 — Claude (night shift) — D-001 settled as technical
+**Changed:** D-001 (the project docs live in this repo) set to Accepted as a technical decision under D-096. It changes nothing Michael sees; he can reopen it.
+**Checked how:** read DECISIONS.md and STATUS.md; no code touched.
+**Still open:** nothing for this brief.
+
 ## 25 October 2026 — Claude (night shift) — Menu blur shortened (R-033)
 **Changed**
 - R-033: the page blur after a menu jump now holds for 0.45 seconds instead of 0.9 (half, as you asked). The setting is `SETTLE_MS` in the home page head code.

@@ -3,7 +3,8 @@
 *Retrofitted 24 October 2026 by Claude (Cowork). Harvested from the session notes in the "MWP Website 2026" Claude project, Michael's task list in boss, and Michael's instructions in sessions. Each decision cites its source. Status words are fixed (Proposed · Accepted · Superseded by D-nnn · Rejected) so boss can read them.*
 
 ## D-001 · The project docs live in this repo
-**Status:** Proposed
+**Status:** Accepted
+**Qualifier:** technical — settled by Claude (night shift), 25 October 2026, under D-096; Michael can reopen it
 **Qualifier:** inferred — confirm. Michael added this folder on 24 October 2026 and asked for the boss doc structure; boss's D-103 says Webflow sites keep their docs at `~/Work on MacStudio/Webflow/<site>/`.
 **Date:** 24 October 2026
 **Source:** Michael's message, 24 October 2026; boss DECISIONS.md D-103.

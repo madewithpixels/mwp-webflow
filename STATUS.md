@@ -31,9 +31,9 @@
 **Handoff:** For the next agent: R-031 is blocked before any Webflow mutation. Read this entry and the boss report first. No backup or snapshot exists; create the named before backup and confirm it before calling any Webflow tool.
 
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
-**Last updated:** 24 October 2026 — Claude (Cowork)
-**Reviewed at commit:** c4a4d11, including the R-031 blocker record below
-**Next action:** Phase 1: put the site's custom code in this repo (R-029), then the desktop polish (Phase 2).
+**Last updated:** 25 October 2026 — Codex (night shift)
+**Reviewed at commit:** dd282dd, including the backup recorder blocker above
+**Next action:** Re-run R-031 once boss accepts the before backup record; then continue with R-029.
 **Needs Michael:**
 - Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).
 

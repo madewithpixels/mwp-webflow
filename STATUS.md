@@ -6,6 +6,22 @@
 **Needs Michael:**
 - Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).
 
+## 25 October 2026 — Claude (night shift) — Menu blur shortened (R-033)
+**Changed**
+- R-033: the page blur after a menu jump now holds for 0.45 seconds instead of 0.9 (half, as you asked). The setting is `SETTLE_MS` in the home page head code.
+- Webflow change: site madewithpixels, Home page (683cced100c63d0f60a847af), page head custom code. One value and its comment changed; the rest was written back exactly as read. Not published.
+- The blur's own 0.3 second fade-out is unchanged. If it still feels slow, that is the next thing to shorten.
+
+**Outputs:** the echoed Webflow code shows `SETTLE_MS = 450`.
+
+**Checked how:** read the code back from Webflow after writing. Not checked on staging: the Designer doesn't run custom code and nothing is published yet. Evidence: none.
+
+**Still open:** the repo copy of the head code (R-029) isn't made yet, so it was not updated.
+
+**Needs Michael:** publish to staging and try the menu links. Watch for sections snapping into place as the blur lifts; if they do, go back to about 650.
+
+**Next useful action:** Michael's check on staging.
+
 ## 24 October 2026 — Claude (Cowork) — New task: clickable wall
 **Changed**
 - Your new task "Clickable testi-wall" is roadmap item R-074, at the end of the desktop polish (Phase 2). Read as the folio wall, where the portfolio images are (inferred — confirm).

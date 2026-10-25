@@ -47,9 +47,17 @@
 **Note:** part of the native "Pricing Section Desktop" interaction, so a Designer change.
 
 ### R-033 · Reduce the 'is-blurred' time on the primary nav
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (25 October 2026, not yet published) · **Evidence:** none (the Designer doesn't run custom code; needs checking on published staging) · **Acceptance:** pending
 **Task:** 43612303 in your boss list
-**From:** your task list.
+**From:** your task list: "After a link in the primary nav is used, there's a delay - i want to reduce it by 50%".
+**Try:** The page blur after a menu jump now lifts in about half the time.
+**Why:** Less waiting after you click a menu link.
+**Steps:**
+1. Publish the site to staging only (madewithpixels-dev.webflow.io).
+2. Open the home page on desktop width and open the menu.
+3. Click each link in turn (About, Pricing, Work and so on) and watch the page after the jump.
+**Done when:** The dim and blur clears quicker than before, and no section visibly snaps into place as it clears.
+**Time:** about 3 minutes
 **Note:** the blur holds for 0.9 seconds after a menu jump (`SETTLE_MS` in the home page head) so the scroll animations can settle out of sight. Shorter is easy; too short and you may see sections snap into place.
 
 ### R-034 · make better use of the separator during the scroll anims

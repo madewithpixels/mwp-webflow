@@ -1,5 +1,20 @@
 # madewithpixels website — Status
 
+## 25 October 2026 — Codex (night shift) — Backup recorder blocked (R-031)
+**Changed:** No page or animation changes. In Chrome, I created staging backups named “boss · brief #103 · before” and “boss · brief #103 · after”. The fade remains blocked.
+
+**Outputs:** Both backup names appeared in Webflow’s Backups list. No snapshot was exported and no Webflow MCP tool was called.
+
+**Checked how:** Opened a fresh Chrome tab and checked the staging Backups list. The boss backup recorder refused two attempts to record the visible before backup, each saying no backup existed. A later attempt to record the after backup was refused by the same gate. Both backups appeared in the list. Not checked: the page animation and the snapshot export.
+
+**Still open:** The recorder must accept the before backup before Webflow MCP access can proceed. The fade, snapshots and Michael’s staging check remain open.
+
+**Needs Michael:** Retry brief #103 in a fresh session once boss accepts the before backup record.
+
+**Next useful action:** Re-run R-031 after the backup record is accepted; make the required snapshots before any Webflow change.
+
+**Handoff:** The staging Backups list showed “boss · brief #103 · before” and “boss · brief #103 · after”. Two calls to `boss_webflow_backup` with `confirmed: true` for the before backup were refused by the pre-tool gate with “No backup yet”. The after-record call was refused by the same gate. Do not call Webflow MCP until the boss recorder accepts the before backup. No page, animation, or snapshot changes were made.
+
 ## 25 October 2026 — Codex (night shift) — Testimonials background fade blocked (R-031)
 **Changed:** No Webflow changes. The required “before” backup could not be made because Chrome rejected access to Webflow after the site access prompt was declined. R-031 is marked blocked; acceptance remains pending.
 

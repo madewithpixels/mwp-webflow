@@ -6,6 +6,11 @@
 **Needs Michael:**
 - Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).
 
+## 25 October 2026 — Claude (night shift) — New task written up (R-075)
+**Changed:** your task "set border: 10px solid red; using the webflow ui on the hero section" is now R-075, in Phase 2 (desktop polish). I read it as the home page hero, all four sides (inferred — confirm). The seven other tasks without an item are group headings already covered by the phases, so I added nothing for them.
+**Checked how:** read ROADMAP.md; documents only, no Webflow or site changes. Evidence: n/a.
+**Still open:** nothing for this brief.
+
 ## 25 October 2026 — Claude (night shift) — D-001 settled as technical
 **Changed:** D-001 (the project docs live in this repo) set to Accepted as a technical decision under D-096. It changes nothing Michael sees; he can reopen it.
 **Checked how:** read DECISIONS.md and STATUS.md; no code touched.

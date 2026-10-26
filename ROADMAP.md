@@ -37,7 +37,7 @@
 *Your list puts these first. Quick ones lead, so you see progress while the bigger design questions (the separator, the marquee type, the project page transition) get thought through. Desktop before phones, because the phone work (pacing especially) depends on how these end up.*
 
 ### R-031 · Testimonials section BG fade
-**State:** blocked · **Evidence:** none · **Acceptance:** pending
+**State:** in progress · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612309 in your boss list
 **From:** your task list. "Section has a slightly transparent slate BG that's obvious when scrolling out of it into the contact block - find a way to fade that out as the end of the testi-wall anim plays."
 **Note:** the bubble fly-in already fades the wall itself; this is the section background behind it.

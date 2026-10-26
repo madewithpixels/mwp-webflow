@@ -1,5 +1,20 @@
 # madewithpixels website — Status
 
+## 26 October 2026 — Codex (night shift) — Testimonials background fade awaiting approval (R-031)
+**Changed:** Cleared R-031's old blocked state and restarted it. I read the Home page structure and the end of the existing Testimonial Wall animation. The proposed overlay needs a new Designer style, so I asked Michael to approve its name and styling before I add it (D-022).
+
+**Outputs:** No Webflow page, style, interaction, or custom-code changes. The required backups “boss · brief #126 · before” and “boss · brief #126 · after” were both created in Designer Settings → Backups and recorded in boss. The Webflow data export was saved to a scratch folder outside this repo. The before and after exports match, so there are no changed Webflow snapshot files to commit. The snapshot does not include interactions or animations.
+
+**Checked how:** Read the Home page tree, page metadata, classes, variables, components, collections, and site/page custom code through Webflow MCP. Read back the Testimonial Wall interaction; its final movement ends at position 192. The Designer Backups list showed both named backups. Not checked: the fade on the published staging site, because no change was made or published.
+
+**Still open:** The overlay and its final opacity animation. R-031 remains in progress with evidence none and acceptance pending.
+
+**Needs Michael:** Approve the proposed testimonial overlay style in boss (D-022). The specific name and properties are in the question card.
+
+**Next useful action:** After Michael approves the proposed style, add the overlay and fade it during the final beat of the Home page Testimonial Wall animation, then read it back and prepare it for his staging check.
+
+**Handoff:** The backup recorder is now working. The before and after backups were both made through the Designer. Do not create the overlay class until Michael approves the proposal; the site rule D-006 requires approval of its name and properties. The read-only snapshot export is in `/private/tmp/boss-webflow-before-126/baseline.json`; interactions are not represented in snapshots.
+
 ## 26 October 2026 — Claude (night shift) — New task written up (R-076)
 **Changed:** Added R-076, "Add a contents device that runs alongside the main scrollbar" (Phase 2, after R-075), from Michael's task 43612327. Its home page, desktop-first scope is inferred, marked "confirm". The other seven tasks in the boss inbox (Finish MWP site, MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Responsive layouts, Page transitions) are headings already covered by the goal and phases, as the roadmap preface says, so they got no item.
 
@@ -44,11 +59,11 @@
 **Handoff:** For the next agent: R-031 is blocked before any Webflow mutation. Read this entry and the boss report first. No backup or snapshot exists; create the named before backup and confirm it before calling any Webflow tool.
 
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
-**Last updated:** 25 October 2026 — Codex (night shift)
-**Reviewed at commit:** dd282dd, including the backup recorder blocker above
-**Next action:** Re-run R-031 once boss accepts the before backup record; then continue with R-029.
+**Last updated:** 26 October 2026 — Codex (night shift)
+**Reviewed at commit:** 6e9c06d, before the R-031 retry entry above
+**Next action:** Resume R-031 after Michael answers the overlay-style question; then continue with R-029.
 **Needs Michael:**
-- Commit the new docs in this folder (an agent can't commit here from the shared shell yet; see Handoff).
+- Approve or decline the proposed overlay style for R-031 in boss.
 
 ## 25 October 2026 — Claude (night shift) — New task written up (R-075)
 **Changed:** your task "set border: 10px solid red; using the webflow ui on the hero section" is now R-075, in Phase 2 (desktop polish). I read it as the home page hero, all four sides (inferred — confirm). The seven other tasks without an item are group headings already covered by the phases, so I added nothing for them.

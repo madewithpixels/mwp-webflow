@@ -184,3 +184,8 @@ The before backup “boss · brief #133 · before” was already made in Designe
 **Next useful action:** Michael checks the fade on the staging Home page (R-031).
 
 **Handoff:** The first staging publish I checked did not include the overlay, even though Webflow's element tree did. I republished to the Webflow subdomain and confirmed the overlay and its changing opacity in Chrome. The final site publish timestamp is 12:17:20; the after backup contains the same design changes. The snapshot cannot show the timeline action, so keep the interaction read-back as separate evidence.
+
+## 26 October 2026, 12:24 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 26 October 2026 — Not yet, Michael in boss: R-031 — *"This has not been done yet - explain why, getting frustrated now you've ben goin round in circles on this"*. Acceptance stays pending.
+

@@ -38,6 +38,7 @@
 
 ### R-031 · Testimonials section BG fade
 **State:** built (26 October 2026) · **Evidence:** verified (live; staging, Chrome, 2044px viewport) · **Acceptance:** pending
+**Michael, in boss, 26 October 2026:** not yet — *"This has not been done yet - explain why, getting frustrated now you've ben goin round in circles on this"*
 **Try:** The slate background behind the testimonial wall now fades away during the final beat before Contact.
 **Why:** The wall can remain visible while its separate background clears as you scroll into Contact.
 **Steps:**

@@ -136,8 +136,9 @@ On iPhone, anything moved in step with the scroll lags a frame behind it, so pho
 **Source:** Michael, 24 October 2026 ("SB isn't finished yet… complete MWP site as far as possible, then finish SB").
 The SmashBurger update (R-030) moves to the end of the roadmap. Menu changes that need the new release wait for it.
 
-## D-022 · Proposed: Fade the testimonial wall's slate background with an overlay
-**Status:** Proposed
+## D-022 · Fade the testimonial wall's slate background with an overlay
+**Status:** Accepted
+**Qualifier:** Michael replied “Approved” on 26 October 2026 to the background layer proposal from brief #126. This approves the proposed layer and styling, not acceptance of the unfinished fade.
 **Date:** 26 October 2026
 **Source:** Michael's task 43612309; his preference for an absolutely positioned layer that fades with the Testimonial Wall animation.
 **For Michael:** May I add a slate-coloured layer inside the testimonial wall and fade it away at the animation's end?

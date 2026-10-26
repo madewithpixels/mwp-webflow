@@ -1,5 +1,20 @@
 # madewithpixels website — Status
 
+## 26 October 2026 — Codex — Testimonials background layer approved (R-031)
+**Changed:** Recorded Michael's reply, “Approved”, to the background layer proposal from brief #126. The overlay decision is now Accepted (D-022). The fade remains in progress, with evidence none and acceptance pending.
+
+**Outputs:** DECISIONS.md and this STATUS entry only. No Webflow changes.
+
+**Checked how:** Read STATUS, the relevant scope, roadmap and decisions, and the recent Git history through 3755697. The working tree was clean. Not checked: the fade on published staging; it has not been built.
+
+**Still open:** Add the approved background layer and its fade, read the changes back, then check the published staging animation in Chrome.
+
+**Needs Michael:** Nothing further to decide about the proposed layer. Check and back up after the fade is ready on staging.
+
+**Next useful action:** Continue the testimonials background fade using the approved proposal (R-031).
+
+**Handoff:** This reply session records approval only. The next implementation session should recover the exact approved class name and properties from brief #126's question card; they are not listed in D-022. Follow the required backup procedure for that new session. The earlier backups and export are evidence of the previous read-only run, not of a completed fade.
+
 ## 26 October 2026 — Codex (night shift) — Testimonials background fade awaiting approval (R-031)
 **Changed:** Cleared R-031's old blocked state and restarted it. I read the Home page structure and the end of the existing Testimonial Wall animation. The proposed overlay needs a new Designer style, so I asked Michael to approve its name and styling before I add it (D-022).
 
@@ -59,11 +74,10 @@
 **Handoff:** For the next agent: R-031 is blocked before any Webflow mutation. Read this entry and the boss report first. No backup or snapshot exists; create the named before backup and confirm it before calling any Webflow tool.
 
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
-**Last updated:** 26 October 2026 — Codex (night shift)
-**Reviewed at commit:** 6e9c06d, before the R-031 retry entry above
-**Next action:** Resume R-031 after Michael answers the overlay-style question; then continue with R-029.
-**Needs Michael:**
-- Approve or decline the proposed overlay style for R-031 in boss.
+**Last updated:** 26 October 2026 — Codex
+**Reviewed at commit:** 3755697, before the approval record above
+**Next action:** Continue R-031 with the approved background layer; then continue with R-029.
+**Needs Michael:** Nothing further to decide about the R-031 layer; check and back up once the fade is ready on staging.
 
 ## 25 October 2026 — Claude (night shift) — New task written up (R-075)
 **Changed:** your task "set border: 10px solid red; using the webflow ui on the hero section" is now R-075, in Phase 2 (desktop polish). I read it as the home page hero, all four sides (inferred — confirm). The seven other tasks without an item are group headings already covered by the phases, so I added nothing for them.

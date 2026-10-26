@@ -37,7 +37,14 @@
 *Your list puts these first. Quick ones lead, so you see progress while the bigger design questions (the separator, the marquee type, the project page transition) get thought through. Desktop before phones, because the phone work (pacing especially) depends on how these end up.*
 
 ### R-031 · Testimonials section BG fade
-**State:** in progress · **Evidence:** none · **Acceptance:** pending
+**State:** built (26 October 2026) · **Evidence:** verified (live; staging, Chrome, 2044px viewport) · **Acceptance:** pending
+**Try:** The slate background behind the testimonial wall now fades away during the final beat before Contact.
+**Why:** The wall can remain visible while its separate background clears as you scroll into Contact.
+**Steps:**
+1. Open the [staging home page](https://madewithpixels-dev.webflow.io/).
+2. Scroll through Testimonials to Contact and watch the slate background behind the wall fade away.
+**Done when:** The background is clear by the time Contact begins.
+**Time:** about 1 minute
 **Task:** 43612309 in your boss list
 **From:** your task list. "Section has a slightly transparent slate BG that's obvious when scrolling out of it into the contact block - find a way to fade that out as the end of the testi-wall anim plays."
 **Note:** the bubble fly-in already fades the wall itself; this is the section background behind it.

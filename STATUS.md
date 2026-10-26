@@ -75,7 +75,7 @@
 
 **Stage:** Building on staging (madewithpixels-dev.webflow.io). Desktop home page close to done; phone and tablet layouts, the estimate page and launch prep still to do. Not live: madewithpixels.co.uk still serves the old site.
 **Last updated:** 26 October 2026 — Codex
-**Reviewed at commit:** 3755697, before the approval record above
+**Reviewed at commit:** c62fa9e, before the R-031 implementation above
 **Next action:** Continue R-031 with the approved background layer; then continue with R-029.
 **Needs Michael:** Nothing further to decide about the R-031 layer; check and back up once the fade is ready on staging.
 
@@ -167,3 +167,20 @@
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 25 October 2026 — Accepted by Michael in boss: R-033 (checked: not stated)
 
+
+## 26 October 2026 — Codex (night shift) — Testimonials background fade built (R-031)
+**Changed:** The earlier #126 session stopped after finding there was no separate background layer to fade; it made no Webflow changes while another agent had the page. With Michael's later approval of the layer, I added one behind the testimonial wall and faded it to clear during the final beat of the existing animation. The content wall stays on its own layer.
+
+**Outputs:** On the staging site, Home page `683cced100c63d0f60a847af`, I added the first-child overlay div `c95a444f-543c-0f53-9b34-2d6337668b4c` with class `testi-wall_bg-overlay` (`b6626c03-a16b-0c93-4f6f-cbf4ab9fbfba`). Its slate colour matches the previous section background. I moved that colour from `.testi-wall` to the overlay. The existing interaction `i-cfca0496` now fades the overlay from full to clear from position 182 over 10 units. I published the site to `madewithpixels-dev.webflow.io` only; the final publish completed at 12:17:20. No custom domain was selected.
+
+The before backup “boss · brief #133 · before” was already made in Designer and recorded in boss. After the changes, Designer Settings → Backups showed “boss · brief #133 · after” at 12:08:25; I recorded it in boss. The page and class snapshots are in `snapshots/pages/home.json` and `snapshots/styles/classes.json`. They are sorted, valid JSON and include the overlay. Snapshots do not include interactions or animations; I read the interaction back separately.
+
+**Checked how:** Read the Home page tree and styles back through Webflow. The tree shows the overlay as the first child of the testimonial section with the intended class. The interaction read-back shows the opacity action targeting that element at the end of the wall's animation. On published staging in Chrome at 2044 × 1107, the overlay appeared in the page and its computed opacity was 0.0886 near the end of the transition, then 0 after scrolling into Contact. Evidence: verified (live). Acceptance: pending Michael's look.
+
+**Still open:** Michael's visual check and acceptance on staging.
+
+**Needs Michael:** Check the Testimonials fade on staging and back up after the task, as usual.
+
+**Next useful action:** Michael checks the fade on the staging Home page (R-031).
+
+**Handoff:** The first staging publish I checked did not include the overlay, even though Webflow's element tree did. I republished to the Webflow subdomain and confirmed the overlay and its changing opacity in Chrome. The final site publish timestamp is 12:17:20; the after backup contains the same design changes. The snapshot cannot show the timeline action, so keep the interaction read-back as separate evidence.

@@ -1,5 +1,18 @@
 # madewithpixels website — Status
 
+## 26 October 2026 — Claude (night shift) — New task written up (R-076)
+**Changed:** Added R-076, "Add a contents device that runs alongside the main scrollbar" (Phase 2, after R-075), from Michael's task 43612327. Its home page, desktop-first scope is inferred, marked "confirm". The other seven tasks in the boss inbox (Finish MWP site, MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Responsive layouts, Page transitions) are headings already covered by the goal and phases, as the roadmap preface says, so they got no item.
+
+**Outputs:** ROADMAP.md only. No Webflow, site or task changes.
+
+**Checked how:** Read the roadmap and compared task IDs; no other item carries 43612327.
+
+**Still open:** Michael to confirm the guesses in R-076.
+
+**Needs Michael:** Nothing blocking.
+
+**Next useful action:** Offer design options for the contents device (D-007) when Michael is ready.
+
 ## 25 October 2026 — Codex (night shift) — Backup recorder blocked (R-031)
 **Changed:** No page or animation changes. In Chrome, I created staging backups named “boss · brief #103 · before” and “boss · brief #103 · after”. The fade remains blocked.
 

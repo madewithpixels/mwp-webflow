@@ -13,7 +13,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074, R-075 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076 |
 | 3 | Phone and tablet | R-039–R-045 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
@@ -102,6 +102,13 @@
 **From:** your task list, added 25 October 2026.
 **Exit criteria:** the hero section on the home page has a 10 pixel solid red border, set in the Designer's Style panel (not in custom code), and it shows on published staging at desktop width.
 **Note:** looks like a test of the Designer style route, but taken at face value. (inferred — confirm) It needs a style change on the hero section's class, so per D-006 the class name and properties go to you for approval first; if the hero class is shared, say so before it changes. Which hero (home page) and all four sides are assumed. (inferred — confirm)
+
+### R-076 · Add a contents device that runs alongside the main scrollbar
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612327 in your boss list
+**From:** your task list, added 26 October 2026.
+**Exit criteria:** on the home page at desktop width, a contents device sits beside the page's own scrollbar. It lists the main sections, marks the one you are in as you scroll, and clicking an entry scrolls to that section. It works on published staging and does not fight the sticky-section scroll animations (D-017).
+**Note:** Michael gave no detail, so these are guesses. (inferred — confirm) Home page only. Desktop first, phone and tablet to follow in Phase 3. Entries are the home page's main sections. The look is open, so options come to you first (D-007), and any new class needs your approval first (D-006).
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

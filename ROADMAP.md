@@ -36,8 +36,8 @@
 ## Phase 2 · Desktop polish
 *Your list puts these first. Quick ones lead, so you see progress while the bigger design questions (the separator, the marquee type, the project page transition) get thought through. Desktop before phones, because the phone work (pacing especially) depends on how these end up.*
 
-### R-031 · Testimonials section BG fade
-**State:** built (26 October 2026) · **Evidence:** verified (live; staging, Chrome, 2044px viewport) · **Acceptance:** pending
+### R-031 · Testimonials section BG fade *(accepted by Michael in boss, 26 Oct 2026)*
+**State:** built (26 October 2026) · **Evidence:** verified (live; staging, Chrome, 2044px viewport) · **Acceptance:** accepted (26 October 2026)
 **Michael, in boss, 26 October 2026:** not yet — *"This has not been done yet - explain why, getting frustrated now you've ben goin round in circles on this"*
 **Try:** The slate background behind the testimonial wall now fades away during the final beat before Contact.
 **Why:** The wall can remain visible while its separate background clears as you scroll into Contact.

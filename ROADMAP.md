@@ -2,6 +2,8 @@
 
 *Retrofitted 24 October 2026 by Claude (Cowork) from Michael's task list for the project in boss ("madewithpixels Website": the Webflow '26 and Phase 2 lists). Titles keep your wording. Where several tasks sat under one heading in your list (Launch prep, Responsive layouts, Adjust Estimator, Page transitions, MWP landing pages, Launch MWP social campaign), the heading has become a phase below. "Finish MWP site" is the goal of the whole roadmap (see SCOPE.md) and carries the time log in boss.*
 
+*Six tasks added on 30 October 2026 (R-077 to R-082) are written up from your list and still need your confirmation of the guesses marked in them.*
+
 *Seven tasks in your list ("Finish MWP site", "MWP landing pages", "Launch MWP social campaign", "Adjust Estimator", "Launch prep", "Responsive layouts", "Page transitions") are headings, already covered by the goal and phases above, so they have no item of their own.*
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -13,12 +15,12 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-082 |
 | 3 | Phone and tablet | R-039–R-045 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
 | 6 | After launch (your Phase 2) | R-064–R-073 |
-| 7 | SmashBurger, once it's finished | R-030 |
+| 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
 
 ---
@@ -117,6 +119,34 @@
 **From:** your task list, added 25 October 2026.
 **Exit criteria:** the hero section on the home page has a 10 pixel solid red border, set in the Designer's Style panel (not in custom code), and it shows on published staging at desktop width.
 **Note:** looks like a test of the Designer style route, but taken at face value. (inferred — confirm) It needs a style change on the hero section's class, so per D-006 the class name and properties go to you for approval first; if the hero class is shared, say so before it changes. Which hero (home page) and all four sides are assumed. (inferred — confirm)
+
+### R-079 · The bubbles to Quote mark animation transition the contact section doesn't work scrolling back up when the grid is in MWP logo configuration
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612336 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** on published staging at desktop width, scrolling back up from Contact while the grid is showing the MWP logo plays the transition from the logo back to the bubbles and then the Quote mark properly, with no jump or missing step. (inferred — confirm)
+**Note:** Michael's wording is taken to mean the reverse of the Testimonials-to-Contact bubble fly-in. Scroll animations run on GSAP ScrollTrigger, so read the sticky-section and redraw notes behind D-017 first. (inferred — confirm)
+
+### R-080 · Ticker Section enhancements
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612340 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** the ticker section has the improvements you want, checked on published staging. Michael gave no detail, so what they are comes first: options are put to you before any visual change (D-007). (inferred — confirm)
+**Note:** Taken to mean the sector ticker. It may overlap R-035 (more interesting typography in the marquee section) and the parked angled bands (R-025); decide whether they merge. (inferred — confirm)
+
+### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612332 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
+**Note:** Probably the page scrollbar disappearing when the menu locks scrolling, which shifts centred or right-aligned items. That cause is a guess. If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
+
+### R-082 · layout changes to project pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612333 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
+**Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
@@ -319,6 +349,20 @@
 **Task:** 43612289 in your boss list
 **From:** your task list (Webflow '26).
 **Note:** SmashBurger isn't finished yet. Order (Michael, 24 October 2026): complete this site as far as possible, then finish SmashBurger, then update the site to its release. The open-menu loose ends in STATUS (the raspberry close button, the Estimate button style) wait for this. Check `isFromLibrary` before touching any `mwp-css-nav_*` class (D-006).
+
+### R-077 · There's two flashes in quick succession when the SB menu closes after a link is clicked
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612334 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** on published staging, clicking a link in the SmashBurger menu closes it with at most one visual change, with no double flash, at desktop and phone widths. (inferred — confirm widths)
+**Note:** May be linked to the blur that holds after a menu jump (R-033, R-027). SB is taken to mean SmashBurger, the menu in the library, so check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006); the fix may belong in SmashBurger itself and wait for R-030. (inferred — confirm)
+
+### R-078 · The /estimate page needs the home page link adding to the SB anchor links
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612335 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** on published staging, the SmashBurger menu on /estimate has a link to the home page alongside its anchor links, and it opens the home page. (inferred — confirm)
+**Note:** Taken to mean the menu shows only on-page anchor links there and has no way back to the home page. Wording of the link and its position are open, so options come to you first (D-007). (inferred — confirm)
 
 ---
 

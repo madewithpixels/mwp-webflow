@@ -1,5 +1,18 @@
 # madewithpixels website — Status
 
+## 30 October 2026 — Claude (night shift) — Six new tasks written up (R-077 to R-082)
+**Changed:** Added six roadmap items from Michael's task list (brief #140): R-077 (two flashes when the SB menu closes) and R-078 (home page link on /estimate's SB anchor links), both in Phase 7 beside R-030; R-079 (bubbles to Quote mark transition scrolling back up), R-080 (Ticker Section enhancements), R-081 (Nav Menu Button jump) and R-082 (layout changes to project pages), all in Phase 2. R-081 and R-082 were also in the boss inbox without items. The headings in the inbox (Finish MWP site, landing pages, social campaign, Adjust Estimator, Launch prep, Responsive layouts, Page transitions) are already covered by the phases. Closed the boss reminder about the R-031 fade, which is built and accepted.
+
+**Outputs:** ROADMAP.md and this entry only. No Webflow, site or task changes.
+
+**Checked how:** Read the roadmap and compared task IDs; none of the six were already in it.
+
+**Still open:** Michael to confirm the guesses marked in R-077 to R-082. R-080 and R-082 had no detail at all.
+
+**Needs Michael:** Nothing blocking. Three roadmap items have had their tasks deleted in his list and are kept for him to decide: R-036 (Remove pixel page-transition), R-037 (Improve project page transition) and R-059 (Redirect the old site's addresses and move the domain). Also, his reorder put R-038 and R-076 before R-075; I left it as he set it.
+
+**Next useful action:** Michael confirms or corrects the guesses; then pick the next Phase 2 item.
+
 ## 26 October 2026 — Codex — Testimonials background layer approved (R-031)
 **Changed:** Recorded Michael's reply, “Approved”, to the background layer proposal from brief #126. The overlay decision is now Accepted (D-022). The fade remains in progress, with evidence none and acceptance pending.
 

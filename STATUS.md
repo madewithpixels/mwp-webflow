@@ -1,5 +1,69 @@
 # madewithpixels website — Status
 
+## 30 October 2026 — Claude (night shift) — Typos and copy errors on staging listed, nothing edited (R-052)
+**Changed:** Nothing on the site. R-052 stays planned: this is the list of what to fix, not the fixes. I wrote the findings below (brief #141).
+
+**Outputs:** This entry only. No Webflow tools were used, so no Webflow backup or snapshot was needed (the brief said so). Nothing was edited, published or touched in Webflow, custom code, boss tasks or Acceptance.
+
+**Checked how:** I read the published staging site, madewithpixels-dev.webflow.io, as it is served today (30 October 2026). I downloaded the HTML of all 42 pages in the staging sitemap and read their visible text, alt text, button labels, placeholders and meta descriptions. That is the Home page, /estimate, /success and all 39 portfolio (CMS) pages. I also ran every word through a dictionary to catch misspellings, then read all the copy through for errors a dictionary can't see. I opened the home page in Chrome on the Mac Studio (read the text only; no layout or animation was checked). I also tried the 404 page and the common legal addresses.
+
+**Pages checked:** Home; /estimate; /success; the 404 page; all 39 portfolio pages: Farmer Norton, Shepherd Machinery, Halstead Glass, Travel Ledger, Origin Global, Shogun Nutrients, Dolphin Dynamics, ay-pe, Continuum Group, Marek Wojciechowski, Futura, Jessop Financial Planning, Erich Kadow, Now Then Magazine, Fairness on the 83, Opus Independents, Guild of St George, Writing Sheffield, Trading Histories, Coronation Street The Tour, Oxford Castle, Kent Life, The Antonine Wall, Creswell Crags, Black Cat White Cat, Mustt Audio, Club 60, Dionne Bromfield, Soyo, Soyo Live, Molly Malone's, Code, Mr Wilson's, OHM, Mednet, The Insight CBT Partnership, Stephen McCulley, Origin E-commerce, Aquaculture.
+
+**Legal pages:** There are none on staging. /privacy, /privacy-policy, /terms, /terms-and-conditions, /cookies, /cookie-policy and /legal all return "not found", none is in the sitemap, and the home page has no link to one. So there was nothing to read. Whether the site needs them before launch is your call (see "Needs Michael").
+
+### The known typos from the roadmap
+| Known problem | Still there? |
+|---|---|
+| "Hasltead Glass" | **Yes.** Home page, the George Marshall testimonial. |
+| "Portfoliio" in the menu | **No.** Not found on any page. The menu reads Home, About, Pricing, Work, Testimonials, Contact. |
+| Mr Wilson's page describes CODE | **Mostly fixed.** The copy now names Mr Wilson's, but the title reads "Mr Wilson's:" with a stray colon, and the second paragraph is word for word the Code page's paragraph (it calls a jazz lounge a "club"). |
+| Origin Global says "until 2023" | **No.** It now says "From 2012 until 2024", which matches the date. |
+| Insight's copy says "The Insight CBT Partnership" | **Yes.** The project page says "The Insight CBT Partnership", but the Home page list says "The Insight Partnership". Which name is right is your call. |
+
+### New findings
+| Page | Element | Current text | Suggested fix | Type |
+|---|---|---|---|---|
+| Home | Testimonial (George Marshall) | "Managing Director - Hasltead Glass" | "Halstead Glass" | Clear fix |
+| Home | Sector ticker | "Commerical Manufacturing" | "Commercial Manufacturing" | Clear fix |
+| Home | Estimate call-to-action text | "No email address neccessary." | "necessary" | Clear fix |
+| Home | Complex Digital Projects card | "relies on everyday" | "relies on every day" (two words) | Clear fix |
+| Home | Testimonial (George Marshall) | "Thank-you." | "Thank you." | Clear fix |
+| Home | Testimonial (Simon Spinks) | "Managing Director -Aquaculture" | "Managing Director – Aquaculture" (space after the dash) | Clear fix |
+| Continuum Group | Third paragraph | "…sustainable. T" then, as a new paragraph, "he result was a bespoke CMS platform…" | Join into one paragraph: "…sustainable. The result was…" | Clear fix |
+| Futura | Second paragraph | "front-end implementation.The site used…" | Add a space after the full stop | Clear fix |
+| Molly Malone's | First paragraph | "Molly Malones Sheffield" | "Molly Malone's" (the apostrophe is missing; the page title has it) | Clear fix |
+| Mr Wilson's | Opening line | "An Umbraco CMS website for Mr Wilson's:, a popular Sheffield jazz-lounge." | "…for Mr Wilson's, a popular Sheffield jazz lounge." | Clear fix |
+| Halstead Glass | Last paragraph | "new CRO tools innovative for the glazing sector" | "innovative new CRO tools for the glazing sector" | Clear fix |
+| Estimate | Comment box in the consultation form | Placeholder reads "Example Text" | Something like "How can we help?" (the Home form uses that) | Clear fix, but wording is yours |
+| Home | Testimonial (Alley Bridge-York) | Name only, no job title or company | Add the role and company | Needs Michael's decision |
+| Home | Testimonial (Creswell Heritage Trust) | "Maria Smith," then only the organisation, no role | Add her role, or leave | Needs Michael's decision |
+| Home | Testimonial (Matt Cottril) | "Matt Cottril" | Check the spelling (could be "Cottrill") | Needs Michael's decision |
+| Home | Work list | "The Insight Partnership" (page says "The Insight CBT Partnership") | Make them match | Needs Michael's decision |
+| Home | Work list and page names | "Mednet Consult" on the list but "Mednet" on the page; "Jessop Financial" vs "Jessop Financial Planning"; "Shogun Nutrients" vs "Shogun"; "Club 60" vs "Club60" in its text | Pick one name for each | Needs Michael's decision |
+| Soyo, Soyo Live | Names | "Soyo", "SOYO", "SoYo Live" and "Soyo Live" all appear | Pick one style | Needs Michael's decision |
+| Club 60, Trading Histories | Typeface name | "Grotesque#9" and "Grotesque No. 9" | Use the same form in both | Needs Michael's decision |
+| Home, Estimate | E-commerce spelling | "E-Commerce", "E-commerce" (Home) and "Ecommerce" (Estimate) | Pick one | Needs Michael's decision |
+| Home | Pricing cards | "Prices start at £500", "£2000"; the Estimate page says "Prices start from £500" | Match "at"/"from", and decide "£2000" or "£2,000" | Needs Michael's decision |
+| Home | Pricing and strapline text | "Long term support", "Joined up business systems", "We're focussed on…" | Hyphenate "Long-term" and "Joined-up"; "focussed" is allowed but "focused" is the usual spelling | Needs Michael's decision |
+| Home | Promise paragraph | "…competes with the big guns; yet comes with an affordable price tag." | Replace the semicolon with a comma, or rewrite | Needs Michael's decision |
+| Origin Global | Last paragraph | "I also introduced Origin to Ignition Search" (the rest says "we") | "we", or leave if it is deliberately you | Needs Michael's decision |
+| Kent Life | Whole description | Word for word the Oxford Castle copy ("A content-managed website for Oxford Castle…") | Needs Kent Life's own copy | Needs Michael's decision |
+| Mr Wilson's | Second paragraph | Same as the Code page ("busy nightlife business… Sheffield club promotion") | Rewrite for a jazz lounge | Needs Michael's decision |
+| Code | Title and copy | Title "Code:" with a colon; copy says "CODE" | Choose "Code" or "CODE", with or without the colon | Needs Michael's decision |
+| Farmer Norton | Hidden label | Reads "About us"; every other project page says "Project" | Change to "Project" (only screen readers see it) | Clear fix |
+| Success page | Page title | Tab title is just "Success", and the page has a stray "404" heading | Give it a proper title; hide or remove the "404" | Needs Michael's decision |
+| Dates | Work list | No years on Shepherd Machinery, Erich Kadow, Kent Life, Mustt Audio and a few more | Add or leave | Needs Michael's decision |
+
+**Not checked:** The text the estimator builds as you answer (the assessment wording, "Keeping costs towards the lower end" and so on) comes from its own code in the MWP-Instant-Website-Estimate repo, not from the page, so I only saw the labels that sit in the page. Email wording sent to people, hover text and the Designer's unpublished drafts are also unchecked. I couldn't confirm names such as "Cottril" against the real people.
+
+**Still open:** None of the above is fixed. R-052 stays planned, evidence none, acceptance pending.
+
+**Needs Michael:** (1) Whether the site needs a privacy or cookie page before launch. There is none. (2) The "needs Michael's decision" rows above, mainly the Kent Life copy, the Insight name and the testimonial details.
+
+**Next useful action:** Michael says which of the "clear fix" rows to apply; an agent then fixes them in the Designer and CMS, after a backup (R-052).
+
+**Handoff:** The raw page text I read is in /tmp/mwp141 on the Mac Studio and may be gone later; rerun by downloading the pages in the staging sitemap. The CMS copy lives in the Portfolio collection, so most fixes are CMS item edits, not page edits.
+
 ## 30 October 2026 — Claude (night shift) — Six new tasks written up (R-077 to R-082)
 **Changed:** Added six roadmap items from Michael's task list (brief #140): R-077 (two flashes when the SB menu closes) and R-078 (home page link on /estimate's SB anchor links), both in Phase 7 beside R-030; R-079 (bubbles to Quote mark transition scrolling back up), R-080 (Ticker Section enhancements), R-081 (Nav Menu Button jump) and R-082 (layout changes to project pages), all in Phase 2. R-081 and R-082 were also in the boss inbox without items. The headings in the inbox (Finish MWP site, landing pages, social campaign, Adjust Estimator, Launch prep, Responsive layouts, Page transitions) are already covered by the phases. Closed the boss reminder about the R-031 fade, which is built and accepted.
 

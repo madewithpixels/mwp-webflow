@@ -193,3 +193,8 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 26 October 2026 — Accepted by Michael in boss: R-031 (checked: not stated)
 
+## 30 October 2026, 20:36 — boss runner *(Michael's roadmap order, R-120)*
+Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
+- Michael moved R-038 before R-075 (dragged its task in boss).
+- Michael moved R-076 before R-075 (dragged its task in boss).
+

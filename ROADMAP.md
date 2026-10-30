@@ -92,11 +92,6 @@
 **Task:** 43612317 in your boss list
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
 
-### R-038 · Move and re-style the navigation arrows
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612318 in your boss list
-**From:** your task list (Page transitions). "Place them vertically centred and on the edges of the screen - remove the tricolour aesthetic, something simpler instead."
-
 ### R-074 · Clickable testi-wall
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612325 in your boss list
@@ -104,12 +99,10 @@
 **Exit criteria:** while the wall is built and before it parts, clicking a portfolio image opens its project page with the image morphing into place; each row can be dragged sideways; dragging up and down moves the page; a drag never opens a project by accident. Desktop first.
 **Note:** the portfolio images are in the folio wall (under the hero), which also has a parting; the testimonial wall's tiles are plain colour. Taken to mean the folio wall. (inferred — confirm)
 
-### R-075 · set border: 10px solid red; using the webflow ui on the hero section
+### R-038 · Move and re-style the navigation arrows
 **State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612326 in your boss list
-**From:** your task list, added 25 October 2026.
-**Exit criteria:** the hero section on the home page has a 10 pixel solid red border, set in the Designer's Style panel (not in custom code), and it shows on published staging at desktop width.
-**Note:** looks like a test of the Designer style route, but taken at face value. (inferred — confirm) It needs a style change on the hero section's class, so per D-006 the class name and properties go to you for approval first; if the hero class is shared, say so before it changes. Which hero (home page) and all four sides are assumed. (inferred — confirm)
+**Task:** 43612318 in your boss list
+**From:** your task list (Page transitions). "Place them vertically centred and on the edges of the screen - remove the tricolour aesthetic, something simpler instead."
 
 ### R-076 · Add a contents device that runs alongside the main scrollbar
 **State:** planned · **Evidence:** none · **Acceptance:** pending
@@ -117,6 +110,13 @@
 **From:** your task list, added 26 October 2026.
 **Exit criteria:** on the home page at desktop width, a contents device sits beside the page's own scrollbar. It lists the main sections, marks the one you are in as you scroll, and clicking an entry scrolls to that section. It works on published staging and does not fight the sticky-section scroll animations (D-017).
 **Note:** Michael gave no detail, so these are guesses. (inferred — confirm) Home page only. Desktop first, phone and tablet to follow in Phase 3. Entries are the home page's main sections. The look is open, so options come to you first (D-007), and any new class needs your approval first (D-006).
+
+### R-075 · set border: 10px solid red; using the webflow ui on the hero section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612326 in your boss list
+**From:** your task list, added 25 October 2026.
+**Exit criteria:** the hero section on the home page has a 10 pixel solid red border, set in the Designer's Style panel (not in custom code), and it shows on published staging at desktop width.
+**Note:** looks like a test of the Designer style route, but taken at face value. (inferred — confirm) It needs a style change on the hero section's class, so per D-006 the class name and properties go to you for approval first; if the hero class is shared, say so before it changes. Which hero (home page) and all four sides are assumed. (inferred — confirm)
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

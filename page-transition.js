@@ -23,6 +23,12 @@
     let busy = false;
     let running = [];
 
+    // While the slide plays (and while the next page waits to slide in) the copy and screenshot columns' own scrollbars would stay
+    // fixed in place: make them invisible. Their 8px width is kept, so nothing shifts. (Scrollbar look: site head, "R-081" block.)
+    const hideBars = document.createElement('style');
+    hideBars.textContent = ['html.mwp-pt-run', 'html.mwp-pt-enter'].map((h) => ['.project-image-wrapper', '.folio-rte-wrapper'].map((c) => `${h} ${c}::-webkit-scrollbar-track,${h} ${c}::-webkit-scrollbar-thumb`).join(',')).join(',') + '{background:transparent !important;border-color:transparent !important}';
+    document.head.appendChild(hideBars);
+
     const nextPaint = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 
     // Elements moving sideways are clipped by their scrolling box (the screenshot column), else by the window

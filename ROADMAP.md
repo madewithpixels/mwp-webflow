@@ -261,8 +261,9 @@
 ## Phase 5 · Launch prep and launch
 *From your "Launch prep" group, in the order they depend on each other: content and SEO first; fonts after the legibility check; scripts onto jsDelivr before the final speed pass (it changes how they load); then the switches that belong on launch day.*
 
-### R-052 · Fix the known typos and copy errors
-**State:** built (12 clear fixes, 31 October 2026; the questions for Michael are still open) · **Evidence:** verified (live: staging, Chrome on the Mac Studio, 31 October 2026) · **Acceptance:** pending
+### R-052 · Fix the known typos and copy errors *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (12 clear fixes, 31 October 2026; the questions for Michael are still open) · **Evidence:** verified (live: staging, Chrome on the Mac Studio, 31 October 2026) · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #157's result.
 **Task:** 43612321 in your boss list
 **From:** suggested by Claude, gathered from the session notes; you agreed it on 24 October 2026 and it's now in your boss list: "Hasltead Glass"; "Portfoliio" in the menu; the Mr Wilson's page describes CODE:; Origin Global's copy says "until 2023" (the date says 2024); Insight's copy says "The Insight CBT Partnership".
 

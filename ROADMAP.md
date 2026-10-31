@@ -152,7 +152,7 @@
 
 ### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open
 **State:** built (31 October 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 2044px viewport; tablet width not checked) · **Acceptance:** pending
-**Try:** Open the burger menu on the staging home page: the menu button should stay perfectly still, with no nudge to the right and no side-to-side shaking while the menu is open. You reported the shaking after the first fix; I have not seen or tested it, so please say if it is still there.
+**Try:** The aim is that the menu button stays perfectly still when you open the menu. The first fix stopped the small nudge to the right, but you have since seen the menu shaking side to side, and I have not found the cause yet, so expect it to still shake. Open the menu on the staging home page and watch it; this can't be signed off until the shaking is gone.
 **Why:** The header stays exactly where it was.
 **Steps:**
 1. Open [the staging home page](https://madewithpixels-dev.webflow.io/) in Chrome on a desktop-width window.

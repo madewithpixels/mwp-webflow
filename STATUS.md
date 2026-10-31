@@ -514,3 +514,9 @@ Written in from Michael's task list in boss. The order is his; the runner only m
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 31 October 2026 — Not yet, Michael in boss: R-083 — *"The scroll bars from the copy and image div stay in place which ruins the effect"*. Acceptance stays pending.
 
+
+## 31 October 2026 — Claude (night shift) — R-081 Try line rewritten for sign-off (brief #151)
+**Changed:** R-081's Try line now says plainly what Michael can expect: the first nudge is fixed, but the side-to-side shaking he reported is not investigated, so it will probably still shake. State, Evidence and Acceptance untouched.
+**Still open:** the shaking itself (suspect, inferred: the permanent-scrollbar head rule fighting the scroll lock). Needs a look on published staging in Chrome.
+**Needs Michael:** nothing new; a brief to investigate the shaking would be the useful next step.
+— Claude (night shift)

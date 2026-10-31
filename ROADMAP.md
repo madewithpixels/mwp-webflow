@@ -409,6 +409,7 @@
 **Task:** 43612335 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** on published staging, the SmashBurger menu on /estimate has a link to the home page alongside its anchor links, and it opens the home page. (inferred — confirm)
+**Options written 1 November 2026 (brief #159):** Michael picks. A Home link is already first in the /estimate menu; the five anchor links after it are dead (`#`). See STATUS, 1 November 2026, for three options and a recommendation (point the anchors at the home page sections). Nothing built.
 **Note:** Taken to mean the menu shows only on-page anchor links there and has no way back to the home page. Wording of the link and its position are open, so options come to you first (D-007). (inferred — confirm)
 
 ---

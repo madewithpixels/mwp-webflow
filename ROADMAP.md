@@ -119,6 +119,7 @@
 
 ### R-038 · Move and re-style the navigation arrows
 **State:** built (1 November 2026, option 1; desktop only) · **Evidence:** verified (live), published staging, Chrome on the Mac Studio, 2044px wide · **Acceptance:** pending
+**Michael, in boss, 31 October 2026:** not yet — *"Option 1 is fine"*
 **Task:** 43612318 in your boss list
 **Try:** The previous and next arrows on a project page now sit on the left and right edges of the screen, halfway down, as plain coral tabs.
 **Why:** They are easier to find and no longer sit under the text.

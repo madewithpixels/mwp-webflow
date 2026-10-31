@@ -665,3 +665,7 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 31 October 2026 — Accepted by Michael in boss: R-044 (checked: Looked at brief #143's result.)
 - 31 October 2026 — Accepted by Michael in boss: R-039 (checked: Looked at brief #143's result.)
 
+## 31 October 2026, 12:40 — boss runner *(Michael's roadmap order, R-120)*
+Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
+- Michael moved R-082 before R-032 (dragged its task in boss).
+

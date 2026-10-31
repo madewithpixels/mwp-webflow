@@ -52,6 +52,13 @@
 **From:** your task list. "Section has a slightly transparent slate BG that's obvious when scrolling out of it into the contact block - find a way to fade that out as the end of the testi-wall anim plays."
 **Note:** the bubble fly-in already fades the wall itself; this is the section background behind it.
 
+### R-082 · layout changes to project pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612333 in your boss list
+**From:** your task list, added 30 October 2026.
+**Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
+**Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
+
 ### R-032 · Pricing CTA text stagger should be quicker
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612314 in your boss list
@@ -177,13 +184,6 @@
 **From:** your task list, added 30 October 2026.
 **Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
 **Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
-
-### R-082 · layout changes to project pages
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612333 in your boss list
-**From:** your task list, added 30 October 2026.
-**Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
-**Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

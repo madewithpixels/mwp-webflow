@@ -152,7 +152,7 @@
 
 ### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open
 **State:** built (31 October 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 2044px viewport; tablet width not checked) · **Acceptance:** pending
-**Try:** The aim is that the menu button stays perfectly still when you open the menu. The first fix stopped the small nudge to the right, but you have since seen the menu shaking side to side, and I have not found the cause yet, so expect it to still shake. Open the menu on the staging home page and watch it; this can't be signed off until the shaking is gone.
+**Try:** The menu button should stay perfectly still when you open the menu, and nothing in the menu should shake. The shaking you saw was caused by my first fix fighting the page's smooth scrolling; I replaced it with a different one (31 October and 1 November 2026) and measured the button at the same spot open and closed. Please watch it on the staging home page.
 **Why:** The header stays exactly where it was.
 **Steps:**
 1. Open [the staging home page](https://madewithpixels-dev.webflow.io/) in Chrome on a desktop-width window.
@@ -163,7 +163,7 @@
 **Task:** 43612332 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
-**Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). Fixed with one rule in the site head code (`html.lenis.lenis-stopped { overflow: hidden scroll !important }`), no class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
+**Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
 
 ### R-082 · layout changes to project pages
 **State:** planned · **Evidence:** none · **Acceptance:** pending

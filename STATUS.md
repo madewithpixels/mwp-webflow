@@ -1,5 +1,18 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — Menu no longer shakes while open (R-081, brief #152)
+**Changed (R-081):** Webflow, site madewithpixels, **Site settings > Custom code > Head** only, published to staging only (madewithpixels-dev.webflow.io). I read the block first and wrote it back with one change (the echo matched): the rule from brief #149 (`html.lenis.lenis-stopped { overflow: hidden scroll !important }`) is gone. In its place, on mouse devices only (`hover: hover` and `pointer: fine`), while the menu is open: `html` gets `padding-right: 8px` and `.header` gets `max-width: calc(100% - 8px)`. No class, element, page or Designer change.
+
+**Cause of the shaking:** my #149 rule was the culprit. Lenis (smooth scroll) watches the page's overflow value to decide whether scrolling is locked. My rule forced overflow to "scroll" only while Lenis said "stopped", so Lenis saw "scroll", started again and removed its stopped class, the rule switched off, overflow went back to hidden, Lenis stopped again, and so on in a loop. Each swing moved the page 8px, so the header and menu items shifted about 4px side to side. Measured: the html class flipped between stopped and running several times a second while the menu was open.
+
+**How the new fix works:** it no longer touches overflow, so Lenis stays stopped. Instead it gives the 8px scrollbar width back as padding, so the page is the same width open as closed.
+
+**Checked how:** Chrome on the Mac Studio, published staging, 2044px viewport (8px scrollbar), 1 November 2026. First tried live in the page, then after publishing, sampling positions every 100 ms for 4 seconds with the menu open. Menu button left edge: 218px closed, 218px open, 218px closed again. The page stayed in the stopped state throughout (no flipping). Menu panel links sat at one steady position (the panel is centred on the full window, so they are 4px right of where they are when closed; they only show while open, so nothing moves). I have not watched it by eye, only measured.
+**Not checked:** tablet and phone widths (window resize did not take effect); Safari and Firefox. Touch devices should be unaffected (rule is off for them). A mouse device with overlay scrollbars (Safari with "show scrollbars: when scrolling") may be shifted 4px right by this rule; not checked.
+**Webflow backups (Designer):** "boss · brief #152 · before" and "boss · brief #152 · after", both seen in the Backups list; both recorded in boss. Snapshots/: not exported (the custom-code read is too large to write out by hand safely; interactions are not visible to snapshots anyway). Repo copy of the head block: not done (R-029 not started; it must include this rule, not the #149 one).
+**Needs Michael:** try it (R-081 Try block); acceptance is his.
+**Next useful action:** if it still moves at tablet width or in Safari, measure there.
+
 ## 1 November 2026 — Claude (night shift) — Page transitions: pixel effect removed, project arrows slide content off and on (R-083, brief #146)
 **Changed (R-083):** Webflow, site madewithpixels, **Site settings > Custom code**, both boxes, published to staging only (madewithpixels-dev.webflow.io):
 - **Head:** the pixel-transition CSS and script are replaced by a small block that hides the next project's content until it slides in (and hides the home page while the back button restores your scroll position). The "Home <-> project" view-transition script lost its pixel fallback; the morph is otherwise untouched.

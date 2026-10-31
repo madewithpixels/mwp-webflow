@@ -118,8 +118,17 @@
 **Note:** the portfolio images are in the folio wall (under the hero), which also has a parting; the testimonial wall's tiles are plain colour. Taken to mean the folio wall. (inferred — confirm)
 
 ### R-038 · Move and re-style the navigation arrows
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026, option 1; desktop only) · **Evidence:** verified (live), published staging, Chrome on the Mac Studio, 2044px wide · **Acceptance:** pending
 **Task:** 43612318 in your boss list
+**Try:** The previous and next arrows on a project page now sit on the left and right edges of the screen, halfway down, as plain coral tabs.
+**Why:** They are easier to find and no longer sit under the text.
+**Steps:**
+1. Open [Futura on staging](https://madewithpixels-dev.webflow.io/portfolio/futura) in a wide window.
+2. Look at the left and right edges of the screen, halfway down.
+3. Click the right arrow, then the left one.
+**Done when:** Each arrow is a plain coral tab against its edge (rounded on the side facing the page, flat against the edge), the project slides away and the next or previous project opens.
+**Time:** about 2 minutes
+**Open:** phone and tablet widths are not done (R-039 onwards); at tablet width the arrows may touch the text.
 **From:** your task list (Page transitions). "Place them vertically centred and on the edges of the screen - remove the tricolour aesthetic, something simpler instead."
 
 ### R-076 · Add a contents device that runs alongside the main scrollbar

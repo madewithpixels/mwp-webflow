@@ -1,5 +1,23 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — Project arrows moved to the screen edges, plain coral (R-038, brief #153)
+**Michael's verdict recorded:** on option 1 (brief #147's options): "Option 1 is fine". He did not say whether I may add a class, so I added none (D-006).
+
+**Changed (R-038), all in Webflow, site madewithpixels, published to staging only:**
+1. Class `project-nav_arrow` (not from the library), base style, longhand, read back: `position: fixed`, `top: calc(50% - 1.75rem)`, `z-index: 20`, `background-color: #ef8965`, padding 0 on all sides, border width 0 on all sides. (Before: static, padding 1px, 1px borders.)
+2. Class `project-nav_inner`: `background-color` changed from the slate variable to `#ef8965`.
+3. Component "Portfolio Nav" (40 instances): one new code embed, appended after the existing script embed (which I did not touch). It holds a `<style>`: `a.project-nav_arrow[data-portfolio-nav=prev]` gets `left: 0` and corners `0 1.5rem 1.5rem 0`; `next` gets `right: 0` and corners `1.5rem 0 0 1.5rem`; the strip wrapper inside the arrows is hidden; and it overrides the site head rule that gave `.project-nav_arrow` a spinning tricolour border and spin on hover. Why code and not a class: the two arrows share one class and telling left from right needs a combo class, which D-006 forbids through the MCP. The site head block was not edited. A copy of the CSS is in `project-nav-arrows.css` (R-029).
+4. No new class, no page, CMS, variable or site-head change. The Gradient Arrow, Grad Arrow Wrapper and Grad BG Strip classes are shared with the Instant Advice buttons, so I left them alone.
+
+**My reading of option 1 (check it):** the option text said "rounded on its left side" for the left arrow but also "flat against the edge". I made the edge side flat and rounded the side facing the page (24px). If you meant the opposite, it is one line each in the embed.
+
+**Checked how (verified live):** published staging, Chrome on the Mac Studio, /portfolio/futura, window 2044 x 1132. Arrows measured 56 x 56: previous at left 0, next at right 0, both with their middle at y = 566, exactly half the window height. Background rgb(239,137,101), no background image, no animation, position fixed. Clicked next: Marek Wojciechowski loaded. I saw the screenshot, not the slide animation itself, so I haven't confirmed it looks right. The page transition code still finds the arrows (it moves them with the rest of the page).
+**Not checked:** the slide animation by eye; hover; keyboard focus ring; Safari and Firefox. The window would not resize, so I used same-site frames at 390, 768 and 1024px: at 768 and 1024 the arrows sit at the edges (previous 0 to 56px, next 56px in from the right); text begins at 32px so the arrows can cover the text edge. At 390 the arrows keep their old in-page position (a phone setting overrides it) but now coral, tricolour gone. Phone and tablet are R-039 onwards.
+**Webflow backups (Designer):** "boss · brief #153 · before" made and recorded before any Webflow tool was used. "boss · brief #153 · after" made at 10:04 am, seen in the list and recorded (both 54 pages, 451 styles, 3482 elements in the list, so the new embed doesn't show in that count).
+**Snapshots:** only the two changed classes in `snapshots/styles/classes.json` were patched by hand from the read-back (base style only). The full export was not redone. Interactions, animations and the new embed are not in the snapshot.
+**Needs Michael:** try it (R-038 Try block); acceptance is his. Say if the corners should be the other way round, and whether tablet needs a different position.
+**Next useful action:** R-039 phone and tablet: decide where the arrows go on small screens.
+
 ## 1 November 2026 — Claude (night shift) — Menu no longer shakes while open (R-081, brief #152)
 **Changed (R-081):** Webflow, site madewithpixels, **Site settings > Custom code > Head** only, published to staging only (madewithpixels-dev.webflow.io). I read the block first and wrote it back with one change (the echo matched): the rule from brief #149 (`html.lenis.lenis-stopped { overflow: hidden scroll !important }`) is gone. In its place, on mouse devices only (`hover: hover` and `pointer: fine`), while the menu is open: `html` gets `padding-right: 8px` and `.header` gets `max-width: calc(100% - 8px)`. No class, element, page or Designer change.
 

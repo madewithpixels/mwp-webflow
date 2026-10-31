@@ -7639,6 +7639,7 @@
     "properties": {
       "base": {
         "properties": {
+          "background-color": "#ef8965",
           "border-bottom-color": {
             "id": "variable-58107b37-99e7-f779-8d99-14822c819c44"
           },
@@ -7646,17 +7647,17 @@
             "id": "variable-c83bd3b3-8e6e-4d21-9515-a95396d59752"
           },
           "border-bottom-style": "solid",
-          "border-bottom-width": "1px",
+          "border-bottom-width": "0px",
           "border-left-color": {
             "id": "variable-58107b37-99e7-f779-8d99-14822c819c44"
           },
           "border-left-style": "solid",
-          "border-left-width": "1px",
+          "border-left-width": "0px",
           "border-right-color": {
             "id": "variable-58107b37-99e7-f779-8d99-14822c819c44"
           },
           "border-right-style": "solid",
-          "border-right-width": "1px",
+          "border-right-width": "0px",
           "border-top-color": {
             "id": "variable-58107b37-99e7-f779-8d99-14822c819c44"
           },
@@ -7667,17 +7668,20 @@
             "id": "variable-c83bd3b3-8e6e-4d21-9515-a95396d59752"
           },
           "border-top-style": "solid",
-          "border-top-width": "1px",
+          "border-top-width": "0px",
           "display": "block",
           "flex-shrink": "0",
-          "padding-bottom": "1px",
-          "padding-left": "1px",
-          "padding-right": "1px",
-          "padding-top": "1px",
+          "padding-bottom": "0px",
+          "padding-left": "0px",
+          "padding-right": "0px",
+          "padding-top": "0px",
+          "position": "fixed",
           "text-decoration": "none",
+          "top": "calc(50% - 1.75rem)",
           "transition-duration": "200ms",
           "transition-property": "transform",
-          "transition-timing-function": "ease"
+          "transition-timing-function": "ease",
+          "z-index": "20"
         }
       }
     },
@@ -7692,9 +7696,7 @@
     "properties": {
       "base": {
         "properties": {
-          "background-color": {
-            "id": "variable-1463e94e-9b2a-a422-1be7-5e1c5b87f714"
-          },
+          "background-color": "#ef8965",
           "border-bottom-left-radius": {
             "id": "variable-c83bd3b3-8e6e-4d21-9515-a95396d59752"
           },

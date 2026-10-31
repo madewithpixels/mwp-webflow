@@ -1,0 +1,25 @@
+/* R-038 (brief #153): copy of the <style> in the Portfolio Nav component's second code embed in Webflow
+   (the record, R-029). Webflow holds the live copy; keep the two in step.
+   Shared look (fixed position, vertical centre, coral, no border) is on the project-nav_arrow / project-nav_inner classes. */
+a.project-nav_arrow,
+a.project-nav_arrow:hover,
+a.project-nav_arrow:focus-visible {
+  background: #ef8965;
+  padding: 0;
+  animation: none;
+}
+a.project-nav_arrow[data-portfolio-nav='prev'] {
+  left: 0;
+  border-radius: 0 1.5rem 1.5rem 0;
+}
+a.project-nav_arrow[data-portfolio-nav='next'] {
+  right: 0;
+  border-radius: 1.5rem 0 0 1.5rem;
+}
+a.project-nav_arrow .project-nav_inner,
+a.project-nav_arrow .grad-arrow-wrapper {
+  border-radius: inherit;
+}
+a.project-nav_arrow .bg-strip-wrapper {
+  display: none;
+}

@@ -1,5 +1,25 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — /estimate heading and sideways scroll fixed; pricing card left for Michael (R-044, R-046, brief #158)
+**Changed (R-046, R-044), Webflow, site madewithpixels, published to staging only:** one class, `IWA Question Row` (`.iwa-question-row`, not from the library), base style: added `flex-wrap: wrap` (longhand, read back). No new class, no combo class, no other style, page, custom code or interaction touched. State: built for the /estimate part. Evidence: verified (live: staging, Chrome on the Mac Studio, frames). Acceptance: pending.
+
+**Cause (found in the published CSS):** the Next button has `width: 100%` and the row never wrapped, so the heading was squeezed to its smallest word (81px wide, four lines) and the button pushed the page 56px wider than a 768px screen. Now the heading takes its own line and Next sits under it, full width.
+
+**One thing to know:** the class has no tablet-only style, so the change applies at every width. On desktop (2044px) the heading was squashed the same way before (81px), so it now reads on one line with Next underneath (16px gap). I changed the base style because 1024px is the desktop style in Webflow. If you want the old side-by-side look back at wide screens, say so: it needs a new class for the button width (D-006), so it is your call.
+
+**Checked how:** published staging /estimate, frames at exactly 768px and 1024px (the browser window would not resize, same-site frames used) and the 2044px window. Before: heading 81px wide and 140px tall, button 662px wide at 768px, page content 816px in a 760px view. After: heading 273px wide, one line, 42px tall; button under it (starts below the heading's bottom); content width equals the view at 768px (760) and 1024px (1016), so no sideways scroll; desktop 2036 of 2036. I also looked at a screenshot at 768px: heading on one line, Next below. Not seen by eye at 1024px.
+
+**Pricing card (third card, "Yes, we build apps too…") at 1024px: NOT changed, options for Michael (D-007).** Cause measured: the card's inside is wider than the space the padding leaves (the longest line, "£LessThanYouThink", forces the text column to 292px; the card is 338px with about 49px of padding on the right, leaving 257px). The text reaches 324px from the card's left edge, but a scroll-reveal clip on the card shows only up to about 313px (clip 24.5px in from the right), so the last few characters are cut. The padding and clip are set by the scroll animation (inline), so changing the class padding would not hold. The teal combo class holds only `align-self`, so the earlier idea of right padding on it would not work either.
+- Option A: make the price line and the grey label a step smaller between 992 and 1280px. Edits existing classes (`price` and `pricing-block` text), no new class; changes how the cards look at that width.
+- Option B: change the scroll animation's clip or padding in the Interactions panel. No new class, but it is an animation change I can't read or edit through the tools; Michael does it in the Designer.
+- Option C: let "£LessThanYouThink" wrap (allow breaking inside it, one custom-code rule). No look change except where it breaks; touches site head code.
+- Recommendation: A, or C if you don't want the text size to change. This is still the open "pick how to fix the cut-off pricing card" question.
+
+**Not checked:** later steps of the estimator (other screens may use the same row); Safari and Firefox; phone widths; the 1024px card after any fix (none made); interactions and animations are invisible to snapshots, so I don't claim them unchanged. Snapshot: `snapshots/styles/classes.json` patched by hand for the one property (the full export was not redone).
+**Backups (Designer):** "boss · brief #158 · before" and "boss · brief #158 · after", both seen in the Backups list and recorded in boss.
+**Needs Michael:** try /estimate on staging at tablet width and say if the stacked Next button is what you want; pick the pricing option; check and back up (D-008).
+**Next useful action:** apply the chosen pricing option; then R-039 (contact logo).
+
 ## 31 October 2026 — Claude (night shift) — 12 clear typo fixes applied and published to staging (R-052, brief #157)
 **Changed (R-052):** 12 clear fixes from the 30 October copy audit, edited in Webflow with the MCP and published to staging only (madewithpixels-dev.webflow.io). State: built. Evidence: verified (live: staging, read in Chrome on the Mac Studio, rendered text, 31 October 2026; not checked at any other width or browser). Acceptance: pending. No styles, classes, layout or custom code touched.
 

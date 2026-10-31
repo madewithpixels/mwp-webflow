@@ -4083,6 +4083,7 @@
         "properties": {
           "align-items": "center",
           "display": "flex",
+          "flex-wrap": "wrap",
           "grid-column-gap": "1.5rem",
           "grid-row-gap": "1rem",
           "justify-content": "space-between",

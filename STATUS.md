@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — hero strapline blur dropped at Michael's word (R-087, brief #186)
+**Changed:** R-087 is now marked dropped in the roadmap. Nothing in Webflow, nothing published, no code or interaction touched. I made no Webflow tool call, so no backup was needed and no snapshot changed. Evidence: n/a (docs only). Acceptance: pending.
+**Why:** Michael chose "Leave it, I can't see it now" in boss on brief #185's question, with the note: "I can't reproduce it now either - let's forget it". I am recording his decision, not making one.
+**Left as it is, for the record:** the empty duplicate "Hero Fade Out" interaction (`i-9e2a7fda`) and the leftover `blur(0.0045px)` after a fast return to the top, both described in the entry for brief #185 below. If the blur is seen again, reopen R-087 with the browser, width and how it was scrolled.
+**Needs Michael:** nothing.
+**Next useful action:** the next brief in the queue.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — hero strapline blur investigated; no visible blur reproduced, nothing changed (R-087, brief #185)
 **Changed:** nothing in Webflow, nothing published, no custom code or interaction touched. I made no write call to Webflow. Only the Webflow reads below and the docs. State: in progress (cause found, visible fault not reproduced). Evidence: verified (live; published staging, Chrome on the Mac Studio, 1709px wide). Acceptance: pending.
 **Cause (proven for the part I could see):** the blur is not set by custom code. Nothing in the site footer or Home page footer code refers to the strapline's blur. It is set by the Home page interaction **Hero Fade Out** (scroll-tied): its "Brand Name Blur" step sets the Animation variable that feeds `filter` on the class `--Can-blur` (`.can-blur`) up to 5px, over the hero's exit. The strapline is an H3 with `hero-strapline can-blur`, sitting inside `.logo-wrapper.can-blur`, so both are driven by that one step.

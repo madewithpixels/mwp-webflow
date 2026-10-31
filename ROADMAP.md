@@ -214,7 +214,7 @@
 **Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
 
 ### R-087 · When scrolling back to the top of the page, the H3.Hero-Strapline is blurred and does not resolve back to a readable state
-**State:** in progress · **Evidence:** verified (live) for the measurements; fault not reproduced · **Acceptance:** pending
+**State:** dropped (1 November 2026, Michael's decision in boss on brief #186: "I can't reproduce it now either - let's forget it") · **Evidence:** verified (live) for the measurements; fault not reproduced · **Acceptance:** pending
 **Task:** 43612344 in your boss list
 **From:** your task list, added 31 October 2026.
 **Done when:** after scrolling down and then back up to the top of the Home page, the hero strapline (the H3 with the class Hero-Strapline) is sharp and readable, as it is on first load. Checked on published staging at desktop width, with Chrome on the Mac Studio. (inferred — confirm)

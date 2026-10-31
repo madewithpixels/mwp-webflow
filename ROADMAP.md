@@ -121,10 +121,11 @@
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
 
 ### R-085 · Faulty Terminal BG re-initialises between project page transitions
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (fallback: element removed) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1467px wide) · **Acceptance:** pending
 **Task:** 43612342 in your boss list
 **From:** your task list, added 31 October 2026. Your note on it: "Unlikely there's a fix for this, if so - let's remove the FT div on each project page."
 **Done when:** moving from one project page to the next no longer shows the Faulty Terminal background restarting; either it carries on smoothly, or (if that can't be done) the Faulty Terminal element is gone from every project page and nothing else on them has moved. Checked on published staging, project to project with both arrows. (inferred — confirm)
+**Result (1 November 2026, brief #167):** no fix is possible in Webflow's normal page-to-page navigation: each arrow press is a full page load, so the terminal's canvas is always rebuilt (it would need the site turned into a single-page app, which is far out of scope). So I took Michael's fallback and removed the `faulty-terminal` div from all 39 project pages and the draft Project Page template. Home and /estimate keep theirs. Not checked: phone/tablet, Safari/Firefox, a back-to-back arrow click-through by eye. To undo: restore "boss · brief #167 · before" or re-add the div (class `faulty-terminal` + `--is-100%-height`) as the first child of the project wrapper.
 **Note:** Try for a fix first, but only briefly; your note says a fix is unlikely, so the fallback is to remove the element from each project page. Removing it is a visible change, so options come first (D-007). It touches the same transition as R-083, so check it again after any change there. Home and /estimate keep their Faulty Terminal (R-016). (inferred — confirm)
 
 ### R-074 · Clickable testi-wall

@@ -226,8 +226,8 @@
 **Done when:** the Travel Ledger testimonial shows its closing quote mark, matching the other testimonials, on desktop, tablet and phone on published staging. (inferred — confirm)
 **Note:** Not looked into yet. It may be a missing element in the CMS item or the testimonial component, or a long quote pushing it out of view (R-045); find which before changing anything. No new class without your approval (D-006). (inferred — confirm)
 
-### R-088 · Remove the .Icon-Link from every project page
-**State:** built (1 November 2026, brief #166) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 2044px wide) · **Acceptance:** pending
+### R-088 · Remove the .Icon-Link from every project page *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (1 November 2026, brief #166) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 2044px wide) · **Acceptance:** accepted (31 October 2026)
 **Try:** The small arrow beside the project title is gone from every project page.
 **Why:** It was the "opens the client's site" icon; you asked for it removed.
 **Steps:**

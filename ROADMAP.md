@@ -262,8 +262,9 @@
 **From:** your task list (Launch prep).
 **Note:** left over from the 29 September audit: share images for Home and Estimate, favicon and webclip (need design), the logo in the schema once there's a logo image, and uploading the new llms.txt in Site settings.
 
-### R-054 · Finalise font-weight inclusions to complete PSI fixes
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-054 · Finalise font-weight inclusions to complete PSI fixes *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #144's result.
 **Task:** 43612274 in your boss list
 **From:** your task list (Launch prep › Pagespeed review). **Depends on:** R-043.
 
@@ -273,8 +274,9 @@
 **From:** your task list (Launch prep): the switch-over. **Depends on:** R-029.
 **Note:** jsDelivr serves from the GitHub repo, so the code must be pushed and versioned (a tag per release) for stable addresses.
 
-### R-056 · Fix pagespeed insights
-**State:** in progress · **Evidence:** none · **Acceptance:** pending
+### R-056 · Fix pagespeed insights *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #144's result.
 **Task:** 43612268 in your boss list
 **From:** your task list (Launch prep › Pagespeed review, marked in progress). **Depends on:** R-054, R-055.
 **Note:** the first pass was done on 29 September 2026 (faulty-terminal 1.10, deferred scripts, accessibility fixes, folio wall images). Brand contrast is accepted as is (D-010).

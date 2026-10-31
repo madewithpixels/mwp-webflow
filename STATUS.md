@@ -539,3 +539,8 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 31 October 2026 — Not yet, Michael in boss: R-081 — *"I can't judge whether it's fixed because now - when open, everythign in the menu is constanty shifting side to side like it's being driven by the faulty terminal shader."*. Acceptance stays pending.
 - 31 October 2026 — Accepted by Michael in boss: R-081 (checked: Looks better - doesn't shift)
 
+## 31 October 2026, 09:52 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 31 October 2026 — Accepted by Michael in boss: R-054 (checked: Looked at brief #144's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-056 (checked: Looked at brief #144's result.)
+

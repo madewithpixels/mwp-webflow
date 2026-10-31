@@ -227,11 +227,19 @@
 **Note:** Not looked into yet. It may be a missing element in the CMS item or the testimonial component, or a long quote pushing it out of view (R-045); find which before changing anything. No new class without your approval (D-006). (inferred — confirm)
 
 ### R-088 · Remove the .Icon-Link from every project page
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026, brief #166) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 2044px wide) · **Acceptance:** pending
+**Try:** The small arrow beside the project title is gone from every project page.
+**Why:** It was the "opens the client's site" icon; you asked for it removed.
+**Steps:**
+1. Open [Stephen McCulley on staging](https://madewithpixels-dev.webflow.io/portfolio/stephen-mcculley).
+2. Look at the title on the left, "Stephen McCulley". Do the same on Kent Life and Shepherd Machinery.
+**Done when:** No arrow sits after the title, and the title and text look as they did.
+**Time:** about 2 minutes
 **Task:** 43612331 in your boss list
 **From:** your task list, added 31 October 2026.
 **Done when:** no project page has the Icon-Link element any more, and the page layout around where it was looks right. Checked on published staging on at least two project pages. (inferred — confirm)
 **Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
+**Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
 
 
 ## Phase 3 · Phone and tablet

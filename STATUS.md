@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — arrow removed from every project page (R-088, brief #166)
+**Changed (R-088), Webflow, site madewithpixels, published to the webflow.io staging address only:** removed the `Icon Link` HTML embed (the small external-link arrow after the project title) from **21 pages**: the draft "Project Page" template and these 20 project pages: stephen-mcculley, molly-malones, creswell-crags, kent-life, oxford-castle, coronation-street-the-tour, guild-of-st-george, opus-independents, fairness-on-the-83, now-then-magazine, jessop-financial-planning, marek-wojciechowski, continuum-group, ay-pe, dolphin-dynamics, shogun-nutrients, origin-global, travel-ledger, halstead-glass, shepherd-machinery. The other 19 project pages never had one. No style, class, interaction, custom code or CMS item touched. The `Icon Link` class still exists, unused. State: built. Evidence: verified (live; published staging, Chrome on the Mac Studio, 2044px wide). Acceptance: pending.
+**Checked how:** after publishing, I fetched all 39 project pages from staging: none contains `.icon-link` (20 did before). Screenshots of Stephen McCulley and Kent Life show the title with no arrow and the layout unchanged. Webflow's own backup counts went from 3480 to 3459 elements (21 fewer, as expected).
+**Not checked:** phone and tablet widths; Safari and Firefox; the Designer view of each page; whether any interaction targeted the icon (interactions can't be read through the tools; I found nothing in the custom code or the repo that refers to it). The title is still a link to the client's site, with no arrow to say so.
+**Webflow backups (Designer route):** "boss · brief #166 · before" (4:09 pm) and "boss · brief #166 · after" (4:15 pm), both seen in the Backups list and recorded in boss. **Snapshots:** none changed; the snapshot format doesn't cover page elements, so it can't show this change.
+**Order of the day note:** the roadmap item R-088 already existed (written in brief #163), so I used it.
+**Tasks deleted in Michael's list, kept for him to decide (from the boss inbox):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-059 (and R-043, already accepted).
+**Needs Michael:** try it (steps under R-088), then check and back up (D-008). Say whether to delete the unused `Icon Link` class.
+**Next useful action:** briefs #167 and #168 (R-085, R-084).
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — options for a clickable testimonial wall (R-074, brief #165)
 **Changed:** one new file, `docs/testi-wall-click-options.md`. Nothing in Webflow, nothing published, no interaction touched. I made no Webflow tool call, so no backup was needed and no snapshot changed. State: planned (options written). Evidence: verified (live, published staging, Chrome on the Mac Studio, 2044px wide) for what I read; the options themselves are not built. Acceptance: pending.
 **What I found:** the testimonial wall is 191 empty coloured tiles with no text, image, link or project name. The ten testimonials are a separate layer that fades in after the wall parts, and it ignores clicks. The wall moves only with the scroll (one scroll-tied animation), so there is nothing to "pause". The Contact bubbles script borrows 42 of the tiles. The project images are in the folio wall, not here.

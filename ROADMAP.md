@@ -117,8 +117,8 @@
 **Exit criteria:** while the wall is built and before it parts, clicking a portfolio image opens its project page with the image morphing into place; each row can be dragged sideways; dragging up and down moves the page; a drag never opens a project by accident. Desktop first.
 **Note:** the portfolio images are in the folio wall (under the hero), which also has a parting; the testimonial wall's tiles are plain colour. Taken to mean the folio wall. (inferred — confirm)
 
-### R-038 · Move and re-style the navigation arrows
-**State:** built (1 November 2026, option 1; desktop only) · **Evidence:** verified (live), published staging, Chrome on the Mac Studio, 2044px wide · **Acceptance:** pending
+### R-038 · Move and re-style the navigation arrows *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (1 November 2026, option 1; desktop only) · **Evidence:** verified (live), published staging, Chrome on the Mac Studio, 2044px wide · **Acceptance:** accepted (31 October 2026)
 **Michael, in boss, 31 October 2026:** not yet — *"Option 1 is fine"*
 **Task:** 43612318 in your boss list
 **Try:** The previous and next arrows on a project page now sit on the left and right edges of the screen, halfway down, as plain coral tabs.

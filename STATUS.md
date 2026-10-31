@@ -1,5 +1,32 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — Contact pixels now spin back from the heart when scrolling up (R-079, brief #161)
+**Changed (R-079), Webflow, site madewithpixels, published to the webflow.io staging address only:** the **Home page's footer custom code** (Pages > Home > Custom code > Before `</body>`), the fourth `<script>` only (the Testimonials -> speech bubble -> heart script, now v2.3). The other three scripts in that block and the page head were written back exactly: the echoed write and a separate read-back both equal my file character for character (39,664 characters), and the head read back unchanged. No class, style, interaction, component, CMS item or site setting touched; the forward fly-in code is unchanged except that it now also passes on a spin (it never has one when scrolling down). State: built. Evidence: verified (live; staging, Chrome on the Mac Studio, desktop 2044px wide). Acceptance: pending.
+
+**Cause (proven).** "MWP logo configuration" is the heart the pixels spin into every 4 seconds once the bubbles have landed. When you scroll back up into the fly-in, the script's fly-in branch ran `if (shape !== 'bubble' || anim) setShape('bubble')` every frame. `setShape` is an instant reset, so a heart, or a spin on its way to the heart, became the speech bubble in a single frame, and only then did the tiles fly back to the wall. It was not ScrollTrigger direction, an `onLeaveBack` handler or a Webflow interaction: this script is a plain `requestAnimationFrame` loop reading positions, and the reverse fly-in itself was already playing.
+Evidence before the fix (frame log of the 42 pixel wrappers, staging, wheel scroll up from the heart): heart at scroll 60079, and at the next logged frame (59992) the tile layer is on, all 42 pixels hidden and all at their speech-bubble positions. No spin frames between them. The biggest single-frame move is 92px (the distance from a heart spot to its speech-bubble spot). A screenshot after three wheel notches showed the speech bubble already formed. When the pixels already showed the speech bubble, the reverse was fine, which is why the fault only showed in the heart.
+
+**Fix (custom code, v2.3).**
+1. In the fly-in branch, if the logo isn't the speech bubble, start the existing spin back to it (`startSpin('bubble')`) and keep stepping it, instead of resetting.
+2. A spin now glides from where each pixel currently is (`anim.from`), so a spin can turn back halfway without a jump. For a spin starting from a still shape this is identical to before.
+3. The fly-in tiles stand in for hidden pixels, so a pixel's spin angle is passed to its tile (`rotateY`, perspective scaled with the logo). Without this, the spin wouldn't be visible while the pixels are hidden.
+4. Bubble pairing uses each pixel's speech-bubble spot even while it is still spinning back, so the same wall bubbles are picked going up as going down.
+Copy of the script in the repo: `contact-bubbles.js` (R-029 record).
+
+**Checked how (staging, Chrome, 2044px wide; the tab's frame rate was throttled to about 10 to 26 frames a second while scrolling):**
+- From the heart: the pixels spin and glide into the speech bubble while the tiles set off. Screenshots show thin, turned pixels mid-glide. 20 to 22 frames had spinning tiles. The biggest per-frame move was 26 to 31px over frames 90 to 130ms long. That is 0.25px per millisecond at most, no faster than the spin's own glide (about 0.3px/ms at its fastest), so it is motion, not a jump (it was 92px in one frame before). It ended on the speech bubble.
+- From the speech bubble: 0px moved (unchanged path). From mid-spin towards the heart: largest move 5.7px. From mid-spin towards the speech bubble: 22px (the same throttled-frame glide). Both ended on the speech bubble.
+- Four full down-and-up cycles, scrolling up 0, 1.5, 3 and 4.5 seconds after landing: the forward fly-in landed on the speech bubble every time. After each scroll back up, no wall bubble or pixel was left hidden, the tile layer was off and the wall's opacity was cleared. A mid-fly-in screenshot going down looked as before.
+- No console errors before or after the change.
+Not checked: Safari and Firefox; a real unthrottled 60fps look by eye (only Claude in Chrome); phones and tablets. Their timed fly-in path doesn't use this branch, and the loop's spin change only affects where a spin starts. Seen by script, not by eye: the case of scrolling up mid-spin.
+
+**Webflow backups (Designer route):** "boss · brief #161 · before" (shows twice, 3:17:16 pm and 3:17:49 pm: the first save registered late and I saved again; both identical) and "boss · brief #161 · after" (3:31:13 pm). All seen in the Backups list; both phases recorded in boss.
+**Snapshots:** `snapshots/custom-code.json` (new): site head and footer, and the Home page head and footer, as read through the MCP. Other pages' custom code was not read. The snapshot cannot see interactions; I didn't touch any, but I don't claim from the snapshot that they're unchanged.
+**Tasks deleted in Michael's list, kept for him to decide (from the boss inbox):** R-082, R-036, R-037, R-074, R-076, R-042, R-059 (and R-043, already accepted).
+**Needs Michael:** try it (steps under R-079), and check and back up (D-008).
+**Next useful action:** if he wants the spin back to be slower or faster when scrolling up, that's SPIN_MS and RIPPLE_MS (shared with the loop).
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — options for the project arrows and the testi-wall shadow on phone and tablet (R-040, R-043, brief #160)
 **Changed:** nothing in Webflow or on the site. Docs only. State: planned (options written). Evidence: verified (live: published staging, Chrome on the Mac Studio; the window would not resize, so I measured same-site frames at 390, 768 and 1024px, and 1440px for the shadow). Acceptance: pending (R-040, R-043 and R-038 were accepted earlier for their own scope; this is new follow-on work). I did not use the Webflow MCP, so no backup was needed.
 

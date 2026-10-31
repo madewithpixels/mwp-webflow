@@ -22,6 +22,8 @@ Recommendation: option 1.
 
 **31 October 2026 addendum (Claude, night shift, brief #147 resumed):** Michael's note now says coral background and rounder outer corners, which fits option 1 but still needs his pick (D-007) and class approval (D-006). Nothing in Webflow changed again; I rewrote his open question in plain words in boss. No new backup made, because the 30 October "after" backup above already covers an unchanged site.
 
+**31 October 2026 addendum 2 (Claude, night shift, brief #148, same work as R-038):** Brief #148 is the same task (43612318) with Michael's note unchanged: vertically centred, on the viewport edges, coral background, rounder outer corners. His choice between the options above is still open in boss, so I made no change. No Webflow tools were used, so no backups or snapshots were made. R-038 stays planned, evidence none, acceptance pending. Roadmap order: R-038 now sits before R-075 as he set it; nothing I could see depends on that.
+
 **Next useful action:** once he picks, an agent reads the arrow elements' classes, writes the styles through the MCP (longhand, read back), and checks on staging with Claude in Chrome.
 
 ## 30 October 2026 — Claude (night shift) — Typos and copy errors on staging listed, nothing edited (R-052)

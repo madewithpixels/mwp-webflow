@@ -1,5 +1,61 @@
 # madewithpixels website — Status
 
+## 31 October 2026 — Claude (night shift) — Font families and weights listed; nothing changed (R-054, R-056, brief #144)
+**Changed:** Nothing on the site and nothing in Webflow. I did not use the Webflow tools at all (so no Webflow backups were made; nothing needed restoring), because the published page already carries every style rule. R-054 stays planned (this is the list it needs); R-056 stays in progress. Evidence for both: none (an audit, not a fix). No Acceptance.
+
+**Checked how:** Claude in Chrome on the Mac Studio, published staging (madewithpixels-dev.webflow.io), Home and /estimate, 31 October 2026. I read the font rules in the page's own style sheets (every rule with a font-weight or font family), the list of font files the browser says it loaded, the file sizes (by downloading each file once and measuring it), the network requests for font files, and the computed font on every visible text element. Sizes are the compressed (woff2) file size.
+
+### What loads on both Home and /estimate (same on each)
+| Font file | Weights | Size | Loaded | Used by any text? |
+|---|---|---|---|---|
+| Apercu Regular (own file on Webflow's CDN) | 400 | 26.0 KB | yes | yes |
+| Apercu Bold (own file) | 700 | 15.4 KB | yes | yes |
+| Source Serif 4 (Google Fonts, one variable file serving every weight 200 to 900) | 200, 300, 400, 500, 600, 700, 800, 900 | 49.8 KB (one file) | yes | yes, weights 200 to 700 |
+| Soleil (Adobe kit, 12 files) | 300, 400, 500, 600, 700, 800, each normal and italic | 42.5 to 48.6 KB each, **554.8 KB in all** | **yes, all 12** | **no: no element uses it** |
+| Webflow icon font | 400 | not loaded | no | not needed on these pages |
+
+Total font download on each page is about 646 KB; 555 KB of that is Soleil. Without Soleil it is about 91 KB.
+
+### Where each family and weight is used (the weight the browser is asked for)
+| Family | Weight | Where (class or element) | A file for it? | Safe to drop? |
+|---|---|---|---|---|
+| Apercu | 200 | `estimate-label` (home); shown with the 400 file | no, falls back to 400 | n/a: nothing to drop; just a style that asks for a weight that doesn't exist |
+| Apercu | 300 | body text and `p` (the default for the whole site), `is-mw-40ch`, `lb-title`, estimator help and fine print, `mwp-css-nav_*` settings text | **no, shown with the 400 file** | n/a; see recommendation |
+| Apercu | 300 italic | `em` | no, 400 file made slanted by the browser | n/a |
+| Apercu | 400 | `a`, `pricing-strapline`, `type-block`, estimator links | yes | keep |
+| Apercu | 600 | `strong`, `brand-text`, `brands`, `cite`, `breakpoints`, `mwp-css-nav_link`, `mwp-css-nav_settings-title`, estimator `iwa-bar-label` | no, shown with the 700 file | n/a |
+| Apercu | 650 | estimator `iwa-btn` | no, shown with the 700 file | n/a |
+| Apercu | 700 | `h2`, `h6`, `label`, `b`, `hero-strapline`, `folio-block-title`, `folio-date`, `contact-header`, `menu-button-label`, `mwp-css-nav_label`, `mwp-dock-toggle`, `t-made`/`t-with`/`t-pixels`, estimator option labels | yes | keep |
+| Apercu | 800 | `heavy-text`, estimator `mwp-dock-val` | no, shown with the 700 file | n/a |
+| Source Serif 4 | 200 | `h3`, `folio` items, `ticker__item`, `ticker__ch`, `dash`, `price-block`, `logo-wall-heading`, `testi-wall_blockquote`, estimator `iwa-question` | yes (variable file) | keep |
+| Source Serif 4 | 300 | `h4`, `h5`, `blockquote`, `folio-title`, `portfolio-header`, `about-top-h4`, `pricing-header`, `testimonials-header`, estimator `iwa-eyebrow`, `mwp-reco-h` | yes | keep |
+| Source Serif 4 | 400 | `h1` | yes | keep |
+| Source Serif 4 | 500 | `price`, `logo-wall-heading.estimate`, `heading-7` (phone), estimator `mwp-intro-heading` | yes | keep |
+| Source Serif 4 | 600 | `is-semibold`, `cite` (italic), `em` (italic), estimator `mwp-group-label`, `iwa-result-h2` | yes | keep |
+| Source Serif 4 | 650 | estimator `iwa-result-h3` | yes (variable, any value works) | keep |
+| Source Serif 4 | 700 | `icon-arrow`, `instant-quote-btn`, `strong` on phones, estimator `mwp-bar-val`, `iwa-est-figure`, `text-block` | yes | keep |
+| Source Serif 4 | 800, 900 | no element | requested from Google, same single file | yes in principle, but saves no download (see below) |
+| Source Serif 4 | italic (200 and 600) | `em`, `testi-wall_blockquote`, `cite` | **no italic file is requested**; the browser slants the upright letters | n/a |
+| Soleil (Adobe) | all 12 | `.tk-soleil` only (Adobe's own class); **no element on Home or /estimate uses it** | loaded, 555 KB | **yes, looks safe, but see D-011** |
+| Monospace (browser default) | 400, 700 | hidden "ft debug" panel only | no file | n/a |
+
+Not every class with a weight shows on every page; the full list of rules with a font-weight is the table above plus the general Webflow rules (`b, strong` 700, `h1` to `h6`, `label`, `.w-form-label` 400 and similar built-in rules).
+
+### Recommendation (Michael decides, D-007)
+1. **Drop Soleil from the Adobe kit, or stop loading the kit.** This is the whole saving: about 555 KB gone from every page, and the page also stops waiting on the Adobe script. Nothing I found uses it. One catch: **D-011 says "the Adobe kit carries Soleil only"**, so someone put it there on purpose. Either it was meant for a font swap that didn't happen, or it is left over. Please confirm no page or CMS item you plan to use needs it. It is also worth checking the other pages (project pages, landing pages), which I did not scan.
+2. **Keep Apercu at 400 and 700. Nothing to trim.** But note the site asks for Apercu 200, 300, 600, 650 and 800 in many places, and the browser has no file for them, so it shows 400 or 700 instead. **The body text is set to "300" and actually draws as regular 400.** If the design should look lighter, a light Apercu file would need adding (cost: another file of about 25 KB); if not, change those styles to 400 and 700 in a later pass. This is a look decision.
+3. **Source Serif 4: keep weights 200, 300, 400, 500, 600, 700.** Weights 800 and 900 are unused. Because Google serves one variable file for all weights, taking 800 and 900 out of the request saves **no bytes** (the web address just gets shorter). A real saving would be self-hosting the one latin file (49.8 KB) so the page doesn't call two Google addresses first. That is a separate option for R-055.
+4. Italic Source Serif and italic Apercu are drawn by the browser (slanted upright letters). Adding real italics would cost another 50 KB or so; I'd leave that alone unless the testimonial italic looks wrong.
+
+### Not checked
+Other pages (project pages, landing pages, the rest of the estimator after step 1), phone widths for font choices other than the rules listed above, whether the old `mwp-site-menu-*` classes are still around (ignored, D-015). The Webflow Designer's own class list (I read the published rules, which should match it, but a class used only on an unpublished draft is not in my table). The "Webflow style panel" `isFromLibrary` copies of `mwp-css-nav_*` were not checked. Resource-timing sizes are blocked across sites in Chrome, so sizes come from downloading each file, not from the transfer log.
+
+**Needs Michael:** (1) say if Soleil can go (D-011 context); (2) say if Apercu's 300 body text should stay as it is (draws as 400), or if a light file should be added.
+
+**Next useful action:** once he says yes on Soleil, back up first, remove the Soleil fonts from the Adobe kit or stop loading it (Michael's Adobe account, or the site's custom code), then check Home and /estimate on staging and re-run this count.
+
+**Handoff:** to repeat the count, open a staging page and read `document.fonts` (family, weight, status) and the `@font-face` rules in `document.styleSheets`; download each file with `fetch` and read `blob.size`. The browser tool blocks any output with a web address that has a `?` in it, so strip the query part first.
+
 ## 31 October 2026 — Claude (night shift) — Phone layout checked at 390px and 360px; findings listed, nothing changed (R-040, R-041, R-043, R-045, brief #142)
 **Changed:** Nothing on the site. Read-only: no Webflow tools, no custom code, no classes, no Acceptance. R-040, R-041, R-043 and R-045 stay planned, evidence none for fixes (this is an audit, not a fix).
 

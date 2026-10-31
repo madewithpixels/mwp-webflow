@@ -471,8 +471,9 @@
 **Done when:** on published staging, clicking a link in the SmashBurger menu closes it with at most one visual change, with no double flash, at desktop and phone widths. (inferred — confirm widths)
 **Note:** May be linked to the blur that holds after a menu jump (R-033, R-027). SB is taken to mean SmashBurger, the menu in the library, so check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006); the fix may belong in SmashBurger itself and wait for R-030. (inferred — confirm)
 
-### R-078 · The /estimate page needs the home page link adding to the SB anchor links
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-078 · The /estimate page needs the home page link adding to the SB anchor links *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #173's result.
 **Michael, in boss, 31 October 2026:** not yet — *"Telll me the options here."*
 **Task:** 43612335 in your boss list
 **From:** your task list, added 30 October 2026.

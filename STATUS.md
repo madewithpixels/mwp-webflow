@@ -1,5 +1,19 @@
 # madewithpixels website — Status
 
+## 31 October 2026 — Claude (night shift) — Menu button no longer jumps when the burger menu opens (R-081, brief #149)
+**Changed:** One rule added to the site-wide head custom code in Webflow (site madewithpixels, Site settings > Custom code > Head): `html.lenis.lenis-stopped { overflow: hidden scroll !important; }`, with a comment naming R-081. Nothing else in the head block was changed (I read it first and wrote it back with only that addition; the echo matched). No class, element, page or Designer change. Published to the staging address only (twice: the first version without `!important` did not win against Lenis).
+
+**Cause:** Lenis (smooth scroll, autoToggle mode) locks scrolling while the menu is open by setting the page to overflow hidden/clip. That removes the 8px scrollbar gutter, the page gets 8px wider, and the centred header moves about 4px right. The existing `scrollbar-gutter: stable` doesn't help because it is ignored once overflow is hidden/clip.
+
+**Checked how:** Chrome on the Mac Studio, published staging, 2044px-wide viewport. Before: menu button left edge 218px closed, 222px open, 218px closed again. After: 218px in all three states. The page can't scroll while the menu is open (overflow is hidden on the sideways axis and the track is empty).
+**Side effect to look at:** an empty scrollbar track shows on the right while the menu is open (it was already visible while closed on desktop). On touch devices with overlay scrollbars nothing shows.
+
+**Webflow backups (Designer):** "boss · brief #149 · before" and "boss · brief #149 · after", both seen in the Backups list; both recorded in boss.
+**Not checked:** tablet and phone widths (the Chrome window resize did not change the viewport, so I only measured desktop); Safari and Firefox (Lenis's lock and `scrollbar-gutter` behave differently there). Interactions and animations are not visible in snapshots.
+**Not done:** the repo copy of the head block (R-029 hasn't started; AGENTS §6 asks for the changed block to be copied, so R-029 must include this rule). No snapshots/ export: the Webflow MCP read of custom code is too large to write out by hand here, so snapshots/custom-code.json still doesn't exist. Webflow changed: site custom code (head) only.
+**Needs Michael:** try it (R-081 Try block); acceptance is his.
+**Next useful action:** if he sees it still move at tablet width, measure at 768 and 1024 with the Designer's canvas or a real resize.
+
 ## 30 October 2026 — Claude (night shift) — Navigation arrows looked at, not changed; waiting on Michael's choice (R-038, brief #147)
 **Changed:** Nothing on the site. Two Webflow backups only: "boss · brief #147 · before" and "boss · brief #147 · after" (both made in the Designer, both seen in the Backups list; both show 54 pages, 451 styles, 3482 elements, so nothing changed between them). R-038 stays planned, evidence none, acceptance pending. I also wrote the plain-English version of the open privacy/cookie question for Michael in boss.
 

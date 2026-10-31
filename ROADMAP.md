@@ -135,11 +135,18 @@
 **Note:** Taken to mean the sector ticker. It may overlap R-035 (more interesting typography in the marquee section) and the parked angled bands (R-025); decide whether they merge. (inferred — confirm)
 
 ### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (31 October 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 2044px viewport; tablet width not checked) · **Acceptance:** pending
+**Try:** Opening the burger menu no longer nudges the menu button to the right.
+**Why:** The header stays exactly where it was.
+**Steps:**
+1. Open [the staging home page](https://madewithpixels-dev.webflow.io/) in Chrome on a desktop-width window.
+2. Click the round burger button at the top left, then close it again.
+**Done when:** The button does not move sideways when the menu opens or closes.
+**Time:** about 1 minute
 **Task:** 43612332 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
-**Note:** Probably the page scrollbar disappearing when the menu locks scrolling, which shifts centred or right-aligned items. That cause is a guess. If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
+**Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). Fixed with one rule in the site head code (`html.lenis.lenis-stopped { overflow: hidden scroll !important }`), no class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
 
 ### R-082 · layout changes to project pages
 **State:** planned · **Evidence:** none · **Acceptance:** pending

@@ -234,8 +234,9 @@
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 
-### R-046 · Better layout for /estimate header hero
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #158's result.
 **Task:** 43612319 in your boss list
 **From:** your task list (Adjust Estimator), added 24 October 2026.
 

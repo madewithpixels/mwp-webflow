@@ -669,3 +669,7 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
 - Michael moved R-082 before R-032 (dragged its task in boss).
 
+## 31 October 2026, 14:37 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 31 October 2026 — Accepted by Michael in boss: R-046 (checked: Looked at brief #158's result.)
+

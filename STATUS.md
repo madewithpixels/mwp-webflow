@@ -1,5 +1,49 @@
 # madewithpixels website — Status
 
+## 31 October 2026 — Claude (night shift) — Tablet layout checked at 768px and 1024px; findings listed, nothing changed (R-044, R-039, brief #143)
+**Changed:** Nothing on the site. Read-only: no Webflow tools, no custom code, no classes, no Acceptance. R-044 stays planned (the look is done, the fixes aren't), evidence none for fixes; R-039 stays planned.
+
+**Checked how:** Claude in Chrome on the Mac Studio, published staging (madewithpixels-dev.webflow.io), 31 October 2026. The browser tool's window resize did not change the viewport (it stayed at 1100px), so I loaded the real staging pages inside a same-origin frame set to exactly **768px** and **1024px** wide, about 700px tall, and scrolled through every section with screenshots and measurements of the live page. Because the frame is a true viewport, the Webflow tablet breakpoint (991px and below) applied as it would on an iPad. I also tried 900, 991 and 992px for the two layout breaks below. Pages: Home (all sections) and /estimate. Menu opened at 768px.
+
+### Findings (Michael picks the fix option, D-007)
+**1. Contact section: the big logo is missing on tablet (R-039). 768px, and anywhere at or under 991px.**
+At 991px and below the big pixel logo (`mwp-logo-2`) is set to not display at all, so the contact section is only "Hello." and the form, centred in a 406px column with empty space either side. From 992px up (so 1024px) the logo sits at the left, the form at the right, and it looks right. Phone width likely loses it the same way. The white bubble dot after "Hello." at 768px is where the bubble lands; the logo it should land by isn't there.
+- Option A: show the logo again at tablet, stacked above "Hello." and the form, centred. Existing class, changing its tablet display: **no new class.** Done in the Designer.
+- Option B: keep it hidden on tablet and point the bubble fly-in at "Hello." instead. Needs a look at the fly-in code and the interaction; **no new class**, but custom code.
+- Recommendation: A.
+
+**2. Pricing cards, third card (teal "Yes, we build apps too…"): text runs to and past the card's right edge. 1024px.**
+Cards sit three across at 1024px. In the third card the grey label, the paragraph ("…analytics and search"), "£LessThanYouThink" and "Tell us about your ideas, we'll put our thinking" are cut off at the card's right edge. The card has no right padding at this width. Cards one and two look fine. At 768px the cards stack one under another and all text fits.
+- Option A: add right padding (or reduce the card's width) so the content fits. The teal card is a combo class (`pricing-block teal`), and D-006 says no combo edits through the MCP: **Michael does it in the Designer, no new class.**
+- Option B: size the text down a step between 992 and 1100px. Edits an existing class, no new class.
+- Recommendation: A.
+
+**3. /estimate: question heading squashed and the Next button overlaps. Every width, including 1100px desktop, so not tablet-only.**
+In step 1 the heading "What are you looking for?" is squeezed to 81px wide and wraps over four lines, with a 553px-wide "Next" button beside it. At 1024px that button runs under the "What's shaping your estimate" panel. This comes from the estimator's own code (the `iwa-question-row`), not a Webflow class.
+- Option A: let the row wrap or stack, and make Next its natural width, in the estimator's code (the MWP-Instant-Website-Estimate repo or the site code that styles it). **No new Webflow class.**
+- Option B: give the heading a minimum width. Same place, same effect.
+- Recommendation: A. This belongs to R-046 to R-051 as well; I have not added it there.
+
+**4. /estimate: the page scrolls sideways at tablet widths. 768px, 900px and 991px.**
+The same Next button pushes the page wider than the screen: 816px of content in a 760px view at 768px, 948px at 900px, 1039px at 991px (a 56px, 48px and 48px overflow). At 1024px it fits (1016px). It goes away with the fix to finding 3.
+- Option: fix finding 3; if the page should still never scroll sideways, set no horizontal overflow on the page wrapper (existing element, **no new class**).
+
+**5. Nav at 1024px: the three round buttons sit together at the top left, the tagline "Web design in Sheffield since 2008" is at the top right. At 768px the menu button is left, the phone and mail pill right, and the tagline is gone. Not a break.** The fixed buttons sit over page content as you scroll (for example over the first pricing card's heading at 1024px). That is how the buttons work, so I list it only as something to look at. Menu at 768px portrait: opens, shows Home, About, Pricing, Work, Testimonials, Contact and "Instant Estimate", nothing cut off. I did not open the menu at 1024px.
+
+**6. Testimonial wall: nothing confirmed.** At 768px the quote box is 728px wide in a 760px screen, so only about 16px a side if centred; it slides sideways with scroll, so I couldn't say whether it settles centred. Quotes at 768px and 1024px were readable and not cut off at the points I stopped. Needs Michael's eyes on a real iPad.
+
+**7. Sections with nothing wrong at either width:** hero, "Hundreds of projects" work wall, brands card (BBC, ITV and so on; at 768px the text and card are two narrow columns, readable), "Our promise", sector ticker (its huge text runs off the edge by design), "Your website. Built to last" card, the work list (a plain list at both widths, no sideways-scrolling strip), the "Instant Estimate" call to action (the typo "neccessary" is listed under R-052), and the contact form (inputs and Submit fit).
+
+**Which fixes need a new class (D-006):** none of the above, as far as I can tell. Findings 1 and 2 edit existing classes (finding 2's is a combo, so Michael does it in the Designer); 3 and 4 are code.
+
+**Not checked:** a real iPad or Safari (this was Chrome); heights other than about 700px (the landscape and portrait difference is mostly width, but height-only effects weren't tested); the menu at 1024px; 820px, 834px and 1180px iPad sizes; animation timing (jumping the scroll position isn't the same as scrolling by hand, so a few screenshots caught elements mid-animation and I did not report those); the rest of the estimator steps 2 to 6 and the result screen. Hover and the Designer canvas were not used.
+
+**Needs Michael:** pick an option for findings 1 and 2 (and say whether finding 3 goes to the estimator repo's work). Tasks deleted in his list and kept for his decision: R-036, R-037, R-043, R-059.
+
+**Next useful action:** once he picks, an agent makes the Designer-free fixes after a backup (findings 3 and 4 in code; finding 1 option A and 2 by Michael in the Designer), then checks on staging with Claude in Chrome using the same frame method.
+
+**Handoff:** to test a width when the window won't resize, open any staging page on the same host, replace the page with an iframe of the width you want pointed at the page, and scroll inside it; its media queries follow the frame width.
+
 ## 31 October 2026 — Claude (night shift) — Menu button no longer jumps when the burger menu opens (R-081, brief #149)
 **Changed:** One rule added to the site-wide head custom code in Webflow (site madewithpixels, Site settings > Custom code > Head): `html.lenis.lenis-stopped { overflow: hidden scroll !important; }`, with a comment naming R-081. Nothing else in the head block was changed (I read it first and wrote it back with only that addition; the echo matched). No class, element, page or Designer change. Published to the staging address only (twice: the first version without `!important` did not win against Lenis).
 

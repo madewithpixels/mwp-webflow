@@ -85,6 +85,7 @@
 
 ### R-083 · Page transitions
 **State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1500px wide, project to project both arrows) · **Acceptance:** pending
+**Michael, in boss, 31 October 2026:** not yet — *"It's not quite right yet - the image div scrollbar appears halfway through the transition. It looks like you're treating the scroll-bars differently than the other elements, perhaps they should just slide too instead of you trying to hide them?"*
 **Michael, in boss, 31 October 2026:** not yet — *"The scroll bars from the copy and image div stay in place which ruins the effect"*
 **Try:** On a project page, the left and right arrows now slide the whole project off sideways, bit by bit, and the next project slides in from the other side. The pixel effect is gone.
 **Why:** Moving between projects feels like flicking through a set, in the direction you pressed.
@@ -187,19 +188,22 @@
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
-### R-039 · Contact section is broken
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-039 · Contact section is broken *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #143's result.
 **Task:** 43612310 in your boss list
 **From:** your task list (Responsive layouts).
 **Note:** at phone width the big logo sits mostly off-screen to the left, so the bubble fly-in lands there too. Placing the logo fixes both.
 
-### R-040 · Remove drop shadow from testi-wall bubbles on mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-040 · Remove drop shadow from testi-wall bubbles on mobile *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #142's result.
 **Task:** 43612312 in your boss list
 **From:** your task list (Responsive layouts). Also lightens the wall on phones.
 
-### R-041 · Specific mobile animations of portfolio sideways scrolling section?
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-041 · Specific mobile animations of portfolio sideways scrolling section? *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #142's result.
 **Task:** 43612233 in your boss list
 **From:** your task list (Responsive layouts).
 
@@ -209,18 +213,21 @@
 **From:** your task list (Responsive layouts).
 **Note:** the scroll magnet is desktop only (D-019).
 
-### R-043 · check legibility on mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-043 · check legibility on mobile *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #142's result.
 **Task:** 43612253 in your boss list
 **From:** your task list (Responsive layouts). Feeds the font-weight trim (R-054).
 
-### R-044 · Tablet hasn't even been looked at yet
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-044 · Tablet hasn't even been looked at yet *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #143's result.
 **Task:** 43612305 in your boss list
 **From:** your task list (Responsive layouts).
 
-### R-045 · Long testimonial quotes on phones
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-045 · Long testimonial quotes on phones *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #142's result.
 **Task:** 43612320 in your boss list
 **From:** Suggested by Claude; you agreed it on 24 October 2026 and it's now in your boss list. Raised in an earlier session as an open item. 
 

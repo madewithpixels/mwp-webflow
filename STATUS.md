@@ -655,3 +655,13 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 31 October 2026 — Accepted by Michael in boss: R-052 (checked: Looked at brief #157's result.)
 
+## 31 October 2026, 12:40 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 31 October 2026 — Not yet, Michael in boss: R-083 — *"It's not quite right yet - the image div scrollbar appears halfway through the transition. It looks like you're treating the scroll-bars differently than the other elements, perhaps they should just slide too instead of you trying to hide them?"*. Acceptance stays pending.
+- 31 October 2026 — Accepted by Michael in boss: R-040 (checked: Looked at brief #142's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-041 (checked: Looked at brief #142's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-043 (checked: Looked at brief #142's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-045 (checked: Looked at brief #142's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-044 (checked: Looked at brief #143's result.)
+- 31 October 2026 — Accepted by Michael in boss: R-039 (checked: Looked at brief #143's result.)
+

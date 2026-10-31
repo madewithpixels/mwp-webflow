@@ -131,6 +131,13 @@ Not checked: how it looks without the shadow (nothing changed); frame rate on a 
 **Next useful action:** apply the chosen option in the Designer, publish to staging, and check the menu at 390, 768 and 1024px.
 — Claude (night shift)
 
+## 1 November 2026 — Claude (night shift) — options for the /estimate menu now put in front of Michael in boss (R-078, brief #173)
+**Changed:** nothing in Webflow or on the site. Brief #159 wrote the three options only here, so Michael never saw them ("Telll me the options here"). I have posted them in boss as one question with three one-tap choices (point the five dead links at the home page sections, recommended; show only Home and Instant Estimate; leave as is). The options are the ones in the 1 November entry above, unchanged. State: planned. Evidence: n/a. Acceptance: pending.
+**Webflow tools and backups:** not used, so no "before" or "after" backup and no snapshot.
+**Needs Michael:** press a choice on the boss card.
+**Next useful action:** build his pick in the Designer, publish to staging, check at 390, 768 and 1024px.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — /estimate heading and sideways scroll fixed; pricing card left for Michael (R-044, R-046, brief #158)
 **Changed (R-046, R-044), Webflow, site madewithpixels, published to staging only:** one class, `IWA Question Row` (`.iwa-question-row`, not from the library), base style: added `flex-wrap: wrap` (longhand, read back). No new class, no combo class, no other style, page, custom code or interaction touched. State: built for the /estimate part. Evidence: verified (live: staging, Chrome on the Mac Studio, frames). Acceptance: pending.
 

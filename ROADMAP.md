@@ -6,6 +6,8 @@
 
 *Seven tasks in your list ("Finish MWP site", "MWP landing pages", "Launch MWP social campaign", "Adjust Estimator", "Launch prep", "Responsive layouts", "Page transitions") are headings, already covered by the goal and phases above, so they have no item of their own.*
 
+*Five tasks added on 31 October 2026 (R-084 to R-088) are written up from your list and still need your confirmation of the guesses marked in them.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -15,7 +17,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-082 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088 |
 | 3 | Phone and tablet | R-039–R-045 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
@@ -118,12 +120,26 @@
 **Task:** 43612317 in your boss list
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
 
+### R-085 · Faulty Terminal BG re-initialises between project page transitions
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612342 in your boss list
+**From:** your task list, added 31 October 2026. Your note on it: "Unlikely there's a fix for this, if so - let's remove the FT div on each project page."
+**Done when:** moving from one project page to the next no longer shows the Faulty Terminal background restarting; either it carries on smoothly, or (if that can't be done) the Faulty Terminal element is gone from every project page and nothing else on them has moved. Checked on published staging, project to project with both arrows. (inferred — confirm)
+**Note:** Try for a fix first, but only briefly; your note says a fix is unlikely, so the fallback is to remove the element from each project page. Removing it is a visible change, so options come first (D-007). It touches the same transition as R-083, so check it again after any change there. Home and /estimate keep their Faulty Terminal (R-016). (inferred — confirm)
+
 ### R-074 · Clickable testi-wall
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612325 in your boss list
 **From:** your task list, added 24 October 2026: "During the phase just before the parting in the testi-wall - make portfolio images clickable with a view transition to the project page. Lines should be scrollable and up and down grabbing and scrolling would be glorious."
 **Exit criteria:** while the wall is built and before it parts, clicking a portfolio image opens its project page with the image morphing into place; each row can be dragged sideways; dragging up and down moves the page; a drag never opens a project by accident. Desktop first.
 **Note:** the portfolio images are in the folio wall (under the hero), which also has a parting; the testimonial wall's tiles are plain colour. Taken to mean the folio wall. (inferred — confirm)
+
+### R-086 · Clickable folio-wall
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612343 in your boss list
+**From:** your task list, added 31 October 2026.
+**Done when:** clicking a project image in the folio wall (under the hero) opens that project page. Checked on published staging, desktop first. What a click does exactly (straight link, or the image morphing into place as R-074 describes) is for you to pick from options (D-007). (inferred — confirm)
+**Note:** Closely related to R-074, whose task you deleted: R-074 was taken to mean the folio wall too, and also asked for dragging rows. Decide whether this item replaces R-074 or sits beside it. Scroll animations run on GSAP ScrollTrigger, so read the notes behind D-017 first. (inferred — confirm)
 
 ### R-038 · Move and re-style the navigation arrows *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (1 November 2026, option 1; desktop only) · **Evidence:** verified (live), published staging, Chrome on the Mac Studio, 2044px wide · **Acceptance:** accepted (31 October 2026)
@@ -195,6 +211,28 @@
 **From:** your task list, added 30 October 2026.
 **Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
 **Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
+
+### R-087 · When scrolling back to the top of the page, the H3.Hero-Strapline is blurred and does not resolve back to a readable state
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612344 in your boss list
+**From:** your task list, added 31 October 2026.
+**Done when:** after scrolling down and then back up to the top of the Home page, the hero strapline (the H3 with the class Hero-Strapline) is sharp and readable, as it is on first load. Checked on published staging at desktop width, with Chrome on the Mac Studio. (inferred — confirm)
+**Note:** Not looked into yet. The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
+
+### R-084 · Missing closing quote svg on the Travel Ledger testimonial
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612341 in your boss list
+**From:** your task list, added 31 October 2026.
+**Done when:** the Travel Ledger testimonial shows its closing quote mark, matching the other testimonials, on desktop, tablet and phone on published staging. (inferred — confirm)
+**Note:** Not looked into yet. It may be a missing element in the CMS item or the testimonial component, or a long quote pushing it out of view (R-045); find which before changing anything. No new class without your approval (D-006). (inferred — confirm)
+
+### R-088 · Remove the .Icon-Link from every project page
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612331 in your boss list
+**From:** your task list, added 31 October 2026.
+**Done when:** no project page has the Icon-Link element any more, and the page layout around where it was looks right. Checked on published staging on at least two project pages. (inferred — confirm)
+**Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
+
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

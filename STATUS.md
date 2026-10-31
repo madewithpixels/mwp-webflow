@@ -1,5 +1,19 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — five new tasks written into the roadmap (R-084 to R-088, brief #163)
+**Changed:** ROADMAP.md only. Nothing in Webflow or on the site; no tasks touched. State: planned (all five). Evidence: n/a. Acceptance: pending.
+- **R-084** Missing closing quote svg on the Travel Ledger testimonial (task 43612341)
+- **R-085** Faulty Terminal BG re-initialises between project page transitions (task 43612342). Your note is in it: if there's no fix, remove the Faulty Terminal div from each project page.
+- **R-086** Clickable folio-wall (task 43612343). Sits next to R-074.
+- **R-087** Hero strapline blurred when scrolling back to the top (task 43612344)
+- **R-088** Remove the .Icon-Link from every project page (task 43612331, which had no item; briefs #166 will do the work)
+All five are in Phase 2. Each has a done-when marked "(inferred — confirm)" because you gave no more detail. Task 43612336 already has R-079. The other tasks without an item (Finish MWP site, MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Responsive layouts) are headings already covered by the phases, as the roadmap's opening note says, so I wrote no items for them.
+**Tasks you deleted, items kept for you to decide:** R-082, R-036, R-037, R-074, R-076, R-042, R-059 (and R-043, already accepted). R-074 and the new R-086 overlap; say which stays.
+**Order:** your moves (R-038 and R-076 before R-075; R-082 before R-032) are kept; I found no dependency they break.
+**Needs Michael:** confirm or correct the guesses in R-084 to R-088.
+**Next useful action:** briefs #166, #167 and #168 do R-088, R-085 and R-084.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — Contact pixels now spin back from the heart when scrolling up (R-079, brief #161)
 **Changed (R-079), Webflow, site madewithpixels, published to the webflow.io staging address only:** the **Home page's footer custom code** (Pages > Home > Custom code > Before `</body>`), the fourth `<script>` only (the Testimonials -> speech bubble -> heart script, now v2.3). The other three scripts in that block and the page head were written back exactly: the echoed write and a separate read-back both equal my file character for character (39,664 characters), and the head read back unchanged. No class, style, interaction, component, CMS item or site setting touched; the forward fly-in code is unchanged except that it now also passes on a spin (it never has one when scrolling down). State: built. Evidence: verified (live; staging, Chrome on the Mac Studio, desktop 2044px wide). Acceptance: pending.
 

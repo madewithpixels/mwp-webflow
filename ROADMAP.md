@@ -154,8 +154,9 @@
 **Exit criteria:** the hero section on the home page has a 10 pixel solid red border, set in the Designer's Style panel (not in custom code), and it shows on published staging at desktop width.
 **Note:** looks like a test of the Designer style route, but taken at face value. (inferred — confirm) It needs a style change on the hero section's class, so per D-006 the class name and properties go to you for approval first; if the hero class is shared, say so before it changes. Which hero (home page) and all four sides are assumed. (inferred — confirm)
 
-### R-079 · The bubbles to Quote mark animation transition the contact section doesn't work scrolling back up when the grid is in MWP logo configuration
-**State:** built (1 November 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, desktop 2044px wide) · **Acceptance:** pending
+### R-079 · The bubbles to Quote mark animation transition the contact section doesn't work scrolling back up when the grid is in MWP logo configuration *(accepted by Michael in boss, 31 Oct 2026)*
+**State:** built (1 November 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, desktop 2044px wide) · **Acceptance:** accepted (31 October 2026)
+**Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #161's result.
 **Try:** Scrolling back up from Contact while the pixels show the heart now spins them back into the speech bubble as the bubbles fly back to the wall, instead of jumping.
 **Why:** The heart used to snap to the speech bubble in one frame the moment you scrolled up.
 **Steps:**

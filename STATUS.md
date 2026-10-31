@@ -1,5 +1,19 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — Page transitions: pixel effect removed, project arrows slide content off and on (R-083, brief #146)
+**Changed (R-083):** Webflow, site madewithpixels, **Site settings > Custom code**, both boxes, published to staging only (madewithpixels-dev.webflow.io):
+- **Head:** the pixel-transition CSS and script are replaced by a small block that hides the next project's content until it slides in (and hides the home page while the back button restores your scroll position). The "Home <-> project" view-transition script lost its pixel fallback; the morph is otherwise untouched.
+- **Footer:** the pixel canvas script is replaced by the new slide transition and a plain back button. Everything else in the footer (Lenis, folio hover preview, scroll magnet) was written back exactly as read.
+- Nothing else in Webflow changed (no pages, styles, CMS, components, interactions). The new script is also saved in this repo as `page-transition.js` (R-029 record).
+
+**How it behaves:** pressing a project arrow slides the title, copy, both arrows and the visible screenshots sideways, one after another, towards the arrow pressed (left arrow goes left, right arrow goes right); the next project's content slides in one after another from the opposite side. The nearest-to-the-edge element moves first. Header buttons stay put. Browsers without the morph (Firefox, older Safari) now simply navigate normally between home and projects. Reduced motion: no animation. Timings are the first lines of the script (DURATION 420 ms, STAGGER 70 ms).
+
+**Checked how:** Chrome on the Mac Studio, published staging, 1500px wide, 1 November 2026. Clicked the right arrow on /portfolio/futura and sampled each element's position every frame: staggered, all moved right, screenshots first, no sideways scrollbar, landed on Marek Wojciechowski with no leftover classes. Same with the left arrow (everything moved left, copy first). Forced the entrance on its own (both directions): slides in, then every element returns to normal with nothing left hidden. No console errors. **Not checked:** phone and tablet widths, Safari, Firefox, the back button on a project reached from another project, how it feels to the eye (I could only read numbers and a few screenshots, not watch it).
+
+**Needs Michael:** (1) try it on staging (steps under R-083); (2) two readings I made, please confirm or flip: "direction corresponding to the button" = left arrow sends content left; and the header is left still. Flipping the first is one sign in the script. (3) R-036 and R-037 (tasks deleted) are now covered by R-083; drop or keep them.
+**Backups:** "boss · brief #146 · before" and "boss · brief #146 · after", both made in the Designer and seen in the Backups list; both recorded in boss. Snapshots: not exported. Only custom code changed and the full site code is too large to copy by hand without risk; the changed script is in `page-transition.js`. The snapshot cannot see interactions, so I do not claim they are unchanged.
+**Next useful action:** after Michael's look, tune timing, then check phone and tablet widths (R-040 family) and Safari/Firefox.
+
 ## 31 October 2026 — Claude (night shift) — SEO audit not started: no way to make the Webflow backup (R-053, brief #145)
 **Changed:** Nothing in Webflow and nothing on the site. I used no Webflow tools. R-053 stays planned, evidence none. No Acceptance. No "before" or "after" backup was made, because there was nothing to back up and no change.
 

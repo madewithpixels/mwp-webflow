@@ -83,6 +83,21 @@
 **From:** your task list.
 **Note:** if "marquee" means the sector ticker, the angled bands (R-025) were parked as "needs work"; this may pick that up. (inferred — confirm)
 
+### R-083 · Page transitions
+**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1500px wide, project to project both arrows) · **Acceptance:** pending
+**Try:** On a project page, the left and right arrows now slide the whole project off sideways, bit by bit, and the next project slides in from the other side. The pixel effect is gone.
+**Why:** Moving between projects feels like flicking through a set, in the direction you pressed.
+**Steps:**
+1. Open the [Futura project](https://madewithpixels-dev.webflow.io/portfolio/futura) on staging in Chrome on a wide window.
+2. Press the right-hand arrow under the copy, and watch the content leave to the right, then the next project arrive from the left.
+3. Press the left-hand arrow and check it goes the other way.
+**Done when:** the movement follows the arrow you pressed and no pixel squares appear anywhere.
+**Time:** about 3 minutes
+**Task:** 43612315 in your boss list
+**From:** your task list: "Remove the pixel effect. Instead - the project page elements, copy, nav, screenshots should stagger off horizintally in the direction corresponding the left or right button they clicked with the next project content staggering in from the opposite side".
+**Done when:** the pixel cover is gone from the whole site. On a project page, pressing the left or right arrow makes the title, copy, arrows and screenshots slide off sideways one after another, towards the arrow you pressed; the next project's content then slides in one after another from the opposite side. Other links, and the Home to project title-and-image morph (D-016), are untouched.
+**Note:** takes over R-036 and R-037, whose tasks you deleted; they stay below for you to drop or keep. "Direction corresponding to the button" is read as: the left arrow sends the content off to the left, the right arrow off to the right (inferred — confirm). The site header (menu and contact buttons) stays put (inferred — confirm).
+
 ### R-036 · Remove pixel page-transition
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612316 in your boss list

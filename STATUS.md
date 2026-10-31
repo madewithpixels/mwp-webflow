@@ -1,5 +1,71 @@
 # madewithpixels website — Status
 
+## 31 October 2026 — Claude (night shift) — Phone layout checked at 390px and 360px; findings listed, nothing changed (R-040, R-041, R-043, R-045, brief #142)
+**Changed:** Nothing on the site. Read-only: no Webflow tools, no custom code, no classes, no Acceptance. R-040, R-041, R-043 and R-045 stay planned, evidence none for fixes (this is an audit, not a fix).
+
+**Checked how:** Claude in Chrome on the Mac Studio, published staging (madewithpixels-dev.webflow.io), 31 October 2026. The window resize reports success but the viewport stayed at 768px, so (as in the tablet audit) I loaded the real staging pages in a same-origin frame set to exactly **390px** (933px tall) and then **360px** (740px tall), scrolled through, took screenshots and measured computed styles, contrast ratios and positions. Pages: Home (hero, work wall, intro and brands, about and ticker, pricing, "Wondering about the cost" call to action, Work list, testimonials, contact) and /estimate (intro and step 1). At 390px I viewed every home section by screenshot and measured the whole page. At 360px I measured the whole page and took screenshots of the hero, work wall, intro, pricing, sector ticker, Work list, a long quote and the contact form; the brands card and "Built to last" text were measured, not photographed, at 360px. Contrast ratios are my calculation from the computed text and background colours (WCAG: 4.5 for normal text, 3 for large text); text on photos or gradients can't be measured this way.
+
+### Findings (Michael picks the fix option, D-007)
+
+**R-043 · Legibility on mobile (390px and 360px, same at both)**
+1. **Pink text on the dark teal is low contrast: about 2.4 to 1.** Used for "Web design in Sheffield since 2008" (hero, 18px), the "Hundreds of projects delivered…" heading (28px, home, work wall), "Personal service. Agency-…" and "Your website. Built to last." (32px, about), and the "Work" heading (3.1 to 1 on the grey). Large text should reach 3 to 1, so these all fall short; the small hero line is the worst. The pink on the off-white intro text (24px) is 3.3 to 1.
+   - A: lighten the pink on dark sections to a pinker, lighter shade (about 3.2 to 1 or better). Changes a colour on existing classes; no new class, but it also changes desktop unless done at the phone breakpoint only.
+   - B: keep the pink for headings and make small lines (the hero strapline) off-white instead. Smaller change.
+   - Recommendation: B for the strapline, A for the headings. Michael to say if brand pink must stay exact.
+2. **Grey sector labels in the Work list are tiny and almost invisible: 9.6px, dark grey on dark grey, about 1.6 to 1.** They run vertically down the left ("Industry & Commerce", "Consultancy", and so on).
+   - A: raise to 12px and a lighter grey (about 4.5 to 1). B: drop the vertical text on phones and put the label above each group as a heading. Recommendation: B.
+3. **Small text.** Pricing "strapline" pills (e.g. "Perfect for service businesses and product showcases") are 11px capitals in a dark pill; at 360px the two lines sit very close together (line height 16.8px). "Some brands we've worked with" in the brands card is 13px white on coral (4.2 to 1, just under). The three testimonial author lines are 13px. "Prices start at" is 13px. The big faint sector ticker text (163px, 1.8 to 1) is decoration by design; I list it only so it isn't reported as a fault.
+   - A: set these to 13 to 14px minimum on phones. B: leave. Recommendation: A for the 11px pills.
+4. **Hero.** The hero strapline words ("web · Brand · Social") are measured at 11px (the teal one 2.6 to 1) but I did not see them on screen at either width, so I can't say they matter. To verify.
+5. **Contact form.** Placeholders ("Your name" and so on) are small and pale grey on white; I did not measure their ratio. To verify.
+6. **/estimate (both widths).** "Breakdown" in the bottom bar is 12px teal on dark teal, 2.6 to 1. "Estimated investment:" is 12.8px. The disabled "Next" button is white at 45% opacity on teal (reads as intended, but faint). The page and form are otherwise legible. This is the estimator's own code, not a Webflow class.
+   - A: raise "Breakdown" to a lighter teal and 14px in the estimator's styles. Recommendation: A.
+7. **/estimate layout (a real fault, both widths).** The step 1 heading "What are you looking for?" is squeezed to 81px wide (four lines) and the "Next" button beside it is 286px wide, so the page is wider than the phone: **424px of content at 360px (64px sideways scroll), 454px at 390px (64px).** The same fault as finding 3 of the tablet audit, so its fix covers both. Options as there: let the row wrap or stack with Next at its natural width, or give the heading a minimum width. Recommendation: stack the row on phones.
+   - Also note: the intro on /estimate ends "Yes, really…" which looks cut by design; I read it as a deliberate trailing line.
+8. **Typos seen again:** "neccessary" in "No email address neccessary" (already under R-052).
+
+**R-045 · Long testimonial quotes on phones**
+Quotes do not overflow or get cut off by length. I stepped through all ten at 390px (frame height 933px) and 360px (740px). The longest (the 432-character Now Then Magazine / Sam Walby quote at 18px) has its text 294px tall at 390px and 343px at 360px (the whole quote box is 367px at 390px), and fits the screen with the author line. I could not see the biggest quote overflow at either width. The real problems are position and size:
+1. **The quote block is wider than the screen margin allows and sits to the left.** It is a 382px (390px) / 352px (360px) box with the text block 350px / 320px wide, so about 30 to 40px of empty space on the right and **the text touches or goes past the left edge: left edge between −3px and +8px at 390px, −2px to +25px at 360px** (it also slides sideways while the wall moves, so it only settles at about −2px). In the screenshots, the first lines of the Roberto Da Rae and Sam Walby quotes start flush against the screen edge, and on the Alley Bridge-York one the left margin is about 12px.
+   - A: set a left and right padding (about 20px) on the quote and make it centre when the wall stops. Existing class; no new class.
+   - B: leave the layout and just stop the sideways drift settling off-centre (a custom code or interaction fix; needs a look at the wall's interactions).
+   - Recommendation: A, then check at 360px.
+2. **Quote text is 18px italic, author 13px bold italic.** Readable, but the author line is small.
+3. **Not checked:** quotes of unusual length (nothing longer than 432 characters exists today). At 320px (small older phones) the longest quote would be taller still (about 380px, my estimate); I did not test 320px.
+
+**R-040 · Drop shadow on testi-wall bubbles (phone)**
+The shadow is a CSS filter, not a box shadow: `drop-shadow(0 5.6px 11.2px rgba(0,0,0,0.28))` on both front "rows" of bubbles (two elements, class `testi-wall_row`), plus blur filters (5px on the front rows, 10px on the back rows) for the depth effect. Seen on the bubbles above and below the quote in the quote screenshots (I read the filter from the computed style; the shadow itself is hard to see under the blur). The rows are about 5,400 to 5,900px wide and hold the bubbles, so the browser redraws a very big filtered area as you scroll. Likely a cost on a phone, though I did not measure frame rate (Claude in Chrome throttles).
+- A: remove the drop-shadow filter on phones only (keep desktop). Edits an existing class at the phone breakpoint; no new class, but the filter might be set through the interaction or custom code, so a backup first.
+- B: remove it everywhere. Simpler; changes the desktop look.
+- C: keep the shadow, and drop the blur filters on phones instead.
+- Recommendation: A (matches your task note).
+
+**R-041 · Portfolio sideways-scrolling section on phones**
+There is **no sideways-scrolling strip in the "Work" section on phones**: at 390px and 360px it is a plain vertical list of names under group labels, with no horizontal overflow (page width 382px / 352px, so no sideways page scroll on the home page). The sideways movement on phones comes from two other places:
+1. **The work wall ("Hundreds of projects…")**: rows of screenshots sliding sideways as you scroll, with the heading fading in word by word; screenshots are cut off at both screen edges by design.  It starts about 1,200px down the page at both widths.
+2. **The testimonial wall** (the section from about 25,000px down the page at 390px): a pinned stage about 5,900px wide that slides sideways as you scroll, with each quote fading in. I could scroll through it fine; each quote showed for about 500 to 700px of scroll.
+So I cannot judge "specific mobile animations of the portfolio sideways scrolling section" as written, because the Work section doesn't do it. Possibly Michael means the work wall or the testimonial wall.
+- A: treat R-041 as the work wall: on phones, slow the sideways movement, or turn the rows into a simple scroll with no pinning.
+- B: treat it as the testimonial wall and combine with R-040.
+- C: close R-041 as "not applicable on phones, because the Work list is a plain list".
+- Recommendation: C, unless he wants the work wall changed.
+- Not checked: how it feels to touch-scroll with a finger, and any animation timing; the frame method jumps the scroll position.
+
+**Other things seen:**
+- On the home page there is a large empty gap (about 650px) below the brands card at 390px before the next section; it may be an animation that hasn't played because I jumped the scroll. To verify with a real scroll.
+- The contact section has no logo on phones (same cause as the tablet audit's finding 1, R-039).
+- The "ft debug" panel text (11px) exists in the page but is hidden; not a visitor issue.
+
+**Not checked:** a real phone or Safari on iOS (this was Chrome); 320px and landscape phones; touch behaviour; frame rates; the rest of the estimator (steps 2 to 6, the result screen), since stepping through needs clicking answers; text on photos for contrast; the menu opened at 360px; the hero strapline words and form placeholders (item 4 and 5 above).
+
+**Which fixes need a new class (D-006):** none that I can see. R-043 items 1 to 3 edit existing classes (colour and size at the phone breakpoint); R-045 option A is padding on an existing class; R-040 option A is a breakpoint style on an existing class or a custom code change. /estimate items are in the estimator's own code.
+
+**Needs Michael:** pick an option for each of R-043 items 1, 2 and 3, R-045 and R-040, and say what R-041 should be (A, B or C). R-043's task was deleted in his list; kept for his decision.
+
+**Next useful action:** once he picks, back up first, then make the Designer-free fixes (the estimator row, then breakpoint colours and sizes) and re-check on staging at 390px and 360px with the same frame method.
+
+**Handoff:** the frame method: on any staging page run a script that replaces the page with an iframe of the target width pointing at the page, then scroll the frame's window. Do not trust `resize_window` here: it reports success but the viewport stays at 768px.
+
 ## 31 October 2026 — Claude (night shift) — Tablet layout checked at 768px and 1024px; findings listed, nothing changed (R-044, R-039, brief #143)
 **Changed:** Nothing on the site. Read-only: no Webflow tools, no custom code, no classes, no Acceptance. R-044 stays planned (the look is done, the fixes aren't), evidence none for fixes; R-039 stays planned.
 

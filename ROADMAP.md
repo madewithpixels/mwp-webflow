@@ -417,6 +417,7 @@
 
 ### R-078 · The /estimate page needs the home page link adding to the SB anchor links
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 31 October 2026:** not yet — *"Telll me the options here."*
 **Task:** 43612335 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** on published staging, the SmashBurger menu on /estimate has a link to the home page alongside its anchor links, and it opens the home page. (inferred — confirm)

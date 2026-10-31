@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — ticker: copy gathered, layout options put to Michael (R-080, brief #190)
+**Changed:** ROADMAP only (R-080's done-when now carries Michael's note). Nothing in Webflow, nothing published, no custom code. I made no Webflow tool call, so no backup was made and no snapshot changed. State: planned. Evidence: verified (live; staging and the live site read in Chrome by script and page text). Acceptance: pending.
+**How the ticker is built now (staging, Home):** section `.ticker`, 4528px tall, with a sticky 1358px panel holding 5 rows (`.ticker__row`, each a `.ticker__track` of `.ticker__item`s, rows 1 and 3 moving left, row 2 and 4 right, 210px high). Only 12 phrases appear: Not-for-profits, Public & Private Sector, Charities, Small to Medium Enterprise, Boutique Retailers, Commercial Manufacturing, Music Industry, Travel & Tourism, Arts & Publishing, Healthcare, Software, Social Enterprise. Each is repeated 6 times to fill the row.
+**Sectors and business types in the copy but not in the ticker:** from staging: Industry & Commerce, Consultancy, Visitor Attractions, Nightlife & Entertainment, E-commerce, Music (and the "Hundreds of projects... charity" line). From the live site: Media, Museums and Heritage, Retail, Global corporations, Design/marketing/PR agencies (white label), E-commerce with point-of-sale stock integration, event and ticketing tools, E-learning and online education, CRM and accounting integrations, blogs, photography, architecture and media portfolios, asset and service-management portals, Travel, Tourism.
+**Why not built:** the layout is a visual change, so D-007 says options first. Asked in boss; nothing else depends on the answer.
+**Needs Michael:** pick the layout (question in boss).
+**Next useful action:** after his pick, backup, then build in the Designer.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — hero strapline blur dropped at Michael's word (R-087, brief #186)
 **Changed:** R-087 is now marked dropped in the roadmap. Nothing in Webflow, nothing published, no code or interaction touched. I made no Webflow tool call, so no backup was needed and no snapshot changed. Evidence: n/a (docs only). Acceptance: pending.
 **Why:** Michael chose "Leave it, I can't see it now" in boss on brief #185's question, with the note: "I can't reproduce it now either - let's forget it". I am recording his decision, not making one.

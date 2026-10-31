@@ -193,7 +193,7 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612340 in your boss list
 **From:** your task list, added 30 October 2026.
-**Done when:** the ticker section has the improvements you want, checked on published staging. Michael gave no detail, so what they are comes first: options are put to you before any visual change (D-007). (inferred — confirm)
+**Done when:** the ticker lists every sector and business type named in the staging and live site copy, laid out so most of it can be read by scrolling through a couple of screens' height, checked on published staging. Michael's note (1 November 2026, brief #190): "Take all sectors and business types from staging body copy (and current live madewithpixels.co.uk site copy) and structure the typographic ticker section as such that it's possible to read most of the content by scrolling through a couple of screens worth of height". The layout choice is put to him first (D-007); asked in boss on 1 November 2026.
 **Note:** Taken to mean the sector ticker. It may overlap R-035 (more interesting typography in the marquee section) and the parked angled bands (R-025); decide whether they merge. (inferred — confirm)
 
 ### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open *(accepted by Michael in boss, 31 Oct 2026)*

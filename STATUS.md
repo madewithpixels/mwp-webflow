@@ -1,5 +1,25 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — SEO, schema and llms.txt audit done (R-053, brief #155)
+**Changed:** nothing on the site and nothing in Webflow (no Webflow tools used, so no backup needed). Wrote `docs/seo-audit.md`. R-053: built (audit), evidence verified (live, staging, Chrome, Mac Studio). No Acceptance.
+**Checked how:** read the rendered pages of Home, /estimate, /success and nine project pages, plus /robots.txt, /sitemap.xml and /llms.txt. Not checked: the custom domain, a schema validator, 30 other project pages (same template), page status codes.
+
+**Problems and options for Michael (full table in docs/seo-audit.md):**
+1. No canonical tag on any page. R-060 sets it; must happen before launch.
+2. No share picture on Home or /estimate. Options: designed card (recommended), hero screenshot, or none. You choose the image.
+3. All 192 images on Home have empty alt text. Option: agent writes alt for the meaningful ones (recommended), or leave.
+4. No `sameAs` in the schema (R-064). Needs your LinkedIn, GitHub and Webflow profile addresses.
+5. Price mismatch: Home says complex projects start at £2000; schema and llms.txt say £5,000. Which is right?
+6. /success: heading reads "404", no description, in the sitemap. Option: change heading and noindex (recommended), or noindex only.
+7. R-069: no noindex tag on any page; staging is held back only by robots.txt (`Disallow: /`). Before launch: live robots.txt must allow crawling; /success noindex.
+8. Project pages carry only an H1. Optional: show the description as text.
+9. Home heading levels skip (H2 to H4/H5). Optional tidy-up.
+10. Project title patterns are inconsistent. Optional tidy-up.
+11. /llms.txt exists and is good; links use the www address so work only after launch.
+
+**Needs Michael:** answers to 2, 4, 5 and 6; the launch-day switches (1, 7).
+**Next useful action:** once 4 and 5 are answered, agent adds `sameAs` and fixes the price (custom code, with backups).
+
 ## 1 November 2026 — Claude (night shift) — Project arrows moved to the screen edges, plain coral (R-038, brief #153)
 **Michael's verdict recorded:** on option 1 (brief #147's options): "Option 1 is fine". He did not say whether I may add a class, so I added none (D-006).
 

@@ -85,6 +85,7 @@
 
 ### R-083 · Page transitions
 **State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1500px wide, project to project both arrows) · **Acceptance:** pending
+**Michael, in boss, 31 October 2026:** not yet — *"The scroll bars from the copy and image div stay in place which ruins the effect"*
 **Try:** On a project page, the left and right arrows now slide the whole project off sideways, bit by bit, and the next project slides in from the other side. The pixel effect is gone.
 **Why:** Moving between projects feels like flicking through a set, in the direction you pressed.
 **Steps:**

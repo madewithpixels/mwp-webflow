@@ -509,3 +509,8 @@ Written in from Michael's task list in boss. The order is his; the runner only m
 **Changed:** R-081's Try block now asks Michael to check both the original sideways nudge and the new problem he reported: "the nav is now continually shaking side to side" while the menu is open. State and Evidence untouched; Acceptance still pending.
 **Still open:** the shaking is not investigated. Likely suspect (inferred): the R-081 head rule forces a permanent scrollbar while Lenis locks the page, which may fight the scroll lock or the background effect. Needs a look on published staging with Chrome; not checked tonight (no browser).
 **Needs Michael:** say whether the shaking is still there.
+
+## 31 October 2026, 09:37 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 31 October 2026 — Not yet, Michael in boss: R-083 — *"The scroll bars from the copy and image div stay in place which ruins the effect"*. Acceptance stays pending.
+

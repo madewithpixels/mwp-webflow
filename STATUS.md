@@ -1,5 +1,37 @@
 # madewithpixels website — Status
 
+## 31 October 2026 — Claude (night shift) — 12 clear typo fixes applied and published to staging (R-052, brief #157)
+**Changed (R-052):** 12 clear fixes from the 30 October copy audit, edited in Webflow with the MCP and published to staging only (madewithpixels-dev.webflow.io). State: built. Evidence: verified (live: staging, read in Chrome on the Mac Studio, rendered text, 31 October 2026; not checked at any other width or browser). Acceptance: pending. No styles, classes, layout or custom code touched.
+
+| # | Page | Old wording | New wording |
+|---|---|---|---|
+| 1 | Home, George Marshall testimonial | "Managing Director - Hasltead Glass" | "Managing Director - Halstead Glass" |
+| 2 | Home, sector ticker | "Commerical Manufacturing" | "Commercial Manufacturing" |
+| 3 | Home, estimate call to action | "No email address neccessary" | "No email address necessary" |
+| 4 | Home, Complex Digital Projects card | "relies on everyday." | "relies on every day." |
+| 5 | Home, George Marshall testimonial | "Thank-you." | "Thank you." |
+| 6 | Home, Simon Spinks testimonial | "Managing Director -Aquaculture" | "Managing Director - Aquaculture" (I used a plain hyphen with a space, to match the George Marshall line, not the en dash the audit suggested) |
+| 7 | Continuum Group, third paragraph | "…sustainable. T" and a separate paragraph "he result was…" | one paragraph: "…sustainable. The result was…" (the leftover empty-looking second paragraph element was removed) |
+| 8 | Futura, second paragraph | "implementation.The site" | "implementation. The site" |
+| 9 | Molly Malone's, first paragraph | "Molly Malones Sheffield" | "Molly Malone's Sheffield" |
+| 10 | Mr Wilson's, opening line | "…for Mr Wilson's:, a popular Sheffield jazz-lounge." | "…for Mr Wilson's, a popular Sheffield jazz lounge." |
+| 11 | Halstead Glass, last paragraph | "new CRO tools innovative for the glazing sector" | "innovative new CRO tools for the glazing sector" |
+| 12 | Farmer Norton, hidden section label (screen readers only) | aria-label "About us" | aria-label "Project" |
+
+**Not applied, on purpose:** (a) the /estimate comment box placeholder "Example Text": the audit marked the wording as yours; (b) the Insight name mismatch ("The Insight Partnership" on the Home list, "The Insight CBT Partnership" on its page): the audit filed it under "needs Michael's decision", and I can't tell which name is right. If brief #157 meant this one as a fix, tell me which name and I'll apply it. Note the audit's "clear fix" rows total 13; I counted 12 by leaving out the placeholder.
+
+**Outputs:** Webflow edits on Home and the Continuum Group, Futura, Molly Malone's, Mr Wilson's, Halstead Glass and Farmer Norton pages (these are static pages in Webflow, there are no CMS collections, so no CMS items changed). Published to staging only, no custom domain. Backups in the Designer: "boss · brief #157 · before" and "boss · brief #157 · after" (both Designer route; element count went from 3482 to 3480, the removed Continuum paragraph). snapshots/pages/home.json updated for the six Home texts.
+
+**Checked how:** after publishing, I loaded each of the 7 pages on staging in Chrome and checked the rendered text: all 12 new wordings present and the old ones gone (the Molly Malone's and Mr Wilson's lines read back correctly once the HTML was decoded). Each edit also reported success from Webflow; the Farmer Norton label was read back as "Project".
+
+**Not checked / the snapshot's limits:** the snapshot cannot see interactions or animations and only home.json exists in snapshots/pages, so the six project pages have no before/after snapshot file; the Webflow backups are the record for them. I didn't look at the pages visually (layout, wrapping, ticker animation) or at other widths.
+
+**Still open, for Michael (unchanged from the 30 October audit; nothing here was touched):** testimonial details for Alley Bridge-York, Creswell Heritage Trust and "Cottril"; the Insight name; the Mednet, Jessop, Shogun and Club 60 names; Soyo / SOYO / SoYo Live styles; "Grotesque#9" vs "Grotesque No. 9"; E-commerce spelling; pricing wording ("at" vs "from", £2000 vs £2,000); "Long term"/"Joined up"/"focussed"; the Promise semicolon; Origin Global "I also introduced"; Kent Life copy (a copy of Oxford Castle's); Mr Wilson's second paragraph (a copy of Code's); Code title and CODE; Success page title and stray "404"; years missing on some work-list entries; the /estimate placeholder wording; and whether the site needs privacy or cookie pages.
+
+**Needs Michael:** please check the seven pages on staging and back up (D-008).
+
+**Next useful action:** Michael answers the open questions; an agent applies them the same way (R-052).
+
 ## 1 November 2026 — Claude (night shift) — SEO, schema and llms.txt audit done (R-053, brief #155)
 **Changed:** nothing on the site and nothing in Webflow (no Webflow tools used, so no backup needed). Wrote `docs/seo-audit.md`. R-053: built (audit), evidence verified (live, staging, Chrome, Mac Studio). No Acceptance.
 **Checked how:** read the rendered pages of Home, /estimate, /success and nine project pages, plus /robots.txt, /sitemap.xml and /llms.txt. Not checked: the custom domain, a schema validator, 30 other project pages (same template), page status codes.

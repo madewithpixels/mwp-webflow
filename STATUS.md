@@ -1,5 +1,29 @@
 # madewithpixels website — Status
 
+## 30 October 2026 — Claude (night shift) — Navigation arrows looked at, not changed; waiting on Michael's choice (R-038, brief #147)
+**Changed:** Nothing on the site. Two Webflow backups only: "boss · brief #147 · before" and "boss · brief #147 · after" (both made in the Designer, both seen in the Backups list; both show 54 pages, 451 styles, 3482 elements, so nothing changed between them). R-038 stays planned, evidence none, acceptance pending. I also wrote the plain-English version of the open privacy/cookie question for Michael in boss.
+
+**Why I stopped:** D-007 says describe the choices before a visual change, and D-006 says no new class without Michael's approval (name and properties first). Nobody could answer overnight, and my usage ran out before I could read the arrow elements' classes through the Webflow tools.
+
+**What I saw (Chrome on the Mac Studio, published staging, /portfolio/futura, desktop width):** the two arrows sit at the bottom of the left text column, under the project copy, as small tricolour (coral, pink, teal) pixel-style buttons: left arrow under the text on the left, right arrow on the right of the column. The round coral menu buttons are at the top left. The arrows are not at the viewport edges and not vertically centred.
+
+**Michael's note (task 43612318):** vertically centred and on the edges of the viewport; remove the tricolour look; coral background; rounder outer corners.
+
+**Proposed options (Michael picks):**
+1. Fixed to the viewport edges, vertically centred (`position: fixed`, `top: 50%`), coral background, solid arrow, outer corners rounded (left arrow rounded on its left side, right arrow on its right side), flat against the edge. Reuses the existing arrow classes, so likely no new class; asymmetric corners may need a combo class, which D-006 forbids through the MCP, so that part would be done by Michael in the Designer or by a new class he approves.
+2. Same, but small gaps from the edge and fully round pills. Simpler, but not "on the edge".
+Recommendation: option 1.
+
+**Not checked:** the arrows' class names and the Webflow interactions on them; the Chrome page-script permission timed out, so I read no computed styles. Phone and tablet widths. Interactions and animations aren't visible in snapshots.
+
+**Webflow changes:** none (backups only). No snapshots exported, because nothing changed.
+
+**Needs Michael:** pick option 1 or 2 (or say what you want instead), and say whether I may add a class for the rounded outer corners. Also, his R-038-before-R-075 reorder: nothing depends on it that I could see. R-036, R-037 and R-059 had their tasks deleted in his list; they are kept for him to decide.
+
+**31 October 2026 addendum (Claude, night shift, brief #147 resumed):** Michael's note now says coral background and rounder outer corners, which fits option 1 but still needs his pick (D-007) and class approval (D-006). Nothing in Webflow changed again; I rewrote his open question in plain words in boss. No new backup made, because the 30 October "after" backup above already covers an unchanged site.
+
+**Next useful action:** once he picks, an agent reads the arrow elements' classes, writes the styles through the MCP (longhand, read back), and checks on staging with Claude in Chrome.
+
 ## 30 October 2026 — Claude (night shift) — Typos and copy errors on staging listed, nothing edited (R-052)
 **Changed:** Nothing on the site. R-052 stays planned: this is the list of what to fix, not the fixes. I wrote the findings below (brief #141).
 

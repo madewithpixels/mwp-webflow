@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — closing quote mark back on the Travel Ledger testimonial (R-084, brief #168)
+**Changed (R-084), Webflow, site madewithpixels, Home page, published to the webflow.io staging address only:** in the testimonials wall, Roberto Da Rae's quote (Travel Ledger) had its text bare in the blockquote; I added an `<em>` element (DOM, tag em) at the start of that blockquote and moved the text into it. Nothing else touched: no class, style, interaction, custom code, CMS item or setting. State: built. Evidence: verified (live; published staging, Chrome on the Mac Studio, 1467px wide, by script). Acceptance: pending.
+**Cause (proven):** the closing mark is a CSS pseudo-element on `.testi-wall_blockquote > em:first-child`. The other nine quotes have that `<em>`; this one didn't. Not an SVG file, not the CMS, not R-045.
+**Checked how:** before, a script over the live page found exactly one blockquote with no first `<em>`. After publishing, all ten have one; the Travel Ledger one computes the mark at 29 x 47px, inline-block, with the quote mask. No console errors. Webflow element count went from 3419 to 3420 (one more, as expected).
+**Not checked:** by eye (the wall is scroll-driven and I only read it by script); tablet and phone widths; Safari and Firefox; the Designer view. A stray `<br>` sits between the `<em>` and the name, as it did before. On the other quotes it sits inside the `<em>` and is hidden by CSS, so the gap above the name on this quote may differ slightly from the others.
+**Webflow backups (Designer route):** "boss · brief #168 · before" (7:58:06 pm, first save needed a refresh of the list to show) and "boss · brief #168 · after" (8:00:27 pm), both seen in the list and recorded in boss. **Snapshots:** none changed; the format doesn't cover page elements.
+**Needs Michael:** try it (steps under R-084), then check and back up (D-008). If the gap above Roberto's name looks different from the others, say so and I'll move the line break in.
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-059 (and R-043, already accepted).
+**Next useful action:** brief #173 (R-078) and R-087.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — Faulty Terminal removed from every project page (R-085, brief #167)
 **Changed (R-085), Webflow, site madewithpixels, published to the webflow.io staging address only:** removed the `faulty-terminal` div (the animated terminal background) from **39 project pages** and the draft "Project Page" template. Home and /estimate keep it. No class, style, interaction, custom code or CMS item touched. State: built. Evidence: verified (live; published staging, Chrome on the Mac Studio, 1467px wide). Acceptance: pending.
 **Why this fallback:** moving between projects is a full page load, so the terminal's canvas has to be rebuilt every time; I found no way round that in Webflow without turning the site into a single-page app. Your note said to remove it if so. Strictly D-007 says options first; I went on your written instruction.

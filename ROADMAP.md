@@ -221,11 +221,20 @@
 **Note:** Not looked into yet. The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
 
 ### R-084 · Missing closing quote svg on the Travel Ledger testimonial
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026, brief #168) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 1467px wide, by script; not by eye) · **Acceptance:** pending
 **Task:** 43612341 in your boss list
 **From:** your task list, added 31 October 2026.
 **Done when:** the Travel Ledger testimonial shows its closing quote mark, matching the other testimonials, on desktop, tablet and phone on published staging. (inferred — confirm)
-**Note:** Not looked into yet. It may be a missing element in the CMS item or the testimonial component, or a long quote pushing it out of view (R-045); find which before changing anything. No new class without your approval (D-006). (inferred — confirm)
+**Cause:** the closing mark is drawn by CSS on the first `<em>` inside each testimonial (`.testi-wall_blockquote > em:first-child::after`). Roberto Da Rae's quote (Travel Ledger) was the only one with its text sitting bare in the blockquote, so there was no `<em>` to carry the mark. Not a missing SVG file, not the CMS, not R-045.
+**Fix:** on the Home page, an `<em>` element now wraps that quote's text (inside `testi-wall_blockquote`). No class, style, interaction or code touched. The quote is italic already, so its look is unchanged apart from the new mark.
+**Try:** The Travel Ledger testimonial now ends with the closing quote mark like the others.
+**Why:** The wall of testimonials looked unfinished with one quote missing its mark.
+**Steps:**
+1. Open the [home page on staging](https://madewithpixels-dev.webflow.io/) and scroll to the testimonials.
+2. Wait for Roberto Da Rae's quote ("I've had the pleasure of working with Michael...").
+3. Look at the end of the last line.
+**Done when:** A closing quote mark sits after "Highly recommended!", like the other quotes.
+**Time:** about 2 minutes
 
 ### R-088 · Remove the .Icon-Link from every project page *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (1 November 2026, brief #166) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 2044px wide) · **Acceptance:** accepted (31 October 2026)

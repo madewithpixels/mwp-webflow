@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — options for a clickable testimonial wall (R-074, brief #165)
+**Changed:** one new file, `docs/testi-wall-click-options.md`. Nothing in Webflow, nothing published, no interaction touched. I made no Webflow tool call, so no backup was needed and no snapshot changed. State: planned (options written). Evidence: verified (live, published staging, Chrome on the Mac Studio, 2044px wide) for what I read; the options themselves are not built. Acceptance: pending.
+**What I found:** the testimonial wall is 191 empty coloured tiles with no text, image, link or project name. The ten testimonials are a separate layer that fades in after the wall parts, and it ignores clicks. The wall moves only with the scroll (one scroll-tied animation), so there is nothing to "pause". The Contact bubbles script borrows 42 of the tiles. The project images are in the folio wall, not here.
+**Options (full detail in the file):** 1) click a tile to read a testimonial in a larger card (custom code, three new classes to approve); 2) click a tile to open a project (custom code, but tiles don't know their project, so the mapping is invented); 3) leave this wall and make the folio wall clickable (R-086; a straight link is Designer-only).
+**Recommendation:** fold R-074 into R-086 and do option 3 first; if you still want the testimonial wall clickable, do option 1; skip option 2. I don't recommend dragging rows on the testimonial wall (it fights the scroll animation).
+**Checked how:** page read and screenshots on staging; `contact-bubbles.js` read in the repo. **Guessed or not checked:** I did not read the interaction or the Designer classes (skipped the Webflow tools; that would need a Designer backup); the exact scroll range where a tile is clickable; drag conflicts; the quote-to-project match (from names only); phones, tablets, Safari, Firefox; holding and releasing the page's smooth scroll without a jump.
+**Open: R-074's task was deleted in your list** (with R-082, R-036, R-037, R-076, R-042, R-059, and R-043 already accepted). I kept the items for you to decide. R-074 and R-086 overlap; say which stays.
+**Needs Michael:** pick an option (1, 2 or 3), and say whether R-074 folds into R-086.
+**Next useful action:** after your pick, an options note for how a folio-wall click opens a project (R-086), or the Option 1 build.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — five new tasks written into the roadmap (R-084 to R-088, brief #163)
 **Changed:** ROADMAP.md only. Nothing in Webflow or on the site; no tasks touched. State: planned (all five). Evidence: n/a. Acceptance: pending.
 - **R-084** Missing closing quote svg on the Travel Ledger testimonial (task 43612341)

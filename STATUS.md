@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Codex — centre row starts the raspberry stagger (R-035)
+**Changed:** corrected the previous interpretation. The centre row now starts first; the reveal then moves outward through alternating rows above and below it. Each row still lights out from the horizontal centre to both edges, and reverses with scroll.
+**Outputs:** Home footer read back exactly; head unchanged. Mirrored in `ticker-marquee.js` and the custom-code snapshot. Published to staging only. Hard Light backing and full-colour raspberry lettering retained.
+**Checked how:** verify the live centre row sequence and record screenshot.
+**Still open:** Michael's visual judgement; acceptance pending.
+**Needs Michael:** refresh staging and check the order.
+**Next useful action:** review the centre-out stagger.
+— Codex
+
 ## 1 November 2026 — Claude (night shift) — testi-wall shadow removed at tablet and phone (R-093, brief #218)
 - 1 November 2026 — Accepted by Michael in boss: R-035 (checked: not stated)
 **Changed (Webflow):** Site madewithpixels, page Home, **head custom code only**: appended a small `<style>` with `@media (max-width: 991px)` setting `filter: none` on the testi-wall's two front rows (the `drop-shadow` filter rule from the same block). Everything else in the block is unchanged (read back in full). Published to staging (webflow.io) only. No class, style, element or interaction changed.
@@ -1039,3 +1048,12 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 1 November 2026 — Accepted by Michael in boss: R-080 (checked: not stated)
 
+
+## 1 November 2026 — Codex — remove duplicate ticker dash and lift resting text colour (R-035)
+**Changed:** hid the en-dash glyph inside each gradient separator while preserving its width and gradient bar. Changed the existing `.ticker__item` colour from `#4f6d75` to `#2f4d55`, about 10% brighter than slate `#2b464e`; the scroll-lit raspberry remains `#d9466c`. Centre-out stagger is retained.
+**Outputs:** Home footer read back with the separator fix; `Ticker__Item` read back with the new colour. Mirrored the footer in `snapshots/custom-code.json`, the marquee script in `ticker-marquee.js`, and the class snapshot. Published to the staging domain only. A fresh Chrome tab loaded staging; its accessibility tree confirms the page but does not prove the rendered colours or separator appearance. No new class.
+**Checked how:** MCP read-back confirms the exact colour and script insertion; Chrome loaded the published staging page. Its accessibility tree does not expose the separator rendering or computed text colour, so visual confirmation remains open.
+**Still open:** live visual check and Michael's acceptance.
+**Needs Michael:** review the separator bar and resting text colour on staging, then back up.
+**Next useful action:** Michael’s visual check of the published marquee.
+— Codex

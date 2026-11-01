@@ -21,6 +21,11 @@
   if (!section || !rows.length) return;
   const desktop = window.matchMedia('(min-width: 992px)');
 
+  // The separator's en dash is source text over its gradient bar; hide the glyph but retain the bar and separator for assistive text.
+  document.querySelectorAll('.ticker__item .dash').forEach((dash) => {
+    dash.style.color = 'transparent';
+  });
+
   // Split each sector's text into letters
   document.querySelectorAll('.ticker__item > div').forEach((word) => {
     word.classList.add('ticker__word');
@@ -130,8 +135,11 @@
   function sweep() {
     const P = sweepProgress(),
       vw = window.innerWidth;
+    const middle = (state.length - 1) / 2;
     state.forEach((s, k) => {
-      const rowP = Math.min(1, Math.max(0, P - k));
+      const distance = Math.abs(k - middle);
+      const rank = k === middle ? 0 : k < middle ? distance * 2 - 1 : distance * 2 - 2;
+      const rowP = Math.min(1, Math.max(0, P - rank));
       // each row lights from the viewport centre out towards both edges
       const reach = rowP * vw / 2;
       const t = s.track.getBoundingClientRect().left;

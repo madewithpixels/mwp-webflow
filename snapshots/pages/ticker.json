@@ -1,0 +1,2466 @@
+{
+  "id": {
+    "component": "683cced100c63d0f60a847af",
+    "element": "01e7ce04-1f31-2e39-ba61-c6efe30be711"
+  },
+  "type": "Block",
+  "styleNames": [
+    "Ticker"
+  ],
+  "attributes": {
+    "aria-label": "Sectors served",
+    "data-snap": "1"
+  },
+  "settings": {
+    "tag": "aside",
+    "visibility": true,
+    "block": {
+      "tag": "aside"
+    }
+  },
+  "children": [
+    {
+      "id": {
+        "component": "683cced100c63d0f60a847af",
+        "element": "66b1bebf-ac1f-2e9d-e389-92a0a9abb231"
+      },
+      "type": "Block",
+      "styleNames": [
+        "ticker__sticky"
+      ],
+      "settings": {
+        "tag": "div",
+        "visibility": true,
+        "block": {
+          "tag": "div"
+        }
+      },
+      "children": [
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "ddd37720-7ddc-648b-1be8-3c861d639345"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row",
+            "ticker__row--left"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "aecc7b16-5e96-d110-b6e0-229f6fa6e607"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "fcc61be4-27f9-25fc-249e-4af9c89d7453"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "3438370b-6330-2477-2a99-59de660b7430"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      }
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "d0e4b696-9fbe-c934-c347-dac68ca665c0"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "df183acc-768f-505a-dd69-1f06e05d6247"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "cbc60951-9c25-2808-a3ba-3e4c8816eb2b"
+                              },
+                              "type": "String",
+                              "textContent": "Not-for-profits "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "96b8cbfe-9a3f-026f-938c-6fbe958dd6ea"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "96b8cbfe-9a3f-026f-938c-6fbe958dd6e9"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "09c7a7a9-c882-dfc1-65a2-52fb5ab7ec61"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "09c7a7a9-c882-dfc1-65a2-52fb5ab7ec62"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "09c7a7a9-c882-dfc1-65a2-52fb5ab7ec63"
+                              },
+                              "type": "String",
+                              "textContent": "Public & Private Sector "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "09c7a7a9-c882-dfc1-65a2-52fb5ab7ec64"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "09c7a7a9-c882-dfc1-65a2-52fb5ab7ec65"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "cd9a5c8b-65f5-4bdb-e162-fe7019e1154e"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "1a7cf327-f1f8-508f-6a87-227e9c3ad6ae"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "0f4963f1-9671-1fe0-f5b1-65eebd4a49a4"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "6272c0b2-94bd-8658-7264-5879ba1ba4a8"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "c311efb3-c7bc-0eb4-4d9c-7b26f9717005"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "c311efb3-c7bc-0eb4-4d9c-7b26f9717006"
+                              },
+                              "type": "String",
+                              "textContent": "Charities "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "c311efb3-c7bc-0eb4-4d9c-7b26f9717007"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "c311efb3-c7bc-0eb4-4d9c-7b26f9717008"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "f45cb50e-b0e3-8fbf-7003-d5a3f5818673"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "f45cb50e-b0e3-8fbf-7003-d5a3f5818674"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f45cb50e-b0e3-8fbf-7003-d5a3f5818675"
+                              },
+                              "type": "String",
+                              "textContent": "Small to Medium Enterprise "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f45cb50e-b0e3-8fbf-7003-d5a3f5818676"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "f45cb50e-b0e3-8fbf-7003-d5a3f5818677"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "91acfc0c-bdd9-4392-c267-e9eaf75682ec"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "91acfc0c-bdd9-4392-c267-e9eaf75682ed"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "91acfc0c-bdd9-4392-c267-e9eaf75682ee"
+                              },
+                              "type": "String",
+                              "textContent": "Boutique Retailers "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "91acfc0c-bdd9-4392-c267-e9eaf75682ef"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "91acfc0c-bdd9-4392-c267-e9eaf75682f0"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "f53e2bc0-fc57-5d36-2f95-7cdf139b4452"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row",
+            "ticker__row--right"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "1c73a738-14c8-0e1f-a5f3-23d88893e70c"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "ece03750-cedc-1d87-c50e-d747b528ba2a"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "0f36cb86-4f5d-0592-b66e-1a73cafd9220"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "0f36cb86-4f5d-0592-b66e-1a73cafd9221"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "0f36cb86-4f5d-0592-b66e-1a73cafd9222"
+                              },
+                              "type": "String",
+                              "textContent": "Commercial Manufacturing "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "0f36cb86-4f5d-0592-b66e-1a73cafd9223"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "0f36cb86-4f5d-0592-b66e-1a73cafd9224"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "61262010-bb98-481a-3960-1388b8cd760f"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "61262010-bb98-481a-3960-1388b8cd7610"
+                              },
+                              "type": "String",
+                              "textContent": "Music Industry "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "61262010-bb98-481a-3960-1388b8cd7611"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "61262010-bb98-481a-3960-1388b8cd7612"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "5a03ebb1-4c3a-962a-3b42-3d896a6307e8"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "5a03ebb1-4c3a-962a-3b42-3d896a6307e9"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "5a03ebb1-4c3a-962a-3b42-3d896a6307ea"
+                              },
+                              "type": "String",
+                              "textContent": "Travel & Tourism "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "5a03ebb1-4c3a-962a-3b42-3d896a6307eb"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "5a03ebb1-4c3a-962a-3b42-3d896a6307ec"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "3182ce4b-420c-6dbf-7af1-92502e61c616"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "cf70efb3-ebe8-e144-0351-126a2f13cda9"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "e18decf7-edfe-24d1-6431-074be87c70fb"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "ed5d0097-dfc8-9bc7-b473-b5ae05924e49"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "ed5d0097-dfc8-9bc7-b473-b5ae05924e4a"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "ed5d0097-dfc8-9bc7-b473-b5ae05924e4b"
+                              },
+                              "type": "String",
+                              "textContent": "Arts & Publishing "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "ed5d0097-dfc8-9bc7-b473-b5ae05924e4c"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "ed5d0097-dfc8-9bc7-b473-b5ae05924e4d"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "7b913390-6a1d-e61f-d3c4-22547801a75b"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "7b913390-6a1d-e61f-d3c4-22547801a75c"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7b913390-6a1d-e61f-d3c4-22547801a75d"
+                              },
+                              "type": "String",
+                              "textContent": "Healthcare "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7b913390-6a1d-e61f-d3c4-22547801a75e"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "7b913390-6a1d-e61f-d3c4-22547801a75f"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "286d2e38-8693-fdc6-91e0-f26a838135b8"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "286d2e38-8693-fdc6-91e0-f26a838135b9"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "286d2e38-8693-fdc6-91e0-f26a838135ba"
+                              },
+                              "type": "String",
+                              "textContent": "Software "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "286d2e38-8693-fdc6-91e0-f26a838135bb"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "286d2e38-8693-fdc6-91e0-f26a838135bc"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "dd452b92-f036-b2e0-f5f5-a8b2080a905f"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "dd452b92-f036-b2e0-f5f5-a8b2080a9060"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "dd452b92-f036-b2e0-f5f5-a8b2080a9061"
+                              },
+                              "type": "String",
+                              "textContent": "Social Enterprise "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "dd452b92-f036-b2e0-f5f5-a8b2080a9062"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "dd452b92-f036-b2e0-f5f5-a8b2080a9063"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "7a7fea9a-e59e-9568-7232-85821b0a546f"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "7a7fea9a-e59e-9568-7232-85821b0a546e"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "7a7fea9a-e59e-9568-7232-85821b0a546d"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "7a7fea9a-e59e-9568-7232-85821b0a5462"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "7a7fea9a-e59e-9568-7232-85821b0a5461"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a545c"
+                              },
+                              "type": "String",
+                              "textContent": "Industry "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a545d"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a545e"
+                              },
+                              "type": "String",
+                              "textContent": " Commerce "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a5460"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "7a7fea9a-e59e-9568-7232-85821b0a545f"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "7a7fea9a-e59e-9568-7232-85821b0a5467"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "7a7fea9a-e59e-9568-7232-85821b0a5466"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a5463"
+                              },
+                              "type": "String",
+                              "textContent": "Consultancy "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a5465"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "7a7fea9a-e59e-9568-7232-85821b0a5464"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "7a7fea9a-e59e-9568-7232-85821b0a546c"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "7a7fea9a-e59e-9568-7232-85821b0a546b"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a5468"
+                              },
+                              "type": "String",
+                              "textContent": "Visitor Attractions "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "7a7fea9a-e59e-9568-7232-85821b0a546a"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "7a7fea9a-e59e-9568-7232-85821b0a5469"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "440b15b6-a679-ea69-4997-912713bc2209"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "440b15b6-a679-ea69-4997-912713bc2208"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "440b15b6-a679-ea69-4997-912713bc2207"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "440b15b6-a679-ea69-4997-912713bc21fc"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "440b15b6-a679-ea69-4997-912713bc21fb"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21f6"
+                              },
+                              "type": "String",
+                              "textContent": "Nightlife "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21f7"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21f8"
+                              },
+                              "type": "String",
+                              "textContent": " Entertainment "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21fa"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "440b15b6-a679-ea69-4997-912713bc21f9"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "440b15b6-a679-ea69-4997-912713bc2201"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "440b15b6-a679-ea69-4997-912713bc2200"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21fd"
+                              },
+                              "type": "String",
+                              "textContent": "E-commerce "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc21ff"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "440b15b6-a679-ea69-4997-912713bc21fe"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "440b15b6-a679-ea69-4997-912713bc2206"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "440b15b6-a679-ea69-4997-912713bc2205"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc2202"
+                              },
+                              "type": "String",
+                              "textContent": "Media "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "440b15b6-a679-ea69-4997-912713bc2204"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "440b15b6-a679-ea69-4997-912713bc2203"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "f4aa9f70-b922-da3f-ba82-d47a838b29e3"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29e2"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "f4aa9f70-b922-da3f-ba82-d47a838b29e1"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d6"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d5"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d0"
+                              },
+                              "type": "String",
+                              "textContent": "Museums "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d1"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d2"
+                              },
+                              "type": "String",
+                              "textContent": " Heritage "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d4"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d3"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "f4aa9f70-b922-da3f-ba82-d47a838b29db"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "f4aa9f70-b922-da3f-ba82-d47a838b29da"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d7"
+                              },
+                              "type": "String",
+                              "textContent": "Retail "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d9"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "f4aa9f70-b922-da3f-ba82-d47a838b29d8"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "f4aa9f70-b922-da3f-ba82-d47a838b29e0"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "f4aa9f70-b922-da3f-ba82-d47a838b29df"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29dc"
+                              },
+                              "type": "String",
+                              "textContent": "Global Corporations "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "f4aa9f70-b922-da3f-ba82-d47a838b29de"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "f4aa9f70-b922-da3f-ba82-d47a838b29dd"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8410"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840f"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840e"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8403"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8402"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d83fd"
+                              },
+                              "type": "String",
+                              "textContent": "Design, Marketing "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d83fe"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d83ff"
+                              },
+                              "type": "String",
+                              "textContent": " PR Agencies "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8401"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8400"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8408"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8407"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8404"
+                              },
+                              "type": "String",
+                              "textContent": "Event Ticketing "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8406"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8405"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840d"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840c"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8409"
+                              },
+                              "type": "String",
+                              "textContent": "E-learning "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840b"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d840a"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "36c5ae25-9104-3526-0eb5-ec4397b29e95"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker__Row"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e94"
+              },
+              "type": "Block",
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "36c5ae25-9104-3526-0eb5-ec4397b29e93"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Track"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "36c5ae25-9104-3526-0eb5-ec4397b29e84"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "36c5ae25-9104-3526-0eb5-ec4397b29e83"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e7e"
+                              },
+                              "type": "String",
+                              "textContent": "CRM "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e7f"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e80"
+                              },
+                              "type": "String",
+                              "textContent": " Accounting Integrations "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e82"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "36c5ae25-9104-3526-0eb5-ec4397b29e81"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8b"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8a"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e85"
+                              },
+                              "type": "String",
+                              "textContent": "Portfolios "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e86"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e87"
+                              },
+                              "type": "String",
+                              "textContent": " Blogs "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e89"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "36c5ae25-9104-3526-0eb5-ec4397b29e88"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": {
+                        "component": "683cced100c63d0f60a847af",
+                        "element": "36c5ae25-9104-3526-0eb5-ec4397b29e92"
+                      },
+                      "type": "Block",
+                      "styleNames": [
+                        "Ticker__Item"
+                      ],
+                      "settings": {
+                        "tag": "div",
+                        "visibility": true,
+                        "block": {
+                          "tag": "div"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": {
+                            "component": "683cced100c63d0f60a847af",
+                            "element": "36c5ae25-9104-3526-0eb5-ec4397b29e91"
+                          },
+                          "type": "Block",
+                          "settings": {
+                            "tag": "div",
+                            "visibility": true,
+                            "block": {
+                              "tag": "div"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8c"
+                              },
+                              "type": "String",
+                              "textContent": "Asset "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8d"
+                              },
+                              "type": "String",
+                              "textContent": "&"
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8e"
+                              },
+                              "type": "String",
+                              "textContent": " Service Management Portals "
+                            },
+                            {
+                              "id": {
+                                "component": "683cced100c63d0f60a847af",
+                                "element": "36c5ae25-9104-3526-0eb5-ec4397b29e90"
+                              },
+                              "type": "Span",
+                              "styleNames": [
+                                "Dash"
+                              ],
+                              "settings": {
+                                "visibility": true
+                              },
+                              "children": [
+                                {
+                                  "id": {
+                                    "component": "683cced100c63d0f60a847af",
+                                    "element": "36c5ae25-9104-3526-0eb5-ec4397b29e8f"
+                                  },
+                                  "type": "String",
+                                  "textContent": "—"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "a374e952-3c87-0f0f-1246-c35327e94db7"
+          },
+          "type": "Block",
+          "styleNames": [
+            "ticker__mask"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "1d36c240-83b3-8920-1f22-3ae3e251bd89"
+              },
+              "type": "Heading",
+              "styleNames": [
+                "type__mask"
+              ],
+              "settings": {
+                "tag": "h2",
+                "visibility": true,
+                "headingLevel": 2
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "1d36c240-83b3-8920-1f22-3ae3e251bd8a"
+                  },
+                  "type": "String",
+                  "textContent": "Sectors & Specialisms"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

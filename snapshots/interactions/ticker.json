@@ -1,0 +1,484 @@
+[
+  {
+    "id": "i-a396b91e",
+    "name": "Ticker Mask Scroll",
+    "pageId": "683cced100c63d0f60a847af",
+    "scope": {
+      "type": "pages",
+      "value": [
+        "683cced100c63d0f60a847af"
+      ]
+    },
+    "triggers": [
+      {
+        "extensionKey": "wf:scroll",
+        "config": {
+          "controlType": "scroll",
+          "scrollTriggerConfig": {
+            "clamp": true,
+            "start": "top top",
+            "end": "bottom top",
+            "scrub": 0.1,
+            "enter": "play",
+            "leave": "none",
+            "enterBack": "none",
+            "leaveBack": "none"
+          }
+        },
+        "target": {
+          "extensionKey": "wf:inst",
+          "value": [
+            "683cced100c63d0f60a847af",
+            "73346b65-5131-a878-5c20-b10f89ebe94f"
+          ],
+          "filterContext": {
+            "relationship": "none",
+            "filterBy": [
+              "wf:class",
+              []
+            ],
+            "firstMatchOnly": false
+          }
+        }
+      }
+    ],
+    "timelines": [
+      {
+        "id": "t-5a6d0428",
+        "pageId": "683cced100c63d0f60a847af",
+        "actions": [
+          {
+            "id": "mask-travel",
+            "name": "One Sectors & Specialisms pass from the right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  50,
+                  -50
+                ],
+                "x": [
+                  "50vw",
+                  "-50vw"
+                ],
+                "y": [
+                  0,
+                  0
+                ],
+                "yPercent": [
+                  0,
+                  0
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "1d36c240-83b3-8920-1f22-3ae3e251bd89"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          }
+        ],
+        "version": 1
+      }
+    ],
+    "conditionalPlayback": [
+      {
+        "type": "prefers-reduced-motion",
+        "behavior": "dont-animate"
+      }
+    ],
+    "version": 4
+  },
+  {
+    "id": "i-24c831a7",
+    "name": "Ticker Drift",
+    "pageId": "683cced100c63d0f60a847af",
+    "scope": {
+      "type": "pages",
+      "value": [
+        "683cced100c63d0f60a847af"
+      ]
+    },
+    "triggers": [
+      {
+        "extensionKey": "wf:scroll",
+        "config": {
+          "controlType": "scroll",
+          "scrollTriggerConfig": {
+            "clamp": true,
+            "start": "top bottom",
+            "end": "bottom top",
+            "scrub": 1,
+            "enter": "play",
+            "leave": "none",
+            "enterBack": "none",
+            "leaveBack": "none"
+          }
+        },
+        "target": {
+          "extensionKey": "wf:inst",
+          "value": [
+            "683cced100c63d0f60a847af",
+            "73346b65-5131-a878-5c20-b10f89ebe950"
+          ],
+          "filterContext": {
+            "relationship": "none",
+            "filterBy": [
+              "wf:class",
+              []
+            ],
+            "firstMatchOnly": false
+          }
+        }
+      }
+    ],
+    "timelines": [
+      {
+        "id": "t-5184c030",
+        "pageId": "683cced100c63d0f60a847af",
+        "actions": [
+          {
+            "id": "row1",
+            "name": "Row 1 slow drift left",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -18.33,
+                  -20.3925
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "fcc61be4-27f9-25fc-249e-4af9c89d7453"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row2",
+            "name": "Row 2 slow drift right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -40.83,
+                  -39.1425
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "0f4963f1-9671-1fe0-f5b1-65eebd4a49a4"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row3",
+            "name": "Row 3 slow drift left",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -14.17,
+                  -16.045
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "ece03750-cedc-1d87-c50e-d747b528ba2a"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row4",
+            "name": "Row 4 slow drift right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -36.67,
+                  -35.17
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "e18decf7-edfe-24d1-6431-074be87c70fb"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row6",
+            "name": "Row 6 slow drift right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -38,
+                  -36.5
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "7a7fea9a-e59e-9568-7232-85821b0a546d"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row7",
+            "name": "Row 7 slow drift left",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -20,
+                  -21.95
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "440b15b6-a679-ea69-4997-912713bc2207"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row8",
+            "name": "Row 8 slow drift right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -35,
+                  -33.65
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "f4aa9f70-b922-da3f-ba82-d47a838b29e1"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row9",
+            "name": "Row 9 slow drift left",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -16,
+                  -17.95
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "57fd32b8-4e65-4fb7-1ba2-06198a9d840e"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          },
+          {
+            "id": "row10",
+            "name": "Row 10 slow drift right",
+            "timing": {
+              "duration": 1,
+              "position": 0,
+              "ease": 0
+            },
+            "tt": 2,
+            "properties": {
+              "wf:transform": {
+                "xPercent": [
+                  -40,
+                  -38.5
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "36c5ae25-9104-3526-0eb5-ec4397b29e93"
+                ],
+                "filterContext": {
+                  "relationship": "none",
+                  "filterBy": [
+                    "wf:class",
+                    []
+                  ],
+                  "firstMatchOnly": false
+                }
+              }
+            ]
+          }
+        ],
+        "version": 1
+      }
+    ],
+    "conditionalPlayback": [
+      {
+        "type": "prefers-reduced-motion",
+        "behavior": "dont-animate"
+      }
+    ],
+    "version": 6
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "id": "i-a396b91e",
+  "name": "Ticker Mask Scroll",
+  "pageId": "683cced100c63d0f60a847af",
+  "scope": {
+    "type": "pages",
+    "value": [
+      "683cced100c63d0f60a847af"
+    ]
+  },
+  "triggers": [
+    {
+      "extensionKey": "wf:scroll",
+      "config": {
+        "controlType": "scroll",
+        "scrollTriggerConfig": {
+          "clamp": true,
+          "start": "top bottom",
+          "end": "bottom top",
+          "scrub": 0.1,
+          "enter": "play",
+          "leave": "none",
+          "enterBack": "none",
+          "leaveBack": "none"
+        }
+      },
+      "target": {
+        "extensionKey": "wf:inst",
+        "value": [
+          "683cced100c63d0f60a847af",
+          "01e7ce04-1f31-2e39-ba61-c6efe30be711"
+        ],
+        "filterContext": {
+          "relationship": "none",
+          "filterBy": [
+            "wf:class",
+            []
+          ],
+          "firstMatchOnly": false
+        }
+      }
+    }
+  ],
+  "timelines": [
+    {
+      "id": "t-90516514",
+      "pageId": "683cced100c63d0f60a847af",
+      "actions": [
+        {
+          "id": "mask-travel",
+          "name": "Mask text passes upwards over the rows",
+          "timing": {
+            "duration": 1,
+            "position": 0,
+            "ease": 0
+          },
+          "tt": 2,
+          "properties": {
+            "wf:transform": {
+              "y": [
+                "100svh",
+                "0svh"
+              ],
+              "yPercent": [
+                0,
+                -100
+              ]
+            }
+          },
+          "targets": [
+            {
+              "extensionKey": "wf:inst",
+              "value": [
+                "683cced100c63d0f60a847af",
+                "1d36c240-83b3-8920-1f22-3ae3e251bd89"
+              ],
+              "filterContext": {
+                "relationship": "none",
+                "filterBy": [
+                  "wf:class",
+                  []
+                ],
+                "firstMatchOnly": false
+              }
+            }
+          ]
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "conditionalPlayback": [
+    {
+      "type": "prefers-reduced-motion",
+      "behavior": "dont-animate"
+    }
+  ],
+  "version": 2
+}

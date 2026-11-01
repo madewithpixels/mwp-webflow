@@ -89,7 +89,13 @@
 **From:** your task list.
 
 ### R-035 · More interesting typography in the marquee section
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026) · **Evidence:** verified (live; latest reference crop, two edge fades, Hard Light backing and centre-out raspberry stagger on staging in Chrome on the Mac Studio) · **Acceptance:** pending
+**Try:** Our promise holds for reading, then an angled transparent-to-slate sweep enters from the right. One “Sectors & Specialisms” mask travels right to left, then the stage releases to “Your website. Built to last.” The mask crop follows Michael's screenshots, with fades into Faulty Terminal at both viewport edges. Its reveal layer uses Hard Light at 70% opacity. Raspberry reveals each row from the viewport centre out to both edges, progressing down the rows over scroll and reversing when scrolling back.
+**Steps:**
+1. Refresh [Home on staging](https://madewithpixels-dev.webflow.io/) and scroll down from above Our promise.
+2. Check the reading hold, right-hand sweep, single sideways text pass and release into the next section. Scroll back to check the reverse.
+**Done when:** this sequence feels continuous, with no ticker entrance from below or abrupt disappearance, and the vertical fade still reveals Faulty Terminal. Michael will review the revealed marquees afterwards.
+**Implementation:** a shared sticky stage contains the existing promise and ticker. Native Webflow GSAP controls the sweep and H2; a runtime SVG text clip follows the H2. The helper measures one heading width for the mask phase's scroll distance, with separate reading and sweep ranges. Existing nine-row typography and slow drift retained; no new Designer class. See latest STATUS entry, 1 November 2026, Codex.
 **Task:** 43612313 in your boss list
 **From:** your task list.
 **Note:** if "marquee" means the sector ticker, the angled bands (R-025) were parked as "needs work"; this may pick that up. (inferred — confirm)
@@ -206,6 +212,7 @@
 **From:** your task list, added 30 October 2026.
 **Done when:** the ticker lists every sector and business type named in the staging and live site copy, laid out so most of it can be read by scrolling through a couple of screens' height, checked on published staging. Michael's note (1 November 2026, brief #190): "Take all sectors and business types from staging body copy (and current live madewithpixels.co.uk site copy) and structure the typographic ticker section as such that it's possible to read most of the content by scrolling through a couple of screens worth of height". The layout choice is put to him first (D-007); asked in boss on 1 November 2026. **Michael, in boss, 1 November 2026:** *"list them all out there maybe opp to reduce them"* — taken to mean: put every sector in the ticker, and trim the list where it is too long. Full and trimmed lists sent back to him to confirm before building.
 **Note:** Taken to mean the sector ticker. It may overlap R-035 (more interesting typography in the marquee section) and the parked angled bands (R-025); decide whether they merge. (inferred — confirm)
+**Later layout revision (1 November 2026, Codex):** Michael asked to merge Software and Social Enterprise into the Arts & Publishing row and fill the viewport with nine larger rows. This later mask/layout revision is tracked under R-035 with acceptance pending; the acceptance above records the earlier ten-row version.
 
 ### R-081 · Nav Menu Button jumps to the right a few pixels when burger menu open *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (31 October 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 2044px viewport; tablet width not checked) · **Acceptance:** accepted (31 October 2026)

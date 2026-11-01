@@ -1,0 +1,376 @@
+{
+  "id": {
+    "component": "683cced100c63d0f60a847af",
+    "element": "73346b65-5131-a878-5c20-b10f89ebe950"
+  },
+  "type": "Block",
+  "attributes": {
+    "data-mwp-sequence": "promise-sectors",
+    "data-snap": "1"
+  },
+  "settings": {
+    "tag": "div",
+    "visibility": true,
+    "block": {
+      "tag": "div"
+    }
+  },
+  "children": [
+    {
+      "id": {
+        "component": "683cced100c63d0f60a847af",
+        "element": "73346b65-5131-a878-5c20-b10f89ebe94e"
+      },
+      "type": "Block",
+      "attributes": {
+        "aria-hidden": "true",
+        "data-sequence-phase": "wipe"
+      },
+      "settings": {
+        "tag": "div",
+        "visibility": true,
+        "block": {
+          "tag": "div"
+        }
+      }
+    },
+    {
+      "id": {
+        "component": "683cced100c63d0f60a847af",
+        "element": "73346b65-5131-a878-5c20-b10f89ebe94f"
+      },
+      "type": "Block",
+      "attributes": {
+        "aria-hidden": "true",
+        "data-sequence-phase": "mask"
+      },
+      "settings": {
+        "tag": "div",
+        "visibility": true,
+        "block": {
+          "tag": "div"
+        }
+      }
+    },
+    {
+      "id": {
+        "component": "683cced100c63d0f60a847af",
+        "element": "6c9886c1-cc04-e0bd-7e45-b413002e68ff"
+      },
+      "type": "Block",
+      "styleNames": [
+        "About-Section",
+        "Top"
+      ],
+      "settings": {
+        "tag": "div",
+        "visibility": true,
+        "block": {
+          "tag": "div"
+        }
+      },
+      "children": [
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "0b6c9ff6-c726-53d8-3cf3-e33a7c44138e"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Container",
+            "--is-position-relative"
+          ],
+          "settings": {
+            "tag": "div",
+            "visibility": true,
+            "block": {
+              "tag": "div"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "f37ca007-220d-32ed-4129-680aefe1c68d"
+              },
+              "type": "Block",
+              "styleNames": [
+                "About Top Track"
+              ],
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "394c497e-cc32-828a-73a5-688723859e75"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "--is-twocol",
+                    "About Top"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": {
+            "component": "683cced100c63d0f60a847af",
+            "element": "01e7ce04-1f31-2e39-ba61-c6efe30be711"
+          },
+          "type": "Block",
+          "styleNames": [
+            "Ticker"
+          ],
+          "attributes": {
+            "aria-label": "Sectors served"
+          },
+          "settings": {
+            "tag": "aside",
+            "visibility": true,
+            "block": {
+              "tag": "aside"
+            }
+          },
+          "children": [
+            {
+              "id": {
+                "component": "683cced100c63d0f60a847af",
+                "element": "66b1bebf-ac1f-2e9d-e389-92a0a9abb231"
+              },
+              "type": "Block",
+              "styleNames": [
+                "ticker__sticky"
+              ],
+              "settings": {
+                "tag": "div",
+                "visibility": true,
+                "block": {
+                  "tag": "div"
+                }
+              },
+              "children": [
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "96ff1c41-f7ee-a9b0-e1e6-84fdda5718e6"
+                  },
+                  "type": "Block",
+                  "attributes": {
+                    "aria-hidden": "true",
+                    "data-mwp-slate-wipe": ""
+                  },
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "ddd37720-7ddc-648b-1be8-3c861d639345"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row",
+                    "ticker__row--left"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "cd9a5c8b-65f5-4bdb-e162-fe7019e1154e"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "f53e2bc0-fc57-5d36-2f95-7cdf139b4452"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row",
+                    "ticker__row--right"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "3182ce4b-420c-6dbf-7af1-92502e61c616"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "7a7fea9a-e59e-9568-7232-85821b0a546f"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "440b15b6-a679-ea69-4997-912713bc2209"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "f4aa9f70-b922-da3f-ba82-d47a838b29e3"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "57fd32b8-4e65-4fb7-1ba2-06198a9d8410"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "36c5ae25-9104-3526-0eb5-ec4397b29e95"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "Ticker__Row"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                },
+                {
+                  "id": {
+                    "component": "683cced100c63d0f60a847af",
+                    "element": "a374e952-3c87-0f0f-1246-c35327e94db7"
+                  },
+                  "type": "Block",
+                  "styleNames": [
+                    "ticker__mask"
+                  ],
+                  "settings": {
+                    "tag": "div",
+                    "visibility": true,
+                    "block": {
+                      "tag": "div"
+                    }
+                  },
+                  "hasMoreChildren": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

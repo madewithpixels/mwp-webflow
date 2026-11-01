@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — testi-wall stacked entries: could not diagnose, no browser (R-094, brief #226)
+**Changed:** nothing in Webflow, the site or the repo code. Docs only (this entry). R-094 already existed (written in brief #225), so I did not add another. State stays planned. Evidence: none. Acceptance: pending.
+**What I found:** the session had no browser tools (no tab, screenshot, resize or page-script tools were offered), so I could not look at the wall at any width or scroll position. I only downloaded the staging page's HTML: it has the wall's markup (stage, sticky, `testi-wall_quotes` holding ten `testi-wall_quote` blockquotes, 157 chips), but the stacking depends on the scroll animation, which static HTML can't show. No cause guessed.
+**Webflow:** no Webflow tool was used, so no "before" or "after" backup was made and no snapshot changed. Both would need the Designer open in a browser, which I didn't have.
+**Plain rewrite:** rewrote the open question about the missing screenshot as a to-do for Michael.
+**Needs Michael:** a screenshot, or one line saying at what width and scroll position the entries pile up. It would stop me looking for the wrong thing.
+**Next useful action:** re-run brief #226 in a session with Chrome ticked; first checks are the ten `.testi-wall_quote` elements' positions and transforms at 1440, 768 and 390px, scrolling down and back up (see D-017 and D-018 for the scroll-animation traps).
+
 ## 1 November 2026 — Claude (night shift) — new roadmap item for the testi-wall stacked entries bug (R-094, brief #225)
 **Changed:** wrote R-094 "Fix the testi-wall stacked entries bug" (task 43612346) into Phase 2, with a done-when and notes. Roadmap only: no Webflow, site or task changes.
 **Guesses (inferred — confirm):** what "stacked" looks like, which widths it affects, and the done-when. Your task has no description, so I did not guess further.

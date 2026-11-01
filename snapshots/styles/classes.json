@@ -9066,7 +9066,7 @@
           "font-family": {
             "id": "variable-5965d009-0594-886c-886c-1561c955cb8c"
           },
-          "font-size": "clamp(3rem, 15svh, 11rem)",
+          "font-size": "clamp(2rem, 7svh, 6rem)",
           "font-weight": "200",
           "justify-content": "center",
           "letter-spacing": {

@@ -1,5 +1,19 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — ticker: ten rows, smaller type (R-080, brief #208)
+**Changed (in Webflow, site madewithpixels, page Home):**
+1. Five new rows added inside `.ticker__sticky`, after the existing five, using the existing classes `Ticker__Row`, `Ticker__Track`, `Ticker__Item` and `Dash` (no new class). New phrases: Industry & Commerce, Consultancy, Visitor Attractions, Nightlife & Entertainment, E-commerce, Media, Museums & Heritage, Retail, Global Corporations, Design, Marketing & PR Agencies, Event Ticketing, E-learning, CRM & Accounting Integrations, Portfolios & Blogs, Asset & Service Management Portals. With the 12 already there, 27 in all.
+2. Class `Ticker__Item`: font-size changed from `clamp(3rem, 17.5svh, 12rem)` to `clamp(2rem, 7svh, 6rem)` (longhand, read back). Michael's note asked for smaller copy.
+3. Interaction **Ticker Drift** (`i-24c831a7`): five actions added (rows 6–10), one per new track; rows 1–5 re-sent unchanged. The drift targets each track by element, not by class, so new rows would not have moved without this. Alternating directions, same xPercent ranges as rows 1–5.
+4. Published to madewithpixels-dev.webflow.io only. Nothing on the custom domain. No custom code touched, section height unchanged (400svh).
+**Backups:** "boss · brief #208 · before" and "boss · brief #208 · after", both made on the Webflow dashboard (the Designer URL redirected to the dashboard in my own tab, so the Designer route failed).
+**Checked how (Evidence: verified (live)):** published staging in Chrome on the Mac Studio, 2044×1132 viewport: 10 rows, item font 79px, rows 86px each, 867px of rows inside the 1358px panel; screenshot shows all 27 sectors readable and rows offset. The footer ticker script copied each row 6 times (18 items per 3-phrase row). Phone (390×844) and tablet (820×1180): measured in an embedded frame, rows 646px and 911px, both inside the panel; not looked at by eye.
+**Not checked:** scroll-tied drift of the new rows by eye (the interaction update was read back and accepted); the raspberry sweep on the new rows (same script, not eyeballed); the Designer canvas (it doesn't run custom code). The snapshot cannot see interactions; `snapshots/pages/home.json` was **not** refreshed with the five new rows (only `snapshots/styles/classes.json` changed), so the saved page snapshot is behind Webflow.
+**Left as it is:** row 1 still has an empty first `Ticker__Item`; the old `mwp-site-menu-*` menu; the empty duplicate "Hero Fade Out".
+**Needs Michael:** look at it on staging, and say which sectors to trim or reword. Check and back up (D-008).
+**Next useful action:** Michael's look; then refresh the Home snapshot.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — new task written up (R-093, brief #193)
 **Changed:** ROADMAP only. Added R-093 (Phase 3) for task 43612345, "Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile", with a done-when and guesses marked (inferred — confirm). Nothing in Webflow, nothing published. State: planned. Evidence: none. Acceptance: pending.
 **Tasks with no roadmap item:** the other six listed (MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Finish MWP site, Responsive layouts) are headings already covered by the goal and phases, so they got no item (see the note at the top of ROADMAP).

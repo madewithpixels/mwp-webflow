@@ -192,7 +192,16 @@
 **Note:** Michael's wording is taken to mean the reverse of the Testimonials-to-Contact bubble fly-in. Scroll animations run on GSAP ScrollTrigger, so read the sticky-section and redraw notes behind D-017 first. (inferred — confirm)
 
 ### R-080 · Ticker Section enhancements
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide; phone 390px and tablet 820px checked in an embedded frame only, not by eye) · **Acceptance:** pending
+**Michael, in boss, 1 November 2026 (brief #208):** chose *More rows* — note: *"trimmed, thinking we should reduce the size of the copy so that addding more rows is fine, but easier to read"*.
+**Try:** The sector ticker now lists 27 sectors across 10 moving rows, in smaller type, so you can read most of it while scrolling through the section.
+**Why:** Every sector from the site copy appears, and it is easier to read.
+**Steps:**
+1. Open [the staging home page](https://madewithpixels-dev.webflow.io/) in Chrome on a desktop-width window.
+2. Scroll slowly down through the dark blue sector section.
+3. Check that every row drifts sideways and nothing is cut off top or bottom.
+**Done when:** All 10 rows move and read cleanly; tell me if you want any sector removed or reworded.
+**Time:** about 2 minutes
 **Task:** 43612340 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** the ticker lists every sector and business type named in the staging and live site copy, laid out so most of it can be read by scrolling through a couple of screens' height, checked on published staging. Michael's note (1 November 2026, brief #190): "Take all sectors and business types from staging body copy (and current live madewithpixels.co.uk site copy) and structure the typographic ticker section as such that it's possible to read most of the content by scrolling through a couple of screens worth of height". The layout choice is put to him first (D-007); asked in boss on 1 November 2026. **Michael, in boss, 1 November 2026:** *"list them all out there maybe opp to reduce them"* — taken to mean: put every sector in the ticker, and trim the list where it is too long. Full and trimmed lists sent back to him to confirm before building.

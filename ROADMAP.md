@@ -88,8 +88,8 @@
 **Task:** 43612308 in your boss list
 **From:** your task list.
 
-### R-035 · More interesting typography in the marquee section
-**State:** built (1 November 2026) · **Evidence:** verified (live; latest reference crop, two edge fades, Hard Light backing and centre-out raspberry stagger on staging in Chrome on the Mac Studio) · **Acceptance:** pending
+### R-035 · More interesting typography in the marquee section *(accepted by Michael in boss, 1 Nov 2026)*
+**State:** built (1 November 2026) · **Evidence:** verified (live; latest reference crop, two edge fades, Hard Light backing and centre-out raspberry stagger on staging in Chrome on the Mac Studio) · **Acceptance:** accepted (1 November 2026)
 **Try:** Our promise holds for reading, then an angled transparent-to-slate sweep enters from the right. One “Sectors & Specialisms” mask travels right to left, then the stage releases to “Your website. Built to last.” The mask crop follows Michael's screenshots, with fades into Faulty Terminal at both viewport edges. Its reveal layer uses Hard Light at 70% opacity. Raspberry reveals each row from the viewport centre out to both edges, progressing down the rows over scroll and reversing when scrolling back.
 **Steps:**
 1. Refresh [Home on staging](https://madewithpixels-dev.webflow.io/) and scroll down from above Our promise.
@@ -317,7 +317,16 @@
 **From:** Suggested by Claude; you agreed it on 24 October 2026 and it's now in your boss list. Raised in an earlier session as an open item. 
 
 ### R-093 · Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (1 November 2026, brief #218) · **Evidence:** verified (live, partly: published staging CSS and page code read; not yet looked at by eye at tablet or phone width) · **Acceptance:** pending
+**Try:** On the Home page, the testimonial wall's front rows lose their soft shadow at tablet and phone widths. The project wall tiles already had none at those widths.
+**Why:** a flatter, lighter look on smaller screens.
+**Steps:**
+1. Open [the staging Home page](https://madewithpixels-dev.webflow.io/) on a phone or an iPad, or narrow a desktop window below 992px.
+2. Scroll to the project wall behind the hero, then to the testimonial wall.
+3. Look for any shadow under the tiles or bubbles.
+**Done when:** no shadow under either wall at tablet or phone width; at desktop width the testimonial wall bubbles still have their soft shadow.
+**Time:** about 3 minutes
+**Built:** testi-wall: a new rule at the end of the Home page head code sets the front rows' `filter` to none at 991px and below (it was a drop-shadow filter in that same code, so a Designer style could not override it). Project wall: `folio-wall_tile` already has `box-shadow: none` at the tablet breakpoint in the Designer (published CSS confirms it applies at max-width 991px, so it covers phone too); no change needed.
 **Task:** 43612345 in your boss list
 **From:** your task list (Responsive layouts), added 1 November 2026.
 **Done when:** at tablet and mobile widths, neither the hero project wall nor the testi-wall shows any drop shadow, on the published staging site; desktop looks exactly as it does now. (inferred — confirm)

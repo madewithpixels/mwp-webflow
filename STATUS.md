@@ -1,5 +1,17 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — testi-wall shadow removed at tablet and phone (R-093, brief #218)
+- 1 November 2026 — Accepted by Michael in boss: R-035 (checked: not stated)
+**Changed (Webflow):** Site madewithpixels, page Home, **head custom code only**: appended a small `<style>` with `@media (max-width: 991px)` setting `filter: none` on the testi-wall's two front rows (the `drop-shadow` filter rule from the same block). Everything else in the block is unchanged (read back in full). Published to staging (webflow.io) only. No class, style, element or interaction changed.
+**Project wall:** nothing changed. `folio-wall_tile` already has `box-shadow: none` at the tablet breakpoint (Designer, medium; it cascades to phone). The published CSS confirms the rule. I found no other shadow on it in the styles or custom code.
+**Backups:** "boss · brief #218 · before" and "boss · brief #218 · after", both made in the Designer.
+**Checked how (Evidence: verified (live), partly):** the published Home page contains the new rule; the published stylesheet has `.folio-wall_tile{box-shadow:none}` inside `@media screen and (max-width:991px)`. **Not looked at by eye** and no computed styles read: the browser tool refused script access on the staging site and the window would not resize, so I did not check at 820 or 390px. Interaction-driven shadows and filters are not visible to the snapshot or to me.
+**Done when guesses:** I read "tablet" as 991px and below (the Designer's tablet breakpoint), and "hero project wall" as the folio-wall tiles (inferred — confirm).
+**Snapshot:** `snapshots/custom-code.json` updated (Home head). Other snapshot files not refreshed this run.
+**Needs Michael:** look at staging at tablet and phone width; check and back up (D-008). If you meant the project wall to include something else, tell me.
+**Next useful action:** Michael's look.
+— Claude (night shift)
+
 ## 1 November 2026 — Codex — centre-out raspberry stagger (R-035)
 **Changed:** Michael asked for the marquee stagger to start from the centre line. Each row now lights outward from the viewport centre to both edges, keeping the gradual top-to-bottom row sequence and scroll-linked reverse.
 **Outputs:** Home footer read back exactly; head unchanged. Mirrored in `ticker-marquee.js` and custom-code snapshot. Hard Light backing, original raspberry letters at full opacity and edge fades retained. Published staging only. No commit, push, Boss, task, time or acceptance changes.

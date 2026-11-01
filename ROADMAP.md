@@ -191,8 +191,8 @@
 **Done when:** on published staging at desktop width, scrolling back up from Contact while the grid is showing the MWP logo plays the transition from the logo back to the bubbles and then the Quote mark properly, with no jump or missing step. (inferred — confirm)
 **Note:** Michael's wording is taken to mean the reverse of the Testimonials-to-Contact bubble fly-in. Scroll animations run on GSAP ScrollTrigger, so read the sticky-section and redraw notes behind D-017 first. (inferred — confirm)
 
-### R-080 · Ticker Section enhancements
-**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide; phone 390px and tablet 820px checked in an embedded frame only, not by eye) · **Acceptance:** pending
+### R-080 · Ticker Section enhancements *(accepted by Michael in boss, 1 Nov 2026)*
+**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide; phone 390px and tablet 820px checked in an embedded frame only, not by eye) · **Acceptance:** accepted (1 November 2026)
 **Michael, in boss, 1 November 2026 (brief #208):** chose *More rows* — note: *"trimmed, thinking we should reduce the size of the copy so that addding more rows is fine, but easier to read"*.
 **Try:** The sector ticker now lists 27 sectors across 10 moving rows, in smaller type, so you can read most of it while scrolling through the section.
 **Why:** Every sector from the site copy appears, and it is easier to read.

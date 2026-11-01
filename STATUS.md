@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — new roadmap item for the testi-wall stacked entries bug (R-094, brief #225)
+**Changed:** wrote R-094 "Fix the testi-wall stacked entries bug" (task 43612346) into Phase 2, with a done-when and notes. Roadmap only: no Webflow, site or task changes.
+**Guesses (inferred — confirm):** what "stacked" looks like, which widths it affects, and the done-when. Your task has no description, so I did not guess further.
+**Other tasks in the inbox:** the rest of the "no roadmap item" list are headings already covered by the goal and phases (see the ROADMAP intro), or already have items (R-093 for task 43612345, R-080 for 43612340), so I added nothing for them.
+**Tasks you deleted from your list (items kept, for you to decide):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-059.
+**Order moves you made:** R-038 and R-076 before R-075, R-082 before R-032. None puts something before work it depends on that I could see.
+**Checked how:** read the roadmap back after editing; the phase table and intro line updated.
+**Needs Michael:** a screenshot or a note on when the stacking happens would let the fix start.
+**Next useful action:** diagnose R-094 on staging.
+
 ## 1 November 2026 — Codex — centre row starts the raspberry stagger (R-035)
 **Changed:** corrected the previous interpretation. The centre row now starts first; the reveal then moves outward through alternating rows above and below it. Each row still lights out from the horizontal centre to both edges, and reverses with scroll.
 **Outputs:** Home footer read back exactly; head unchanged. Mirrored in `ticker-marquee.js` and the custom-code snapshot. Published to staging only. Hard Light backing and full-colour raspberry lettering retained.

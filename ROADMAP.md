@@ -8,7 +8,7 @@
 
 *Five tasks added on 31 October 2026 (R-084 to R-088) are written up from your list and still need your confirmation of the guesses marked in them.*
 
-*One task added on 1 November 2026 (R-093) is written up from your list and still needs your confirmation of the guesses marked in it.*
+*Two tasks added on 1 November 2026 (R-093, R-094) are written up from your list and still needs your confirmation of the guesses marked in it.*
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
@@ -19,7 +19,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094 |
 | 3 | Phone and tablet | R-039–R-045, R-093 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
@@ -269,6 +269,12 @@
 **Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
 **Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
 
+### R-094 · Fix the testi-wall stacked entries bug
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612346 in your boss list
+**From:** your task list, added 1 November 2026. Your wording is all there is: no screenshot, width or description of what "stacked" looks like came with it.
+**Done when:** on the published staging site, the testimonial wall's entries no longer pile on top of each other: each sits in its own place at every width, through the whole scroll, and scrolling back up too. Checked on staging in Chrome at desktop, tablet and phone widths. (inferred — confirm)
+**Note:** "Stacked entries" is read as testimonial bubbles or rows landing on top of each other, or collapsing into one spot, instead of spreading out as designed (inferred — confirm). Unknown whether it happens at all widths or only some, on load or only after scrolling back up (inferred — confirm). Start by finding when it happens. Likely places: the testi-wall layout and interactions, and the testi-wall code in the Home page head code. See D-017 for the scroll-animation notes before touching them. R-045 (long quotes on phones) and R-093 (shadows) touched the same wall, so check they are not the cause. D-006 and D-007 apply if a style change is needed.
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

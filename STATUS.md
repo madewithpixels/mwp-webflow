@@ -1,5 +1,12 @@
 # madewithpixels website — Status
 
+## 1 November 2026 — Claude (night shift) — new task written up (R-093, brief #193)
+**Changed:** ROADMAP only. Added R-093 (Phase 3) for task 43612345, "Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile", with a done-when and guesses marked (inferred — confirm). Nothing in Webflow, nothing published. State: planned. Evidence: none. Acceptance: pending.
+**Tasks with no roadmap item:** the other six listed (MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Finish MWP site, Responsive layouts) are headings already covered by the goal and phases, so they got no item (see the note at the top of ROADMAP).
+**Needs Michael (not blocking):** these items' tasks were deleted from his list; I've left the items as they are for him to decide: R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-059. His reorders (R-038 and R-076 before R-075; R-082 before R-032) were already applied; I saw nothing they put ahead of work they depend on.
+**Next useful action:** confirm R-093's guesses, then options first (D-007) before any change.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — ticker: copy gathered, layout options put to Michael (R-080, brief #190)
 **Changed:** ROADMAP only (R-080's done-when now carries Michael's note). Nothing in Webflow, nothing published, no custom code. I made no Webflow tool call, so no backup was made and no snapshot changed. State: planned. Evidence: verified (live; staging and the live site read in Chrome by script and page text). Acceptance: pending.
 **How the ticker is built now (staging, Home):** section `.ticker`, 4528px tall, with a sticky 1358px panel holding 5 rows (`.ticker__row`, each a `.ticker__track` of `.ticker__item`s, rows 1 and 3 moving left, row 2 and 4 right, 210px high). Only 12 phrases appear: Not-for-profits, Public & Private Sector, Charities, Small to Medium Enterprise, Boutique Retailers, Commercial Manufacturing, Music Industry, Travel & Tourism, Arts & Publishing, Healthcare, Software, Social Enterprise. Each is repeated 6 times to fill the row.

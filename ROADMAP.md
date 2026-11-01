@@ -8,6 +8,8 @@
 
 *Five tasks added on 31 October 2026 (R-084 to R-088) are written up from your list and still need your confirmation of the guesses marked in them.*
 
+*One task added on 1 November 2026 (R-093) is written up from your list and still needs your confirmation of the guesses marked in it.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -18,7 +20,7 @@
 |---|---|---|
 | 1 | Groundwork | R-029 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088 |
-| 3 | Phone and tablet | R-039–R-045 |
+| 3 | Phone and tablet | R-039–R-045, R-093 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
 | 6 | After launch (your Phase 2) | R-064–R-073 |
@@ -297,6 +299,13 @@
 **Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #142's result.
 **Task:** 43612320 in your boss list
 **From:** Suggested by Claude; you agreed it on 24 October 2026 and it's now in your boss list. Raised in an earlier session as an open item. 
+
+### R-093 · Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612345 in your boss list
+**From:** your task list (Responsive layouts), added 1 November 2026.
+**Done when:** at tablet and mobile widths, neither the hero project wall nor the testi-wall shows any drop shadow, on the published staging site; desktop looks exactly as it does now. (inferred — confirm)
+**Note:** R-040 already removed the testi-wall bubble shadow on mobile (accepted). This item widens it to tablet, and adds the hero project wall at both widths. "Hero project wall" is read as the project-image wall behind the hero (inferred — confirm). "Tablet" is read as the tablet breakpoint and below, as set in the Designer (inferred — confirm). Shadows may sit on the wall's items, their images or wrappers, so all of them need checking, and there may be glow-style filter shadows as well as box shadows (inferred — confirm). This is a style change, so D-006 and D-007 apply: no new class without Michael's approval.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

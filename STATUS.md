@@ -1153,3 +1153,9 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 2 November 2026 — Not yet, Michael in boss: R-051 — *"Pull the report out into it's own document"*. Acceptance stays pending.
 - 2 November 2026 — Not yet, Michael in boss: R-050 — *"Pull the report out into it's own document"*. Acceptance stays pending.
 
+## 2 November 2026, 14:57 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 2 November 2026 — Not yet, Michael in boss: R-051 — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*. Acceptance stays pending.
+- 2 November 2026 — Not yet, Michael in boss: R-050 — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*. Acceptance stays pending.
+- 2 November 2026 — Not yet, Michael in boss: R-053 — *"I don't know where to find the proposed alt tags"*. Acceptance stays pending.
+

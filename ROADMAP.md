@@ -364,6 +364,7 @@
 
 ### R-050 · Finalise assessment screen
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 2 November 2026:** not yet — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612121 in your boss list
 **Michael, in boss, 2 November 2026 (brief #250 follow-up):** wording approved ("Yes"); the consultation is free ("Yes"); keep the price display on the right ("The one on the right — it's what users have been seeing during the process"); wants per-answer advice lines ("Yes I think that would be helpful"). Advice lines drafted in the same document; the build is still to do in the estimate tool's repo.
@@ -372,6 +373,7 @@
 
 ### R-051 · More focussed and less repetitive copy for assessment
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 2 November 2026:** not yet — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612302 in your boss list
 **Michael, in boss, 2 November 2026 (brief #250 follow-up):** wording approved ("Yes"); the consultation is free ("Yes"); keep the price display on the right ("The one on the right — it's what users have been seeing during the process"); wants per-answer advice lines ("Yes I think that would be helpful"). Advice lines drafted in the same document; the build is still to do in the estimate tool's repo.
@@ -390,6 +392,7 @@
 
 ### R-053 · Meta data / schema / LLMs review
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 2 November 2026:** not yet — *"I don't know where to find the proposed alt tags"*
 **Task:** 43612127 in your boss list
 **From:** your task list (Launch prep).
 **Note:** left over from the 29 September audit: share images for Home and Estimate, favicon and webclip (need design), the logo in the schema once there's a logo image, and uploading the new llms.txt in Site settings.

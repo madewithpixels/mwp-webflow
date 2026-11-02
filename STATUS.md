@@ -1,5 +1,18 @@
 # madewithpixels website — Status
 
+## 2 November 2026 — Claude (night shift) — titles, descriptions, schema and llms.txt audit and drafts (R-053, R-064, brief #242)
+**Changed:** docs only: new `docs/seo-proposals.md` (audit table, drafts). Nothing written into Webflow; no canonical, indexing, publish or Acceptance change. R-053 and R-064 stay planned; Evidence: verified (live) for the audit only.
+**Checked how:** Chrome on the staging domain only, page text read for Home, /estimate and five project pages (Farmer Norton, Travel Ledger, Futura, SOYO, Mednet). Results match the 1 November audit (`docs/seo-audit.md`). The tab is closed.
+**Audit in short (proposed - Michael to approve, full table in the docs note):** every page has a title and description. One H1 on all seven pages. No canonical anywhere (R-060). No og:image or twitter:image on Home or /estimate. Home JSON-LD has no `sameAs` or logo. llms.txt exists (200).
+**Drafts (proposed - Michael to approve):**
+- Home title: `Web Designer in Sheffield | madewithpixels`; description: `Independent Webflow designer and developer in Sheffield since 2008. Custom websites and business tools from £500. Get an instant estimate.`
+- /estimate title: `Instant Website Price Estimate | madewithpixels`; description: `Answer a few quick questions and get an instant, no-obligation price range for your website or web app from a Sheffield studio.`
+- Schema: add `logo` and a `sameAs` array to the existing ProfessionalService, with three clearly marked placeholders (LinkedIn, GitHub, Webflow profile URLs). llms.txt outline: seven parts, in the docs note.
+**Still open:** the real prices (Home says £2000, schema says £5,000), a logo file, a share image.
+**Needs Michael:** the three profile URLs and your yes or no on the wording.
+**Next useful action:** once he supplies the URLs, write the schema and the page titles into Webflow with a backup.
+— Claude (night shift)
+
 ## 1 November 2026 — Claude (night shift) — testi-wall stacked entries: could not diagnose, no browser (R-094, brief #226)
 **Changed:** nothing in Webflow, the site or the repo code. Docs only (this entry). R-094 already existed (written in brief #225), so I did not add another. State stays planned. Evidence: none. Acceptance: pending.
 **What I found:** the session had no browser tools (no tab, screenshot, resize or page-script tools were offered), so I could not look at the wall at any width or scroll position. I only downloaded the staging page's HTML: it has the wall's markup (stage, sticky, `testi-wall_quotes` holding ten `testi-wall_quote` blockquotes, 157 chips), but the stacking depends on the scroll animation, which static HTML can't show. No cause guessed.

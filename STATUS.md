@@ -34,6 +34,13 @@ None of these needs a new class except possibly where you choose a new look in 2
 **Next useful action:** a brief to fix 3 (no new class) once you approve; the rest after you pick.
 — Claude (night shift)
 
+## 2 November 2026 — Claude (night shift) — alt text proposals now in boss for Michael to pick (R-053, brief #251)
+**Why:** Michael, in boss: *"I don't know where to find the proposed alt tags"*. They were only in `docs/home-alt-text.md` and STATUS, which he doesn't read.
+**Changed:** posted the proposals in full as a question in boss (the six logo descriptions, what is left blank and why, and two picks: folio wall blank or described; confirm "EH" is English Heritage). Added a pointer to the doc's status line. Nothing in Webflow was read, changed or published; no Webflow backups were made, because no Webflow tool was used. R-053 stays planned; Acceptance: pending.
+**Needs Michael:** answer the question in boss.
+**Next useful action:** on his answer, a brief to write the alt text into Home on staging.
+— Claude (night shift)
+
 ## 2 November 2026 — Claude (night shift) — Home page alt text drafted (R-053, brief #245)
 **Changed:** docs only: new `docs/home-alt-text.md`. Nothing written into Webflow, nothing published, no copy touched. R-053 stays planned. Evidence: verified (live) for the image count only. Acceptance: pending. Everything is **proposed - Michael to approve**.
 **Result:** all 192 Home images covered. **6 meaningful** (the client logos: BBC, Armitage Shanks, Speedo, University of Nottingham, ITV, and "EH" read as English Heritage, to confirm). **186 decorative**, alt empty on purpose: 153 folio-wall tiles, 30 repeat copies in the logo strip, 2 "We're focussed on" icons, 1 stray hidden image. If you would rather describe the folio wall, the doc has a per-client table ("Screenshot of the X website") and meaningful becomes 159, decorative 33.

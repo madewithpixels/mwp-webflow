@@ -1,6 +1,6 @@
 # Home page alt text (R-053, brief #245)
 
-**Status:** proposed - Michael to approve. Nothing has been written into Webflow. Edit the "Proposed alt text" column; leave a cell as `(empty)` for "decorative, alt left blank on purpose".
+**Status:** proposed - Michael to approve. The short version is also posted as a question in boss (brief #251), where Michael picks; this file is the full reference. Nothing has been written into Webflow. Edit the "Proposed alt text" column; leave a cell as `(empty)` for "decorative, alt left blank on purpose".
 
 **Checked:** 2 November 2026, the published staging Home page (madewithpixels-dev.webflow.io), Chrome on the Mac Studio, desktop. Every `<img>` on the page was counted: **192**, all with empty alt. The Webflow MCP read tools were not used (see the end), so the file names below come from the published page, with Webflow's hash prefix and `-p-500` size suffix removed.
 

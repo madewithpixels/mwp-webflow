@@ -1139,3 +1139,9 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 **Needs Michael:** review the separator bar and resting text colour on staging, then back up.
 **Next useful action:** Michael’s visual check of the published marquee.
 — Codex
+
+## 2 November 2026, 14:51 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 2 November 2026 — Not yet, Michael in boss: R-051 — *"Pull the report out into it's own document"*. Acceptance stays pending.
+- 2 November 2026 — Not yet, Michael in boss: R-050 — *"Pull the report out into it's own document"*. Acceptance stays pending.
+

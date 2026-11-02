@@ -364,12 +364,14 @@
 
 ### R-050 · Finalise assessment screen
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612121 in your boss list
 **From:** your task list (Adjust Estimator).
 **Evidence link:** finishing observations in `docs/estimate-assessment-copy.md` (proposed).
 
 ### R-051 · More focussed and less repetitive copy for assessment
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612302 in your boss list
 **From:** your task list (Adjust Estimator).
 **Evidence link:** proposed wording in `docs/estimate-assessment-copy.md`.

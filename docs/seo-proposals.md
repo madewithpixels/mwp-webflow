@@ -43,13 +43,13 @@ The Home block already uses ProfessionalService, which is a kind of LocalBusines
 ]
 ```
 
-The three profile addresses were supplied by Michael on 2 November 2026. The logo is still a placeholder: leave it out until there is a logo image file. Related to fix: Home says complex projects start at £2000 while the schema and llms.txt say £5,000 (see audit, point 5).
+The three profile addresses were supplied by Michael on 2 November 2026. The logo is still a placeholder: leave it out until there is a logo image file. Price: Michael confirmed on 2 November 2026 that complex projects start from £2000. The schema (makesOffer) and llms.txt currently say £5,000 and need changing to £2000 when these edits go in. Home already says £2000.
 
 ## 4 llms.txt outline (proposed - Michael to approve)
 The current file already follows this shape; the proposal is only to tidy it:
 1. `# madewithpixels` and a two-sentence summary (who, where, since when, what).
 2. Key facts: founder, founded 2008, location, contact, platforms, services, white-label work.
-3. Prices: one line, once, using the agreed figure for complex projects.
+3. Prices: one line, once: websites from £500, complex projects from £2000 (Michael, 2 November 2026).
 4. `## Services`: Home and /estimate, one line each.
 5. `## Portfolio`: one line per project (name, year, what was built).
 6. `## Profiles`: LinkedIn, GitHub and Webflow URLs, using the three profile addresses above.

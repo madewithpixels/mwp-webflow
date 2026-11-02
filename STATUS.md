@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+
+## 2 November 2026 — Claude (night shift) — pre-launch SEO switch-on checklist (R-069, R-060, R-053, brief #244)
+**Changed:** new `docs/launch-seo-checklist.md` (audit table, numbered Designer steps, a console script to confirm after publishing). Nothing in Webflow changed, nothing published, no canonical set. R-069 and R-060 stay planned. Evidence: verified (live) for the audit only. Acceptance: pending.
+**Checked how:** Chrome on the Mac Studio, desktop, madewithpixels-dev.webflow.io: fetched /sitemap.xml, /robots.txt and the HTML of all 42 sitemap pages plus /success. Tab closed. The script itself has not been run on the live domain (it does not exist yet); the same logic was run against staging.
+**Findings:** all 42 pages return 200 with no robots tag and no canonical tag. All 42 are in the sitemap: Home, /estimate, /success and 39 project pages. /success is in the sitemap and has no noindex (title "Success", heading "404"). Staging robots.txt is `Disallow: /` (Webflow's own staging block).
+**Still open:** /success needs noindex and removal from the sitemap before launch; canonical set at launch (D-014); the heading on /success.
+**Needs Michael:** the Designer switches and the publish, at launch. Step 4 of the checklist names the Webflow setting by memory of the Designer, so check the label when you reach it.
+**Next useful action:** do the checklist on launch day.
+
 ## 2 November 2026 — Claude (night shift) — assessment screen copy and finishing notes (R-051, R-050, brief #243)
 **Changed:** docs only (this entry). No live copy, Webflow, estimate-tool code, forms, success pages or redirects touched. R-051 and R-050 stay planned. Evidence: verified (live) for the copy record only. Acceptance: pending. Everything below is **proposed - Michael to approve**.
 **Checked how:** Chrome on madewithpixels-dev.webflow.io/estimate, Mac Studio, desktop about 1467px wide. I stepped through all six questions (first option each time, nothing submitted) to the assessment. For 390px I loaded the same page in a 390px-wide frame, because resizing the window did not change the layout (page width stayed 2044px); the frame reported a 390px width and no sideways scrolling. Not checked: other answer paths (the wording changes with the answers), the email-capture step, other browsers. Tab closed. Desktop screenshot: `/var/folders/40/q3f1nz_d1_923cmvnkfcc_3r0000gn/T/claude-chrome-screenshots-h8uLb3/screenshot-1793629773028-0.jpg`; 390px: `.../screenshot-1793629826308-1.jpg` and `.../screenshot-1793629841934-2.jpg`.

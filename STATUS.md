@@ -59,7 +59,8 @@ None of these needs a new class except possibly where you choose a new look in 2
 - /estimate title: `Instant Website Price Estimate | madewithpixels`; description: `Answer a few quick questions and get an instant, no-obligation price range for your website or web app from a Sheffield studio.`
 - Schema: add `logo` and a `sameAs` array to the existing ProfessionalService, with three clearly marked placeholders (LinkedIn, GitHub, Webflow profile URLs). llms.txt outline: seven parts, in the docs note.
 **Still open:** the real prices (Home says £2000, schema says £5,000), a logo file, a share image.
-**Needs Michael:** the three profile URLs and your yes or no on the wording.
+**Update 2 November 2026:** Michael supplied the three profile addresses (LinkedIn, GitHub, Webflow); filled into the draft in `docs/seo-proposals.md`. Logo still a placeholder. Still proposed, not in Webflow.
+**Needs Michael:** your yes or no on the wording.
 **Next useful action:** once he supplies the URLs, write the schema and the page titles into Webflow with a backup.
 — Claude (night shift)
 

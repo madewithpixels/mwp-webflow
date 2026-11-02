@@ -37,13 +37,13 @@ The Home block already uses ProfessionalService, which is a kind of LocalBusines
 ```json
 "logo": "PLACEHOLDER-LOGO-IMAGE-URL (needs a logo image file, 112px or larger square)",
 "sameAs": [
-  "PLACEHOLDER-LINKEDIN-PROFILE-URL (Michael to supply)",
-  "PLACEHOLDER-GITHUB-PROFILE-URL (Michael to supply)",
-  "PLACEHOLDER-WEBFLOW-PROFILE-URL (Michael to supply)"
+  "https://www.linkedin.com/in/madewithpixels/",
+  "https://github.com/madewithpixels",
+  "https://webflow.com/@madewithpixels"
 ]
 ```
 
-Do not publish with the placeholders in: Google would read them as broken links. Related to fix: Home says complex projects start at £2000 while the schema and llms.txt say £5,000 (see audit, point 5).
+The three profile addresses were supplied by Michael on 2 November 2026. The logo is still a placeholder: leave it out until there is a logo image file. Related to fix: Home says complex projects start at £2000 while the schema and llms.txt say £5,000 (see audit, point 5).
 
 ## 4 llms.txt outline (proposed - Michael to approve)
 The current file already follows this shape; the proposal is only to tidy it:
@@ -52,6 +52,6 @@ The current file already follows this shape; the proposal is only to tidy it:
 3. Prices: one line, once, using the agreed figure for complex projects.
 4. `## Services`: Home and /estimate, one line each.
 5. `## Portfolio`: one line per project (name, year, what was built).
-6. `## Profiles`: LinkedIn, GitHub and Webflow URLs, using the same three placeholders as above.
+6. `## Profiles`: LinkedIn, GitHub and Webflow URLs, using the three profile addresses above.
 7. `## Optional`: contact, estimate page.
 Also: keep the spelling of client names identical to the page (Halstead, SOYO) and edit the file whenever a project changes, because it is uploaded by hand.

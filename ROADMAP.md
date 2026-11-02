@@ -366,11 +366,13 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612121 in your boss list
 **From:** your task list (Adjust Estimator).
+**Evidence link:** finishing observations in `docs/estimate-assessment-copy.md` (proposed).
 
 ### R-051 · More focussed and less repetitive copy for assessment
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612302 in your boss list
 **From:** your task list (Adjust Estimator).
+**Evidence link:** proposed wording in `docs/estimate-assessment-copy.md`.
 **Note:** the estimate tool's code is in its own repo (MWP-Instant-Website-Estimate).
 
 ## Phase 5 · Launch prep and launch

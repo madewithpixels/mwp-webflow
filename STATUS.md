@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 2 November 2026 — Claude (night shift) — Home page alt text drafted (R-053, brief #245)
+**Changed:** docs only: new `docs/home-alt-text.md`. Nothing written into Webflow, nothing published, no copy touched. R-053 stays planned. Evidence: verified (live) for the image count only. Acceptance: pending. Everything is **proposed - Michael to approve**.
+**Result:** all 192 Home images covered. **6 meaningful** (the client logos: BBC, Armitage Shanks, Speedo, University of Nottingham, ITV, and "EH" read as English Heritage, to confirm). **186 decorative**, alt empty on purpose: 153 folio-wall tiles, 30 repeat copies in the logo strip, 2 "We're focussed on" icons, 1 stray hidden image. If you would rather describe the folio wall, the doc has a per-client table ("Screenshot of the X website") and meaningful becomes 159, decorative 33.
+**Checked how:** Chrome on the Mac Studio, desktop, madewithpixels-dev.webflow.io: a script counted every `<img>` (192, all alt empty) and grouped them by class and file name. Tab closed. The Webflow MCP read tools were **not used**: they need a "before" backup made in the Designer, which can't be done overnight, and the published page lists every image anyway. So no Webflow backups were made and nothing in Webflow was read or changed.
+**Still open:** client names marked `?` in the doc are guesses from file names; the seven inline SVG shapes are not images and were not inspected; whether the Designer has its own "decorative" setting on any image.
+**Needs Michael:** decide folio wall decorative (recommended) or described; confirm "EH".
+**Next useful action:** once approved, a brief to write the alt text into Webflow.
+— Claude (night shift)
+
 
 ## 2 November 2026 — Claude (night shift) — pre-launch SEO switch-on checklist (R-069, R-060, R-053, brief #244)
 **Changed:** new `docs/launch-seo-checklist.md` (audit table, numbered Designer steps, a console script to confirm after publishing). Nothing in Webflow changed, nothing published, no canonical set. R-069 and R-060 stay planned. Evidence: verified (live) for the audit only. Acceptance: pending.

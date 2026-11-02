@@ -322,8 +322,8 @@
 **Task:** 43612320 in your boss list
 **From:** Suggested by Claude; you agreed it on 24 October 2026 and it's now in your boss list. Raised in an earlier session as an open item. 
 
-### R-093 · Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile
-**State:** built (1 November 2026, brief #218) · **Evidence:** verified (live, partly: published staging CSS and page code read; not yet looked at by eye at tablet or phone width) · **Acceptance:** pending
+### R-093 · Remove all drop shadows from the hero project wall and the testi-wall at tablet and mobile *(accepted by Michael in boss, 2 November 2026)*
+**State:** built (1 November 2026, brief #218) · **Evidence:** verified (live, partly: published staging CSS and page code read; not yet looked at by eye at tablet or phone width) · **Acceptance:** accepted (2 November 2026)
 **Try:** On the Home page, the testimonial wall's front rows lose their soft shadow at tablet and phone widths. The project wall tiles already had none at those widths.
 **Why:** a flatter, lighter look on smaller screens.
 **Steps:**

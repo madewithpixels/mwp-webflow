@@ -1,5 +1,31 @@
 # madewithpixels website — Status
 
+## 2 November 2026 — Claude (night shift) — Home at 390, 768 and 1024px: layout audit (R-040, R-041, brief #246)
+**Changed:** docs only (this entry). Nothing changed in Webflow, no classes added, nothing published. Evidence: verified (live), staging, Chrome on the Mac Studio. Acceptance: pending. Faults already written up (project arrows, testi-wall shadow, R-040/R-043) are skipped.
+**How I checked, and proof the layout switched:** resizing the window does not change the layout, so I loaded `madewithpixels-dev.webflow.io/` in a same-origin iframe of each width (390, 768, 1024) and read it from inside. Proof it switched: at 390 the frame's media queries reported max-width 479, 767 and 991 all true; at 768 the 991 query was true and 767 false; at 1024 all false. The menu button is 64px at 390, 72px at 768 and 1024, and the page height changes with width (Home 52,382px at 390, about 49,300px at 768, about 53,800px at 1024). The three widths are all covered. Screenshots were taken by scrolling the frame to about 8 positions at 390 and 5 to 6 at 768 and 1024, so the long About section was only sampled.
+**Per width**
+- **390px:** horizontal scroll none (page 382px wide inside the 8px frame scrollbar). Text overflow none found in clipped boxes. Tap targets: no link or button under 40px; portfolio rows 58px and 85px high. Overlaps: the floating menu and contact buttons sit over copy (fault 2). Animations: the folio wall, hero, pricing and contact looked right; see faults 4 and 5.
+- **768px:** horizontal scroll none. Text overflow none. Tap targets none under 40px. Overlaps: same floating buttons. Animation: testimonial quote caught clipped at the right edge (fault 5).
+- **1024px:** this is the desktop layout (the tablet breakpoint ends at 991px). Horizontal scroll none. No overflow, no small targets. Testimonial quote settled and centred correctly.
+- All widths: the hero canvas is about 5% wider than the viewport (right edge at 393 on 390, 783 on 768, 1046 on 1024). It causes no sideways scroll; harmless unless it shows as a visible edge.
+
+**Faults**
+1. **Blank band under the logo card in the intro.** At 390 about 300px to 450px of empty light grey sits below the card before the dark About section starts; at 768 about 300px. Fix needing a visual choice (how much space; it is spacing on an existing section, no new class).
+2. **Floating menu and contact buttons sit over copy at 390.** Pricing intro text ("It takes less than a m…") runs under them while scrolling. Fix needing a visual choice (smaller buttons, a background, or leave as is). Probably deliberate.
+3. **Portfolio category labels are 9.6px** ("INDUSTRY & COMMERCE", vertical, in the left margin) and at 390 the vertical text is clipped by the top of the list ("LIFE… ERTAINMENT"). Fix needing no new class for the size (font-size on the existing class at the phone breakpoint); fix needing a visual choice if you want the label moved or restyled.
+4. **Sector word list in About is cut off at the right edge at 390** ("Entertainment", "Museums &…"). It may be a deliberate sideways scroll; I could not tell from still frames. Check on a real phone. Fix needing a visual choice if it is not deliberate.
+5. **Testimonial quote clipped at the right edge at 390 and 768** at the positions I captured (the quote's box is 350px, the slide travels sideways). At 1024 it settles centred. Probably the scroll scrub caught mid-slide, not a fault. To verify on a real phone: stop on each quote and see if it sits fully inside the screen. Unconfirmed.
+6. **Intro paragraph sits in a narrow column with dead space beside it at 768 and 1024** (about 200px of text in a 768px or 1024px frame). Fix needing a visual choice.
+7. **Pricing cards looked empty at 1024** (scrolled 30,700px): three blank coloured panels with no text. Probably the reveal animation caught mid-way; unconfirmed. To verify live at 1024.
+None of these needs a new class except possibly where you choose a new look in 2 and 6.
+
+**Screenshots** (Mac Studio temp folder `/var/folders/40/q3f1nz_d1_923cmvnkfcc_3r0000gn/T/claude-chrome-screenshots-HUn0yn/`): 390: `screenshot-1793630435059-1.png` (hero), `-2` (folio wall), `-3` and `-4` (intro gap), `-6` (sector words), `-7` (pricing), `-8` (portfolio), `-9` (testimonial), `-10` (contact); 768: `-11` hero, `-12` intro, `-13` pricing, `-14` portfolio, `-15` testimonial, `-16` contact; 1024: `-17` hero, `-18` intro, `-19` pricing, `-20` testimonial. Files are in a temp folder and may be cleared.
+**Still open:** a real phone or tablet was not used (no touch, no real scroll speed); other 390 states of the About section; whether faults 4, 5 and 7 are animation timing.
+**Acceptance recorded:** 2 November 2026 — Accepted by Michael in boss: R-093 (checked: not stated).
+**Needs Michael:** your call on faults 1, 2, 3, 6 (visual choices) and a look at 4, 5, 7 on a phone.
+**Next useful action:** a brief to fix 3 (no new class) once you approve; the rest after you pick.
+— Claude (night shift)
+
 ## 2 November 2026 — Claude (night shift) — Home page alt text drafted (R-053, brief #245)
 **Changed:** docs only: new `docs/home-alt-text.md`. Nothing written into Webflow, nothing published, no copy touched. R-053 stays planned. Evidence: verified (live) for the image count only. Acceptance: pending. Everything is **proposed - Michael to approve**.
 **Result:** all 192 Home images covered. **6 meaningful** (the client logos: BBC, Armitage Shanks, Speedo, University of Nottingham, ITV, and "EH" read as English Heritage, to confirm). **186 decorative**, alt empty on purpose: 153 folio-wall tiles, 30 repeat copies in the logo strip, 2 "We're focussed on" icons, 1 stray hidden image. If you would rather describe the folio wall, the doc has a per-client table ("Screenshot of the X website") and meaningful becomes 159, decorative 33.

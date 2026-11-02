@@ -362,8 +362,9 @@
 **Task:** 43612125 in your boss list
 **From:** your task list (Adjust Estimator).
 
-### R-050 · Finalise assessment screen
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-050 · Finalise assessment screen *(accepted by Michael in boss, 2 Nov 2026)*
+**State:** built (by Michael, 2 November 2026) · **Evidence:** none · **Acceptance:** accepted (2 November 2026)
+**Accepted by Michael in boss, 2 November 2026** — checked: Agreed on all your points
 **Michael, in boss, 2 November 2026:** not yet — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612121 in your boss list
@@ -371,8 +372,9 @@
 **From:** your task list (Adjust Estimator).
 **Evidence link:** finishing observations in `docs/estimate-assessment-copy.md` (proposed).
 
-### R-051 · More focussed and less repetitive copy for assessment
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-051 · More focussed and less repetitive copy for assessment *(accepted by Michael in boss, 2 Nov 2026)*
+**State:** built (by Michael, 2 November 2026) · **Evidence:** none · **Acceptance:** accepted (2 November 2026)
+**Accepted by Michael in boss, 2 November 2026** — checked: Agreed on all your points
 **Michael, in boss, 2 November 2026:** not yet — *"You asked: Yes or no on the proposed wording. Yes You asked: Whether the consultation is free (the button wording depends on it). Yes You asked: Which of the two price displays to keep. The one on the right — it's what users have been seeing during the process. You asked: Whether you want per-answer advice lines (needs the estimate tool's code changed). Yes I think that would be helpful"*
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612302 in your boss list

@@ -2,7 +2,7 @@
 
 **Date:** 2 November 2026 (night shift, briefs #243 and #248). **By:** Claude (night shift).
 **Page:** the estimate tool's assessment screen, https://madewithpixels-dev.webflow.io/estimate (staging).
-**Status:** proposed - Michael to approve. Nothing has been changed in Webflow or in the estimate tool's code. R-051 and R-050 stay planned. Acceptance: pending.
+**Status:** wording approved by Michael (2 November 2026, in boss); advice lines drafted below for his look. Nothing has been changed in Webflow or in the estimate tool's code. R-051 and R-050 stay planned. Acceptance: pending.
 **Checked how:** Chrome on the Mac Studio, desktop about 1467px wide. I stepped through all six questions (first option each time, nothing submitted) to the assessment. For 390px I loaded the same page in a 390px-wide frame, because resizing the window did not change the layout (page width stayed 2044px); the frame reported 390px and no sideways scrolling. Not checked: other answer paths (the wording changes with the answers), the email-capture step, other browsers.
 
 ## Where the wording repeats (assessment screen)
@@ -16,7 +16,7 @@
 
 ## Current copy against proposed
 
-The aim is advice about the choices that save time and money, in a friendly voice. Everything here is **proposed - Michael to approve**.
+The aim is advice about the choices that save time and money, in a friendly voice. Michael answered "Yes" to this wording on 2 November 2026. Two rows are now settled by his other answers (see the next section).
 
 
 | Where | Current | Proposed |
@@ -64,11 +64,81 @@ Desktop (about 1467px):
 12. The heading "Your project assessment" wraps to two lines, fine, but the badge sits tight above it.
 **Not looked at:** other answer paths, the estimate email step, Safari, a real phone.
 
+## Michael's answers (boss, 2 November 2026)
+
+1. Wording above: **Yes.**
+2. The consultation is free: **Yes.** So the main button reads "Book a free chat". The price note keeps "Chat to us for 15 minutes" (15 minutes is the length I proposed; Michael has not confirmed it, so check it before it goes live).
+3. Price display: keep **the one on the right** ("it's what users have been seeing during the process"). So the price and range come out of the left card, and the right panel keeps "Estimated investment" with its range. The left card's "Likely cost" label, price note and "A guide, not a quote" line move to sit under the right panel's total, so the caveat is not lost.
+4. Per-answer advice lines: **Yes.** Drafted below. This needs code in the estimate tool's own repo (MWP-Instant-Website-Estimate).
+
+## Per-answer advice lines (proposed - Michael to read)
+
+How it would work: on the assessment, under "Our advice", show one short line for each answer the person gave (questions 1 to 5; question 6 gets a line only for the features picked, up to the first three). Friendly, about saving time or money. The options and their order are exactly as on staging today.
+
+**1. What are you looking for?**
+| Answer | Advice line |
+|---|---|
+| A brand new website | A fresh start gives us room to get the structure right first time, which saves rework later. |
+| A redesign of an existing website | We'll keep what already works, such as good content and search rankings, so you only pay to change what needs it. |
+| Improvements to an existing website | Targeted updates are the quickest, most affordable route. Starting small is often the smartest move. |
+| Brand, website and marketing support | Planning the brand, site and marketing together avoids paying twice for the same thinking. |
+| I'm not sure yet | No problem. A short chat usually makes the best starting point clear. |
+
+**2. How large is the website likely to be?**
+| Answer | Advice line |
+|---|---|
+| Single page website | Quick to build and easy to keep within budget, and it can still do real work for you. |
+| Small website | A sensible size for most service businesses. Every page you add adds time, so keep to the pages that earn their place. |
+| Medium website | More pages means more content to prepare, so getting that ready early is the biggest time saver. |
+| Larger website | Building it in phases keeps the first launch faster and spreads the cost. |
+| Not sure | We've estimated cautiously. Once we know the pages you need, the range usually narrows. |
+
+**3. How established is your brand?**
+| Answer | Advice line |
+|---|---|
+| We already have a professional brand identity | Having this ready is a real time and cost saver: we can start designing straight away. |
+| We have a logo and some brand assets | A good starting point. A short list of your colours and fonts will save us time. |
+| We only have a logo | We'll build the visual style around your logo as part of the design, which adds a little time. |
+| We'd like help developing our brand | Doing the brand and site together keeps them consistent and is usually better value than separate projects. |
+
+**4. How much written content already exists?**
+| Answer | Advice line |
+|---|---|
+| Everything is written | Having your content ready is one of the biggest time savers. |
+| Most content exists | Nearly there. Finishing the gaps before design starts keeps the project on schedule. |
+| Some content exists | Agreeing the page structure early lets us shape the rest of the words around it. |
+| We'd like help writing it | We can write it with you. Sending rough notes or bullet points first saves time. |
+
+**5. What visual assets do you have?**
+| Answer | Advice line |
+|---|---|
+| Professional photography and imagery | Strong images lift a site more than anything else, and they cost you nothing extra here. |
+| Some good imagery | We'll make the most of what you have. Sending it all early helps us see what's missing. |
+| Mostly phone photos | Good phone photos can work well with careful use. Send your best ones and we'll tell you where new ones would help. |
+| Very little usable imagery | A small photo shoot or well-chosen stock can fill the gaps affordably. |
+| Not sure | Send us what you've got and we'll recommend the simplest route. |
+
+**6. What would you like the website to include?** (shown for the first three picked, in the order listed)
+| Feature | Advice line |
+|---|---|
+| Blog / advice section | A short list of starter articles makes the launch stronger. You can add more later. |
+| Portfolio / case studies | A few strong case studies beat a long list. |
+| Services section | Clear, separate pages for each service help visitors and search engines. |
+| Downloads | Keep to the few files people ask for most. |
+| Events | Plan how events will be kept up to date, as old dates quickly look stale. |
+| Testimonials | Real quotes with names and faces are the most convincing. |
+| Team profiles | Good photos of your team matter more than long biographies. |
+| Advanced forms | Simple forms get more replies. Only ask for what you need. |
+| Booking system | Worth planning carefully, as it often connects to other tools and adds cost. |
+| CRM / email integration | Tell us which tools you use now so we can connect to them rather than replace them. |
+| Ecommerce | Starting with a small product range keeps the first version quick and affordable. |
+| AI functionality | A clear, single purpose keeps this affordable. We can start small and build on it. |
+| Bespoke software or app functionality | This is where cost grows fastest. A first phase with just the essentials keeps it in control. |
+
+Notes for whoever builds it: keep lines to one sentence of about 20 words, show at most five to six advice lines in total so the screen stays shorter, and drop any line whose answer is "Not sure" if the screen feels crowded.
+
 ## Needs Michael
 
-1. Yes or no on the proposed wording.
-2. Whether the consultation is free (the button wording depends on it).
-3. Which of the two price displays to keep.
-4. Whether you want per-answer advice lines (needs the estimate tool's code changed).
+Nothing blocks. Optional: read the advice lines above and say which to change. Once happy, a brief for the estimate tool's repo (MWP-Instant-Website-Estimate) can make the wording, price-display and advice-line changes together with the finishing items.
 
-**Next useful action:** once approved, a brief for the estimate tool's repo (MWP-Instant-Website-Estimate) to change the wording and the finishing items.
+**Next useful action:** that brief, covering the approved wording (with the price removed from the left card), the "Book a free chat" button, the advice lines, and the finishing items above.

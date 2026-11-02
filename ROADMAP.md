@@ -366,6 +366,7 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612121 in your boss list
+**Michael, in boss, 2 November 2026 (brief #250 follow-up):** wording approved ("Yes"); the consultation is free ("Yes"); keep the price display on the right ("The one on the right — it's what users have been seeing during the process"); wants per-answer advice lines ("Yes I think that would be helpful"). Advice lines drafted in the same document; the build is still to do in the estimate tool's repo.
 **From:** your task list (Adjust Estimator).
 **Evidence link:** finishing observations in `docs/estimate-assessment-copy.md` (proposed).
 
@@ -373,6 +374,7 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Michael, in boss, 2 November 2026:** not yet — *"Pull the report out into it's own document"*
 **Task:** 43612302 in your boss list
+**Michael, in boss, 2 November 2026 (brief #250 follow-up):** wording approved ("Yes"); the consultation is free ("Yes"); keep the price display on the right ("The one on the right — it's what users have been seeing during the process"); wants per-answer advice lines ("Yes I think that would be helpful"). Advice lines drafted in the same document; the build is still to do in the estimate tool's repo.
 **From:** your task list (Adjust Estimator).
 **Evidence link:** proposed wording in `docs/estimate-assessment-copy.md`.
 **Note:** the estimate tool's code is in its own repo (MWP-Instant-Website-Estimate).

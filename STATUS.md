@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 2 November 2026 — Claude (night shift) — Assessment screen copy: Michael's answers and advice lines (R-051, R-050, brief #250)
+**Changed:** docs only. `docs/estimate-assessment-copy.md` now records Michael's four answers, applies them (price stays on the right panel only, button reads "Book a free chat") and has a drafted advice line for every answer on all six questions. R-051 and R-050 keep State: planned. Nothing changed in Webflow or the estimate tool's repo. Acceptance: pending.
+**Checked how:** read the answer options from the staging estimate page (Chrome on the Mac Studio, desktop) by stepping through the questions; nothing submitted. Tab closed.
+**Still open:** the "15 minutes" in the price note is my figure, not Michael's; the build in MWP-Instant-Website-Estimate; the finishing items.
+**Needs Michael:** an optional read of the advice lines.
+**Next useful action:** a brief for the estimate tool's repo to build the wording, price display and advice lines.
+— Claude (night shift)
+
 ## 2 November 2026 — Claude (night shift) — Home at 390, 768 and 1024px: layout audit (R-040, R-041, brief #246)
 **Changed:** docs only (this entry). Nothing changed in Webflow, no classes added, nothing published. Evidence: verified (live), staging, Chrome on the Mac Studio. Acceptance: pending. Faults already written up (project arrows, testi-wall shadow, R-040/R-043) are skipped.
 **How I checked, and proof the layout switched:** resizing the window does not change the layout, so I loaded `madewithpixels-dev.webflow.io/` in a same-origin iframe of each width (390, 768, 1024) and read it from inside. Proof it switched: at 390 the frame's media queries reported max-width 479, 767 and 991 all true; at 768 the 991 query was true and 767 false; at 1024 all false. The menu button is 64px at 390, 72px at 768 and 1024, and the page height changes with width (Home 52,382px at 390, about 49,300px at 768, about 53,800px at 1024). The three widths are all covered. Screenshots were taken by scrolling the frame to about 8 positions at 390 and 5 to 6 at 768 and 1024, so the long About section was only sampled.

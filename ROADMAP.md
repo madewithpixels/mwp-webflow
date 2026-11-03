@@ -133,7 +133,16 @@
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
 
 ### R-094 · Fix the testi-wall stacked entries bug
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live) — staging, Chrome desktop plus 390/768/1024 frames, 3 November 2026 · **Acceptance:** pending
+**Try:** On staging the testimonial quotes no longer pile on top of each other after a menu jump.
+**Why:** The wall reads properly however a visitor reaches it.
+**Steps:**
+1. Open [the staging site](https://madewithpixels-dev.webflow.io/) in Chrome at desktop width.
+2. Open the burger menu and choose Contact, then wait for it to land.
+3. Open the burger menu again and choose Testimonials.
+**Done when:** only the "Praise for madewithpixels" title shows at first, and quotes appear one at a time as you scroll on.
+**Time:** about 2 minutes
+**Cause and fix:** see the 3 November 2026 STATUS entry (forced forwards redraw in the Home head script; now drawn end-first).
 **Task:** 43612346 in your boss list
 **From:** your task list, added 1 November 2026. Your wording is all there is: no screenshot, width or description of what "stacked" looks like came with it.
 **Done when:** on the published staging site, the testimonial wall's entries no longer pile on top of each other: each sits in its own place at every width, through the whole scroll, and scrolling back up too. Checked on staging in Chrome at desktop, tablet and phone widths. (inferred — confirm)

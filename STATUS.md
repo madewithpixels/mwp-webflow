@@ -1,5 +1,17 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Testimonial quotes no longer pile up after menu jumps (R-094, brief #272)
+**Changed (R-094):** Webflow, site madewithpixels, Home page, **Page settings > Custom code > Head** only, published to staging only (madewithpixels-dev.webflow.io). I read the block first and wrote it back with one change (the echo matched): in `playInOrder`, each scroll animation is now drawn at its end first and then back to the right point, plus a comment (item 3) explaining why. No class, element, interaction or Designer change. Not published to the custom domain.
+**Cause:** Michael's steps reproduced on staging on the first try (menu > Contact, then menu > Testimonials). The head script redraws every scroll animation after a menu jump, and after any re-measure, as a forced draw. Played forwards, that draw hit the Testimonial Wall timeline's later steps (each quote's fade-out "starts from visible") after their earlier ones, so all ten quotes ended at full opacity. A backwards draw runs the steps in reverse and ends correctly. Jumping up from Contact or Pricing, and from Home, all hit it; a plain scroll never did.
+**Checked how:** staging in Chrome on the Mac Studio. Before: all 11 `.testi-wall_quote` at opacity 1 after Contact then Testimonials (screenshot matches Michael's). After the publish: Contact > Testimonials, Pricing > Testimonials, Work > Testimonials and Home > Testimonials each leave only the first quote visible; screenshot shows just the "Praise for madewithpixels" title. Also tried at 390, 768 and 1024px in same-origin frames: no stacking (at 390 and 768 the jump lands before the first quote appears, so all are hidden, as designed). Evidence: verified (live), desktop 2044px wide plus those frames; Acceptance: pending.
+**Backups:** "boss · brief #272 · before" and "boss · brief #272 · after", both made on the Webflow dashboard Backups page (the Designer route failed: Chrome would not drive the Designer URL, "browser-internal or unparseable URL"). Both recorded in boss.
+**Not checked:** a real finger or mouse-wheel scroll to the wall (the fix touches only menu jumps and re-measures); Safari and Firefox; a real phone. Interactions are not visible in the snapshots. I also did not compare every other animation's end state before and after; the change only alters the order of the redraw for animations that are not already at their end (About "focused on" box and Pricing looked right in the jumps above).
+**Snapshot:** `snapshots/custom-code.json` Home head updated by applying the same edit to the stored text; the snapshot's formatting of the later Codex block differs from the live text, which I did not reconcile.
+**Seen on the way (not fixed):** jumping to Testimonials from above lands about 2,200px higher on desktop (scrollY 51298) than from below (53530). Both show the title; from above the quotes are not yet in. May be the intended landing offset; worth a look.
+**Needs Michael:** try it on staging and tick R-094 if happy.
+**Next useful action:** none unless he finds it again.
+— Claude (night shift)
+
 ## 3 November 2026 — Claude (night shift) — Michael approved the estimate advice lines (R-051, R-050, brief #266)
 **Changed:** docs/estimate-assessment-copy.md only: the advice-lines section is marked approved as written, quoting Michael's boss answer "Good to use as written". Nothing changed in Webflow or the estimate tool's code. State stays planned; Acceptance pending.
 **Checked how:** read the doc; no browser used.

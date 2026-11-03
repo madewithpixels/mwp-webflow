@@ -76,6 +76,7 @@
 **Task:** 43612356 in your boss list
 **From:** your task list, added 3 November 2026. Placed beside R-032 and R-034, which touch the same section.
 **Done when:** on the Home page, the three pricing cards that drop in from the top of the viewport sit directly against the separator with no visible gap, through the whole animation, on published staging in Chrome at desktop width. (inferred — confirm)
+**Findings (3 November 2026, brief #267):** the gap is the cards' own 1rem top margin in the 1440px-and-up setting (about 7.8px visible at 1440 and 1700, none at 1024, n/a at 768 and 390). Options are in `docs/pricing-gap-options.md`; Michael to pick.
 **Note:** The separator is read as the gradient bar used between sections (see R-034), and the cards are part of the native "Pricing Section Desktop" interaction, so this is likely a Designer or interaction change. (inferred — confirm) Whether the gap shows at the start, the end or throughout, and at which widths, is not known. (inferred — confirm) Look at R-032 (pricing text stagger) and R-034 first: they may change the same animation. D-017 applies. D-006 and D-007 apply if a style change is needed: options first, and no new class without your approval.
 
 ### R-033 · Reduce the 'is-blurred' time on the primary nav *(accepted by Michael in boss, 25 Oct 2026)*

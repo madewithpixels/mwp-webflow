@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Gap under the separator above the pricing cards: measured, cause found, options written (R-098, R-034, brief #267)
+**Changed (R-098):** docs only: `docs/pricing-gap-options.md` and this entry. Nothing changed in Webflow (I used no Webflow tool, so no backups were needed), no classes added, nothing published. Evidence: verified (live), staging, Chrome on the Mac Studio; 1700px window, plus same-origin frames at 1440, 1024, 768 and 390. Acceptance: pending.
+**Cause:** the cards' own top margin. `.pricing-block` has `margin-top: 1rem` in the 1440px-and-up setting, so the cards start 16px below the top and the sticky separator (8.4px, top 0) only covers 8.4 of that. The slate behind shows through the 7.6 to 7.8px left. The interaction only reveals each card downwards with a clip-path from its own top, so it never opens or closes the gap.
+**Gap measured:** 1440 and 1700: +7.8px and +7.7px at rest and the same throughout the reveal. 1024: none (the cards are 8.8px under the separator). 768 and 390: no drop-down (cards stacked, plain scroll), so n/a.
+**Options (in the note, also sent to Michael in boss):** A set the card margin to 0 at the 1440 setting (recommended); B negative margin; C thicken the separator (wait for R-034).
+**Not checked:** Safari and Firefox; widths between 1025 and 1439 other than 1024 (rule is min-width 1440). Interactions aren't in the snapshots.
+**Needs Michael:** pick A, B or C.
+**Next useful action:** apply the pick in the Designer (or via the MCP with a before backup), then check on staging at 1440 and 1700.
+— Claude (night shift)
+
 ## 3 November 2026 — Claude (night shift) — Testimonial quotes no longer pile up after menu jumps (R-094, brief #272)
 **Changed (R-094):** Webflow, site madewithpixels, Home page, **Page settings > Custom code > Head** only, published to staging only (madewithpixels-dev.webflow.io). I read the block first and wrote it back with one change (the echo matched): in `playInOrder`, each scroll animation is now drawn at its end first and then back to the right point, plus a comment (item 3) explaining why. No class, element, interaction or Designer change. Not published to the custom domain.
 **Cause:** Michael's steps reproduced on staging on the first try (menu > Contact, then menu > Testimonials). The head script redraws every scroll animation after a menu jump, and after any re-measure, as a forced draw. Played forwards, that draw hit the Testimonial Wall timeline's later steps (each quote's fade-out "starts from visible") after their earlier ones, so all ten quotes ended at full opacity. A backwards draw runs the steps in reverse and ends correctly. Jumping up from Contact or Pricing, and from Home, all hit it; a plain scroll never did.

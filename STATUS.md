@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Six new tasks written up as roadmap items (R-095 to R-100, brief #262)
+**Changed:** ROADMAP only. Six items added, each with his wording as the title, a done-when, guesses marked (inferred — confirm) and its Task line: R-095 intro sequence tuning (Task 43612350), R-096 blurred hero H3 (43612353), R-097 burger nav acting oddly (43612354), R-098 gap between the separator and the pricing cards (43612356), R-099 subtle expanding contents device (43612357), R-100 launch MWP GoogleAds campaign (43612355, Phase 6). Phase table updated. Nothing changed in Webflow or the site. No tasks touched. State planned, Acceptance pending on all six.
+**Checked how:** read the existing roadmap items they relate to (R-032, R-034, R-076, R-077, R-081, R-087); no browser used.
+**Still open:** the other tasks listed as having no item (43612130, 43612133, 43612120, 43612126, 43612111, 43612304) are the headings already covered by the phases, so I gave them no item.
+**Needs Michael (not blocking):**
+- R-096 may be the same strapline blur as R-087 (dropped 1 November). R-099 looks like a fresh take on R-076, whose task was deleted: say whether it replaces it.
+- Roadmap items whose task he deleted, for him to decide (not dropped): R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-059.
+**Next useful action:** pick which new item to start; R-096 and R-097 need a description of what he sees first.
+— Claude (night shift)
+
 ## 3 November 2026 — Claude (night shift) — Home logo alt text applied on staging (R-053, brief #257)
 **Changed:** Michael's picks from boss: project wall tiles left empty (decorative); sixth logo is English Heritage. In Webflow, madewithpixels site, Home page, the six "Brand Logo" images inside "Logo Track" got alt text: BBC logo, Armitage Shanks logo, Speedo logo, University of Nottingham logo, ITV logo, English Heritage logo. Nothing else changed in Webflow. Published to madewithpixels-dev.webflow.io only. R-053 State and Acceptance untouched (Michael accepted the proposals on 2 November 2026; this applies them).
 **Checked how:** read back two of the six through the Webflow tools; then on the published staging Home page (Chrome on the Mac Studio, desktop) counted 192 images: exactly 6 have alt text (the six above), the other 186 are empty, including all 30 repeated logos (hidden from screen readers by their parent) and all 153 wall tiles. Evidence: verified (live). Backups: "boss · brief #257 · before" (two copies, 11:02:38 pm and 11:02:57 pm) and "boss · brief #257 · after", all made through the Webflow dashboard because the Designer address redirected to the dashboard.

@@ -10,6 +10,8 @@
 
 *Two tasks added on 1 November 2026 (R-093, R-094) are written up from your list and still needs your confirmation of the guesses marked in it.*
 
+*Six tasks added on 3 November 2026 (R-095 to R-100) are written up from your list and still need your confirmation of the guesses marked in them.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -19,11 +21,11 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099 |
 | 3 | Phone and tablet | R-039–R-045, R-093 |
 | 4 | Estimate page | R-046–R-051 |
 | 5 | Launch prep and launch | R-052–R-063 |
-| 6 | After launch (your Phase 2) | R-064–R-073 |
+| 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
 
@@ -68,6 +70,13 @@
 **Task:** 43612314 in your boss list
 **From:** your task list. 'Wondering about the cost of your site?'
 **Note:** part of the native "Pricing Section Desktop" interaction, so a Designer change.
+
+### R-098 · Remove the gap between the separator and the three pricing cards that animate down from the top of the viewport
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612356 in your boss list
+**From:** your task list, added 3 November 2026. Placed beside R-032 and R-034, which touch the same section.
+**Done when:** on the Home page, the three pricing cards that drop in from the top of the viewport sit directly against the separator with no visible gap, through the whole animation, on published staging in Chrome at desktop width. (inferred — confirm)
+**Note:** The separator is read as the gradient bar used between sections (see R-034), and the cards are part of the native "Pricing Section Desktop" interaction, so this is likely a Designer or interaction change. (inferred — confirm) Whether the gap shows at the start, the end or throughout, and at which widths, is not known. (inferred — confirm) Look at R-032 (pricing text stagger) and R-034 first: they may change the same animation. D-017 applies. D-006 and D-007 apply if a style change is needed: options first, and no new class without your approval.
 
 ### R-033 · Reduce the 'is-blurred' time on the primary nav *(accepted by Michael in boss, 25 Oct 2026)*
 **State:** built (25 October 2026, not yet published) · **Evidence:** none (the Designer doesn't run custom code; needs checking on published staging) · **Acceptance:** accepted (25 October 2026)
@@ -130,6 +139,13 @@
 **Done when:** on the published staging site, the testimonial wall's entries no longer pile on top of each other: each sits in its own place at every width, through the whole scroll, and scrolling back up too. Checked on staging in Chrome at desktop, tablet and phone widths. (inferred — confirm)
 **Note:** "Stacked entries" is read as testimonial bubbles or rows landing on top of each other, or collapsing into one spot, instead of spreading out as designed (inferred — confirm). Unknown whether it happens at all widths or only some, on load or only after scrolling back up (inferred — confirm). Start by finding when it happens. Likely places: the testi-wall layout and interactions, and the testi-wall code in the Home page head code. See D-017 for the scroll-animation notes before touching them. R-045 (long quotes on phones) and R-093 (shadows) touched the same wall, so check they are not the cause. D-006 and D-007 apply if a style change is needed.
 
+### R-095 · New tuning for the intro sequence
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612350 in your boss list
+**From:** your task list, added 3 November 2026. Your wording is all there is.
+**Done when:** the home page's intro sequence (the opening animation on load) has the timing and feel you want, on the published staging site, checked in Chrome at desktop width. (inferred — confirm)
+**Note:** Michael gave no detail, so which part to tune (speed, order, easing, the logo pixels) is open. (inferred — confirm) Start by asking what feels wrong, with options before any change (D-007). Earlier intro work: R-001, R-003, R-012. Intro timing is animation, so check it in Chrome on the Mac Studio, not the built-in pane. Phone and tablet are assumed to follow later. (inferred — confirm)
+
 ### R-034 · make better use of the separator during the scroll anims
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612308 in your boss list
@@ -178,6 +194,13 @@
 **From:** your task list, added 26 October 2026.
 **Exit criteria:** on the home page at desktop width, a contents device sits beside the page's own scrollbar. It lists the main sections, marks the one you are in as you scroll, and clicking an entry scrolls to that section. It works on published staging and does not fight the sticky-section scroll animations (D-017).
 **Note:** Michael gave no detail, so these are guesses. (inferred — confirm) Home page only. Desktop first, phone and tablet to follow in Phase 3. Entries are the home page's main sections. The look is open, so options come to you first (D-007), and any new class needs your approval first (D-006).
+
+### R-099 · Add a subtle and expanding 'contents' device
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612357 in your boss list
+**From:** your task list, added 3 November 2026. This looks like a fresh take on R-076, whose task you deleted on your list. I have not merged them.
+**Done when:** on the home page at desktop width, a small, quiet contents device sits at the edge of the screen. It lists the main sections, marks the current one as you scroll, expands (on hover or click) to show the full list, and clicking an entry scrolls to that section. It works on published staging and does not fight the sticky-section scroll animations. (inferred — confirm)
+**Note:** Guesses: "subtle" means small and low-contrast until used, and "expanding" means it grows when you hover or click. (inferred — confirm) Please say whether this replaces R-076 (my suggestion, since R-076's task is gone) so that one can be dropped. The look is open, so options come first (D-007), and any new class needs your approval (D-006). See D-017 for scroll animation notes. Phone and tablet to follow in Phase 3. (inferred — confirm)
 
 ### R-075 · set border: 10px solid red; using the webflow ui on the hero section
 **State:** planned · **Evidence:** none · **Acceptance:** pending
@@ -238,12 +261,26 @@
 **Done when:** opening and closing the burger menu leaves the menu button exactly where it was, with no sideways shift, at desktop and tablet widths on published staging. (inferred — confirm widths)
 **Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
 
+### R-097 · Burger nav is acting oddly
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612354 in your boss list
+**From:** your task list, added 3 November 2026. Your wording is all there is.
+**Done when:** the burger menu opens, closes and jumps to its links without anything odd (no shifting, flashing, shaking or sticking) on published staging, at desktop, tablet and phone widths. (inferred — confirm)
+**Note:** "Oddly" is not described, so the first step is to find what it does and when. (inferred — confirm) Related, already dealt with: R-081 (button jumping sideways, accepted) and R-077 (double flash when it closes after a link click, waiting on SmashBurger). Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006); the fix may belong in SmashBurger and wait for R-030. Ignore the old `mwp-site-menu-*` menu (D-015).
+
 ### R-087 · When scrolling back to the top of the page, the H3.Hero-Strapline is blurred and does not resolve back to a readable state
 **State:** dropped (1 November 2026, Michael's decision in boss on brief #186: "I can't reproduce it now either - let's forget it") · **Evidence:** verified (live) for the measurements; fault not reproduced · **Acceptance:** pending
 **Task:** 43612344 in your boss list
 **From:** your task list, added 31 October 2026.
 **Done when:** after scrolling down and then back up to the top of the Home page, the hero strapline (the H3 with the class Hero-Strapline) is sharp and readable, as it is on first load. Checked on published staging at desktop width, with Chrome on the Mac Studio. (inferred — confirm)
 **Note:** Looked into 1 November 2026 (brief #185): not custom code. The blur is the scroll-tied Home interaction "Hero Fade Out" (Brand Name Blur step, 5px) on `--Can-blur`. On staging after a quick return to the top the strapline keeps `blur(0.0045px)` (first load: `blur(0px)`); it looks sharp, so I did not reproduce a visible blur. A second, empty copy of "Hero Fade Out" exists (`i-9e2a7fda`). Phone and tablet not checked (viewport would not resize). Options and detail in STATUS. Original guess: The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
+
+### R-096 · Fix the blurred hero H3
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612353 in your boss list
+**From:** your task list, added 3 November 2026. Your wording is all there is.
+**Done when:** the hero's H3 (the strapline, class Hero-Strapline) is sharp and readable at every point it should be, including on first load and after scrolling back to the top, on published staging in Chrome. (inferred — confirm)
+**Note:** Probably the same strapline as R-087, which you dropped on 1 November 2026 because it could not be reproduced (brief #186). This task suggests you are seeing it again, or a different case, so ask when and at what width it happens before digging in. (inferred — confirm) R-087's notes: the blur comes from the scroll-tied Home interaction "Hero Fade Out", and a second, empty copy of it exists. D-017 applies to scroll animation changes.
 
 ### R-084 · Missing closing quote svg on the Travel Ledger testimonial *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (1 November 2026, brief #168) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 1467px wide, by script; not by eye) · **Acceptance:** accepted (31 October 2026)
@@ -506,6 +543,13 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612138 in your boss list
 **From:** your task list (Phase 2 › Launch MWP social campaign). "Create a Webflow cloneable project, plus talk about it in the OSMO and Formburg channels' comment sections."
+
+### R-100 · launch MWP GoogleAds campaign
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612355 in your boss list
+**From:** your task list, added 3 November 2026. Placed in Phase 6 beside the social campaign items.
+**Done when:** a Google Ads campaign for madewithpixels is live, with its budget, ad copy, keywords and landing page agreed by you, and conversions are counting in GA4. (inferred — confirm)
+**Note:** This is mostly work outside the site, so an agent can only help with parts: keyword and ad copy proposals, landing page checks, conversion tracking (see R-061). Spending money and launching are yours. (inferred — confirm) It probably waits until after the site launches and the landing pages exist. (inferred — confirm) Budget, targeting, and whether it points at the home page or new landing pages are open questions.
 
 ## Phase 7 · SmashBurger, once it's finished
 *Michael, 24 October 2026: complete the site as far as possible, then finish SmashBurger, then bring its release in.*

@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Home logo alt text applied on staging (R-053, brief #257)
+**Changed:** Michael's picks from boss: project wall tiles left empty (decorative); sixth logo is English Heritage. In Webflow, madewithpixels site, Home page, the six "Brand Logo" images inside "Logo Track" got alt text: BBC logo, Armitage Shanks logo, Speedo logo, University of Nottingham logo, ITV logo, English Heritage logo. Nothing else changed in Webflow. Published to madewithpixels-dev.webflow.io only. R-053 State and Acceptance untouched (Michael accepted the proposals on 2 November 2026; this applies them).
+**Checked how:** read back two of the six through the Webflow tools; then on the published staging Home page (Chrome on the Mac Studio, desktop) counted 192 images: exactly 6 have alt text (the six above), the other 186 are empty, including all 30 repeated logos (hidden from screen readers by their parent) and all 153 wall tiles. Evidence: verified (live). Backups: "boss · brief #257 · before" (two copies, 11:02:38 pm and 11:02:57 pm) and "boss · brief #257 · after", all made through the Webflow dashboard because the Designer address redirected to the dashboard.
+**Still open:** the two focus-block icons and the stray no-source image stay empty as proposed. The seven inline SVG shapes were not inspected. The snapshots folder was not refreshed: the Webflow tools I used don't export image alt text, and no page, style or code setting changed. Interactions are not in snapshots anyway.
+**Needs Michael:** nothing. Optional: check the logo strip on staging.
+**Next useful action:** none for this item beyond his own check and backup.
+— Claude (night shift)
+
 ## 2 November 2026 — Claude (night shift) — Assessment screen copy: Michael's answers and advice lines (R-051, R-050, brief #250)
 **Changed:** docs only. `docs/estimate-assessment-copy.md` now records Michael's four answers, applies them (price stays on the right panel only, button reads "Book a free chat") and has a drafted advice line for every answer on all six questions. R-051 and R-050 keep State: planned. Nothing changed in Webflow or the estimate tool's repo. Acceptance: pending.
 **Checked how:** read the answer options from the staging estimate page (Chrome on the Mac Studio, desktop) by stepping through the questions; nothing submitted. Tab closed.

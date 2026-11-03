@@ -83,11 +83,6 @@
 **Time:** about 3 minutes
 **Note:** the blur holds for 0.9 seconds after a menu jump (`SETTLE_MS` in the home page head) so the scroll animations can settle out of sight. Shorter is easy; too short and you may see sections snap into place.
 
-### R-034 · make better use of the separator during the scroll anims
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612308 in your boss list
-**From:** your task list.
-
 ### R-035 · More interesting typography in the marquee section *(accepted by Michael in boss, 1 Nov 2026)*
 **State:** built (1 November 2026) · **Evidence:** verified (live; latest reference crop, two edge fades, Hard Light backing and centre-out raspberry stagger on staging in Chrome on the Mac Studio) · **Acceptance:** accepted (1 November 2026)
 **Try:** Our promise holds for reading, then an angled transparent-to-slate sweep enters from the right. One “Sectors & Specialisms” mask travels right to left, then the stage releases to “Your website. Built to last.” The mask crop follows Michael's screenshots, with fades into Faulty Terminal at both viewport edges. Its reveal layer uses Hard Light at 70% opacity. Raspberry starts on the centre row, spreads outwards across each line and then works through neighbouring rows towards the edges. It reverses when scrolling back.
@@ -127,6 +122,18 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612317 in your boss list
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
+
+### R-094 · Fix the testi-wall stacked entries bug
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612346 in your boss list
+**From:** your task list, added 1 November 2026. Your wording is all there is: no screenshot, width or description of what "stacked" looks like came with it.
+**Done when:** on the published staging site, the testimonial wall's entries no longer pile on top of each other: each sits in its own place at every width, through the whole scroll, and scrolling back up too. Checked on staging in Chrome at desktop, tablet and phone widths. (inferred — confirm)
+**Note:** "Stacked entries" is read as testimonial bubbles or rows landing on top of each other, or collapsing into one spot, instead of spreading out as designed (inferred — confirm). Unknown whether it happens at all widths or only some, on load or only after scrolling back up (inferred — confirm). Start by finding when it happens. Likely places: the testi-wall layout and interactions, and the testi-wall code in the Home page head code. See D-017 for the scroll-animation notes before touching them. R-045 (long quotes on phones) and R-093 (shadows) touched the same wall, so check they are not the cause. D-006 and D-007 apply if a style change is needed.
+
+### R-034 · make better use of the separator during the scroll anims
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612308 in your boss list
+**From:** your task list.
 
 ### R-085 · Faulty Terminal BG re-initialises between project page transitions *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (fallback: element removed) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1467px wide) · **Acceptance:** accepted (31 October 2026)
@@ -268,13 +275,6 @@
 **Done when:** no project page has the Icon-Link element any more, and the page layout around where it was looks right. Checked on published staging on at least two project pages. (inferred — confirm)
 **Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
 **Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
-
-### R-094 · Fix the testi-wall stacked entries bug
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612346 in your boss list
-**From:** your task list, added 1 November 2026. Your wording is all there is: no screenshot, width or description of what "stacked" looks like came with it.
-**Done when:** on the published staging site, the testimonial wall's entries no longer pile on top of each other: each sits in its own place at every width, through the whole scroll, and scrolling back up too. Checked on staging in Chrome at desktop, tablet and phone widths. (inferred — confirm)
-**Note:** "Stacked entries" is read as testimonial bubbles or rows landing on top of each other, or collapsing into one spot, instead of spreading out as designed (inferred — confirm). Unknown whether it happens at all widths or only some, on load or only after scrolling back up (inferred — confirm). Start by finding when it happens. Likely places: the testi-wall layout and interactions, and the testi-wall code in the Home page head code. See D-017 for the scroll-animation notes before touching them. R-045 (long quotes on phones) and R-093 (shadows) touched the same wall, so check they are not the cause. D-006 and D-007 apply if a style change is needed.
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

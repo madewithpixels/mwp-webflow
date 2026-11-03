@@ -71,7 +71,9 @@ Desktop (about 1467px):
 3. Price display: keep **the one on the right** ("it's what users have been seeing during the process"). So the price and range come out of the left card, and the right panel keeps "Estimated investment" with its range. The left card's "Likely cost" label, price note and "A guide, not a quote" line move to sit under the right panel's total, so the caveat is not lost.
 4. Per-answer advice lines: **Yes.** Drafted below. This needs code in the estimate tool's own repo (MWP-Instant-Website-Estimate).
 
-## Per-answer advice lines (proposed - Michael to read)
+## Per-answer advice lines (approved as written - Michael, 3 November 2026, in boss, brief #266)
+
+Michael chose "Good to use as written" for all the lines below. The "15 minutes" in the price note is still my figure, not his: confirm before it goes live. Nothing is built yet; Acceptance stays pending.
 
 How it would work: on the assessment, under "Our advice", show one short line for each answer the person gave (questions 1 to 5; question 6 gets a line only for the features picked, up to the first three). Friendly, about saving time or money. The options and their order are exactly as on staging today.
 

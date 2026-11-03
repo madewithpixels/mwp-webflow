@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Michael approved the estimate advice lines (R-051, R-050, brief #266)
+**Changed:** docs/estimate-assessment-copy.md only: the advice-lines section is marked approved as written, quoting Michael's boss answer "Good to use as written". Nothing changed in Webflow or the estimate tool's code. State stays planned; Acceptance pending.
+**Checked how:** read the doc; no browser used.
+**Still open:** the "15 minutes" in the price note is my figure, not Michael's. The finishing items (R-050) are still proposals.
+**Needs Michael:** nothing.
+**Next useful action:** a brief for the estimate tool's repo (MWP-Instant-Website-Estimate) to make the wording, price-display, advice-line and finishing changes together.
+— Claude (night shift)
+
 ## 3 November 2026 — Claude (night shift) — Six new tasks written up as roadmap items (R-095 to R-100, brief #262)
 **Changed:** ROADMAP only. Six items added, each with his wording as the title, a done-when, guesses marked (inferred — confirm) and its Task line: R-095 intro sequence tuning (Task 43612350), R-096 blurred hero H3 (43612353), R-097 burger nav acting oddly (43612354), R-098 gap between the separator and the pricing cards (43612356), R-099 subtle expanding contents device (43612357), R-100 launch MWP GoogleAds campaign (43612355, Phase 6). Phase table updated. Nothing changed in Webflow or the site. No tasks touched. State planned, Acceptance pending on all six.
 **Checked how:** read the existing roadmap items they relate to (R-032, R-034, R-076, R-077, R-081, R-087); no browser used.

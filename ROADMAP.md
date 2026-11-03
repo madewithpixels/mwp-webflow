@@ -72,11 +72,19 @@
 **Note:** part of the native "Pricing Section Desktop" interaction, so a Designer change.
 
 ### R-098 · Remove the gap between the separator and the three pricing cards that animate down from the top of the viewport
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (3 November 2026, published to staging) · **Evidence:** verified (live), staging, Chrome on the Mac Studio at 1440, 1700 and 1024 · **Acceptance:** pending
+**Try:** On the Home page the three pricing cards now start right under the coloured bar on wide screens, with no dark strip.
+**Why:** The thin strip of dark background above the cards is gone.
+**Steps:**
+1. Open the [staging Home page](https://madewithpixels-dev.webflow.io/) in Chrome with the window at least 1440px wide.
+2. Scroll down to the pricing section and watch the three cards drop in.
+3. Look at the line between the coloured bar at the top and the top of the cards.
+**Done when:** No dark strip shows between the bar and the cards at any point of the drop-down.
+**Time:** about 2 minutes
 **Task:** 43612356 in your boss list
 **From:** your task list, added 3 November 2026. Placed beside R-032 and R-034, which touch the same section.
 **Done when:** on the Home page, the three pricing cards that drop in from the top of the viewport sit directly against the separator with no visible gap, through the whole animation, on published staging in Chrome at desktop width. (inferred — confirm)
-**Findings (3 November 2026, brief #267):** the gap is the cards' own 1rem top margin in the 1440px-and-up setting (about 7.8px visible at 1440 and 1700, none at 1024, n/a at 768 and 390). Options are in `docs/pricing-gap-options.md`; Michael to pick.
+**Findings (3 November 2026, brief #267):** the gap is the cards' own 1rem top margin in the 1440px-and-up setting (about 7.8px visible at 1440 and 1700, none at 1024, n/a at 768 and 390). Options are in `docs/pricing-gap-options.md`. Michael picked option A in boss (brief #291, 3 November 2026): `.pricing-block` margin-top at the 1440px-and-up setting is now 0px (was 1rem). Measured on staging after publishing: the card top is 0.2px against the separator's 8.4px bottom at 1440 and 1700, so the separator covers the card's first 8px and no gap shows; 1024 is unchanged.
 **Note:** The separator is read as the gradient bar used between sections (see R-034), and the cards are part of the native "Pricing Section Desktop" interaction, so this is likely a Designer or interaction change. (inferred — confirm) Whether the gap shows at the start, the end or throughout, and at which widths, is not known. (inferred — confirm) Look at R-032 (pricing text stagger) and R-034 first: they may change the same animation. D-017 applies. D-006 and D-007 apply if a style change is needed: options first, and no new class without your approval.
 
 ### R-033 · Reduce the 'is-blurred' time on the primary nav *(accepted by Michael in boss, 25 Oct 2026)*

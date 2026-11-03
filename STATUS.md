@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 3 November 2026 — Claude (night shift) — Pricing cards: top margin removed on wide screens (R-098, brief #291)
+**Changed (R-098):** Webflow, site madewithpixels, style `.pricing-block` (Pricing Block), 1440px-and-up (xl) setting: Margin top 1rem to 0px. Read back after writing: `margin-top: 0px`, the other xl values unchanged. No new class, interaction, element or custom code touched. Published to staging only (madewithpixels-dev.webflow.io), never the custom domain. Michael chose this option (A) in boss.
+**Backups:** "boss · brief #291 · before" and "boss · brief #291 · after", both made from the Webflow dashboard Backups page (the Designer address redirected to the dashboard, so the Designer route wasn't available). The before backup exists twice (11:50:51 pm and 11:51:12 pm): my first attempt lost its typed name and Webflow applied it late.
+**Checked how:** Evidence: verified (live), staging, Chrome on the Mac Studio, same-origin frames at 1700, 1440 and 1024, scrolled through the pricing section at three points. Card top versus separator bottom: 1700 and 1440 0.2px against 8.4px (separator covers it, no gap; was +7.8px); 1024 -0.4px against 8.4px (unchanged). Acceptance: pending.
+**Snapshot:** `snapshots/styles/classes.json` updated by hand for that one value (the only Webflow data I changed). Interactions aren't in the snapshot, so I can't show they are unchanged; I didn't touch them.
+**Not checked:** Safari and Firefox; 768 and 390 (no drop-down there, and the 1440 rule doesn't apply); a frame-by-frame look at the reveal; whether card text now sitting 16px higher looks right to the eye.
+**Needs Michael:** try it on staging at 1440 or wider and accept or reject.
+**Next useful action:** none until he looks.
+— Claude (night shift)
+
 ## 3 November 2026 — Claude (night shift) — Gap under the separator above the pricing cards: measured, cause found, options written (R-098, R-034, brief #267)
 **Changed (R-098):** docs only: `docs/pricing-gap-options.md` and this entry. Nothing changed in Webflow (I used no Webflow tool, so no backups were needed), no classes added, nothing published. Evidence: verified (live), staging, Chrome on the Mac Studio; 1700px window, plus same-origin frames at 1440, 1024, 768 and 390. Acceptance: pending.
 **Cause:** the cards' own top margin. `.pricing-block` has `margin-top: 1rem` in the 1440px-and-up setting, so the cards start 16px below the top and the sticky separator (8.4px, top 0) only covers 8.4 of that. The slate behind shows through the 7.6 to 7.8px left. The interaction only reveals each card downwards with a clip-path from its own top, so it never opens or closes the gap.

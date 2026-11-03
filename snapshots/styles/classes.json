@@ -2160,7 +2160,7 @@
         },
         "xl": {
           "properties": {
-            "margin-top": "1rem",
+            "margin-top": "0px",
             "padding-right": "3.6vw",
             "padding-left": "3.6vw",
             "grid-column-gap": "1.5em",

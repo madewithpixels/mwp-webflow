@@ -1,4 +1,4 @@
-<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in briefs #295 and #298, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
+<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in briefs #295 and #298, then to Michael's spec of 4 November 2026, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
 <style>
   /* A quiet row of dashes at the right edge, one per main section; the current one is longer and brighter.
    Hover or keyboard focus opens it into a small panel with the section names. Self-contained: no Webflow classes. */
@@ -64,56 +64,57 @@
       flex: none;
       display: block;
       width: 12px;
-      height: 2px;
-      border-radius: 1px;
+      height: 2px; /* every main section line is 2px (Michael's spec) */
+      border-radius: 0;
       /* readable on every background: each dash shows what is behind it turned to pure black or white, whichever contrasts
          (white over the slate and teal and raspberry, black over the light sections). The panel's own blur backing, while open,
          is dark, so the dashes show white there. A plain mix-blend-mode of difference was tried first and left the teal flat. */
       background-color: transparent;
       -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
       backdrop-filter: grayscale(1) invert(1) contrast(100);
-      opacity: 0.6;
+      opacity: 1; /* full white (Michael's spec); the parts below are the greyed ones */
       transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
     }
     .mwp-contents__link.is-current .mwp-contents__tick,
     .mwp-contents__link.is-group-current .mwp-contents__tick {
       width: 28px;
-      opacity: 1;
     }
-    /* the parts of About: inset from the main dashes, hung off a thin rail, shorter dashes, closer together, smaller labels */
-    li.is-sub {
+    /* the parts of About (Michael's spec): 1px lines, slightly greyed against the 2px main lines, hanging off a 1px dotted rail that
+       is flush with the right edge of the main lines. The rail is one element, placed by the script; it sits behind the list so
+       the current part's raspberry line (which reaches the rail) covers its dot. */
+    .mwp-contents__list {
       position: relative;
-      padding-right: 16px; /* inset from the main dashes */
+      z-index: 1;
     }
-    li.is-sub::after {
-      content: '';
+    .mwp-contents__rail {
       position: absolute;
-      right: 14px;
-      top: 0;
-      bottom: 0;
-      width: 2px; /* 2px like the dashes: a 1px filtered line broke up into dots (brief #298) */
+      right: 12px; /* the nav's own side padding: the same right edge as the main lines */
+      width: 1px;
+      z-index: 0;
+      pointer-events: none;
       background-color: transparent;
       -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
-      backdrop-filter: grayscale(1) invert(1) contrast(100); /* a thin rail the parts hang from, joining them to About */
-    }
-    /* the rail runs unbroken from About's dash down to the last part's dash (brief #298) */
-    li.is-sub:first-of-type::after,
-    li:not(.is-sub) + li.is-sub::after {
-      top: -9.75px;
-    }
-    li.is-sub:has(+ li:not(.is-sub))::after {
-      bottom: calc(50% - 1px);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px);
+      mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px); /* 1px dot, 1px gap */
+      opacity: 0.6;
     }
     .mwp-contents__link.is-sub {
       padding: 1.4px 0;
     }
     .mwp-contents__link.is-sub .mwp-contents__tick {
-      width: 7px;
-      opacity: 0.6; /* as bright as the main dashes, so the parts do not look greyed out (brief #298) */
+      width: 6px;
+      height: 1px;
+      margin-right: 1px; /* a resting part line is 7px with the rail's pixel: it ends where the rail begins and never overlaps it */
+      opacity: 0.6;
     }
     .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
-      width: 16px;
+      width: 9px; /* the current part: longer, raspberry, and it reaches the rail so the rail's dot beside it is raspberry too */
+      margin-right: 0;
       opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: #d9466c;
     }
     .mwp-contents__link.is-sub .mwp-contents__label {
       font-size: 0.8125rem;
@@ -249,7 +250,32 @@
     });
     if (items.length < 2) return;
     nav.appendChild(list);
+    // The dotted rail the About parts hang from (Michael's spec): one element, from 8px above the first part's line to 8px below the last,
+    // placed from the rows' real positions so it follows any change in row height.
+    var RAIL_OVERHANG = 8;
+    var rail = document.createElement('div');
+    rail.className = 'mwp-contents__rail';
+    rail.setAttribute('aria-hidden', 'true');
+    nav.insertBefore(rail, list);
     document.body.appendChild(nav);
+    function placeRail() {
+      var subs = list.querySelectorAll('li.is-sub');
+      if (!subs.length) {
+        rail.style.display = 'none';
+        return;
+      }
+      var navTop = nav.getBoundingClientRect().top;
+      var a = subs[0].getBoundingClientRect();
+      var b = subs[subs.length - 1].getBoundingClientRect();
+      var top = Math.round(a.top - navTop + a.height / 2 - RAIL_OVERHANG);
+      var bottom = Math.round(b.top - navTop + b.height / 2 + RAIL_OVERHANG);
+      rail.style.display = '';
+      rail.style.top = top + 'px';
+      rail.style.height = bottom - top + 'px';
+    }
+    placeRail();
+    window.addEventListener('resize', placeRail, { passive: true });
+    window.addEventListener('load', placeRail);
 
     var current = -1;
     var queued = false;

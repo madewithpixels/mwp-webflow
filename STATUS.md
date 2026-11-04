@@ -1,5 +1,64 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — Home page scroll length and pacing, section by section (R-042, brief #271)
+**Changed:** docs only (this entry and the R-042 roadmap item). Nothing in Webflow, no interaction, no class, no custom code, no publish.
+**Checked how (verified live, measured):** published staging Home (madewithpixels-dev.webflow.io), Chrome on the Mac Studio. **1440px:** the real window, viewport 1440 by 813. **390px:** the window would not shrink, so I loaded the same page in a 390 by 844 same-origin frame and measured inside it. Positions are read from the page (each section's top and height) and from the scroll animation library's start and end points, not by watching the page with my eyes. So the "feels long or short" notes are my judgement from length against content, not a viewing; I did not take screenshots. One viewport height (vh) = 813px at 1440, 844px at 390.
+
+**Total page scroll length.** 1440px: page 53,746px tall, so 52,933px of actual scrolling = 65.1 viewport heights. 390px: 38,349px tall, so 37,505px of scrolling = 44.4 viewport heights. Phone is about 30% shorter, almost all because the Ticker sequence is hidden there and the Promise, Pricing and Work are not pinned.
+
+**Table (px from the top of the page; "pinned" = a sticky stage holds the screen while the page scrolls under it).**
+
+1440px wide:
+- Hero strapline: 0 to 1,301 = 1,301px, 1.6 vh. Pinned (hero is sticky; its animation runs from 488 to 1,829).
+- Project wall (folio-wall, the sideways project sequence): 1,301 to 11,626 = 10,325px, **12.7 vh**. Pinned, scrubbed throughout.
+- Intro ("For almost two decades..."): 11,634 to 14,488 = 2,846px, 3.5 vh. Pinned (about 2,030px of hold).
+- Promise hold ("Our promise"): 14,488 to 16,998 = about 2,510px, 3.1 vh. Pinned. **In flux (R-035).** The split between Promise and the Ticker is inferred from the animation start points (a 1,575px stretch from 15,423, then the Ticker stretch from 16,998).
+- Sector mask / Ticker sequence: 16,998 to 26,463 = 9,465px, **11.6 vh**. Pinned. **In flux (R-035).**
+- "Your website. Built to last." and the focus list: 26,463 to 28,902 = about 2,440px, 3.0 vh. Pinned for about 1 vh in the middle.
+- Pricing: 28,902 to 32,966 = 4,064px, 5.0 vh. Pinned for 2,845px (3.5 vh), then the cards release and the next section starts under them (about 400px overlap with Work).
+- Work (portfolio list): 32,966 to 37,835 = 4,869px, 6.0 vh. Not pinned; the project cards stagger in as you scroll.
+- Testimonials (testi-wall): 37,843 to 52,640 = 14,797px, **18.2 vh**. Pinned, scrubbed throughout.
+- Contact and page end: 52,640 to 53,746 = about 1,100px, 1.3 vh. Not pinned.
+
+390px wide:
+- Hero strapline: 0 to 1,398 = 1,398px, 1.7 vh. Pinned.
+- Project wall: 1,398 to 12,117 = 10,719px, **12.7 vh**. Pinned.
+- Intro: 12,126 to 13,822 = 1,688px, 2.0 vh. Not pinned (stage is a normal block); the text and brands animate as it passes.
+- Promise: 13,822 to 14,812 = about 990px, 1.2 vh. Not pinned in practice (the sticky is declared but its parent is one screen tall). **In flux (R-035)**, but at this width there is no hold to speak of.
+- Ticker sequence: hidden at this width, 0px.
+- "Built to last": 14,812 to 15,925 = 1,113px, 1.3 vh. Not pinned.
+- Pricing: 15,925 to 18,454 = 2,529px, 3.0 vh. Not pinned.
+- Work: 18,453 to 21,673 = 3,220px, 3.8 vh. Not pinned.
+- Testimonials: 21,682 to 37,043 = 15,361px, **18.2 vh**. Pinned.
+- Contact and page end: 37,043 to 38,349 = about 1,300px, 1.5 vh.
+
+**Where the length is.** At 1440px, three sections are 12.7, 11.6 and 18.2 vh: together 42.5 of the 65 vh (65%). The Ticker sequence is in flux, so the real pacing question is the other two. On phone, the project wall and testimonials alone are 31 of 44 vh (70%).
+
+**What looks long or short for its content (judgement from numbers, not viewing).**
+- **Testimonials, 18.2 vh at both widths: longest in proportion to content.** The same length on a phone as on a desktop, though the phone has less to read per step.
+- **Project wall, 12.7 vh at both widths:** long, but it is the main showpiece, and it tells the story of hundreds of projects. Probably meant to be.
+- **Ticker sequence, 11.6 vh (desktop only) and Promise, 3.1 vh: in flux.** Not judged.
+- **Intro, 3.5 vh at desktop for one paragraph:** long compared with the phone's 2.0 vh.
+- **"Built to last", about 3 vh at desktop but only 1.3 vh on phone:** gap between widths.
+- **Pricing, 5.0 vh at desktop:** the cards need the time to drop in, so it is fair; on phone it just scrolls.
+- **Work, 6.0 vh desktop and 3.8 vh phone:** fine for a list of eight cards that stagger in.
+- **Hero, 1.6 vh:** short, quick; fine.
+- **Contact, 1.3 vh:** short, as expected.
+
+**Suggested pacing adjustments (options only, nothing built; under D-007 Michael picks, and any change to the scroll tracks is subject to the D-017 sticky and redraw checks).**
+1. **Shorten the Testimonials hold.** Options: (a) cut the track by about a third (to roughly 12 vh) at desktop, keeping every card; (b) cut it harder on phone only (for example 10 vh), since one screen shows less; (c) leave desktop and only add a fast-forward by making the early cards appear sooner. Visitor sees: reaches Contact sooner. Risk: the entries are read one at a time; too short and they flash past.
+2. **Trim the Project wall by 2 to 3 vh.** Options: (a) shorten by 20% at both widths; (b) shorten at phone only; (c) leave as is because it is the showpiece. Visitor sees: less empty scrolling between projects.
+3. **Tighten the Intro hold at desktop.** Options: (a) bring 3.5 vh down towards the phone's 2.0 vh; (b) leave desktop and lengthen phone; (c) leave. Visitor sees: the paragraph resolves faster.
+4. **Revisit Promise and Ticker once R-035 settles.** Options: (a) re-measure then and set a target as a share of the total (for example Promise plus Ticker no more than 12 vh); (b) fix Promise at about 2.5 vh and let the Ticker take what it needs. Nothing to do yet; both are in flux.
+5. **Give the page an overall target.** Options: (a) aim for about 50 vh at desktop (cutting about 15 vh, mostly from options 1 to 3); (b) leave the total and just rebalance; (c) set a per-section ceiling (say 10 vh) for any one pinned stretch. Visitor sees: a shorter, more even page.
+I would start with option 1 (a) and 3 (a): the lowest-risk, biggest gain, and neither touches the in-flux sections.
+
+**Not checked:** how the pacing feels by eye or on a trackpad (no one at the screen); tablet widths; the scroll-magnet behaviour (desktop only, D-019). The two scroll tracks also depend on the ticker helper's measuring, so the numbers can shift by tens of pixels after a resize or redraw.
+**Needs Michael:** nothing blocking. If he wants any of the options, pick in boss.
+**Acceptance:** not applicable (measurement only).
+**Next useful action:** Michael picks from the five options; then build in the Designer with a backup first.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — Separator in the scroll animations: three options (R-034, brief #270)
 **Changed:** docs only (this entry and the R-034 roadmap item). Nothing in Webflow, no class, no interaction, no custom code, no publish.
 **Checked how (verified live):** published staging Home, Chrome on the Mac Studio. The browser window would not go wider than 800px, so I measured inside a 1440px-wide same-origin frame, scrolling to 30 positions and reading each separator's position and width. I also read the repo snapshots (interactions and classes). The snapshots do not contain the interaction that sets the bottom separator's width, so how that one grows is not read. Looked by measurement, not by screenshot, so how it looks to the eye is not described.

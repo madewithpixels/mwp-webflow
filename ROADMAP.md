@@ -363,6 +363,7 @@
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612311 in your boss list
 **From:** your task list (Responsive layouts).
+**Measured (4 November 2026, brief #271):** section-by-section scroll lengths at 1440px and 390px, in-flux sections marked, and five pacing options (no implementation) are in STATUS, entry "Home page scroll length and pacing, section by section (R-042, brief #271)". Evidence: verified (live, measured). Waiting for Michael's pick.
 **Note:** the scroll magnet is desktop only (D-019).
 
 ### R-043 · check legibility on mobile *(accepted by Michael in boss, 31 Oct 2026)*

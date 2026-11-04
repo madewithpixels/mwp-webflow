@@ -214,7 +214,10 @@
 **Note:** Michael gave no detail, so these are guesses. (inferred — confirm) Home page only. Desktop first, phone and tablet to follow in Phase 3. Entries are the home page's main sections. The look is open, so options come to you first (D-007), and any new class needs your approval first (D-006).
 
 ### R-099 · Add a subtle and expanding 'contents' device
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live) — published staging, Chrome on the Mac Studio, 1440 wide window (2044px viewport); phone and tablet widths not checked · **Acceptance:** pending
+**Built:** 4 November 2026 (brief #273). A first version, as Michael asked ("just build something, we'll tweak it after"). Six dashes at the right edge, vertically centred, one per section (Home, About, Pricing, Work, Testimonials, Contact); the current one is longer and white. Hover or keyboard focus opens a small dark panel with the names; clicking one jumps there through the menu's own jump (so D-017 holds). Desktop only (992px and up). It is a block at the end of the Home page head code (copy: `contents-device.html`); it adds no Webflow classes (D-006) and only reads the scroll position.
+**Try:** Open the staging Home page at desktop width. Look for six small dashes at the right edge. Hover them, click Pricing, and scroll back up.
+**Open:** look and feel is for Michael to tweak. Click-to-open (it opens on hover and keyboard focus only), the colour of the dashes over light sections, and whether it should fade in only after the hero were not decided. Phone and tablet: hidden (Phase 3).
 **Task:** 43612357 in your boss list
 **From:** your task list, added 3 November 2026. This looks like a fresh take on R-076, whose task you deleted on your list. I have not merged them.
 **Done when:** on the home page at desktop width, a small, quiet contents device sits at the edge of the screen. It lists the main sections, marks the current one as you scroll, expands (on hover or click) to show the full list, and clicking an entry scrolls to that section. It works on published staging and does not fight the sticky-section scroll animations. (inferred — confirm)

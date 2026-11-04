@@ -1,0 +1,184 @@
+<!-- Contents device (R-099, brief #273, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
+<style>
+  /* A quiet row of dashes at the right edge, one per main section; the current one is longer and brighter.
+   Hover or keyboard focus opens it into a small panel with the section names. Self-contained: no Webflow classes. */
+  .mwp-contents {
+    display: none;
+  }
+  @media (min-width: 992px) {
+    .mwp-contents {
+      display: block;
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      z-index: 900; /* under the blur (997) and the header (998), so the open menu covers it */
+      transform: translateY(-50%);
+      padding: 10px 12px;
+      border-radius: 14px;
+      background-color: rgba(30, 41, 46, 0);
+      -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0);
+      transition: background-color 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease;
+    }
+    .mwp-contents:hover,
+    .mwp-contents:focus-within {
+      background-color: rgba(30, 41, 46, 0.86);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .mwp-contents__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mwp-contents__link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 6px 0;
+      color: #fff;
+      text-decoration: none;
+      outline: none;
+    }
+    .mwp-contents__label {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+      font-size: 0.875rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-right: 0;
+      transition: max-width 0.3s ease, opacity 0.2s ease, margin-right 0.3s ease;
+    }
+    .mwp-contents:hover .mwp-contents__label,
+    .mwp-contents:focus-within .mwp-contents__label {
+      max-width: 9rem;
+      opacity: 0.7;
+      margin-right: 14px;
+    }
+    .mwp-contents__link.is-current .mwp-contents__label,
+    .mwp-contents__link:hover .mwp-contents__label,
+    .mwp-contents__link:focus-visible .mwp-contents__label {
+      opacity: 1;
+    }
+    .mwp-contents__tick {
+      flex: none;
+      display: block;
+      width: 12px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: #fff;
+      opacity: 0.4;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35); /* keeps the dash readable over light sections */
+      transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+    }
+    .mwp-contents__link.is-current .mwp-contents__tick {
+      width: 28px;
+      opacity: 1;
+    }
+    .mwp-contents__link:hover .mwp-contents__tick,
+    .mwp-contents__link:focus-visible .mwp-contents__tick {
+      opacity: 1;
+      background-color: #d9466c;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mwp-contents,
+    .mwp-contents__label,
+    .mwp-contents__tick {
+      transition: none;
+    }
+  }
+</style>
+<script>
+  // Contents device (R-099, written by Claude). Lists the home page's main sections, marks the one you are in, and jumps on click.
+  // Clicking hands over to the primary nav's own link (the nav jump above: blur, instant jump, animations redrawn in page order,
+  // D-017), so a jump from here lands exactly where the menu would. Scrolling only READS positions (nothing is written to the
+  // page's layout or the scroll animations). Desktop only: below 992px the CSS keeps it hidden and this does not run.
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!window.matchMedia('(min-width: 992px)').matches) return;
+    var ENTRIES = [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '#about' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'Work', href: '#portfolio' },
+      { label: 'Testimonials', href: '#testimonials' },
+      { label: 'Contact', href: '#contact' },
+    ];
+    var READ_LINE = 0.5; // a section counts as "current" once its start is above this fraction of the screen height
+    var items = [];
+    var nav = document.createElement('nav');
+    nav.className = 'mwp-contents';
+    nav.setAttribute('aria-label', 'Page contents');
+    var list = document.createElement('ul');
+    list.className = 'mwp-contents__list';
+    ENTRIES.forEach(function (entry) {
+      var target = entry.href === '/' ? 0 : document.querySelector(entry.href);
+      if (target === null) return; // a section that isn't on the page gets no dash
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'mwp-contents__link';
+      a.href = entry.href === '/' ? '#' : entry.href;
+      var label = document.createElement('span');
+      label.className = 'mwp-contents__label';
+      label.textContent = entry.label;
+      var tick = document.createElement('span');
+      tick.className = 'mwp-contents__tick';
+      tick.setAttribute('aria-hidden', 'true');
+      a.appendChild(label);
+      a.appendChild(tick);
+      li.appendChild(a);
+      list.appendChild(li);
+      items.push({ a: a, target: target, href: entry.href });
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var navLink = document.querySelector('.mwp-css-nav_link[href="' + entry.href + '"]');
+        if (navLink) {
+          navLink.click(); // the nav's own jump handler takes it from here
+        } else if (window.lenis) {
+          window.lenis.scrollTo(target === 0 ? 0 : target, { immediate: true, force: true });
+        } else {
+          window.scrollTo(0, target === 0 ? 0 : target.getBoundingClientRect().top + window.scrollY);
+        }
+      });
+    });
+    if (items.length < 2) return;
+    nav.appendChild(list);
+    document.body.appendChild(nav);
+
+    function topOf(target) {
+      if (target === 0) return 0;
+      var base = target.closest('.pin-spacer') || target; // a pinned section is measured from its spacer, as the nav jump does
+      return base.getBoundingClientRect().top + window.scrollY;
+    }
+    var current = -1;
+    var queued = false;
+    function update() {
+      queued = false;
+      var line = window.scrollY + window.innerHeight * READ_LINE;
+      var now = 0;
+      items.forEach(function (it, i) {
+        if (topOf(it.target) <= line) now = i;
+      });
+      if (now === current) return;
+      current = now;
+      items.forEach(function (it, i) {
+        var on = i === now;
+        it.a.classList.toggle('is-current', on);
+        if (on) it.a.setAttribute('aria-current', 'true');
+        else it.a.removeAttribute('aria-current');
+      });
+    }
+    function queue() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue, { passive: true });
+    window.addEventListener('load', queue);
+    if (window.lenis && window.lenis.on) window.lenis.on('scroll', queue);
+    update();
+  });
+</script>

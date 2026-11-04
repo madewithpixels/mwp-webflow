@@ -1,5 +1,17 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — Contents device: the About rail made solid and joined to About (R-099, brief #298)
+**Changed:** Webflow, site madewithpixels, **Home page, head custom code** only: every other block kept exactly (read first, written back whole, echo checked); only the contents-device CSS changed. No classes, elements, interactions or other pages. Published to staging (madewithpixels-dev.webflow.io) only. Repo: `contents-device.html` (R-029), `snapshots/custom-code.json` (Home head). State: built. Evidence: verified (live). Acceptance: see below.
+**Michael, in boss (brief #298):** a screenshot (Desktop, 4 November 2026, 13:45) with *"Make sense?"* and no other words. I read it as the closed device showing the About parts badly. **This is my reading (inferred — confirm).** What I saw in it: the rail was dotted, not solid; it began about a dash-height below About's dash and stopped short of the last part, so it did not join to About; the part dashes were dimmer than the main ones.
+**Fixed:** (1) the rail is 2px, like the dashes, so it draws solid (a 1px line with a backdrop filter broke into dots); (2) it now runs from About's dash down to the last part's dash; (3) the part dashes are the same brightness as the main ones (opacity 0.6, was 0.5); inset 16px, was 14px. Nothing else changed: row heights, labels, hover and the jump behaviour are as in brief #295.
+**Accepted by Michael in boss:** 4 November 2026 — R-099 (checked: not stated). Recorded as boss reported it. The brief above came in after, so this change is new and he has not seen it.
+**Checked how (verified live, staging):** Chrome on the Mac Studio, 2044px viewport. Computed styles on the published page: rail 2px wide, top -9.75px, last rail bottom 6.9px, part dash opacity 0.6; screenshot zoom shows a solid rail from About's dash to the last part. The same rules were first tried by injecting them into the old page. Not checked: Safari and Firefox (`:has()` is supported in current versions); the open panel; other backgrounds; phone and tablet (hidden below 992px). If his screenshot meant something else, I have not seen it.
+**Backups:** "boss · brief #298 · before" and "· after", both on the Webflow dashboard Backups page (fallback route: the Designer address redirected to the dashboard). Both seen in the list.
+**Snapshot caveat:** only the Home head changed in `snapshots/custom-code.json`; interactions are not in snapshots.
+**Still open:** Michael looks at the About parts on staging and says if this is what he meant. Acceptance of this change is his.
+**Notes carried from boss's inbox:** the tasks without roadmap items are already covered (see the entry below); the deleted-task items (R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-059) are still kept for him to decide; his reorders stand.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — New task written up (R-101, brief #297)
 **Changed:** Added R-101, "in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it" (Phase 3, after R-093), from Michael's task 43612359. Roadmap only: no Webflow, site or task changes. State: planned. Acceptance: pending.
 **Already covered, no new item:** #43612357 is R-099 and #43612354 is R-097. The other inbox tasks (MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Finish MWP site, Responsive layouts) are group headings already covered by the goal and phases, as the roadmap preface says.

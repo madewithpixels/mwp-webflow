@@ -1,4 +1,4 @@
-<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in brief #295, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
+<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in briefs #295 and #298, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
 <style>
   /* A quiet row of dashes at the right edge, one per main section; the current one is longer and brighter.
    Hover or keyboard focus opens it into a small panel with the section names. Self-contained: no Webflow classes. */
@@ -83,25 +83,33 @@
     /* the parts of About: inset from the main dashes, hung off a thin rail, shorter dashes, closer together, smaller labels */
     li.is-sub {
       position: relative;
-      padding-right: 14px; /* inset from the main dashes */
+      padding-right: 16px; /* inset from the main dashes */
     }
     li.is-sub::after {
       content: '';
       position: absolute;
-      right: 13px;
+      right: 14px;
       top: 0;
       bottom: 0;
-      width: 1px;
+      width: 2px; /* 2px like the dashes: a 1px filtered line broke up into dots (brief #298) */
       background-color: transparent;
       -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
       backdrop-filter: grayscale(1) invert(1) contrast(100); /* a thin rail the parts hang from, joining them to About */
+    }
+    /* the rail runs unbroken from About's dash down to the last part's dash (brief #298) */
+    li.is-sub:first-of-type::after,
+    li:not(.is-sub) + li.is-sub::after {
+      top: -9.75px;
+    }
+    li.is-sub:has(+ li:not(.is-sub))::after {
+      bottom: calc(50% - 1px);
     }
     .mwp-contents__link.is-sub {
       padding: 1.4px 0;
     }
     .mwp-contents__link.is-sub .mwp-contents__tick {
       width: 7px;
-      opacity: 0.5;
+      opacity: 0.6; /* as bright as the main dashes, so the parts do not look greyed out (brief #298) */
     }
     .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
       width: 16px;

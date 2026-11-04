@@ -141,8 +141,8 @@
 **Task:** 43612317 in your boss list
 **From:** your task list (Page transitions). "Do something with the copy and navigation buttons."
 
-### R-094 · Fix the testi-wall stacked entries bug
-**State:** built · **Evidence:** verified (live) — staging, Chrome desktop plus 390/768/1024 frames, 3 November 2026 · **Acceptance:** pending
+### R-094 · Fix the testi-wall stacked entries bug *(accepted by Michael in boss, 3 Nov 2026)*
+**State:** built · **Evidence:** verified (live) — staging, Chrome desktop plus 390/768/1024 frames, 3 November 2026 · **Acceptance:** accepted (3 November 2026)
 **Try:** On staging the testimonial quotes no longer pile on top of each other after a menu jump.
 **Why:** The wall reads properly however a visitor reaches it.
 **Steps:**
@@ -291,14 +291,15 @@
 **Task:** 43612344 in your boss list
 **From:** your task list, added 31 October 2026.
 **Done when:** after scrolling down and then back up to the top of the Home page, the hero strapline (the H3 with the class Hero-Strapline) is sharp and readable, as it is on first load. Checked on published staging at desktop width, with Chrome on the Mac Studio. (inferred — confirm)
-**Note:** Looked into 1 November 2026 (brief #185): not custom code. The blur is the scroll-tied Home interaction "Hero Fade Out" (Brand Name Blur step, 5px) on `--Can-blur`. On staging after a quick return to the top the strapline keeps `blur(0.0045px)` (first load: `blur(0px)`); it looks sharp, so I did not reproduce a visible blur. A second, empty copy of "Hero Fade Out" exists (`i-9e2a7fda`). Phone and tablet not checked (viewport would not resize). Options and detail in STATUS. Original guess: The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
+**Note:** Looked into 1 November 2026 (brief #185): not custom code. The blur is the scroll-tied Home interaction "Hero Fade Out" (Brand Name Blur step, 5px) on `--Can-blur`. On staging after a quick return to the top the strapline keeps `blur(0.0045px)` (first load: `blur(0px)`); it looks sharp, so I did not reproduce a visible blur. A second, empty copy of "Hero Fade Out" exists (`i-9e2a7fda`). Phone and tablet not checked (viewport would not resize). Options and detail in STATUS. **Update 4 November 2026:** reproduced after all, and the cause is found: see R-096 and STATUS (brief #268). Original guess: The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
 
 ### R-096 · Fix the blurred hero H3
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** in progress (reproduced and cause found 4 November 2026, brief #268; fix not chosen) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, desktop and 1024/768/390 frames, by script and screenshot) · **Acceptance:** pending
 **Task:** 43612353 in your boss list
 **From:** your task list, added 3 November 2026. Your wording is all there is.
 **Done when:** the hero's H3 (the strapline, class Hero-Strapline) is sharp and readable at every point it should be, including on first load and after scrolling back to the top, on published staging in Chrome. (inferred — confirm)
 **Note:** Probably the same strapline as R-087, which you dropped on 1 November 2026 because it could not be reproduced (brief #186). This task suggests you are seeing it again, or a different case, so ask when and at what width it happens before digging in. (inferred — confirm) R-087's notes: the blur comes from the scroll-tied Home interaction "Hero Fade Out", and a second, empty copy of it exists. D-017 applies to scroll animation changes.
+**Re-test (4 November 2026, brief #268):** reproduced at every width, including on first load (`blur(5px)` stuck). Cause and fix options in STATUS, 4 November 2026 entry. R-087 is the same fault.
 
 ### R-084 · Missing closing quote svg on the Travel Ledger testimonial *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (1 November 2026, brief #168) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 1467px wide, by script; not by eye) · **Acceptance:** accepted (31 October 2026)

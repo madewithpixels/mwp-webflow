@@ -1474,3 +1474,7 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 4 November 2026 — Not yet, Michael in boss: R-099 — *"Good so far - but I want more detail. The about section has an intro, an 'our promise' section, a 'we work with' section and a 'Our technology' (might need a better title) section"*. Acceptance stays pending.
 - 4 November 2026 — Not yet, Michael in boss: R-099 — *"Looks good. Some changes: The contents markers need to be readable on every BG colour the site has, Will a mix blending mode be of use there? The lines are too spaced apart - it should be 25% tighter The sub-sections of the about entry aren't immediately obvious as sub-sections - improve it"*. Acceptance stays pending.
 
+## 4 November 2026, 13:56 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 4 November 2026 — Not yet, Michael in boss: R-099 — *"/Users/michaelauty/Desktop/Screenshot 2026-11-04 at 13.45.13.png Make sense?"*. Acceptance stays pending.
+

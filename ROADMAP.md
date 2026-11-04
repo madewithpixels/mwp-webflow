@@ -165,9 +165,10 @@
 **Note:** Michael gave no detail, so which part to tune (speed, order, easing, the logo pixels) is open. (inferred — confirm) Start by asking what feels wrong, with options before any change (D-007). Earlier intro work: R-001, R-003, R-012. Intro timing is animation, so check it in Chrome on the Mac Studio, not the built-in pane. Phone and tablet are assumed to follow later. (inferred — confirm)
 
 ### R-034 · make better use of the separator during the scroll anims
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** planned (options written, waiting for Michael's pick) · **Evidence:** verified (live) for the description of what the separator does now; nothing built · **Acceptance:** pending
 **Task:** 43612308 in your boss list
 **From:** your task list.
+**Options (4 November 2026, brief #270):** three options and a recommendation are written in STATUS, entry "Separator in the scroll animations: three options (R-034, brief #270)". Nothing built. Waiting for Michael to pick (D-007). R-035 (ticker sequence) is a dependency for options 2 and 3: see that entry.
 
 ### R-085 · Faulty Terminal BG re-initialises between project page transitions *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (fallback: element removed) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1467px wide) · **Acceptance:** accepted (31 October 2026)

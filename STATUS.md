@@ -1,5 +1,44 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — Separator in the scroll animations: three options (R-034, brief #270)
+**Changed:** docs only (this entry and the R-034 roadmap item). Nothing in Webflow, no class, no interaction, no custom code, no publish.
+**Checked how (verified live):** published staging Home, Chrome on the Mac Studio. The browser window would not go wider than 800px, so I measured inside a 1440px-wide same-origin frame, scrolling to 30 positions and reading each separator's position and width. I also read the repo snapshots (interactions and classes). The snapshots do not contain the interaction that sets the bottom separator's width, so how that one grows is not read. Looked by measurement, not by screenshot, so how it looks to the eye is not described.
+
+**What the separator is now.** One component, class `seperator` (sic), 8.4px high, holding three `seperator-block` bars (raspberry, coral, teal), each a third of the width, 6.4px high. There are five of them on Home, at 1440px:
+1. **Bottom rule** (`seperator has-bg-slate is-position-sticky-bottom`, between Intro and About in the page order). Width 0 at the top of the page, full width by about 1000px of scroll. Stuck to the bottom edge of the screen from then on, all through the project wall and Intro, until it reaches its own place at the top of About (about 16,030px), where it scrolls away.
+2. **Top rule** (`seperator has-bg-slate is-position-sticky-top`, between the project wall and Intro). Takes over from about 12,870px and then stays stuck to the top edge of the screen to the very end of the page (z-index 500), above the Intro, About, the Ticker sequence, Pricing, Work, Testimonials and Contact. It never moves or changes. The pricing cards slide down from underneath it (R-098).
+3. **Top of Work** (`seperator is-pos-absolute is-top-0`, inside Work, about 36,320px). A plain divider that scrolls past.
+4. **Before Testimonials** (`seperator has-bg-slate`, about 41,190px). A plain divider that scrolls past.
+5. **Page end** (`seperator`, about 58,730px). Plain divider above the footer.
+Separately, the marquee words in the Ticker sequence each have a small gradient dash (class `Dash`, 114 of them; 0.6em by 0.035em, the same raspberry, coral, teal thirds). Those belong to R-035 and are not part of these options.
+**In short:** only the two sticky ones are on screen for long, and the top one sits there through the whole animated stretch doing nothing. The other three are a flash of colour as they pass. Nothing is animated by scroll except the bottom rule's first appearance.
+
+**Option 1: the divider draws itself in at each hand-over.** As a section meets the next, the three bars grow from the left (raspberry, then coral, then teal) while the divider crosses the lower part of the screen. Applies to rules 3, 4 and 5 (and the bottom rule's arrival into About).
+- Visitor sees: each section break has a small, quick moment of colour as it arrives, instead of a static bar.
+- Native Webflow or code: native. A scroll interaction on each divider ("top bottom" to "center center", scrub), animating the bars' width or scale from 0.
+- New classes: none (target the existing `seperator-block` instances).
+- D-017 risk: low to medium. These dividers sit after the long pinned stretches, so their start positions depend on the sticky-section measuring and the page-order redraw working; a wrong measure would leave a bar half-drawn at rest. Needs a check after a menu jump to Work and Testimonials. No change to the pinned sections themselves.
+- R-035 dependency: none for rules 3 to 5. Do not use the Ticker as one of the hand-overs.
+
+**Option 2: the separator is the wipe line between two sections.** A section is revealed downwards from the separator, which travels with the reveal's edge (the pricing cards already do the reveal without the travel). Candidate: Pricing to Work, or Work to Testimonials.
+- Visitor sees: a coloured line sweeping down the screen with the next section appearing behind it, so the bar is the edge of the change rather than a bar that is already there.
+- Native Webflow or code: native for the movement and the clip-path (GSAP in Webflow's interactions), but it needs an extra separator instance placed inside the section being revealed, moved by scroll. Reuses `seperator` and `is-pos-absolute`, so no new class is likely (confirm in the Designer). Placement inside a pinned stage would need custom code.
+- New classes: none expected; if the travelling copy needs a position or offset, that would be a new combo class (not allowed through the MCP, D-006): I would ask first.
+- D-017 risk: highest of the three. It adds a moving element and a clip-path inside the same sticky and pinned region as the pricing cards, and the top rule (z-index 500) is already above it, so the two bars would stack and visibly double up at the top of the screen.
+- R-035 dependency: do not apply it to the Ticker hand-overs while R-035 is in progress (the sweep and fade there are being tuned). Only Pricing onwards is clear of it.
+
+**Option 3: the top rule becomes a scroll-progress bar.** The three bars fill across the top of the screen as you read down from Intro to Contact: raspberry fills first, then coral, then teal.
+- Visitor sees: a thin coloured line at the top edge, quietly filling as they scroll, so the page has a sense of progress. It uses the bar that is already on screen through the long animated part.
+- Native Webflow or code: native. One scroll interaction on the page's main content wrapper (start at the top rule's takeover, end at the bottom of the page, scrub), with three timeline steps, one per bar, animating scale or width from 0 to full. No new class if the three existing bars are targeted directly. (If you would rather have a single fill line under the three bars, that needs one new element and class, for example `seperator-progress`: position absolute, left 0, top 0, height 100%, width 100%, background raspberry, transform-origin left, pointer-events none. I would only ask for it if you want that.)
+- New classes: none for the three-bar version.
+- D-017 risk: low to medium. One long trigger, driven by the page's main wrapper rather than the pinned stages, so it is not tied to their sticky maths; but the wrapper's length changes when the ticker helper measures, so the interaction must be checked after a redraw and after a menu jump. The top rule's height does not change, so R-098 stays correct.
+- R-035 dependency: the progress length includes the ticker's pinned distance, which R-035 is still changing. The bar adjusts itself, but the fill rate through the Ticker stretch will change when R-035 settles. Also overlaps R-099 (contents device already marks position at the right edge): the two should look like they belong together.
+
+**Recommendation: Option 3, then Option 1 as a second step.** Option 3 uses the one separator that is on screen through the longest animated stretch and needs no new class. It touches nothing inside the sticky sections. Option 1 is small and safe afterwards. I would leave Option 2 until R-035 has settled, because it is the one that can clash with the pinned sections and with the top rule. All three can be combined; none is built.
+**Needs Michael:** pick an option (sent to boss). Acceptance not applicable (nothing built).
+**Next useful action:** build the picked option in the Designer, with a backup first, then check on staging after a menu jump.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — Contents device built on staging (R-099, brief #273)
 **Changed:** Webflow, site madewithpixels, **Home page, head custom code**: the existing block kept exactly and a new block appended (a `<style>` and a `<script>`, headed "Contents device (R-099...)"). Nothing else in Webflow: no classes, elements, interactions or other pages. Published to staging (madewithpixels-dev.webflow.io) only. Repo: `contents-device.html` (the block, R-029) and `snapshots/custom-code.json` (Home head updated).
 **What it is:** a quiet row of six short dashes at the right edge, centred vertically (Home, About, Pricing, Work, Testimonials, Contact). The current section's dash is longer and brighter. Hover or Tab focus opens a dark blurred panel with the names (raspberry on the one under the pointer). Clicking clicks the menu's own hidden link, so the jump is the menu's own (blur, instant jump, redraw in page order, D-017). No Webflow classes: all its CSS is in the block (D-006). Desktop only, 992px and up.

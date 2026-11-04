@@ -300,7 +300,7 @@
 **Note:** Looked into 1 November 2026 (brief #185): not custom code. The blur is the scroll-tied Home interaction "Hero Fade Out" (Brand Name Blur step, 5px) on `--Can-blur`. On staging after a quick return to the top the strapline keeps `blur(0.0045px)` (first load: `blur(0px)`); it looks sharp, so I did not reproduce a visible blur. A second, empty copy of "Hero Fade Out" exists (`i-9e2a7fda`). Phone and tablet not checked (viewport would not resize). Options and detail in STATUS. **Update 4 November 2026:** reproduced after all, and the cause is found: see R-096 and STATUS (brief #268). Original guess: The blur is probably set by the scroll animation that blurs the hero as you leave it and is not undone on the way back (guess; D-017 notes apply). Check phone and tablet widths too. (inferred — confirm)
 
 ### R-096 · Fix the blurred hero H3
-**State:** in progress (reproduced and cause found 4 November 2026, brief #268; fix not chosen) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, desktop and 1024/768/390 frames, by script and screenshot) · **Acceptance:** pending
+**State:** built (4 November 2026, brief #294; Michael chose option A) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 1512px window only, by script; not looked at by eye, other widths not re-run) · **Acceptance:** pending
 **Task:** 43612353 in your boss list
 **From:** your task list, added 3 November 2026. Your wording is all there is.
 **Done when:** the hero's H3 (the strapline, class Hero-Strapline) is sharp and readable at every point it should be, including on first load and after scrolling back to the top, on published staging in Chrome. (inferred — confirm)

@@ -1,4 +1,4 @@
-<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
+<!-- Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in brief #295, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). -->
 <style>
   /* A quiet row of dashes at the right edge, one per main section; the current one is longer and brighter.
    Hover or keyboard focus opens it into a small panel with the section names. Self-contained: no Webflow classes. */
@@ -16,9 +16,7 @@
       padding: 10px 12px;
       border-radius: 14px;
       background-color: rgba(30, 41, 46, 0);
-      -webkit-backdrop-filter: blur(0);
-      backdrop-filter: blur(0);
-      transition: background-color 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease;
+      transition: background-color 0.25s ease;
     }
     .mwp-contents:hover,
     .mwp-contents:focus-within {
@@ -35,7 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 6px 0;
+      padding: 2.75px 0; /* rows are 25% closer than before (brief #295) */
       color: #fff;
       text-decoration: none;
       outline: none;
@@ -68,9 +66,13 @@
       width: 12px;
       height: 2px;
       border-radius: 1px;
-      background-color: #fff;
-      opacity: 0.4;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35); /* keeps the dash readable over light sections */
+      /* readable on every background: each dash shows what is behind it turned to pure black or white, whichever contrasts
+         (white over the slate and teal and raspberry, black over the light sections). The panel's own blur backing, while open,
+         is dark, so the dashes show white there. A plain mix-blend-mode of difference was tried first and left the teal flat. */
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      opacity: 0.6;
       transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
     }
     .mwp-contents__link.is-current .mwp-contents__tick,
@@ -78,13 +80,28 @@
       width: 28px;
       opacity: 1;
     }
-    /* the parts of About: shorter dashes, a little closer together, labels a touch smaller */
+    /* the parts of About: inset from the main dashes, hung off a thin rail, shorter dashes, closer together, smaller labels */
+    li.is-sub {
+      position: relative;
+      padding-right: 14px; /* inset from the main dashes */
+    }
+    li.is-sub::after {
+      content: '';
+      position: absolute;
+      right: 13px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100); /* a thin rail the parts hang from, joining them to About */
+    }
     .mwp-contents__link.is-sub {
-      padding: 4px 0;
+      padding: 1.4px 0;
     }
     .mwp-contents__link.is-sub .mwp-contents__tick {
       width: 7px;
-      opacity: 0.35;
+      opacity: 0.5;
     }
     .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
       width: 16px;
@@ -105,6 +122,8 @@
     .mwp-contents__link:hover .mwp-contents__tick,
     .mwp-contents__link:focus-visible .mwp-contents__tick {
       opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
       background-color: #d9466c;
     }
   }
@@ -181,6 +200,7 @@
       tick.setAttribute('aria-hidden', 'true');
       a.appendChild(label);
       a.appendChild(tick);
+      if (entry.sub) li.className = 'is-sub';
       li.appendChild(a);
       list.appendChild(li);
       var it = { a: a, entry: entry, parent: entry.sub ? parent : null };

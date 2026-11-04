@@ -407,6 +407,13 @@
 **Done when:** at tablet and mobile widths, neither the hero project wall nor the testi-wall shows any drop shadow, on the published staging site; desktop looks exactly as it does now. (inferred — confirm)
 **Note:** R-040 already removed the testi-wall bubble shadow on mobile (accepted). This item widens it to tablet, and adds the hero project wall at both widths. "Hero project wall" is read as the project-image wall behind the hero (inferred — confirm). "Tablet" is read as the tablet breakpoint and below, as set in the Designer (inferred — confirm). Shadows may sit on the wall's items, their images or wrappers, so all of them need checking, and there may be glow-style filter shadows as well as box shadows (inferred — confirm). This is a style change, so D-006 and D-007 apply: no new class without Michael's approval.
 
+### R-101 · in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612359 in your boss list
+**From:** your task list, added 4 November 2026.
+**Done when:** on the published staging site at phone width, the new estimate-page button in the Pricing CTA section on the Home page shows the same tricolour arrow as the other buttons; the arrow looks right, and desktop and tablet are unchanged. (inferred — confirm)
+**Note:** Guesses: "the pricing CTA section" is the Pricing CTA section of the Home page (inferred — confirm); "the tricolour arrow" is the coral, pink and teal pixel-style arrow used on the site's other buttons, so I would copy that treatment rather than design a new one (inferred — confirm); the arrow should show at phone width only, since the button was added for mobile (inferred — confirm). Related: R-049 (tricolour and button motifs, Estimate page) and R-032 (Pricing CTA text stagger). This is a visual change, so D-006 and D-007 apply: I describe the options first, and no new class without Michael's approval.
+
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 

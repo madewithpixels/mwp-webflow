@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — New task written up (R-101, brief #297)
+**Changed:** Added R-101, "in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it" (Phase 3, after R-093), from Michael's task 43612359. Roadmap only: no Webflow, site or task changes. State: planned. Acceptance: pending.
+**Already covered, no new item:** #43612357 is R-099 and #43612354 is R-097. The other inbox tasks (MWP landing pages, Launch MWP social campaign, Adjust Estimator, Launch prep, Finish MWP site, Responsive layouts) are group headings already covered by the goal and phases, as the roadmap preface says.
+**Guesses in R-101 (marked "confirm"):** the section is the Home page Pricing CTA; the arrow is the coral, pink and teal one used on other buttons; phone width only.
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-059 (and R-043, already accepted). His reorders (R-038 and R-076 before R-075; R-082 before R-032; R-094 and R-034 before R-085) are kept; I saw nothing they put ahead of work it depends on.
+**Checked how:** read the roadmap and STATUS; no browser used.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — Contents device: readable on every background, 25% tighter, About parts clearer (R-099, brief #295)
 **Changed:** Webflow, site madewithpixels, **Home page, head custom code** only: every other block kept exactly (read first, written back whole, echo checked); the contents-device block replaced. No classes, elements, interactions or other pages. Published to staging (madewithpixels-dev.webflow.io) only. Repo: `contents-device.html` (R-029), `snapshots/custom-code.json` (Home head). State: built. Evidence: verified (live). Acceptance: pending.
 **Michael, in boss (brief #295):** *"The contents markers need to be readable on every BG colour the site has, Will a mix blending mode be of use there? The lines are too spaced apart - it should be 25% tighter. The sub-sections of the about entry aren't immediately obvious as sub-sections - improve it"*

@@ -1,5 +1,36 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — Burger menu stress test: one real fault (desktop menu closes itself), a few small oddities (R-097, R-077, R-081, brief #269)
+**Changed:** docs only (this entry, R-097 in the roadmap, R-098 recorded as accepted). Nothing changed or published in Webflow or the code. Webflow's style tool was refused in this run, so `isFromLibrary` was not read (see below).
+**Accepted by Michael in boss:** 3 November 2026 — R-098 (checked: not stated).
+**Method:** published staging Home, Chrome on the Mac Studio, same-origin iframes at 1440, 1024, 768 and 390 (scrollbar 8px), plus the top-level window (2044px) with real mouse and keyboard events. A per-frame sampler recorded the menu button position, `scrollY`, `data-state`, `details.open` and the html `lenis-*` classes. Scenarios: open at top, middle (20000px) and bottom; Escape; wheel, PageDown and ArrowDown while open; second click to close; double and rapid clicks (2 and 5 extra at 20 to 80ms); each of the six links (Home, About, Pricing, Work, Testimonials, Contact). Console: no errors or exceptions at any point.
+
+**Odd 1 (real fault, desktop only): the menu closes itself about 100ms after it opens.**
+- **Steps:** Home on staging at 1440 or 1024 wide (also seen at 2044 in the top window). Click the burger button, at the top, middle or bottom of the page.
+- **Seen:** the panel starts to open, then closes again (`opening`, scroll lock on, then `closing`, `closed`, lock off) in 30 to 100ms. Repeated every time at 1440 and 1024 (12 of 12 runs, plus 4 real mouse clicks at 2044). A real keyboard Enter on the focused button kept it open once at 2044, so it is a timing race, not constant; mouse and script clicks always lose it.
+- **Not seen at 768 or 390:** the menu opens, stays open and works.
+- **Cause (shown in the page):** a stack trace on `details.open = false` points to `onBreakpointChange` in the menu library (`Webflow-Navbar-Light@v0.2.6`, `navbar-light.min.js`), called from our own inline Home head code: `requestAnimationFrame(() => window.dispatchEvent(new Event('resize')))` in the ticker `measureSequence` (R-035 work). Chain: menu opens, Lenis locks scroll and the 8px scrollbar goes, the ticker panel width dips 2036 to 2028 for a frame, the ticker re-measures, its total height changes by more than 1px, it dispatches a fake `resize`, and the library closes the menu on any resize. The library is not wrong to react to a resize; our script should not be sending one for this.
+- **Proof:** in a test frame only (nothing saved), I made that fake `resize` do nothing. The menu then stayed open at 1440 and 1024 in every scenario below.
+- **Belongs to:** our own code (the Home head ticker script), set off by the library's resize handler. Not a `mwp-css-nav_*` class. **`isFromLibrary` was not checked** because the Webflow style tool was refused in this run; it isn't needed for this cause, and nothing was edited.
+- **Probably a regression:** R-081 was accepted on 31 October, before the ticker sequence was revised (1 November); the fake `resize` is in that newer code. (inferred)
+
+**What worked (with the fake resize blocked, desktop; unblocked, tablet and phone):**
+- Button position: 32,48 at 1440 and 1024, 16,16 at 768 and 390, before, during and after, every scenario (range 0px, no sideways shift). R-081 holds.
+- Scroll lock: `lenis-stopped` is on while open and off after closing in every case; no lock left on, no `overflow` left hidden. The 8px `padding-right` compensation is on only while open.
+- Wheel, PageDown, ArrowDown while open: page did not move (20000 stayed 20000). Escape closed it. Second click closed it.
+- Scroll after close: unchanged after Escape or the button (20000 stays 20000). After a link: jumps after the menu has finished closing, to About 11449 (768) / 11482 (390) / 12488 (1440 and 1024); Pricing 14314 / 15163 / 29725 / 29267; Work 16695 / 17648 / 32625 / 32167; Testimonials 20854 / 20904 / 38342 / 37492; Contact 35414 / 35464 / 51902 / 51052; Home 0. No stuck state.
+- Double click (open then close then open) and rapid 5-click bursts ended in a consistent state matching the click count, with no stuck `closing` and no leftover scroll lock.
+
+**Odd 2 (small, phone only): a 27px jolt when opening at the very bottom.** 390 wide, scroll to the very bottom, open the menu: `scrollY` went 35917, 35890, then back to 35917 after closing. Not at 768 (35893 steady) or at desktop. Likely the page height changing under the scroll lock. Not visible in a still frame; I did not film it. Belongs to our code or Lenis, not a library class (inferred).
+
+**Odd 3 (note): the Home link** (`/`) on the Home page itself scrolls to the top rather than doing nothing. It is expected, not a fault.
+
+**R-077 (double flash after a link click): not reproduced or ruled out.** My sampler records positions and classes, not paint, so it cannot see a flash. The menu state sequence after a link click is clean (`closing`, `closed`, then Lenis scrolling starts about 100 to 300ms later), with no repeated open or close, which fits a flash from the scroll starting after the close rather than two menu changes. A screen recording at real speed on the Mac Studio is still needed.
+**Not checked:** `isFromLibrary` on `mwp-css-nav_*` (tool refused); the /estimate and project pages' menus; touch input and a real phone; Safari and Firefox; real trackpad or mouse-wheel input (wheel and keys were sent as events); visual flashes frame by frame; widths between those tested. Clicks at 768 and 390 came from the page's script, not the pointer, but the desktop reproduction was confirmed with real mouse events.
+**Needs Michael:** how to fix Odd 1 (asked in boss). Options: A, change the ticker script so it does not send a fake resize while the menu is open (or at all when only the width dipped), custom code in the Home head, small; B, ask the ticker to use its own re-measure instead of dispatching `resize` (its comment says IX3 needs it, so riskier for the scroll animations, D-017); C, patch the library to ignore resizes that don't change the breakpoint (belongs to SmashBurger, waits for R-030). Recommend A.
+**Next useful action:** build A with a before backup, publish to staging, re-run this matrix at 1440, 1024, 768 and 390 and a real-mouse click at 2044, then ask Michael to try it.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — Hero strapline blur re-tested: reproduced at every width, cause found, options written (R-096, R-087, brief #268)
 **Changed:** docs only (this entry, R-096 and R-087 in the roadmap, and R-094 recorded as accepted). I used no Webflow tool, so no backups were made and no snapshot changed. Nothing published, no interaction or custom code edited, the empty duplicate `i-9e2a7fda` left alone. State of R-096: in progress. Evidence: verified (live; published staging madewithpixels-dev.webflow.io, Chrome on the Mac Studio; 1467px window, plus same-origin iframes at 1024, 768 and 390, 800px tall). Acceptance: pending.
 **Result: reproduced.** Michael's screenshot (strapline smeared under the name) matches what I see. It is worse than on 1 November: the strapline is now blurred **on first load and stays blurred**.

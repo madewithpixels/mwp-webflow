@@ -71,8 +71,8 @@
 **From:** your task list. 'Wondering about the cost of your site?'
 **Note:** part of the native "Pricing Section Desktop" interaction, so a Designer change.
 
-### R-098 · Remove the gap between the separator and the three pricing cards that animate down from the top of the viewport
-**State:** built (3 November 2026, published to staging) · **Evidence:** verified (live), staging, Chrome on the Mac Studio at 1440, 1700 and 1024 · **Acceptance:** pending
+### R-098 · Remove the gap between the separator and the three pricing cards that animate down from the top of the viewport *(accepted by Michael in boss, 3 Nov 2026)*
+**State:** built (3 November 2026, published to staging) · **Evidence:** verified (live), staging, Chrome on the Mac Studio at 1440, 1700 and 1024 · **Acceptance:** accepted (3 November 2026)
 **Try:** On the Home page the three pricing cards now start right under the coloured bar on wide screens, with no dark strip.
 **Why:** The thin strip of dark background above the cards is gone.
 **Steps:**
@@ -280,7 +280,8 @@
 **Note:** Cause confirmed on 31 October 2026: Lenis (smooth scroll) locks the page with overflow hidden/clip while the menu is open, which removes the 8px scrollbar gutter, so the centred header moved about 4px (measured 218 to 222px). First fix (`overflow: hidden scroll !important`, brief #149) caused a start/stop loop in Lenis and the menu shook; replaced on 1 November 2026 (brief #152) with `padding-right: 8px` on html and `max-width: calc(100% - 8px)` on `.header` while `lenis-stopped`, mouse devices only. No class or Designer change. Original guess: If the button is part of the SmashBurger menu, check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006), and it may wait for R-030. (inferred — confirm)
 
 ### R-097 · Burger nav is acting oddly
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** in progress (found; fix not built) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, same-origin frames at 1440, 1024, 768, 390) · **Acceptance:** pending
+**Found 4 November 2026 (brief #269):** at 1440 and 1024 (desktop layout) the burger menu opens and closes itself within about 100ms, every time, at the top, middle and bottom of the page. Tablet and phone are fine. Cause: our ticker script in the Home head code fires a fake window resize when the menu's scroll lock changes the page width; the menu library treats any resize as a breakpoint change and closes. Details and options in STATUS, 4 November 2026. Fix is a Michael call (asked in boss).
 **Task:** 43612354 in your boss list
 **From:** your task list, added 3 November 2026. Your wording is all there is.
 **Done when:** the burger menu opens, closes and jumps to its links without anything odd (no shifting, flashing, shaking or sticking) on published staging, at desktop, tablet and phone widths. (inferred — confirm)

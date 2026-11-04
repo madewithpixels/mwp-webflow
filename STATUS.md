@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 4 November 2026 — Claude (night shift) — Burger menu desktop fault: Michael chose to fix it in SmashBurger; brief written (R-097, brief #293)
+**Changed:** docs only (this entry, R-097 set to blocked, R-096 recorded as accepted). Nothing changed in Webflow or the code; nothing published.
+**Accepted by Michael in boss:** 4 November 2026 — R-096 (checked: Looked at brief #294's result). This closes the "look at Home on staging" request from the previous entry.
+**Michael, in boss, 4 November 2026 (brief #293):** chose option C — *"Tempted to choose C. Can you give me a brief for the smash burger development thread that I can copy/paste to get the issue fixed immediately"*.
+**Outputs:** a copy-and-paste brief for the SmashBurger thread, sent to Michael in boss (full text there). It asks for `Webflow-Navbar-Light` (v0.2.6, `onBreakpointChange`) to close the menu only when the breakpoint actually changes, not on every `resize`; it gives the cause, the steps, the numbers and a test.
+**Checked how:** nothing new run; the facts come from the 4 November 2026 stress-test entry below (brief #269).
+**Still open:** the fix, the new library version, and pointing the site at it (R-030). Until then the menu is unusable on desktop widths (1024 and up) on staging. Option A (stop the fake `resize` in the Home head ticker script) is still available and small if the wait is long.
+**Needs Michael:** take the brief to the SmashBurger thread.
+**Next useful action:** when SmashBurger has a fixed version, repoint the site and re-test at 1440, 1024, 768 and 390 on staging.
+— Claude (night shift)
+
 ## 4 November 2026 — Claude (night shift) — Hero strapline blur fixed on staging (R-096, R-087, brief #294)
 **Changed (in Webflow, Home page):** the interaction "Hero Fade Out" (`i-7bbab732`), step "Brand Name Blur" only. It used to target the whole `--Can-blur` class, which hit both the logo wrapper and the strapline inside it. It now targets the logo wrapper element only (`ce1bc9e2-6596-7666-3e6f-6eb7e83a156e`). The strapline still blurs and fades with the wrapper, because it sits inside it. All other steps, timings and the trigger were sent back unchanged and read back identical. No class, style, element or custom code changed. Published to madewithpixels-dev.webflow.io only. State: built. Evidence: verified (live; Chrome on the Mac Studio, 1512px window only). Acceptance: pending.
 **Michael's reasoning, confirmed:** two animations were driving one element. The step was one class-wide action, so the strapline got its own copy of the blur, which read a bad start value (5px) when drawn after its parent. Removing that second driver removes the stuck value. This is option A, done by retargeting rather than deleting, because the step is shared by class and there was no separate strapline step to delete.

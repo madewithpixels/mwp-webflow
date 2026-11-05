@@ -1,6 +1,7 @@
 /* R-038 (brief #153): copy of the <style> in the Portfolio Nav component's second code embed in Webflow
    (the record, R-029). Webflow holds the live copy; keep the two in step.
-   Shared look (fixed position, vertical centre, coral, no border) is on the project-nav_arrow / project-nav_inner classes. */
+   Shared look (fixed position, vertical centre, coral, no border) is on the project-nav_arrow / project-nav_inner classes.
+   R-112 (brief #351): corner radius is 25%, the same curvature as .menu-button.back. */
 a.project-nav_arrow,
 a.project-nav_arrow:hover,
 a.project-nav_arrow:focus-visible {
@@ -10,11 +11,11 @@ a.project-nav_arrow:focus-visible {
 }
 a.project-nav_arrow[data-portfolio-nav='prev'] {
   left: 0;
-  border-radius: 0 1.5rem 1.5rem 0;
+  border-radius: 0 25% 25% 0;
 }
 a.project-nav_arrow[data-portfolio-nav='next'] {
   right: 0;
-  border-radius: 1.5rem 0 0 1.5rem;
+  border-radius: 25% 0 0 25%;
 }
 a.project-nav_arrow .project-nav_inner,
 a.project-nav_arrow .grad-arrow-wrapper {

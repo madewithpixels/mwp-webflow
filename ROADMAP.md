@@ -74,7 +74,8 @@
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
 ### R-112 · Rounded corners on Left and right buttons in project pages
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (5 November 2026, published to staging; part 2, moving the corner styles into the Designer, is blocked on a class decision) · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** pending
+**Blocked:** the corner styles can't move into the Designer without a combo class (one per arrow side), which D-006 says needs Michael's approval. **Unblock:** Michael's answer in boss. **Unblocker:** Michael.
 **Task:** 43612375 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** the left and right buttons on the project pages have rounded corners, on published staging, at desktop, tablet and phone widths. (inferred — confirm)

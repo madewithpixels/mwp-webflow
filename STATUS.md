@@ -10,6 +10,14 @@
 — Claude (night shift)
 
 
+## 5 November 2026 — Claude (night shift) — Project arrows: gentler corners (R-112, brief #351)
+**Changed (R-112), in Webflow, site madewithpixels, published to staging only:** component "Portfolio Nav", the style code embed (the second embed, after the script): corner radius on the previous/next arrows changed from 1.5rem (24px, about 43% of the 56px button) to 25%, the same ratio as `.menu-button.back` (25% in the Designer). Only the two radius lines and a comment changed; read back and the echo matched. Copy updated in `project-nav-arrows.css`. No class, page, CMS, variable or site-code change.
+**Checked how:** published staging, Chrome on the Mac Studio, /portfolio/futura, window 2044px: both arrows 56 x 56, computed radius `0 25% 25% 0` (previous) and `25% 0 0 25%` (next), same on the inner wrappers; zoom screenshot showed the softer corner. Phone width not checked: the window would not resize (width stayed 2044). The embed has no media query, but older phone-corner rules exist (see 1 November entry), so a phone look is still to verify.
+**Still open:** moving the corner styles into the Designer. The previous and next arrows share one class, so telling the sides apart needs a combo class (D-006: not through the MCP, and no new class without Michael's approval). Asked in boss.
+**Snapshots:** not refreshed; the Webflow snapshot export has no component embed code, and no class changed. Interactions and animations are not in snapshots, so I can't say they are unchanged.
+**Needs Michael:** the question in boss; a look at the arrows on staging, including phone width.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Five new tasks written up (R-112 to R-116, brief #350)
 **Changed:** roadmap items only. R-112 rounded corners on the project-page left/right buttons (#43612375); R-113 those buttons centred at the screen edges on phones (#43612376); R-114 separators full width at tablet and below (#43612377); R-115 stronger estimator step titles on phones (#43612379); R-116 the burger-menu fault on the Estimate page (#43612380). No Webflow, site or task changes.
 **Checked how:** read back the roadmap table and items.

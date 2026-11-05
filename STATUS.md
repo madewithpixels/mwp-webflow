@@ -1,5 +1,12 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Three new tasks written up (R-118 to R-120, brief #356)
+**Changed (roadmap only):** R-118 swipe for left and right nav on project pages (task 43612384, after R-114); R-119 estimator Next needing two taps on phones (task 43612385, after R-116); R-120 stop images being dragged on project pages (task 43612386, after R-118). Guesses marked "(inferred — confirm)". No work done, nothing in Webflow touched, no tasks changed.
+**Not written up:** the other tasks listed with no item (landing pages, social campaign, launch prep, finish site, responsive layouts) are group headings, not repo work; #43612375 and #43612376 already are R-112 and R-113.
+**For Michael to decide (his tasks, left alone):** his deleted tasks still have roadmap items: R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043, R-115 (a copy of R-109), R-047, R-049, R-059. I have not dropped any.
+**Still open:** briefs #357 to #359 do the work on R-118 to R-120. Reviewed at commit 41a4882.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Separator class made, not yet applied (R-114, briefs #353 and #355)
 **Michael's answer (boss, brief #355):** "Add one new class that pulls a separator out to the screen edges, used on both".
 **Changed (Webflow, site madewithpixels, not republished; nothing visible changes):** one new class `mwp-bleed`, set only at the tablet breakpoint (so tablet and phone): width 100vw, max-width 100vw, margin-left calc(50% - 50vw). It pulls an element out to both screen edges whatever padding its parents have, so one class serves both separators. Read back OK. Desktop is untouched (both separators are also inset there; say if you want them full width too).

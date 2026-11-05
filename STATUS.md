@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Stronger step titles: looked, options asked (R-109, brief #330)
+**Michael's task:** "Stronger Step titles for the estimator @mobile". R-109 already existed from brief #311.
+**Changed:** nothing in Webflow. ROADMAP R-109 gets what I found. Rewrote need 474 (R-110 check) in plain words.
+**Looked at how (staging, Chrome on the Mac Studio, read only):** step titles are 24px, weight 200, light grey, so lighter than the 18px, weight 700 option labels under them. Which text Michael means by "step titles" is inferred (the questions).
+**Why no change:** D-007 says offer visual options first. The tool's own code is in another repo and loads from jsDelivr, so the change would be a phone-only rule in an inline script like R-110's (no class, D-006). Options asked in boss.
+**Not in the snapshot / backups:** nothing changed; none made (not asked for).
+**State:** planned. Evidence: none. Acceptance: Michael's.
+**Needs Michael:** pick a look (question in boss). **Next useful action:** apply his pick as a phone-only script on the Estimate page footer, check at 390px, publish to staging.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Last estimator step centred on phones (R-110, brief #329)
 **Michael's task:** "Centralised headings a paras in the final 'editable content sections' estimator step box @mobile". Read as the sixth step, with its question, group headings and note paragraph centred up to 767px wide (inferred — confirm). R-110 already existed from brief #311.
 **Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateLastStepCentred" 1.0.0 registered and added to the Estimate page footer (list read back: EstimateMenuAnchors, EstimateNoBackOnLastStep, EstimateLastStepCentred; page footer code unchanged). Published to the staging subdomain only. Repo copy: `estimate-last-step-centred.js`. The tool's own code (separate repo) not touched.

@@ -503,6 +503,8 @@
 **Done when:** on a phone, each estimator step title is clearly stronger than the text under it (bolder and/or larger), and still fits on the screen without awkward wrapping. (inferred — confirm)
 **Note:** "Stronger" is read as heavier weight and/or bigger size, with higher contrast if needed; I will offer options before changing anything (D-007). No new class without your approval (D-006). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
 
+**Looked at 5 November 2026 (brief #330):** on staging each step's title (the question, e.g. "What are you looking for?") is 24px, weight 200, light grey (230), in Source Serif 4, from the tool's own styles. The option labels under it are 18px, weight 700, so the title reads *weaker* than the options. "Step titles" is read as these questions (inferred — confirm). Waiting for Michael to pick a look (D-007) before any change; options asked in boss.
+
 ### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile
 **State:** built · **Evidence:** verified (live, phone-width frame; see below) · **Acceptance:** pending
 **Task:** 43612369 in your boss list

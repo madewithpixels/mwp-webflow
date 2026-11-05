@@ -134,8 +134,8 @@
 **Done when:** the pixel cover is gone from the whole site. On a project page, pressing the left or right arrow makes the title, copy, arrows and screenshots slide off sideways one after another, towards the arrow you pressed; the next project's content then slides in one after another from the opposite side. Other links, and the Home to project title-and-image morph (D-016), are untouched.
 **Note:** takes over R-036 and R-037, whose tasks you deleted; they stay below for you to drop or keep. "Direction corresponding to the button" is read as: the left arrow sends the content off to the left, the right arrow off to the right (inferred — confirm). The site header (menu and contact buttons) stays put (inferred — confirm).
 
-### R-103 · Remove the left and right nav buttons from the project page transitions - they should be stable
-**State:** built (5 November 2026, brief #312) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide, Futura to the next project) · **Acceptance:** pending
+### R-103 · Remove the left and right nav buttons from the project page transitions - they should be stable *(accepted by Michael in boss, 5 November 2026)*
+**State:** built (5 November 2026, brief #312) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide, Futura to the next project) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612362 in your boss list
 **Try:** On a project page, press the right-hand arrow: the title, copy and screenshots slide away, but the two arrow tabs on the screen edges stay exactly where they are, and stay there on the next project.
 **Why:** The arrows are controls, not content; moving them made them hard to press again quickly.
@@ -148,8 +148,8 @@
 **From:** your task list: "Remove the left and right nav buttons from the project page transitions - they should be stable".
 **Note:** "nav buttons" is read as the two coral arrow tabs on the left and right edges (R-038), the only left and right buttons on a project page (inferred — confirm). The site header (menu, phone, email) already stayed put. Built as two small edits in Webflow: the arrows are out of the slide's list (site footer) and out of the "hidden until arriving" rule (site head). Copy of the footer part in `page-transition.js` (R-029). Not checked: phone and tablet, Safari, the first frames of the arrival (the arrows were not hidden by any rule, but I could not sample them frame by frame).
 
-### R-104 · Contents device should be much smaller, slightly more transparent and grow/become opaque on hover
-**State:** built (5 November 2026, brief #313) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px viewport) · **Acceptance:** pending
+### R-104 · Contents device should be much smaller, slightly more transparent and grow/become opaque on hover *(accepted by Michael in boss, 5 November 2026)*
+**State:** built (5 November 2026, brief #313) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px viewport) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612363 in your boss list
 **Try:** On the Home page at desktop width, look at the right edge: the contents device is now a small, faint set of dashes. Move the mouse over it: it grows to full size and turns fully opaque, with the section names.
 **Why:** At rest it was too big and too bright for something meant to stay out of the way.
@@ -457,8 +457,8 @@
 **Done when:** at tablet and mobile widths, neither the hero project wall nor the testi-wall shows any drop shadow, on the published staging site; desktop looks exactly as it does now. (inferred — confirm)
 **Note:** R-040 already removed the testi-wall bubble shadow on mobile (accepted). This item widens it to tablet, and adds the hero project wall at both widths. "Hero project wall" is read as the project-image wall behind the hero (inferred — confirm). "Tablet" is read as the tablet breakpoint and below, as set in the Designer (inferred — confirm). Shadows may sit on the wall's items, their images or wrappers, so all of them need checking, and there may be glow-style filter shadows as well as box shadows (inferred — confirm). This is a style change, so D-006 and D-007 apply: no new class without Michael's approval.
 
-### R-101 · in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it
-**State:** built (5 November 2026, brief #308) · **Evidence:** verified (live, staging; Chrome on the Mac Studio, same-site frames at 390, 800 and 1400px) · **Acceptance:** pending
+### R-101 · in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it *(accepted by Michael in boss, 5 November 2026)*
+**State:** built (5 November 2026, brief #308) · **Evidence:** verified (live, staging; Chrome on the Mac Studio, same-site frames at 390, 800 and 1400px) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612359 in your boss list
 **From:** your task list, added 4 November 2026.
 **Done when:** on the published staging site at phone width, the new estimate-page button in the Pricing CTA section on the Home page shows the same tricolour arrow as the other buttons; the arrow looks right, and desktop and tablet are unchanged. (inferred — confirm)
@@ -466,6 +466,19 @@
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
+
+### R-106 · Wire up the primary navigation anchor links on the estimate page
+**State:** built (5 November 2026, brief #315) · **Evidence:** verified (live, partly: the links and the jump to the home page; the landing is blank, see Note) · **Acceptance:** pending
+**Task:** 43612364 in your boss list
+**From:** your task list: "Wire up the primary navigation anchor links on the estimate page". Takes up R-078's recommended Option 2.
+**Done when:** on published staging, the burger menu on /estimate has About, Pricing, Work, Testimonials and Contact that each open the matching section of the home page; Home and the Instant Estimate button are unchanged. (inferred — confirm)
+**Note:** "Wire up" is read as pointing the five dead `#` links at the home page's sections (inferred — confirm). The links sit inside the shared SB Header component with no link settings on the /estimate instance, so changing them in the Designer would change the home page's own menu too. Built instead as inline script "EstimateMenuAnchors" 1.0.0 on the Estimate page footer only (copy: `estimate-menu-anchors.js`, R-029); no class, no component edited (D-006). **Open problem found:** loading the home page with `#pricing` on the end, with or without my script, shows only the dark background on staging in Chrome at 2044px for 20 seconds, with the scroll bar part-way down. So the links arrive at the right address but the landing looks empty; this is the home page's own scroll animations and is not caused by this change. Needs looking at before launch (R-102 is the nearest item).
+**Try:**
+1. Open [the Estimate page on staging](https://madewithpixels-dev.webflow.io/estimate) and press the burger button, top left.
+2. Press Pricing.
+3. You should arrive on the home page at the Pricing address; check what the page shows.
+**Done when:** as above.
+**Time:** about 2 minutes
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

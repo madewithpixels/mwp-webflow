@@ -1,5 +1,21 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Estimate menu links now go to the home page sections (R-106, brief #315)
+**Michael's task:** "Wire up the primary navigation anchor links on the estimate page". Read as: About, Pricing, Work, Testimonials and Contact in the burger menu on /estimate should open those sections on the home page (inferred — confirm); this is R-078's Option 2.
+**Changed (Webflow, site madewithpixels, staging only):**
+1. New inline script "EstimateMenuAnchors" 1.0.0 registered and applied to the Estimate page footer (the page had no script list; its footer code was read back unchanged). It points the five dead `#` links at `/#about`, `/#pricing`, `/#portfolio`, `/#testimonials`, `/#contact` and makes the click go straight there. Home and the Instant Estimate button are untouched. Repo copy: `estimate-menu-anchors.js`.
+2. Why code: the links live in the shared SB Header component, which has no link settings on the /estimate instance; editing it in the Designer would also change the home page's menu. No class, no component edited (D-006).
+3. Published to the staging subdomain only.
+**Checked how (verified live, staging, Chrome on the Mac Studio, 2044px viewport):** the menu's links read `/`, `/#about`, `/#pricing`, `/#portfolio`, `/#testimonials`, `/#contact`; pressing Pricing opened `/#pricing` on the home page. **Found, not caused by this change:** the home page loaded at `/#pricing` (also by typing the address, without my script) shows only the dark background for 20 seconds with the scroll bar part-way down, so the landing looks empty. Not investigated (page JavaScript was refused in Chrome tonight). **Not checked:** the other four links one by one, phone and tablet widths, Safari, the menu-close animation.
+**Backups:** "boss · brief #315 · before" and "boss · brief #315 · after", both made on the Webflow dashboard Backups page (the Designer address redirected to the dashboard). Rollback: restore "before", or clear the Estimate page's script list.
+**Not in the snapshot:** inline scripts and interactions are not in the export; no snapshot file changed.
+**Recorded verdicts:** Accepted by Michael in boss on 5 November 2026: R-103, R-104 and R-101 (R-101 checked: "Looked at brief #308's result."; the others not stated).
+**Tasks Michael deleted, for him to decide (not dropped):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043, R-047, R-049 and R-059.
+**State:** built. Evidence: verified (live), partly. Acceptance: Michael's.
+**Needs Michael:** try the menu on /estimate (steps under R-106) and say what the home page shows on arrival; then back up.
+**Next useful action:** look into why the home page is blank when opened with a `#section` address (near R-102).
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Phone and email shown as open text in the burger menu (R-105, brief #314)
 **Michael's task:** "Telephone and email buttons in the open burger menu". Your note: "They should be open so that they can be copy/pasted. They can be removed from their buttons (animated if poss) aligned right and var(off-white) in colour". Read as: only while the menu is open, the two coral pills become plain text (inferred — confirm); the closed pills stay.
 **Changed (Webflow, site madewithpixels, staging only):**

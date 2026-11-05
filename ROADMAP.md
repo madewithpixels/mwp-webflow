@@ -85,8 +85,8 @@
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
 ### R-112 · Rounded corners on Left and right buttons in project pages
-**State:** built (5 November 2026, published to staging; part 2, moving the corner styles into the Designer, is blocked on a class decision) · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** pending
-**Blocked:** the corner styles can't move into the Designer without a combo class (one per arrow side), which D-006 says needs Michael's approval. **Unblock:** Michael's answer in boss. **Unblocker:** Michael.
+**State:** built (5 November 2026, published to staging); part 2, moving the corner styles into the Designer, is half done: the two classes exist but are not applied · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** pending
+**Blocked:** the two new classes (`project-nav_arrow-prev`, `project-nav_arrow-next`, approved by Michael in boss on 5 November 2026) are made and read back, but the Webflow tool cannot put two classes on one element (it reads a pair as a combo class, which D-006 forbids). **Unblock:** Michael adds each class to its arrow in the Designer (Portfolio Nav component); then an agent removes the radius and edge rules from the component's code. **Unblocker:** Michael.
 **Task:** 43612375 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** the left and right buttons on the project pages have rounded corners, on published staging, at desktop, tablet and phone widths. (inferred — confirm)
@@ -488,8 +488,8 @@
 **Done when:** on the published staging site at phone width, the new estimate-page button in the Pricing CTA section on the Home page shows the same tricolour arrow as the other buttons; the arrow looks right, and desktop and tablet are unchanged. (inferred — confirm)
 **Note:** Guesses: "the pricing CTA section" is the Pricing CTA section of the Home page (inferred — confirm); "the tricolour arrow" is the coral, pink and teal pixel-style arrow used on the site's other buttons, so I would copy that treatment rather than design a new one (inferred — confirm); the arrow should show at phone width only, since the button was added for mobile (inferred — confirm). Related: R-049 (tricolour and button motifs, Estimate page) and R-032 (Pricing CTA text stagger). This is a visual change, so D-006 and D-007 apply: I describe the options first, and no new class without Michael's approval.
 
-### R-113 · Left and right nav buttons in the project pages should be centered at the view port edges @mobile as they are @desktop
-**State:** built · **Evidence:** verified (live, staging, Chrome on the Mac Studio, frames at 390, 700 and 1440px) · **Acceptance:** pending
+### R-113 · Left and right nav buttons in the project pages should be centered at the view port edges @mobile as they are @desktop *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live, staging, Chrome on the Mac Studio, frames at 390, 700 and 1440px) · **Acceptance:** accepted (5 November 2026)
 **Cause and fix (5 November 2026):** the class `.iwa-nav` (the arrows' wrapper) had `transform: translate(0px, 0px)` at the phone breakpoint (up to 767px). A transform makes a fixed child position against the wrapper, not the screen, so the arrows sat inset by the page padding and off the screen's vertical centre. I removed that one property from the existing class in the Designer (no new class). Published to staging only.
 **Try:** On a phone-width window of a project page, the left and right buttons touch the screen edges, halfway down.
 **Why:** Same placement as desktop.
@@ -550,8 +550,8 @@
 2. Pick an answer and look at the Back and Next buttons at the bottom; do the same on your phone.
 **Done when:** there is a clear gap between the two buttons at both widths.
 
-### R-109 · Stronger Step titles for the estimator @mobile
-**State:** built · **Evidence:** verified (live) · **Acceptance:** pending
+### R-109 · Stronger Step titles for the estimator @mobile *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612368 in your boss list
 **From:** your task list: "Stronger Step titles for the estimator @mobile", added 5 November 2026.
 **Done when:** on a phone, each estimator step title is clearly stronger than the text under it (bolder and/or larger), and still fits on the screen without awkward wrapping. (inferred — confirm)

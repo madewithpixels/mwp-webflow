@@ -11627,5 +11627,43 @@
         }
       }
     }
+  },
+  {
+    "id": "a31dbb52-88f3-1dd4-2aa9-6544b2d2b77c",
+    "name": "project-nav_arrow-prev",
+    "isFromLibrary": false,
+    "isComboClass": false,
+    "type": "global",
+    "selector": ".project-nav_arrow-prev",
+    "properties": {
+      "base": {
+        "properties": {
+          "left": "0px",
+          "border-top-left-radius": "0%",
+          "border-top-right-radius": "25%",
+          "border-bottom-left-radius": "0%",
+          "border-bottom-right-radius": "25%"
+        }
+      }
+    }
+  },
+  {
+    "id": "00f9ecf9-d88b-caff-1653-7d53c76f8452",
+    "name": "project-nav_arrow-next",
+    "isFromLibrary": false,
+    "isComboClass": false,
+    "type": "global",
+    "selector": ".project-nav_arrow-next",
+    "properties": {
+      "base": {
+        "properties": {
+          "right": "0px",
+          "border-top-left-radius": "25%",
+          "border-top-right-radius": "0%",
+          "border-bottom-left-radius": "25%",
+          "border-bottom-right-radius": "0%"
+        }
+      }
+    }
   }
 ]

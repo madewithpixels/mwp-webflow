@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Project arrow corners: the two Designer classes made, not yet applied (R-112, briefs #351 and #354)
+**Michael's answer (boss, brief #354):** "Yes, add the two classes".
+**Changed (Webflow, site madewithpixels, staging not republished; nothing visible changes):** two new plain classes, `project-nav_arrow-prev` (left 0; right corners 25%, left 0%) and `project-nav_arrow-next` (right 0; left corners 25%, right 0%), longhand only, read back OK. Not combo classes (D-006). I named them with a hyphen rather than the proposed `.prev`/`.next` combo form because combos can't be made through the MCP.
+**Not done:** applying them. The element tool read `["project-nav_arrow","project-nav_arrow-prev"]` as a combo chain and refused ("styles not found"). One test with the new class alone worked and briefly left the prev arrow without `project-nav_arrow`; I put it back at once and read both links back (each has only `project-nav_arrow`, as before). The code embed in Portfolio Nav is unchanged and still gives the arrows their corners and edges, so the staging site looks the same as before.
+**Record:** `snapshots/styles/classes.json` now lists the two classes. Animations are not in snapshots. No backups (not asked for). Before copy: /tmp/boss-webflow-before-354.
+- 5 November 2026 — Accepted by Michael in boss: R-109 (checked: Looked at brief #344's result).
+- 5 November 2026 — Accepted by Michael in boss: R-113 (checked: not stated).
+**State:** R-112 built; part 2 blocked on Michael. Acceptance: Michael's.
+**Needs Michael:** add each class to its arrow in the Designer (asked in boss). **Next useful action:** then remove the `left`/`right`/`border-radius` rules from the component's code embed (and its repo copy `src/portfolio/project-nav-arrows.css`), publish to staging (Michael), check computed radii.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Estimator questions bolder and bigger on phones (R-109, brief #344)
 **Michael's pick (boss):** "Bolder and bigger" (weight 500, 28px, pure white), phone only.
 **Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateQuestionStronger" 1.0.0 registered and added to the Estimate page footer (list read back: the five earlier scripts plus this one; page footer code unchanged). It sets `.iwa-question` to weight 500, 28px, #fff up to 767px wide. Published to the staging subdomain only. Repo copy: `src/estimate/estimate-question-stronger.js`, added to `src/estimate/index.js`. No class made or edited (D-006). The tool's own code (separate repo) not touched.

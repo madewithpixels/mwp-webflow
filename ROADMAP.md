@@ -504,9 +504,10 @@
 **Note:** "Left and right nav buttons" is read as the previous and next project arrows (R-038; R-103 made them stable). Desktop is the reference and stays unchanged (inferred — confirm). Related: R-112 (their rounded corners) and R-082; same pages and elements, so do them together. Check at phone width with Claude in Chrome. D-006 and D-007 apply: no new class without approval, options first.
 
 ### R-114 · Separators don't always span the full viewport width @tablet and below. They should
-**State:** blocked · **Evidence:** verified (live) for the diagnosis; nothing built · **Acceptance:** pending
-**Blocked:** the fix needs a combo-class rule or a layout change, which needs Michael's approval (D-006, D-007). Two separators fall short: Home's top one (inside the padded intro) and the project page's one (inside the padded wrapper). See STATUS, 5 November 2026.
-**Unblock:** Michael picks an option in boss. **Blocked since:** 5 November 2026. **Unblocker:** Michael
+**State:** in progress (class made; applying it is Michael's, see below) · **Evidence:** verified (live) for the diagnosis; fix not yet applied · **Acceptance:** pending
+**Michael's pick (boss, brief #355, 5 November 2026):** "Add one new class that pulls a separator out to the screen edges, used on both".
+**Built:** class `mwp-bleed` in Webflow (tablet breakpoint and below: width 100vw, max-width 100vw, margin-left calc(50% - 50vw)). Not applied yet: applying it to an element that already has a class needs a combo class, which the MCP cannot do (as in R-112).
+**Needs Michael:** add `mwp-bleed` to the Home top separator and to the project-page separator in the Designer, publish to staging, then check at tablet and phone width.
 **Task:** 43612377 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** every separator (the coloured bars between sections) runs edge to edge across the screen at tablet and phone widths, on every page that has one, on published staging. (inferred — confirm)

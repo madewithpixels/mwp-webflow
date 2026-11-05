@@ -11665,5 +11665,25 @@
         }
       }
     }
+  },
+  {
+    "id": "a650877a-7ff2-b40c-b454-b1aa3f93e43d",
+    "name": "mwp-bleed",
+    "isFromLibrary": false,
+    "isComboClass": false,
+    "type": "global",
+    "selector": ".mwp-bleed",
+    "properties": {
+      "base": {},
+      "breakpoints": {
+        "medium": {
+          "properties": {
+            "width": "100vw",
+            "max-width": "100vw",
+            "margin-left": "calc(50% - 50vw)"
+          }
+        }
+      }
+    }
   }
 ]

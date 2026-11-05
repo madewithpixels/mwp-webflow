@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Separator class made, not yet applied (R-114, briefs #353 and #355)
+**Michael's answer (boss, brief #355):** "Add one new class that pulls a separator out to the screen edges, used on both".
+**Changed (Webflow, site madewithpixels, not republished; nothing visible changes):** one new class `mwp-bleed`, set only at the tablet breakpoint (so tablet and phone): width 100vw, max-width 100vw, margin-left calc(50% - 50vw). It pulls an element out to both screen edges whatever padding its parents have, so one class serves both separators. Read back OK. Desktop is untouched (both separators are also inset there; say if you want them full width too).
+**Not done:** applying it. Putting a second class on an element that already has one needs a combo class, which the MCP cannot make (the same wall as R-112). I did not retry.
+**Record:** `snapshots/styles/classes.json` lists the class. Interactions are not in snapshots. No backups (not asked for).
+**State:** R-114 in progress. Acceptance: Michael's.
+**Needs Michael:** add `mwp-bleed` to the two separators in the Designer (asked in boss). **Next useful action:** publish to staging (Michael), then check at 991, 768 and 390px that both bars touch both edges, and that Home's pinned intro animation still behaves (D-017).
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Project arrow corners: the two Designer classes made, not yet applied (R-112, briefs #351 and #354)
 **Michael's answer (boss, brief #354):** "Yes, add the two classes".
 **Changed (Webflow, site madewithpixels, staging not republished; nothing visible changes):** two new plain classes, `project-nav_arrow-prev` (left 0; right corners 25%, left 0%) and `project-nav_arrow-next` (right 0; left corners 25%, right 0%), longhand only, read back OK. Not combo classes (D-006). I named them with a hyphen rather than the proposed `.prev`/`.next` combo form because combos can't be made through the MCP.

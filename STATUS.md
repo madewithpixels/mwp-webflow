@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — No Back button on the estimator's last step (R-111, brief #328)
+**Michael's task:** "Remove the back button from the final 'editable content sections' estimator step". Read as the sixth and last question, "What would you like the website to include?", which holds the "Editable content sections" option (inferred — confirm).
+**Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNoBackOnLastStep" 1.0.0 registered and applied to the Estimate page footer (existing script list and footer code read back unchanged). It hides Back while the last step shows. Repo copy: `estimate-no-back-last.js`. Published to the staging subdomain only. The tool's own code (separate repo, loads from jsDelivr) not touched.
+**Checked how (verified live, staging, Chrome on the Mac Studio, desktop-size window):** clicked through all six steps; Back visible on steps 1 to 5, hidden on step 6. **Not checked:** phone width by eye (the rule is not width-dependent), Safari, the results screens after step 6, going back to step 5 by other means.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it (steps under R-111), then check and back up. **Next useful action:** later build this into the tool and remove the script.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Five estimator tasks written up in the roadmap (R-107 to R-111, brief #311)
 **Changed:** ROADMAP.md only. Added R-107 (top Next button, @mobile), R-108 (space between Back and Next), R-109 (stronger step titles, @mobile), R-110 (centred headings and paragraphs on the final step, @mobile), R-111 (no Back button on the final step), each with a done-when, guesses marked "(inferred — confirm)" and its **Task:** line; placed in Phase 4. R-102 now carries task 43612361. R-103 to R-106 already existed for tasks 43612362 to 43612365. No work done, Webflow and tasks untouched.
 **Not given items (headings):** "MWP landing pages", "Launch MWP social campaign", "Launch prep", "Finish MWP site", "Responsive layouts" are headings already covered by the phases and goal (see the note at the top of the roadmap).

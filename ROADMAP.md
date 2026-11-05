@@ -511,11 +511,17 @@
 **Note:** "Centralised" is read as centre-aligned text; "a paras" as "and paragraphs" (inferred — confirm). Desktop alignment is assumed unchanged. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
 
 ### R-111 · Remove the back button from the final  'editable content sections' estimator step
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, desktop width) · **Acceptance:** pending
 **Task:** 43612370 in your boss list
 **From:** your task list: "Remove the back button from the final  'editable content sections' estimator step", added 5 November 2026.
 **Done when:** the final 'editable content sections' step of the estimator has no Back button, at every width; the other steps keep theirs. (inferred — confirm)
 **Note:** Read as the last step only (inferred — confirm); whoever is on it can no longer step back, which you should be happy with. Related: R-108. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+**Built 5 November 2026 (brief #328):** read as the last step, "What would you like the website to include?" (it holds the "Editable content sections" option) (inferred — confirm). The tool's own code is in another repo and loads from jsDelivr, so I did not touch it; instead a small inline script "EstimateNoBackOnLastStep" 1.0.0 on the Estimate page footer hides Back while that step is showing (copy: `estimate-no-back-last.js`, R-029). No class or element changed (D-006). Better long-term: build it into the tool and drop the script.
+**Try:**
+1. Open [the Estimate page on staging](https://madewithpixels-dev.webflow.io/estimate) and press Start.
+2. Answer the first five questions, pressing Next each time; Back is there on each.
+3. On the sixth, "What would you like the website to include?", look at the bottom row.
+**Done when:** only Next is there (no Back) on that step; Back is back on earlier steps.
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

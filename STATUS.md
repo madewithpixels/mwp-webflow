@@ -1,6 +1,14 @@
 # madewithpixels website — Status
 
 
+## 5 November 2026 — Claude (night shift) — Five new tasks written up (R-112 to R-116, brief #350)
+**Changed:** roadmap items only. R-112 rounded corners on the project-page left/right buttons (#43612375); R-113 those buttons centred at the screen edges on phones (#43612376); R-114 separators full width at tablet and below (#43612377); R-115 stronger estimator step titles on phones (#43612379); R-116 the burger-menu fault on the Estimate page (#43612380). No Webflow, site or task changes.
+**Checked how:** read back the roadmap table and items.
+**Still open:** R-115 looks like a duplicate of R-109 (task #43612368), which already has Michael's pick (bolder and bigger). Task #43612380's title is cut off in the list, so what the Home page shows is unknown. The other task numbers in the inbox's "no roadmap item" list are headings or already covered (R-110, R-111 etc. exist; #43612130, 133, 126, 111, 304 are the phase headings).
+**Needs Michael:** say which of R-109 / R-115 to keep, and finish the sentence in task #43612380.
+**Roadmap items noted for Michael to decide** (their tasks were deleted from his list): R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043, R-047, R-049, R-059. Not dropped.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — No top Next button on phones (R-107, brief #332)
 **Michael's task:** "remove the top 'Next' button from the estimator layout @mobile". Read as the extra Next button beside the question title, hidden at phone width (up to 767px) only (inferred — confirm). R-107 already existed from brief #311.
 **Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNoTopNext" 1.0.0 registered and added to the Estimate page footer (list read back: the four earlier scripts plus this one; page footer code unchanged). Published to the staging subdomain only. Repo copy: `estimate-no-top-next.js`. The tool's own code (separate repo) not touched.

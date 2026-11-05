@@ -18,6 +18,8 @@
 
 *Five tasks added on 5 November 2026 (R-107 to R-111, brief #311) are written up from your list and still need your confirmation of the guesses marked in them. R-102 and R-103 to R-106 now carry their task numbers.*
 
+*Five tasks added on 5 November 2026 (R-112 to R-116, brief #350) are written up from your list and still need your confirmation of the guesses marked in them. R-115 looks like a duplicate of R-109.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -27,9 +29,9 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099 |
-| 3 | Phone and tablet | R-039–R-045, R-093 |
-| 4 | Estimate page | R-046–R-051, R-106–R-111 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114 |
+| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116 |
 | 5 | Launch prep and launch | R-052–R-063, R-102 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
@@ -70,6 +72,13 @@
 **From:** your task list, added 30 October 2026.
 **Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
+
+### R-112 · Rounded corners on Left and right buttons in project pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612375 in your boss list
+**From:** your task list, added 5 November 2026.
+**Done when:** the left and right buttons on the project pages have rounded corners, on published staging, at desktop, tablet and phone widths. (inferred — confirm)
+**Note:** Read as the previous and next project arrow buttons (R-038). How round (a small radius or a full circle) is not stated, so I'll offer options first (D-007). No new class without approval (D-006). Same buttons as R-113; check against R-082 and R-103.
 
 ### R-032 · Pricing CTA text stagger should be quicker
 **State:** planned · **Evidence:** none · **Acceptance:** pending
@@ -466,6 +475,20 @@
 **Done when:** on the published staging site at phone width, the new estimate-page button in the Pricing CTA section on the Home page shows the same tricolour arrow as the other buttons; the arrow looks right, and desktop and tablet are unchanged. (inferred — confirm)
 **Note:** Guesses: "the pricing CTA section" is the Pricing CTA section of the Home page (inferred — confirm); "the tricolour arrow" is the coral, pink and teal pixel-style arrow used on the site's other buttons, so I would copy that treatment rather than design a new one (inferred — confirm); the arrow should show at phone width only, since the button was added for mobile (inferred — confirm). Related: R-049 (tricolour and button motifs, Estimate page) and R-032 (Pricing CTA text stagger). This is a visual change, so D-006 and D-007 apply: I describe the options first, and no new class without Michael's approval.
 
+### R-113 · Left and right nav buttons in the project pages should be centered at the view port edges @mobile as they are @desktop
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612376 in your boss list
+**From:** your task list, added 5 November 2026.
+**Done when:** on a phone, the left and right buttons on a project page sit vertically centred against the left and right edges of the screen, just as they do on desktop, on published staging. (inferred — confirm)
+**Note:** "Left and right nav buttons" is read as the previous and next project arrows (R-038; R-103 made them stable). Desktop is the reference and stays unchanged (inferred — confirm). Related: R-112 (their rounded corners) and R-082; same pages and elements, so do them together. Check at phone width with Claude in Chrome. D-006 and D-007 apply: no new class without approval, options first.
+
+### R-114 · Separators don't always span the full viewport width @tablet and below. They should
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612377 in your boss list
+**From:** your task list, added 5 November 2026.
+**Done when:** every separator (the coloured bars between sections) runs edge to edge across the screen at tablet and phone widths, on every page that has one, on published staging. (inferred — confirm)
+**Note:** "Don't always" means some separators or some widths fall short, so the first step is to find which (inferred — confirm). "Tablet and below" is read as 991px and under, as set in the Designer (inferred — confirm). Related: R-098 (gap under the separator, accepted). D-006 and D-007 apply.
+
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 
@@ -513,6 +536,13 @@
 
 **Looked at 5 November 2026 (brief #330):** on staging each step's title (the question, e.g. "What are you looking for?") is 24px, weight 200, light grey (230), in Source Serif 4, from the tool's own styles. The option labels under it are 18px, weight 700, so the title reads *weaker* than the options. "Step titles" is read as these questions (inferred — confirm). Waiting for Michael to pick a look (D-007) before any change; options asked in boss.
 
+### R-115 · Stronger Step titles for the estimator @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612379 in your boss list
+**From:** your task list, added 5 November 2026. Same wording as R-109 (task 43612368).
+**Done when:** the same as R-109: on a phone, each estimator step title is clearly stronger than the text under it, on published staging. (inferred — confirm)
+**Note:** This looks like a second copy of R-109 (inferred — confirm). I'd treat the work as R-109 and tick or delete one of the two tasks yourself; I haven't touched either. On 5 November 2026 you picked "Bolder and bigger" for R-109 (weight 500, 28px, pure white, phone only), so that is the plan for both.
+
 ### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile *(accepted by Michael in boss, 5 Nov 2026)*
 **State:** built · **Evidence:** verified (live, phone-width frame; see below) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612369 in your boss list
@@ -539,6 +569,13 @@
 2. Answer the first five questions, pressing Next each time; Back is there on each.
 3. On the sixth, "What would you like the website to include?", look at the bottom row.
 **Done when:** only Next is there (no Back) on that step; Back is back on earlier steps.
+
+### R-116 · Something else is wrong — Try the burger menu on the Estimate page and say what the home page shows when you…
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612380 in your boss list
+**From:** your task list, added 5 November 2026. The title is cut off in the list ("…when you"), so the rest of your sentence is missing.
+**Done when:** the burger menu on the Estimate page does what you expect, and when you use it (the part of your sentence I can't see) the Home page shows what it should, on published staging, at desktop, tablet and phone widths. (inferred — confirm)
+**Note:** I read this as a bug report: opening the burger menu on the Estimate page and choosing something sends you to the Home page, and the Home page then shows something wrong (inferred — confirm). The first step is to find out what, which is the part cut off. Related: R-106 (Estimate page anchor links, accepted), R-097 (burger nav acting oddly, waiting on SmashBurger) and R-077. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015).
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

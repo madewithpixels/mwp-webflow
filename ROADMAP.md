@@ -551,13 +551,20 @@
 **Done when:** there is a clear gap between the two buttons at both widths.
 
 ### R-109 · Stronger Step titles for the estimator @mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live) · **Acceptance:** pending
 **Task:** 43612368 in your boss list
 **From:** your task list: "Stronger Step titles for the estimator @mobile", added 5 November 2026.
 **Done when:** on a phone, each estimator step title is clearly stronger than the text under it (bolder and/or larger), and still fits on the screen without awkward wrapping. (inferred — confirm)
 **Note:** "Stronger" is read as heavier weight and/or bigger size, with higher contrast if needed; I will offer options before changing anything (D-007). No new class without your approval (D-006). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
 
 **Looked at 5 November 2026 (brief #330):** on staging each step's title (the question, e.g. "What are you looking for?") is 24px, weight 200, light grey (230), in Source Serif 4, from the tool's own styles. The option labels under it are 18px, weight 700, so the title reads *weaker* than the options. "Step titles" is read as these questions (inferred — confirm). Waiting for Michael to pick a look (D-007) before any change; options asked in boss.
+
+**Built 5 November 2026 (brief #344):** Michael picked "Bolder and bigger". Inline script EstimateQuestionStronger 1.0.0 on the Estimate page footer: up to 767px, `.iwa-question` is weight 500, 28px, white. Checked on published staging in 390px and 1000px frames; desktop unchanged. Longer later-step questions not checked for wrapping.
+**Try:**
+1. Open [the estimate page on staging](https://madewithpixels-dev.webflow.io/estimate) on your phone.
+2. Look at the question at the top of each step.
+**Done when:** the question is clearly bolder, bigger and white, stronger than the answer boxes, and no step wraps awkwardly.
+**Time:** about 3 minutes
 
 ### R-115 · Stronger Step titles for the estimator @mobile
 **State:** planned · **Evidence:** none · **Acceptance:** pending

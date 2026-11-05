@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Estimator questions bolder and bigger on phones (R-109, brief #344)
+**Michael's pick (boss):** "Bolder and bigger" (weight 500, 28px, pure white), phone only.
+**Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateQuestionStronger" 1.0.0 registered and added to the Estimate page footer (list read back: the five earlier scripts plus this one; page footer code unchanged). It sets `.iwa-question` to weight 500, 28px, #fff up to 767px wide. Published to the staging subdomain only. Repo copy: `src/estimate/estimate-question-stronger.js`, added to `src/estimate/index.js`. No class made or edited (D-006). The tool's own code (separate repo) not touched.
+**Checked how (verified live, staging, Chrome on the Mac Studio):** the window would not shrink, so I loaded the page in 390px and 1000px frames. 390px: weight 500, 28px, rgb(255,255,255), Source Serif 4; option labels still 18px. 1000px: unchanged (200, 24px, rgb(230,230,230)). **Not checked:** a real phone, Safari, later steps, a screenshot by eye. At 390px "What are you looking for?" now wraps to two lines (it was one at 24px); longer questions on later steps were not checked for awkward wraps.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. Before-list kept in /tmp/boss-webflow-before-344. No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's. R-115 is a duplicate of this (same plan).
+**Needs Michael:** try it (steps under R-109).
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Separators that fall short at tablet and below: found, not fixed (R-114, brief #353)
 **Michael's task:** "Separators don't always span the full viewport width @tablet and below. They should".
 **Found (verified live, published staging, Chrome on the Mac Studio; same-origin frames at 1440, 991, 768, 600 and 390px; every page with a `.seperator`):** only two separators fall short; all others run 0 to full width.

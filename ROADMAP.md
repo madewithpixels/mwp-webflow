@@ -12,6 +12,8 @@
 
 *Six tasks added on 3 November 2026 (R-095 to R-100) are written up from your list and still need your confirmation of the guesses marked in them.*
 
+*One task added on 5 November 2026 (R-102) is written up from your messages and still needs your confirmation of the guesses marked in it.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -24,7 +26,7 @@
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099 |
 | 3 | Phone and tablet | R-039–R-045, R-093 |
 | 4 | Estimate page | R-046–R-051 |
-| 5 | Launch prep and launch | R-052–R-063 |
+| 5 | Launch prep and launch | R-052–R-063, R-102 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
@@ -497,6 +499,14 @@
 **Task:** 43612268 in your boss list
 **From:** your task list (Launch prep › Pagespeed review, marked in progress). **Depends on:** R-054, R-055.
 **Note:** the first pass was done on 29 September 2026 (faulty-terminal 1.10, deferred scripts, accessibility fixes, folio wall images). Brand contrast is accepted as is (D-010).
+
+### R-102 · Device-aware performance and mobile scroll stability (final pre-launch pass)
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** Michael is adding a reminder in his boss list (5 November 2026); the number goes here once it exists.
+**From:** your messages of 3 to 5 November 2026 (animations flaky on mobile with fast scrolling; "so let's build something and test it" after trying the site on an iPad Air 2). Do this LAST, after the animation and layout work is finished.
+**Done when:** on published staging, the iPad Air 2 (landscape and portrait), the iPhone 15 and the basic Samsung phone all scroll the Home page without animations or layout breaking, even when you scroll fast or before an animation has finished; weak devices run a lighter version of the heavy effects at a steady frame rate; desktop looks and feels exactly as it does now. (inferred — confirm)
+**Scope:** (1) a tier script (`data-perf` high/mid/low at 60/30/25 fps, plus `data-input` touch/pointer, with `?perf=` forcing and a `?perf-debug` overlay); (2) mobile stability: svh instead of dvh, a resize guard, a settle pass on scroll end, lighter scrub smoothing on touch; (3) a throttled Faulty Terminal (quality API, pause when covered); (4) a small folio-wall image set swapped by script on the low tier; (5) a simplified Testimonial Wall timeline on the low tier; (6) the heart morph chosen by input and tier, not width, with more time in the air; (7) Pricing on CSS sticky on touch. Full plan, tier table and order of work: `docs/perf-and-stability-brief.md`.
+**Note:** an iPad in landscape is 1024px wide, so it gets every desktop path today; that probably explains the jerky heart morph there (to confirm on the iPad). The testimonial section's faint Faulty Terminal bleed comes from the deliberate fade layer in R-031 / D-022, so making it opaque is a Designer style change that needs your approval first (D-006, D-007). Related: R-042 (pacing pass), R-040 and R-093 (shadows on small screens), R-056 (PageSpeed), R-057, R-079, R-029 and R-055 (custom code into the repo, then jsDelivr; the tier script is the first piece). When the work starts, record the three-switch model (layout, input, tier) as a decision.
 
 ### R-057 · Set debugPanel: false in FaultyTerminalConfig
 **State:** planned · **Evidence:** none · **Acceptance:** pending

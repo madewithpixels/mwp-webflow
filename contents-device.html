@@ -12,14 +12,16 @@
       right: 14px;
       top: 50%;
       z-index: 900; /* under the blur (997) and the header (998), so the open menu covers it */
-      transform: translateY(-50%);
+      transform: translateY(-50%) scale(0.6); /* brief #313: much smaller at rest, full size on hover or focus */
+      transform-origin: 100% 50%;
       padding: 10px 12px;
       border-radius: 14px;
       background-color: rgba(30, 41, 46, 0);
-      transition: background-color 0.25s ease;
+      transition: background-color 0.25s ease, transform 0.3s ease;
     }
     .mwp-contents:hover,
     .mwp-contents:focus-within {
+      transform: translateY(-50%) scale(1);
       background-color: rgba(30, 41, 46, 0.86);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
@@ -134,6 +136,23 @@
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
       background-color: #d9466c;
+    }
+    /* brief #313: slightly more transparent at rest, fully opaque on hover or focus. Opacity goes on each line, not on the whole device,
+       because opacity on the parent would stop the lines' backdrop filter seeing the page behind them. */
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub .mwp-contents__tick {
+      opacity: 0.4;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__rail {
+      opacity: 0.4;
+    }
+    .mwp-contents__rail {
+      transition: opacity 0.25s ease;
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -264,11 +283,13 @@
         rail.style.display = 'none';
         return;
       }
-      var navTop = nav.getBoundingClientRect().top;
+      var navRect = nav.getBoundingClientRect();
+      var k = navRect.height / nav.offsetHeight || 1; // the device is drawn smaller at rest (brief #313): measure in its own, unscaled pixels
+      var navTop = navRect.top;
       var a = subs[0].getBoundingClientRect();
       var b = subs[subs.length - 1].getBoundingClientRect();
-      var top = Math.round(a.top - navTop + a.height / 2 - RAIL_OVERHANG);
-      var bottom = Math.round(b.top - navTop + b.height / 2 + RAIL_OVERHANG);
+      var top = Math.round((a.top - navTop + a.height / 2) / k - RAIL_OVERHANG);
+      var bottom = Math.round((b.top - navTop + b.height / 2) / k + RAIL_OVERHANG);
       rail.style.display = '';
       rail.style.top = top + 'px';
       rail.style.height = bottom - top + 'px';
@@ -309,3 +330,13 @@
     update();
   });
 </script>
+<style>
+@media (min-width: 992px) {
+  .mwp-contents__rail {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
+</style>

@@ -1,5 +1,18 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Contents device smaller, fainter, grows on hover (R-104, brief #313)
+**Michael's task:** "Contents device should be much smaller, slightly more transparent and grow/become opaque on hover". Read as: about 60% of the old size at rest and a little see-through; full size and fully opaque on hover or keyboard focus (inferred — confirm).
+**Changed (Webflow, site madewithpixels, staging only):**
+1. Home page head custom code, the contents device block only (read first, written back whole, echo checked): the device is drawn at 60% scale from its right-hand edge and goes to 100% on hover or focus (0.3s); at rest the main dashes are 65% strength, the About part dashes 40% and the rail 40%, all 100% on hover. Opacity is on each dash, not the whole device, because opacity on the parent would stop the dashes' backdrop filter (what keeps them readable on every background). The rail placement script now measures in unscaled pixels, so the rail still lines up.
+2. Published to the staging subdomain only.
+Repo copies: `contents-device.html` (now also holds the small rail override that was already live in Webflow but missing from the repo) and `snapshots/custom-code.json` (Home head).
+**Checked how (verified live, staging, Chrome on the Mac Studio, 2044px viewport):** at rest the device measures 31 x 168px (was 126 x 280 open), transform scale 0.6, dash opacity 0.65, rail at 65px / 87px; zoomed screenshot shows small faint dashes. Mouse over it: scale 1, opacity 1, all ten names showing, rail aligned. Mouse away: back to small. **Not checked:** Safari, keyboard focus, clicking an entry after the change, phone and tablet (hidden below 992px), whether the smaller resting hover area feels too fiddly.
+**Backups:** "boss · brief #313 · before" and "boss · brief #313 · after", both made on the Webflow dashboard Backups page (the Designer tab of the Webflow tools was not reachable from my own tab: the Designer address redirected to the dashboard). Rollback: restore "before", or set the scale back to 1 and remove the resting-opacity rules.
+**Not in the snapshot:** interactions and animations are not captured by the export; the only snapshot file that changed is the custom-code file.
+**Numbering:** I took R-104 for this item; brief #311 may also add items, so renumber one if they clash.
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it on staging (steps under R-104), then back up. Acceptance is yours.
+
 ## 5 November 2026 — Claude (night shift) — Project arrows no longer move in the page transition (R-103, brief #312)
 **Michael's task:** "Remove the left and right nav buttons from the project page transitions - they should be stable". Read as: the two coral arrow tabs on the screen edges should not slide off and on with the project content (inferred — confirm). The title, copy and screenshots still slide (R-083).
 **Changed (Webflow, site madewithpixels, staging only):**

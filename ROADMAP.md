@@ -12,6 +12,8 @@
 
 *Six tasks added on 3 November 2026 (R-095 to R-100) are written up from your list and still need your confirmation of the guesses marked in them.*
 
+*One task added on 5 November 2026 (R-104, from brief #313) is written up from your list and still needs your confirmation of the guesses marked in it.*
+
 *One task added on 5 November 2026 (R-102) is written up from your messages and still needs your confirmation of the guesses marked in it.*
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -145,6 +147,21 @@
 **Time:** about 2 minutes
 **From:** your task list: "Remove the left and right nav buttons from the project page transitions - they should be stable".
 **Note:** "nav buttons" is read as the two coral arrow tabs on the left and right edges (R-038), the only left and right buttons on a project page (inferred — confirm). The site header (menu, phone, email) already stayed put. Built as two small edits in Webflow: the arrows are out of the slide's list (site footer) and out of the "hidden until arriving" rule (site head). Copy of the footer part in `page-transition.js` (R-029). Not checked: phone and tablet, Safari, the first frames of the arrival (the arrows were not hidden by any rule, but I could not sample them frame by frame).
+
+### R-104 · Contents device should be much smaller, slightly more transparent and grow/become opaque on hover
+**State:** built (5 November 2026, brief #313) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px viewport) · **Acceptance:** pending
+**Task:** 43612363 in your boss list
+**Try:** On the Home page at desktop width, look at the right edge: the contents device is now a small, faint set of dashes. Move the mouse over it: it grows to full size and turns fully opaque, with the section names.
+**Why:** At rest it was too big and too bright for something meant to stay out of the way.
+**Steps:**
+1. Open [the Home page on staging](https://madewithpixels-dev.webflow.io/) in a wide window and wait for the heart animation to finish.
+2. Look at the right edge, half way down: a small, faint set of dashes.
+3. Move the mouse over it: it grows to full size, turns opaque and shows the names.
+4. Move the mouse away: it shrinks and fades back.
+**Done when:** the resting device is about 60% of its old size and slightly see-through; hover or keyboard focus brings it to full size and fully opaque, and clicking an entry still jumps to its section.
+**Time:** about 2 minutes
+**From:** your task list: "Contents device should be much smaller, slightly more transparent and grow/become opaque on hover".
+**Note:** "much smaller" is read as 60% of the old size and "slightly more transparent" as 65% strength on the main dashes and 40% on the About part dashes and rail (inferred — confirm; both are one number each in the head code). Built on R-099 in the Home head code (copy: `contents-device.html`, R-029); no new class (D-006). Not checked: Safari, a phone or tablet (the device is hidden below 992px), keyboard focus, the hover area being smaller when it is small.
 
 ### R-036 · Remove pixel page-transition
 **State:** planned · **Evidence:** none · **Acceptance:** pending

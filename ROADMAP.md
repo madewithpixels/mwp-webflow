@@ -163,6 +163,13 @@
 **From:** your task list: "Contents device should be much smaller, slightly more transparent and grow/become opaque on hover".
 **Note:** "much smaller" is read as 60% of the old size and "slightly more transparent" as 65% strength on the main dashes and 40% on the About part dashes and rail (inferred — confirm; both are one number each in the head code). Built on R-099 in the Home head code (copy: `contents-device.html`, R-029); no new class (D-006). Not checked: Safari, a phone or tablet (the device is hidden below 992px), keyboard focus, the hover area being smaller when it is small.
 
+### R-105 · Telephone and email buttons in the open burger menu
+**State:** in progress (5 November 2026, brief #314) · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612365 in your boss list
+**Done when:** with the burger menu open, the telephone number and the email address show as plain text, right-aligned and in off-white, not inside buttons, so they can be selected and copied; they still appear with the menu's animation (inferred — confirm).
+**From:** your task list: "Telephone and email buttons in the open burger menu". Your note: "They should be open so that they can be copy/pasted. They can be removed from their buttons (animated if poss) aligned right and var(off-white) in colour".
+**Note:** "removed from their buttons" is read as: the text sits outside any button shape (inferred — confirm). Numbered R-105 here; if brief #315 also took R-105, renumber one.
+
 ### R-036 · Remove pixel page-transition
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612316 in your boss list

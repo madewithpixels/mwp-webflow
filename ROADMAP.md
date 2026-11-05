@@ -20,6 +20,8 @@
 
 *Five tasks added on 5 November 2026 (R-112 to R-116, brief #350) are written up from your list and still need your confirmation of the guesses marked in them. R-115 looks like a duplicate of R-109.*
 
+*One task added on 5 November 2026 (R-117, from your messages) is written up from them and still needs your confirmation of the guesses marked in it.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -28,7 +30,7 @@
 
 | Phase | What | Items |
 |---|---|---|
-| 1 | Groundwork | R-029 |
+| 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116 |
@@ -47,7 +49,16 @@
 **Task:** 43612128 in your boss list
 **From:** the first half of "ALL custom code served via jsDelivr" (Launch prep), split as D-003 suggests.
 **Exit criteria:** every script and style block now in the site head and footer, and in each page's head and footer, has a file here; a short README line says which Webflow box each file came from. `custom.js` (the back-layer parallax) is checked against what the site runs now.
+**Progress (5 November 2026):** 15 files are in `src/` and build into `dist/` (R-117; `README.md` says which Webflow box each came from). Still missing: the larger Home head and footer blocks and the Site head and footer blocks (in `snapshots/custom-code.json`), and the check of `custom.js`.
 
+
+### R-117 · Restructure the custom code: one built set of files, a shared core, then port the scripts onto it
+**State:** in progress (5 November 2026: the build is set up; the shared core and the porting are not started) · **Evidence:** verified (local) for the build only · **Acceptance:** pending
+**Task:** none in your boss list yet
+**From:** your messages of 5 November 2026: "agreed - i meant re-structure not re-write. Add this to the roadmap, it seems fundamental", and your request for a local folder with a compiler that minifies and packages the .JS and .CSS for jsDelivr, so the restructure can happen early.
+**Done when:** (1) the code is edited as source files in this repo and one command builds minified bundles for jsDelivr; (2) a small shared core exists: `MWPPerf` (the tier script from R-102), one scroll/rAF dispatcher that reads layout once per frame, and one visibility registry; (3) the busiest scripts (heart morph, ticker highlight, pricing, scroll magnet, folio hover, nav jump) are ported onto it one at a time, each checked on staging before the next, behaving exactly as before; (4) the Webflow code boxes shrink to loader lines as each bundle switches (R-055). (inferred — confirm)
+**Built so far (5 November 2026):** step 1 for the 15 files already in the repo. Source is in `src/` (site, home, estimate, portfolio), `npm run build` writes `dist/`, `npm run dev` serves it locally for testing on staging. See `README.md`. Not loaded by any page yet.
+**Note:** restructure, not rewrite: the fixes tuned over weeks (sticky re-measure, `mwpPlayInOrder`, iOS compositor-thread scroll, Lenis timing) must survive. Merging and minifying the files helps load time (R-056); the runtime gains come from the shared core (fewer layout reads per frame, scripts that stay off on weak devices). Needs R-029 finished first for the big Home and Site head/footer blocks, which are not in the repo yet. Build the shared core together with the tier script (R-102). Proposed D-023 asks whether each script switches to jsDelivr as it is ported, or all at once at launch prep.
 
 ## Phase 2 · Desktop polish
 *Your list puts these first. Quick ones lead, so you see progress while the bigger design questions (the separator, the marquee type, the project page transition) get thought through. Desktop before phones, because the phone work (pacing especially) depends on how these end up.*
@@ -493,7 +504,9 @@
 **Note:** "Left and right nav buttons" is read as the previous and next project arrows (R-038; R-103 made them stable). Desktop is the reference and stays unchanged (inferred — confirm). Related: R-112 (their rounded corners) and R-082; same pages and elements, so do them together. Check at phone width with Claude in Chrome. D-006 and D-007 apply: no new class without approval, options first.
 
 ### R-114 · Separators don't always span the full viewport width @tablet and below. They should
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** blocked · **Evidence:** verified (live) for the diagnosis; nothing built · **Acceptance:** pending
+**Blocked:** the fix needs a combo-class rule or a layout change, which needs Michael's approval (D-006, D-007). Two separators fall short: Home's top one (inside the padded intro) and the project page's one (inside the padded wrapper). See STATUS, 5 November 2026.
+**Unblock:** Michael picks an option in boss. **Blocked since:** 5 November 2026. **Unblocker:** Michael
 **Task:** 43612377 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** every separator (the coloured bars between sections) runs edge to edge across the screen at tablet and phone widths, on every page that has one, on published staging. (inferred — confirm)
@@ -671,7 +684,7 @@
 **From:** your messages of 3 to 5 November 2026 (animations flaky on mobile with fast scrolling; "so let's build something and test it" after trying the site on an iPad Air 2). Do this LAST, after the animation and layout work is finished.
 **Done when:** on published staging, the iPad Air 2 (landscape and portrait), the iPhone 15 and the basic Samsung phone all scroll the Home page without animations or layout breaking, even when you scroll fast or before an animation has finished; weak devices run a lighter version of the heavy effects at a steady frame rate; desktop looks and feels exactly as it does now. (inferred — confirm)
 **Scope:** (1) a tier script (`data-perf` high/mid/low at 60/30/25 fps, plus `data-input` touch/pointer, with `?perf=` forcing and a `?perf-debug` overlay); (2) mobile stability: svh instead of dvh, a resize guard, a settle pass on scroll end, lighter scrub smoothing on touch; (3) a throttled Faulty Terminal (quality API, pause when covered); (4) a small folio-wall image set swapped by script on the low tier; (5) a simplified Testimonial Wall timeline on the low tier; (6) the heart morph chosen by input and tier, not width, with more time in the air; (7) Pricing on CSS sticky on touch. Full plan, tier table and order of work: `docs/perf-and-stability-brief.md`.
-**Note:** an iPad in landscape is 1024px wide, so it gets every desktop path today; that probably explains the jerky heart morph there (to confirm on the iPad). The testimonial section's faint Faulty Terminal bleed comes from the deliberate fade layer in R-031 / D-022, so making it opaque is a Designer style change that needs your approval first (D-006, D-007). Related: R-042 (pacing pass), R-040 and R-093 (shadows on small screens), R-056 (PageSpeed), R-057, R-079, R-029 and R-055 (custom code into the repo, then jsDelivr; the tier script is the first piece). When the work starts, record the three-switch model (layout, input, tier) as a decision.
+**Note:** an iPad in landscape is 1024px wide, so it gets every desktop path today; that probably explains the jerky heart morph there (to confirm on the iPad). The testimonial section's faint Faulty Terminal bleed comes from the deliberate fade layer in R-031 / D-022, so making it opaque is a Designer style change that needs your approval first (D-006, D-007). Related: R-042 (pacing pass), R-040 and R-093 (shadows on small screens), R-056 (PageSpeed), R-057, R-079, R-029 and R-055 (custom code into the repo, then jsDelivr; the tier script is the first piece). When the work starts, record the three-switch model (layout, input, tier) as a decision. Build the shared core (`MWPPerf`, scroll dispatcher) with R-117, on the build set up there.
 
 ### R-057 · Set debugPanel: false in FaultyTerminalConfig
 **State:** planned · **Evidence:** none · **Acceptance:** pending

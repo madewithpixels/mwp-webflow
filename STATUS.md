@@ -1,5 +1,28 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Separators that fall short at tablet and below: found, not fixed (R-114, brief #353)
+**Michael's task:** "Separators don't always span the full viewport width @tablet and below. They should".
+**Found (verified live, published staging, Chrome on the Mac Studio; same-origin frames at 1440, 991, 768, 600 and 390px; every page with a `.seperator`):** only two separators fall short; all others run 0 to full width.
+1. **Home, the top one (`.seperator.has-bg-slate.is-on-intro-top`).** It sits inside `.intro_sticky`, inside `.intro`, and `.intro` has side padding from a variable (7.5% of the width). At 991 it starts 74px in (842 wide); 768: 58 in; 390: 29 in (332 wide). It is also inset at 1440, so "tablet and below" understates it. The sticky-bottom one on Home reads width 0 at the top of the page: it is scaled to 0 by its scroll animation (matrix 0,0,0,1), not a fault.
+2. **Project pages (`/portfolio/futura`), the one separator.** It sits inside `.project-wrapper`, which has 32px side padding (19.5px at 390). At 991 it is 927 wide from 32; at 390, 351 wide from 20; at 1440, 1376 from 32.
+Pages with no separator: Estimate, Contact, About.
+**Why not fixed:** both need either a rule on a combo class (`.seperator.is-on-intro-top`, or a new project-page one) or a structure change, which D-006 says not through the MCP / not without Michael's approval, and D-007 says options first. Asked in boss. Nothing changed in Webflow; no snapshot change; no backups (not asked for). Interactions and animations are not in the snapshot.
+**Still open:** Michael's pick. **Next useful action:** build the pick, publish to staging (Michael), check at 991, 768 and 390.
+— Claude (night shift)
+
+## 5 November 2026 — Claude — Custom code set up to edit and build locally (R-117, R-029)
+**Michael's note:** "can we set up those .JS and .CSS files in a local folder so that I/we can edit them easily with some type of compiler that minifies and packages them for jsdeliver?" and "Add this to the roadmap, it seems fundamental."
+**Changed (this repo only; nothing in Webflow was touched, nothing published):**
+- The 15 code files that were loose in the repo root are now in `src/site`, `src/home`, `src/estimate` and `src/portfolio`. Moved, not rewritten. `contents-device.html` is split into `contents-device.css` and `contents-device.js` (same content, same order); the original is kept in `archive/`.
+- New: `build.cjs` (esbuild), `package.json`, `package-lock.json`, `src/*/index.js` and `index.css` (each lists what goes into its bundle, in order), `dist/` (first build), `README.md` (how to use it, and which Webflow box each file came from), `node_modules/` added to `.gitignore`.
+- ROADMAP: new R-117 (the restructure), Progress line on R-029, a cross-reference on R-102. DECISIONS: D-023 proposed.
+**Checked how (verified local):** the build ran clean on all four bundles; `node --check` passes on the three JS bundles; the dev server returns `site.min.js` with `Access-Control-Allow-Origin: *`. Sizes: home 21.8 KB JS (7.9 KB gzip) + 3.8 KB CSS, site 6.1 KB, estimate 1.9 KB, portfolio CSS 0.5 KB. **Not checked:** the bundles have not been loaded on any page, so load order and timing against the inline scripts are untested; rebuild-on-save; the install on the Mac (the build was run from a scratch copy of esbuild because this shell runs Linux).
+**Not done:** the larger Home head/footer and Site head/footer blocks are not in the repo yet (R-029); `custom.js` is not in the Home bundle until someone confirms the site still runs it; the shared core.
+**Backups:** none made (not asked for); no Webflow change.
+**Needs Michael:** answer D-023 (switch each script as it is ported, or all at launch prep); run `npm install` once and `npm run build` to check it works on the Mac; commit.
+**Next useful action:** split the big Home and Site head/footer blocks into `src/` files (R-029), then build the shared core with the tier script (R-102).
+— Claude
+
 ## 5 November 2026 — Claude (night shift) — Burger menu phone and email: right edge, icons, lighter weight (R-105, brief #343)
 **Michael's note:** "On desktop they should be right aligned, have their icons and be a lighter font-weight".
 **Changed (Webflow, site madewithpixels, staging only):** inline script "MenuContactText" registered as 1.0.2 then 1.0.3 and applied to the site header (applied list read back: FaultyTerminal 1.12.2 footer, MenuContactText 1.0.3 header). 1.0.3: icons shown again in off-white; label weight 300 (was 700); each button aligned to the right edge (they carried their own centring, so the phone stopped 74px short of the email); text right-aligned. Published to the staging subdomain only (twice). Repo copy: `menu-contact-text.js`. No class made or edited (D-006).

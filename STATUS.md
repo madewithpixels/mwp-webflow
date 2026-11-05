@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+
+## 5 November 2026 — Claude (night shift) — No top Next button on phones (R-107, brief #332)
+**Michael's task:** "remove the top 'Next' button from the estimator layout @mobile". Read as the extra Next button beside the question title, hidden at phone width (up to 767px) only (inferred — confirm). R-107 already existed from brief #311.
+**Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNoTopNext" 1.0.0 registered and added to the Estimate page footer (list read back: the four earlier scripts plus this one; page footer code unchanged). Published to the staging subdomain only. Repo copy: `estimate-no-top-next.js`. The tool's own code (separate repo) not touched.
+**Checked how (verified live, staging, Chrome on the Mac Studio):** the window would not shrink, so I loaded the page in 390px and 1000px frames. At 390px the top Next computes as hidden and the bottom Next shows; picking an option and pressing the bottom Next moved to question 2. At 1000px the top Next still shows. **Not checked:** a real phone, Safari, the 480 to 767px range by eye, later steps and the results screens.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it (steps under R-107). **Next useful action:** fold the R-107 to R-111 scripts into the tool.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Gap between Back and Next in the estimator (R-108, brief #331)
 **Michael's task:** "Pus some space between the back and next buttons in the estimator". R-108 already existed from brief #311.
 **Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNavGap" 1.0.0 registered and added to the Estimate page footer (list read back: EstimateMenuAnchors, EstimateNoBackOnLastStep, EstimateLastStepCentred, EstimateNavGap; page footer code unchanged). It sets a 24px gap on the button row, 16px up to 479px wide. Published to the staging subdomain only. Repo copy: `estimate-nav-gap.js`. The tool's own code (separate repo) not touched.

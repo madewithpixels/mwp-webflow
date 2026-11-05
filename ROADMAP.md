@@ -483,11 +483,13 @@
 **Time:** about 2 minutes
 
 ### R-107 · remove the top 'Next' button from the estimator layout @mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, staging, frame at phone width) · **Acceptance:** pending
 **Task:** 43612366 in your boss list
 **From:** your task list: "remove the top 'Next' button from the estimator layout @mobile", added 5 November 2026.
 **Done when:** on a phone-width screen, the estimator no longer shows the 'Next' button at the top of a step; only the Back and Next buttons at the bottom remain, and the steps still move on. (inferred — confirm)
 **Note:** "Top Next" is read as the extra Next button near the top of the step layout at phone width (inferred — confirm). The desktop layout is assumed unchanged unless you say otherwise. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+**Built 5 November 2026 (brief #332):** the extra Next button sat beside each question title (it has the tool's marker `next-top`). A small inline script "EstimateNoTopNext" 1.0.0 on the Estimate page footer hides it up to 767px wide (copy: `estimate-no-top-next.js`, R-029). No class or element changed (D-006). Desktop still shows it. The Back and Next buttons at the bottom stay and still move the steps on. Better long-term: build it into the tool and drop the script.
 
 ### R-108 · Pus some space between the back and next buttons in the estimator
 **State:** built · **Evidence:** verified (live, phone-width and desktop-width frames) · **Acceptance:** pending

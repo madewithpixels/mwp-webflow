@@ -490,11 +490,17 @@
 **Note:** "Top Next" is read as the extra Next button near the top of the step layout at phone width (inferred — confirm). The desktop layout is assumed unchanged unless you say otherwise. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
 
 ### R-108 · Pus some space between the back and next buttons in the estimator
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, phone-width and desktop-width frames) · **Acceptance:** pending
 **Task:** 43612367 in your boss list
 **From:** your task list: "Pus some space between the back and next buttons in the estimator", added 5 November 2026.
 **Done when:** the Back and Next buttons at the bottom of an estimator step have a clear gap between them, at desktop and phone widths, and neither is easy to press by mistake. (inferred — confirm)
 **Note:** Applies to all steps unless you mean one screen only; no width is given, so both are covered (inferred — confirm). Related: R-111 removes Back from the last step. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+**Built 5 November 2026 (brief #331):** on staging the Back and Next buttons sat edge to edge (no gap). A small inline script "EstimateNavGap" 1.0.0 on the Estimate page footer puts a 24px gap between them, 16px on screens up to 479px wide (copy: `estimate-nav-gap.js`, R-029). No class or element changed (D-006). The buttons stay equal width. The last step is unaffected (Back is hidden there, R-111). Better long-term: build it into the tool and drop the script.
+**Try:**
+1. Open [the Estimate page on staging](https://madewithpixels-dev.webflow.io/estimate) and press Start.
+2. Pick an answer and look at the Back and Next buttons at the bottom; do the same on your phone.
+**Done when:** there is a clear gap between the two buttons at both widths.
 
 ### R-109 · Stronger Step titles for the estimator @mobile
 **State:** planned · **Evidence:** none · **Acceptance:** pending

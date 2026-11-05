@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Gap between Back and Next in the estimator (R-108, brief #331)
+**Michael's task:** "Pus some space between the back and next buttons in the estimator". R-108 already existed from brief #311.
+**Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNavGap" 1.0.0 registered and added to the Estimate page footer (list read back: EstimateMenuAnchors, EstimateNoBackOnLastStep, EstimateLastStepCentred, EstimateNavGap; page footer code unchanged). It sets a 24px gap on the button row, 16px up to 479px wide. Published to the staging subdomain only. Repo copy: `estimate-nav-gap.js`. The tool's own code (separate repo) not touched.
+**Before:** the buttons touched (Back ended at 303px, Next began at 303px, 606px-wide window).
+**Checked how (verified live, staging, Chrome on the Mac Studio):** the window would not shrink, so I loaded the page in 390px and 1000px frames: computed gap 16px and 24px, buttons visibly apart (Back 33 to 187, Next 203 to 357 at 390px). **Not checked:** a real phone, Safari, steps beyond the first, by eye.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it (steps under R-108). **Next useful action:** fold R-108 to R-111 scripts into the tool.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Stronger step titles: looked, options asked (R-109, brief #330)
 **Michael's task:** "Stronger Step titles for the estimator @mobile". R-109 already existed from brief #311.
 **Changed:** nothing in Webflow. ROADMAP R-109 gets what I found. Rewrote need 474 (R-110 check) in plain words.

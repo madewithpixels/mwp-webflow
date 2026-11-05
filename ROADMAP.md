@@ -411,7 +411,7 @@
 **Note:** R-040 already removed the testi-wall bubble shadow on mobile (accepted). This item widens it to tablet, and adds the hero project wall at both widths. "Hero project wall" is read as the project-image wall behind the hero (inferred — confirm). "Tablet" is read as the tablet breakpoint and below, as set in the Designer (inferred — confirm). Shadows may sit on the wall's items, their images or wrappers, so all of them need checking, and there may be glow-style filter shadows as well as box shadows (inferred — confirm). This is a style change, so D-006 and D-007 apply: no new class without Michael's approval.
 
 ### R-101 · in the pricing CTA section @mobile I've added a button for the estimate page - it's missing it's tricolour arrow. Add it
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (5 November 2026, brief #308) · **Evidence:** verified (live, staging; Chrome on the Mac Studio, same-site frames at 390, 800 and 1400px) · **Acceptance:** pending
 **Task:** 43612359 in your boss list
 **From:** your task list, added 4 November 2026.
 **Done when:** on the published staging site at phone width, the new estimate-page button in the Pricing CTA section on the Home page shows the same tricolour arrow as the other buttons; the arrow looks right, and desktop and tablet are unchanged. (inferred — confirm)

@@ -165,8 +165,8 @@
 **From:** your task list: "Contents device should be much smaller, slightly more transparent and grow/become opaque on hover".
 **Note:** "much smaller" is read as 60% of the old size and "slightly more transparent" as 65% strength on the main dashes and 40% on the About part dashes and rail (inferred — confirm; both are one number each in the head code). Built on R-099 in the Home head code (copy: `contents-device.html`, R-029); no new class (D-006). Not checked: Safari, a phone or tablet (the device is hidden below 992px), keyboard focus, the hover area being smaller when it is small.
 
-### R-105 · Telephone and email buttons in the open burger menu
-**State:** built (5 November 2026, brief #314) · **Evidence:** verified (live) · **Acceptance:** pending
+### R-105 · Telephone and email buttons in the open burger menu *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built (5 November 2026, brief #314) · **Evidence:** verified (live) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612365 in your boss list
 **Done when:** with the burger menu open, the telephone number and the email address show as plain text, right-aligned and in off-white, not inside buttons, so they can be selected and copied; they still appear with the menu's animation (inferred — confirm).
 **From:** your task list: "Telephone and email buttons in the open burger menu". Your note: "They should be open so that they can be copy/pasted. They can be removed from their buttons (animated if poss) aligned right and var(off-white) in colour".
@@ -469,8 +469,8 @@
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 
-### R-106 · Wire up the primary navigation anchor links on the estimate page
-**State:** built (5 November 2026, brief #315) · **Evidence:** verified (live, partly: the links and the jump to the home page; the landing is blank, see Note) · **Acceptance:** pending
+### R-106 · Wire up the primary navigation anchor links on the estimate page *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built (5 November 2026, brief #315) · **Evidence:** verified (live, partly: the links and the jump to the home page; the landing is blank, see Note) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612364 in your boss list
 **From:** your task list: "Wire up the primary navigation anchor links on the estimate page". Takes up R-078's recommended Option 2.
 **Done when:** on published staging, the burger menu on /estimate has About, Pricing, Work, Testimonials and Contact that each open the matching section of the home page; Home and the Instant Estimate button are unchanged. (inferred — confirm)
@@ -482,8 +482,8 @@
 **Done when:** as above.
 **Time:** about 2 minutes
 
-### R-107 · remove the top 'Next' button from the estimator layout @mobile
-**State:** built · **Evidence:** verified (live, staging, frame at phone width) · **Acceptance:** pending
+### R-107 · remove the top 'Next' button from the estimator layout @mobile *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live, staging, frame at phone width) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612366 in your boss list
 **From:** your task list: "remove the top 'Next' button from the estimator layout @mobile", added 5 November 2026.
 **Done when:** on a phone-width screen, the estimator no longer shows the 'Next' button at the top of a step; only the Back and Next buttons at the bottom remain, and the steps still move on. (inferred — confirm)
@@ -491,8 +491,8 @@
 
 **Built 5 November 2026 (brief #332):** the extra Next button sat beside each question title (it has the tool's marker `next-top`). A small inline script "EstimateNoTopNext" 1.0.0 on the Estimate page footer hides it up to 767px wide (copy: `estimate-no-top-next.js`, R-029). No class or element changed (D-006). Desktop still shows it. The Back and Next buttons at the bottom stay and still move the steps on. Better long-term: build it into the tool and drop the script.
 
-### R-108 · Pus some space between the back and next buttons in the estimator
-**State:** built · **Evidence:** verified (live, phone-width and desktop-width frames) · **Acceptance:** pending
+### R-108 · Pus some space between the back and next buttons in the estimator *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live, phone-width and desktop-width frames) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612367 in your boss list
 **From:** your task list: "Pus some space between the back and next buttons in the estimator", added 5 November 2026.
 **Done when:** the Back and Next buttons at the bottom of an estimator step have a clear gap between them, at desktop and phone widths, and neither is easy to press by mistake. (inferred — confirm)
@@ -513,8 +513,8 @@
 
 **Looked at 5 November 2026 (brief #330):** on staging each step's title (the question, e.g. "What are you looking for?") is 24px, weight 200, light grey (230), in Source Serif 4, from the tool's own styles. The option labels under it are 18px, weight 700, so the title reads *weaker* than the options. "Step titles" is read as these questions (inferred — confirm). Waiting for Michael to pick a look (D-007) before any change; options asked in boss.
 
-### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile
-**State:** built · **Evidence:** verified (live, phone-width frame; see below) · **Acceptance:** pending
+### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live, phone-width frame; see below) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612369 in your boss list
 **From:** your task list: "Centralised headings a paras in the final 'editable content sections' estimator step box @mobile", added 5 November 2026.
 **Done when:** on a phone, the headings and paragraphs inside the box on the final 'editable content sections' step are centred. (inferred — confirm)
@@ -527,8 +527,8 @@
 3. On the sixth, look at the question, the group headings and the paragraph.
 **Done when:** they are centred on the phone; on a wide screen they stay left-aligned.
 
-### R-111 · Remove the back button from the final  'editable content sections' estimator step
-**State:** built · **Evidence:** verified (live, desktop width) · **Acceptance:** pending
+### R-111 · Remove the back button from the final  'editable content sections' estimator step *(accepted by Michael in boss, 5 Nov 2026)*
+**State:** built · **Evidence:** verified (live, desktop width) · **Acceptance:** accepted (5 November 2026)
 **Task:** 43612370 in your boss list
 **From:** your task list: "Remove the back button from the final  'editable content sections' estimator step", added 5 November 2026.
 **Done when:** the final 'editable content sections' step of the estimator has no Back button, at every width; the other steps keep theirs. (inferred — confirm)

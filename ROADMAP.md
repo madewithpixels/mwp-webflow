@@ -478,7 +478,15 @@
 **Note:** Guesses: "the pricing CTA section" is the Pricing CTA section of the Home page (inferred — confirm); "the tricolour arrow" is the coral, pink and teal pixel-style arrow used on the site's other buttons, so I would copy that treatment rather than design a new one (inferred — confirm); the arrow should show at phone width only, since the button was added for mobile (inferred — confirm). Related: R-049 (tricolour and button motifs, Estimate page) and R-032 (Pricing CTA text stagger). This is a visual change, so D-006 and D-007 apply: I describe the options first, and no new class without Michael's approval.
 
 ### R-113 · Left and right nav buttons in the project pages should be centered at the view port edges @mobile as they are @desktop
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, staging, Chrome on the Mac Studio, frames at 390, 700 and 1440px) · **Acceptance:** pending
+**Cause and fix (5 November 2026):** the class `.iwa-nav` (the arrows' wrapper) had `transform: translate(0px, 0px)` at the phone breakpoint (up to 767px). A transform makes a fixed child position against the wrapper, not the screen, so the arrows sat inset by the page padding and off the screen's vertical centre. I removed that one property from the existing class in the Designer (no new class). Published to staging only.
+**Try:** On a phone-width window of a project page, the left and right buttons touch the screen edges, halfway down.
+**Why:** Same placement as desktop.
+**Steps:**
+1. Open [Futura on staging](https://madewithpixels-dev.webflow.io/portfolio/futura) on your phone or a narrow window.
+2. Look at the two coral arrow buttons.
+**Done when:** The left one touches the left edge and the right one the right edge, both halfway down the screen.
+**Time:** about 1 minute
 **Task:** 43612376 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** on a phone, the left and right buttons on a project page sit vertically centred against the left and right edges of the screen, just as they do on desktop, on published staging. (inferred — confirm)

@@ -10,6 +10,15 @@
 — Claude (night shift)
 
 
+## 5 November 2026 — Claude (night shift) — Project arrows at the screen edges on phones (R-113, brief #352)
+**Changed (Webflow, site madewithpixels, published to staging only):** class `IWA Nav` (`.iwa-nav`), phone breakpoint: removed `transform: translate(0px, 0px)` (the only phone override; base styles untouched, read back). No new class, page, CMS, component or code change.
+**Why it was wrong:** a transform on a parent makes `position: fixed` children measure from the parent, so on phones the arrows sat 19px in from the edge, tied to the content column.
+**Checked how (verified live, staging, Chrome on the Mac Studio):** the window would not shrink, so I loaded /portfolio/futura in frames of 390, 700 and 1440px: previous arrow at 0 to 56px, next flush with the right edge, both centred at half the viewport height; computed transform none. **Not checked:** a real phone, Safari, other project pages (same template), 767 to 991px (the rule never applied there).
+**Not in the snapshot:** interactions are not exported; if an interaction relied on that transform I can't see it. Snapshot files not refreshed (style export not run). No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it (steps under R-113).
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Project arrows: gentler corners (R-112, brief #351)
 **Changed (R-112), in Webflow, site madewithpixels, published to staging only:** component "Portfolio Nav", the style code embed (the second embed, after the script): corner radius on the previous/next arrows changed from 1.5rem (24px, about 43% of the 56px button) to 25%, the same ratio as `.menu-button.back` (25% in the Designer). Only the two radius lines and a comment changed; read back and the echo matched. Copy updated in `project-nav-arrows.css`. No class, page, CMS, variable or site-code change.
 **Checked how:** published staging, Chrome on the Mac Studio, /portfolio/futura, window 2044px: both arrows 56 x 56, computed radius `0 25% 25% 0` (previous) and `25% 0 0 25%` (next), same on the inner wrappers; zoom screenshot showed the softer corner. Phone width not checked: the window would not resize (width stayed 2044). The embed has no media query, but older phone-corner rules exist (see 1 November entry), so a phone look is still to verify.

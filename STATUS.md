@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Five estimator tasks written up in the roadmap (R-107 to R-111, brief #311)
+**Changed:** ROADMAP.md only. Added R-107 (top Next button, @mobile), R-108 (space between Back and Next), R-109 (stronger step titles, @mobile), R-110 (centred headings and paragraphs on the final step, @mobile), R-111 (no Back button on the final step), each with a done-when, guesses marked "(inferred — confirm)" and its **Task:** line; placed in Phase 4. R-102 now carries task 43612361. R-103 to R-106 already existed for tasks 43612362 to 43612365. No work done, Webflow and tasks untouched.
+**Not given items (headings):** "MWP landing pages", "Launch MWP social campaign", "Launch prep", "Finish MWP site", "Responsive layouts" are headings already covered by the phases and goal (see the note at the top of the roadmap).
+**Tasks Michael deleted, for him to decide (not dropped):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043, R-047, R-049 and R-059.
+**Reordering:** the moves from his list (R-038 and R-076 before R-075, R-082 before R-032, R-094 and R-034 before R-085) put nothing ahead of work it depends on that I could see.
+**Checked how:** read back the roadmap; nothing run.
+**State:** planned (R-107 to R-111). Acceptance: Michael's.
+**Needs Michael:** the R-106 check (question open). **Next useful action:** briefs #328 to #332 can now do R-111, R-110, R-109, R-108, R-107.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — Estimate menu links now go to the home page sections (R-106, brief #315)
 **Michael's task:** "Wire up the primary navigation anchor links on the estimate page". Read as: About, Pricing, Work, Testimonials and Contact in the burger menu on /estimate should open those sections on the home page (inferred — confirm); this is R-078's Option 2.
 **Changed (Webflow, site madewithpixels, staging only):**

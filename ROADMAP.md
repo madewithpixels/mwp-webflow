@@ -16,6 +16,8 @@
 
 *One task added on 5 November 2026 (R-102) is written up from your messages and still needs your confirmation of the guesses marked in it.*
 
+*Five tasks added on 5 November 2026 (R-107 to R-111, brief #311) are written up from your list and still need your confirmation of the guesses marked in them. R-102 and R-103 to R-106 now carry their task numbers.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -27,7 +29,7 @@
 | 1 | Groundwork | R-029 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099 |
 | 3 | Phone and tablet | R-039–R-045, R-093 |
-| 4 | Estimate page | R-046–R-051 |
+| 4 | Estimate page | R-046–R-051, R-106–R-111 |
 | 5 | Launch prep and launch | R-052–R-063, R-102 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
@@ -480,6 +482,41 @@
 **Done when:** as above.
 **Time:** about 2 minutes
 
+### R-107 · remove the top 'Next' button from the estimator layout @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612366 in your boss list
+**From:** your task list: "remove the top 'Next' button from the estimator layout @mobile", added 5 November 2026.
+**Done when:** on a phone-width screen, the estimator no longer shows the 'Next' button at the top of a step; only the Back and Next buttons at the bottom remain, and the steps still move on. (inferred — confirm)
+**Note:** "Top Next" is read as the extra Next button near the top of the step layout at phone width (inferred — confirm). The desktop layout is assumed unchanged unless you say otherwise. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+### R-108 · Pus some space between the back and next buttons in the estimator
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612367 in your boss list
+**From:** your task list: "Pus some space between the back and next buttons in the estimator", added 5 November 2026.
+**Done when:** the Back and Next buttons at the bottom of an estimator step have a clear gap between them, at desktop and phone widths, and neither is easy to press by mistake. (inferred — confirm)
+**Note:** Applies to all steps unless you mean one screen only; no width is given, so both are covered (inferred — confirm). Related: R-111 removes Back from the last step. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+### R-109 · Stronger Step titles for the estimator @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612368 in your boss list
+**From:** your task list: "Stronger Step titles for the estimator @mobile", added 5 November 2026.
+**Done when:** on a phone, each estimator step title is clearly stronger than the text under it (bolder and/or larger), and still fits on the screen without awkward wrapping. (inferred — confirm)
+**Note:** "Stronger" is read as heavier weight and/or bigger size, with higher contrast if needed; I will offer options before changing anything (D-007). No new class without your approval (D-006). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612369 in your boss list
+**From:** your task list: "Centralised headings a paras in the final 'editable content sections' estimator step box @mobile", added 5 November 2026.
+**Done when:** on a phone, the headings and paragraphs inside the box on the final 'editable content sections' step are centred. (inferred — confirm)
+**Note:** "Centralised" is read as centre-aligned text; "a paras" as "and paragraphs" (inferred — confirm). Desktop alignment is assumed unchanged. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+### R-111 · Remove the back button from the final  'editable content sections' estimator step
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612370 in your boss list
+**From:** your task list: "Remove the back button from the final  'editable content sections' estimator step", added 5 November 2026.
+**Done when:** the final 'editable content sections' step of the estimator has no Back button, at every width; the other steps keep theirs. (inferred — confirm)
+**Note:** Read as the last step only (inferred — confirm); whoever is on it can no longer step back, which you should be happy with. Related: R-108. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)
 **Accepted by Michael in boss, 31 October 2026** — checked: Looked at brief #158's result.
@@ -560,7 +597,7 @@
 
 ### R-102 · Device-aware performance and mobile scroll stability (final pre-launch pass)
 **State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** Michael is adding a reminder in his boss list (5 November 2026); the number goes here once it exists.
+**Task:** 43612361 in your boss list
 **From:** your messages of 3 to 5 November 2026 (animations flaky on mobile with fast scrolling; "so let's build something and test it" after trying the site on an iPad Air 2). Do this LAST, after the animation and layout work is finished.
 **Done when:** on published staging, the iPad Air 2 (landscape and portrait), the iPhone 15 and the basic Samsung phone all scroll the Home page without animations or layout breaking, even when you scroll fast or before an animation has finished; weak devices run a lighter version of the heavy effects at a steady frame rate; desktop looks and feels exactly as it does now. (inferred — confirm)
 **Scope:** (1) a tier script (`data-perf` high/mid/low at 60/30/25 fps, plus `data-input` touch/pointer, with `?perf=` forcing and a `?perf-debug` overlay); (2) mobile stability: svh instead of dvh, a resize guard, a settle pass on scroll end, lighter scrub smoothing on touch; (3) a throttled Faulty Terminal (quality API, pause when covered); (4) a small folio-wall image set swapped by script on the low tier; (5) a simplified Testimonial Wall timeline on the low tier; (6) the heart morph chosen by input and tier, not width, with more time in the air; (7) Pricing on CSS sticky on touch. Full plan, tier table and order of work: `docs/perf-and-stability-brief.md`.

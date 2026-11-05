@@ -504,11 +504,18 @@
 **Note:** "Stronger" is read as heavier weight and/or bigger size, with higher contrast if needed; I will offer options before changing anything (D-007). No new class without your approval (D-006). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
 
 ### R-110 · Centralised headings a paras in the final 'editable content sections' estimator step box @mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, phone-width frame; see below) · **Acceptance:** pending
 **Task:** 43612369 in your boss list
 **From:** your task list: "Centralised headings a paras in the final 'editable content sections' estimator step box @mobile", added 5 November 2026.
 **Done when:** on a phone, the headings and paragraphs inside the box on the final 'editable content sections' step are centred. (inferred — confirm)
 **Note:** "Centralised" is read as centre-aligned text; "a paras" as "and paragraphs" (inferred — confirm). Desktop alignment is assumed unchanged. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change probably lands there, not here (inferred — confirm). Check on published staging, with Claude in Chrome at phone width where it says @mobile.
+
+**Built 5 November 2026 (brief #329):** read as the sixth step, "What would you like the website to include?", whose box holds the "Editable content sections" group (inferred — confirm). On screens up to 767px wide the question, the two group headings ("Editable content sections", "Functionality") and the note paragraph are centred; wider screens are unchanged. Done by a small inline script "EstimateLastStepCentred" 1.0.0 on the Estimate page footer (copy: `estimate-last-step-centred.js`, R-029); no class or element changed (D-006). The option boxes and their labels are not centred (inferred — confirm). Better long-term: build it into the tool and drop the script.
+**Try:**
+1. On your phone, open [the Estimate page on staging](https://madewithpixels-dev.webflow.io/estimate) and press Start.
+2. Answer the first five questions, pressing Next each time.
+3. On the sixth, look at the question, the group headings and the paragraph.
+**Done when:** they are centred on the phone; on a wide screen they stay left-aligned.
 
 ### R-111 · Remove the back button from the final  'editable content sections' estimator step
 **State:** built · **Evidence:** verified (live, desktop width) · **Acceptance:** pending

@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Last estimator step centred on phones (R-110, brief #329)
+**Michael's task:** "Centralised headings a paras in the final 'editable content sections' estimator step box @mobile". Read as the sixth step, with its question, group headings and note paragraph centred up to 767px wide (inferred — confirm). R-110 already existed from brief #311.
+**Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateLastStepCentred" 1.0.0 registered and added to the Estimate page footer (list read back: EstimateMenuAnchors, EstimateNoBackOnLastStep, EstimateLastStepCentred; page footer code unchanged). Published to the staging subdomain only. Repo copy: `estimate-last-step-centred.js`. The tool's own code (separate repo) not touched.
+**Checked how (verified live, staging, Chrome on the Mac Studio):** the browser window would not shrink, so I loaded the page in a 390px-wide frame and clicked to step 6: question, both group headings and the paragraph computed as centred; Back hidden there too. In a 1000px frame they stay left-aligned. **Not checked:** a real phone, Safari, the 480 to 767px range by eye, the results screens.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. No backups made (not asked for).
+**Also:** need 473 (R-111 check) rewritten in plain words.
+**State:** built. Evidence: verified (live, frame at phone width). Acceptance: Michael's.
+**Needs Michael:** try it (steps under R-110). **Next useful action:** fold this and R-111's script into the tool.
+— Claude (night shift)
+
 ## 5 November 2026 — Claude (night shift) — No Back button on the estimator's last step (R-111, brief #328)
 **Michael's task:** "Remove the back button from the final 'editable content sections' estimator step". Read as the sixth and last question, "What would you like the website to include?", which holds the "Editable content sections" option (inferred — confirm).
 **Changed (Webflow, site madewithpixels, staging only):** new inline script "EstimateNoBackOnLastStep" 1.0.0 registered and applied to the Estimate page footer (existing script list and footer code read back unchanged). It hides Back while the last step shows. Repo copy: `estimate-no-back-last.js`. Published to the staging subdomain only. The tool's own code (separate repo, loads from jsDelivr) not touched.

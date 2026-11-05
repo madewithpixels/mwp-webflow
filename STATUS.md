@@ -1,5 +1,17 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Phone and email shown as open text in the burger menu (R-105, brief #314)
+**Michael's task:** "Telephone and email buttons in the open burger menu". Your note: "They should be open so that they can be copy/pasted. They can be removed from their buttons (animated if poss) aligned right and var(off-white) in colour". Read as: only while the menu is open, the two coral pills become plain text (inferred — confirm); the closed pills stay.
+**Changed (Webflow, site madewithpixels, staging only):**
+1. New inline script "MenuContactText" 1.0.1 registered and applied to the site header (all pages; other scripts untouched, read back). Its CSS applies only when the header has `data-state=open`: the wrapper moves to the right of the header row, stacked, the pills lose their background and icons, the full text shows in `var(--offwhite)` (the variable is `--offwhite`, not `--off-white`), and each line slides in from the right (0.45s, email 0.08s later; off for reduced motion). Version 1.0.0 had the wrong variable name and was replaced the same session.
+2. Published to the staging subdomain only (twice).
+Repo copy: `menu-contact-text.js`. No class created or edited (D-006); the site head freeform code was read and not changed.
+**Checked how (verified live, staging, Chrome on the Mac Studio, 2044px viewport):** open: label colour rgb(230,230,230), selectable, right-aligned at the header's right; screenshot shows number and email as plain text top right; closed: coral pills back. **Not checked:** Safari, a real phone or tablet widths, the slide-in frame by frame, dragging to select text on a link.
+**Backups:** "boss · brief #314 · before" (made earlier); after backup recorded in boss.
+**Not in the snapshot:** inline scripts, interactions and animations are not in the export; no snapshot file changed.
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it on staging (steps under R-105), then back up. Acceptance is yours.
+
 ## 5 November 2026 — Claude (night shift) — Contents device smaller, fainter, grows on hover (R-104, brief #313)
 **Michael's task:** "Contents device should be much smaller, slightly more transparent and grow/become opaque on hover". Read as: about 60% of the old size at rest and a little see-through; full size and fully opaque on hover or keyboard focus (inferred — confirm).
 **Changed (Webflow, site madewithpixels, staging only):**

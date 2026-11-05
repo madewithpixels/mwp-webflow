@@ -164,11 +164,18 @@
 **Note:** "much smaller" is read as 60% of the old size and "slightly more transparent" as 65% strength on the main dashes and 40% on the About part dashes and rail (inferred — confirm; both are one number each in the head code). Built on R-099 in the Home head code (copy: `contents-device.html`, R-029); no new class (D-006). Not checked: Safari, a phone or tablet (the device is hidden below 992px), keyboard focus, the hover area being smaller when it is small.
 
 ### R-105 · Telephone and email buttons in the open burger menu
-**State:** in progress (5 November 2026, brief #314) · **Evidence:** none · **Acceptance:** pending
+**State:** built (5 November 2026, brief #314) · **Evidence:** verified (live) · **Acceptance:** pending
 **Task:** 43612365 in your boss list
 **Done when:** with the burger menu open, the telephone number and the email address show as plain text, right-aligned and in off-white, not inside buttons, so they can be selected and copied; they still appear with the menu's animation (inferred — confirm).
 **From:** your task list: "Telephone and email buttons in the open burger menu". Your note: "They should be open so that they can be copy/pasted. They can be removed from their buttons (animated if poss) aligned right and var(off-white) in colour".
 **Note:** "removed from their buttons" is read as: the text sits outside any button shape (inferred — confirm). Numbered R-105 here; if brief #315 also took R-105, renumber one.
+**Built as:** inline script "MenuContactText" 1.0.1 on the site header (copy: `menu-contact-text.js`, R-029). Only while the menu is open (`data-state=open`): the phone and email lose the coral pill and icon, show as off-white text stacked at the right of the header row, and slide in (email 0.08s after phone). The closed pills are unchanged. Still links (tap to call or email); the text is selectable. Not checked: Safari, a real phone, whether dragging to select starts a link drag, tablet widths other than desktop.
+**Try:**
+1. Open [staging](https://madewithpixels-dev.webflow.io/) at desktop width and press the burger button, top left.
+2. Look top right: the number and email slide in as plain off-white text, right-aligned.
+3. Select the email with the mouse and copy it; press the burger again and the coral pills return.
+**Done when:** as above.
+**Time:** about 2 minutes
 
 ### R-036 · Remove pixel page-transition
 **State:** planned · **Evidence:** none · **Acceptance:** pending

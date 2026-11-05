@@ -1,5 +1,19 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Project arrows no longer move in the page transition (R-103, brief #312)
+**Michael's task:** "Remove the left and right nav buttons from the project page transitions - they should be stable". Read as: the two coral arrow tabs on the screen edges should not slide off and on with the project content (inferred — confirm). The title, copy and screenshots still slide (R-083).
+**Changed (Webflow, site madewithpixels, staging only):**
+1. Site footer custom code: in the "Project page transition" block, `TARGETS` no longer lists `.project-nav_arrow`, and the top comment says so. Everything else in the footer is as it was (read first, written back, echo checked).
+2. Site head custom code: the "hidden until the footer script slides it in" rule no longer lists `.project-nav_arrow`, with a one-line note in its comment. Everything else in the head is as it was (read first, written back, echo checked).
+3. Published to the staging subdomain only.
+Repo copies: `page-transition.js` and `snapshots/custom-code.json` (site head and footer).
+**Checked how (verified live, staging, Chrome on the Mac Studio, 2044px wide):** Futura to the next project by clicking the right arrow, sampling the arrows every 30ms for 692ms: one single state throughout (left arrow at x 0, right arrow at x 1988, opacity 1, no animation on either) while the page had 4 other animations running; the page still moved on to the next project. The published code contains the R-103 comment. **Not checked:** the arrival frames on the new project (the head rule no longer hides the arrows; not sampled frame by frame), the left arrow press, phone and tablet, Safari.
+**Backups:** "boss · brief #312 · before" and "boss · brief #312 · after", both made in the Designer. Rollback: restore "before", or put `.project-nav_arrow` back into the two lists.
+**Not in the snapshot:** interactions and animations are not captured by the export. The snapshot's custom-code file is the only snapshot file that changed.
+**Numbering:** I took R-103 for this item; if brief #311 also created an R-103, renumber one of them.
+**State:** built. Evidence: verified (live). Acceptance: Michael's.
+**Needs Michael:** try it on staging (steps under R-103), then back up. Acceptance is yours.
+
 ## 5 November 2026 — Claude (night shift) — Tricolour arrow on the Pricing CTA phone button (R-101, brief #308)
 **Found:** the new estimate button in the Home page Pricing CTA ("Instant Quote BTN, Mobile, About CTA") already had the arrow built exactly like the Instant Advice Button's (Gradient Arrow plus the Raspberry, Coral and Teal strips), but its arrow wrapper was switched off (element visibility off). Switching it on alone worked on a phone but broke the layout: the button text node (`#w-node-8c828fff-…-5e4b`) is set to span both grid columns, so the arrow dropped to a second row at 160px. The button is also visible on desktop (it is hidden only at tablet), so the arrow would have appeared there too.
 **Changed (Webflow, site madewithpixels, staging only):**

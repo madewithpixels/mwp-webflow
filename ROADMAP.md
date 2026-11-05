@@ -132,6 +132,20 @@
 **Done when:** the pixel cover is gone from the whole site. On a project page, pressing the left or right arrow makes the title, copy, arrows and screenshots slide off sideways one after another, towards the arrow you pressed; the next project's content then slides in one after another from the opposite side. Other links, and the Home to project title-and-image morph (D-016), are untouched.
 **Note:** takes over R-036 and R-037, whose tasks you deleted; they stay below for you to drop or keep. "Direction corresponding to the button" is read as: the left arrow sends the content off to the left, the right arrow off to the right (inferred — confirm). The site header (menu and contact buttons) stays put (inferred — confirm).
 
+### R-103 · Remove the left and right nav buttons from the project page transitions - they should be stable
+**State:** built (5 November 2026, brief #312) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 2044px wide, Futura to the next project) · **Acceptance:** pending
+**Task:** 43612362 in your boss list
+**Try:** On a project page, press the right-hand arrow: the title, copy and screenshots slide away, but the two arrow tabs on the screen edges stay exactly where they are, and stay there on the next project.
+**Why:** The arrows are controls, not content; moving them made them hard to press again quickly.
+**Steps:**
+1. Open [Futura on staging](https://madewithpixels-dev.webflow.io/portfolio/futura) in a wide window.
+2. Press the right arrow and watch the two coral tabs while the content slides.
+3. On the next project, press the left arrow and watch again.
+**Done when:** the arrow tabs never move, fade or flicker during the slide, and the content still slides as before (R-083).
+**Time:** about 2 minutes
+**From:** your task list: "Remove the left and right nav buttons from the project page transitions - they should be stable".
+**Note:** "nav buttons" is read as the two coral arrow tabs on the left and right edges (R-038), the only left and right buttons on a project page (inferred — confirm). The site header (menu, phone, email) already stayed put. Built as two small edits in Webflow: the arrows are out of the slide's list (site footer) and out of the "hidden until arriving" rule (site head). Copy of the footer part in `page-transition.js` (R-029). Not checked: phone and tablet, Safari, the first frames of the arrival (the arrows were not hidden by any rule, but I could not sample them frame by frame).
+
 ### R-036 · Remove pixel page-transition
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612316 in your boss list

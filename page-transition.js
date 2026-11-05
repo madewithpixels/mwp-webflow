@@ -1,6 +1,6 @@
-  // Project page transition (R-083): on a project page, the left / right arrow slides the title, copy, arrows and screenshots
+  // Project page transition (R-083): on a project page, the left / right arrow slides the title, copy and screenshots
   // off sideways one after another, towards the arrow pressed; the next project's content then slides in from the opposite side.
-  // Replaces the old pixel cover (R-036). Everything else navigates normally. The head script (site head, "Project page
+  // The arrows themselves stay put (R-103). Replaces the old pixel cover (R-036). Everything else navigates normally. The head script (site head, "Project page
   // transition") hides the page's content until this runs, using the html classes mwp-pt-enter / mwp-pt-restore.
   (function () {
     'use strict';
@@ -11,7 +11,7 @@
     const EASE = 'cubic-bezier(0.4, 0, 0.2, 1)';
     const GAP = 8; // px past the edge of the box an element is clipped by
     const IMAGE_WAIT_MS = 1200; // longest the entrance waits for the first screenshots to decode
-    const TARGETS = '.project-title-wrapper, .folio-rte-wrapper, .project-nav_arrow, .project-page-image';
+    const TARGETS = '.project-title-wrapper, .folio-rte-wrapper, .project-page-image';
     const KEY = 'mwp-pt'; // direction of the last arrow press (-1 left, 1 right), read by the next page
     const HOME_Y = 'mwp-home-y'; // last scroll position on the home page
     const HOME_RESTORE = 'mwp-home-restore'; // set by the project back button

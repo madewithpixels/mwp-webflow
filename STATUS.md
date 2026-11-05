@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 5 November 2026 — Claude (night shift) — Burger menu phone and email: right edge, icons, lighter weight (R-105, brief #343)
+**Michael's note:** "On desktop they should be right aligned, have their icons and be a lighter font-weight".
+**Changed (Webflow, site madewithpixels, staging only):** inline script "MenuContactText" registered as 1.0.2 then 1.0.3 and applied to the site header (applied list read back: FaultyTerminal 1.12.2 footer, MenuContactText 1.0.3 header). 1.0.3: icons shown again in off-white; label weight 300 (was 700); each button aligned to the right edge (they carried their own centring, so the phone stopped 74px short of the email); text right-aligned. Published to the staging subdomain only (twice). Repo copy: `menu-contact-text.js`. No class made or edited (D-006).
+**Checked how (verified live, staging, Chrome on the Mac Studio, 2044px viewport):** menu open: both buttons end at 1786px, label weight 300, icons 30px wide in rgb(230,230,230); zoomed screenshot shows number and email right-aligned with their icons. **Not checked:** Safari, tablet and phone widths (inferred: "desktop" only), the slide-in frame by frame.
+**Not in the snapshot:** inline scripts are not in the export; no snapshot file changed. No backups made (not asked for).
+**State:** built. Evidence: verified (live). Acceptance: Michael's (R-105's earlier acceptance covered the first version).
+**Needs Michael:** try it (steps under R-105).
+— Claude (night shift)
+
 
 ## 5 November 2026 — Claude (night shift) — Five new tasks written up (R-112 to R-116, brief #350)
 **Changed:** roadmap items only. R-112 rounded corners on the project-page left/right buttons (#43612375); R-113 those buttons centred at the screen edges on phones (#43612376); R-114 separators full width at tablet and below (#43612377); R-115 stronger estimator step titles on phones (#43612379); R-116 the burger-menu fault on the Estimate page (#43612380). No Webflow, site or task changes.

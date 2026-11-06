@@ -20,6 +20,10 @@ html[data-lite] .folio-wall_row:nth-child(3n) { animation-duration: 56s; }
 html[data-lite][data-lite-folio-off] .folio-wall_row { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { html[data-lite] .folio-wall_row { animation: none; } }
 
+/* Intro: the long scroll runway and its pinned child only made sense with the scroll animation; one screen, no pin. (The brand logo marquee keeps running.) */
+html[data-lite] .intro { height: auto !important; min-height: 0 !important; }
+html[data-lite] .intro_sticky { position: relative !important; top: auto !important; }
+
 /* The hero logo sits behind the page (sticky hero); hide it once the Folio wall has covered the hero (flag set by MWPPerf) */
 html[data-lite][data-lite-past] .logo-wrapper { visibility: hidden !important; }
 

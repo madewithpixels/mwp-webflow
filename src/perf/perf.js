@@ -40,16 +40,22 @@
   // ft: WebGL contexts are refused before the Faulty Terminal script runs (this script is in the head, the terminal in the footer).
   var kill = (query('perf-kill') || '').toLowerCase().split(',').filter(Boolean);
   var realGetContext = window.HTMLCanvasElement && window.HTMLCanvasElement.prototype.getContext;
+  // Refuses WebGL contexts so the Faulty Terminal script (in the footer, after this one) cannot start. Used by kill=ft and by lite mode.
+  var webglBlocked = false;
+  var blockWebgl = function () {
+    if (webglBlocked || !realGetContext) return;
+    webglBlocked = true;
+    window.HTMLCanvasElement.prototype.getContext = function (type) {
+      if (/webgl/i.test(String(type))) return null;
+      return realGetContext.apply(this, arguments);
+    };
+  };
   if (kill.length) {
     try {
       var css = [];
       if (kill.indexOf('ft') > -1) {
         css.push('.ft-wrapper{display:none!important}');
-        if (realGetContext)
-          window.HTMLCanvasElement.prototype.getContext = function (type) {
-            if (/webgl/i.test(String(type))) return null;
-            return realGetContext.apply(this, arguments);
-          };
+        blockWebgl();
       }
       if (kill.indexOf('fx') > -1)
         css.push('*,*::before,*::after{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;mix-blend-mode:normal!important}');
@@ -171,7 +177,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, state: '', triggers: 0, tweens: 0 } },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, state: '', still: '', triggers: 0, tweens: 0 } },
   };
   window.MWPPerf = api;
   apply();
@@ -286,6 +292,24 @@
     lite.on = true;
     lite.state = 'waiting for GSAP';
     document.documentElement.setAttribute('data-lite', '1');
+    // Still instead of the terminal: no WebGL, and the picture is the wrapper's background from first paint.
+    // The file has a little transparency (alpha 226-255), so the wrapper carries the teal underneath it.
+    lite.still = 'requested';
+    blockWebgl();
+    try {
+      var stillUrl = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@cce0a08/assets/ft-still.webp';
+      var stillStyle = document.createElement('style');
+      stillStyle.textContent =
+        'html[data-lite] .ft-wrapper{opacity:1!important;visibility:visible!important;background:#243e46 url(' + stillUrl + ') center/cover no-repeat!important}' +
+        'html[data-lite] .ft-wrapper canvas{display:none!important}';
+      (document.head || document.documentElement).appendChild(stillStyle);
+      var stillImg = new Image();
+      stillImg.onload = function () { lite.still = 'loaded'; };
+      stillImg.onerror = function () { lite.still = 'FAILED to load'; };
+      stillImg.src = stillUrl;
+    } catch (e) {
+      lite.still = 'error: ' + e.message;
+    }
     var liteTimer = 0;
     var liteStable = 0;
     var liteSeen = -1;
@@ -373,7 +397,7 @@
           'last ' + (st.recent.join('  ') || '-') + '\n' +
           'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
-          (lite.on ? 'LITE ' + lite.state + '  triggers ' + lite.triggers + '  tweens ' + lite.tweens + '\n' : '') +
+          (lite.on ? 'LITE ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens ' + lite.tweens + '\n' : '') +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }
       draw();

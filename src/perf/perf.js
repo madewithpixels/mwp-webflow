@@ -171,7 +171,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0 },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, state: '', triggers: 0, tweens: 0 } },
   };
   window.MWPPerf = api;
   apply();
@@ -278,6 +278,57 @@
     setTimeout(readGpu, 2000);
   });
 
+  // ---- lite mode (step 1: only when asked for with ?perf=low in the address; nothing decides it automatically yet)
+  // Turns every GSAP animation off before the first scroll: all ScrollTriggers are killed and reverted, all tweens cleared.
+  // The page is then a plain static layout; <html data-lite> lets a stylesheet tidy the sections that need it (later steps).
+  var lite = api.stats.lite;
+  if (query('perf') === 'low') {
+    lite.on = true;
+    lite.state = 'waiting for GSAP';
+    document.documentElement.setAttribute('data-lite', '1');
+    var liteTimer = 0;
+    var liteStable = 0;
+    var liteSeen = -1;
+    var liteKill = function () {
+      var ST = window.ScrollTrigger;
+      var G = window.gsap;
+      if (!ST || !G) return false;
+      try {
+        var all = ST.getAll();
+        lite.triggers += all.length;
+        for (var i = all.length - 1; i >= 0; i--) all[i].kill(true);
+        if (G.globalTimeline) {
+          lite.tweens += G.globalTimeline.getChildren(true, true, true).length;
+          G.globalTimeline.clear();
+        }
+      } catch (e) {
+        lite.state = 'error: ' + e.message;
+      }
+      return true;
+    };
+    // IX3 builds its triggers a little after load; wait until the count has stopped changing, then kill, and kill again after a refresh
+    (function poll(n) {
+      var ST = window.ScrollTrigger;
+      var count = ST && ST.getAll ? ST.getAll().length : -1;
+      if (count > 0 && count === liteSeen) liteStable++;
+      else liteStable = 0;
+      liteSeen = count;
+      if (liteStable >= 3 || n >= 60) {
+        if (liteKill()) {
+          lite.state = 'killed at ' + Math.round(window.scrollY) + 'px';
+          if (ST && ST.addEventListener) ST.addEventListener('refresh', function () {
+            if (ST.getAll().length) {
+              liteKill();
+              lite.state = 'killed again after a refresh';
+            }
+          });
+        } else lite.state = 'GSAP not found';
+        return;
+      }
+      setTimeout(function () { poll(n + 1); }, 150);
+    })(0);
+  }
+
   // ---- numbers the overlay shows (and that the later stability steps need)
   var h = api.stats.innerHeight;
   h.now = h.min = h.max = window.innerHeight;
@@ -322,6 +373,7 @@
           'last ' + (st.recent.join('  ') || '-') + '\n' +
           'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
+          (lite.on ? 'LITE ' + lite.state + '  triggers ' + lite.triggers + '  tweens ' + lite.tweens + '\n' : '') +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }
       draw();

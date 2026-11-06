@@ -1,0 +1,48 @@
+/* Lite (low tier) layouts. Loaded only when MWPPerf decides the device is low; every rule is scoped to html[data-lite].
+   Lite = no GSAP scroll animation, so each pinned/animated section needs a plain static layout. Heights are 100lvh screens. */
+
+/* Folio wall: a static wall of straight images, one screen tall, no "hundreds of projects" line */
+html[data-lite] .folio-wall { height: 100vh !important; height: 100lvh !important; }
+html[data-lite] .folio-wall_sticky { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; overflow: hidden !important; }
+html[data-lite] .folio-wall_text { display: none !important; }
+
+/* The hero logo sits behind the page (sticky hero); hide it once the Folio wall has covered the hero (flag set by MWPPerf) */
+html[data-lite][data-lite-past] .logo-wrapper { visibility: hidden !important; }
+
+/* About: the scroll runway has an inline height set by script; the "We work with" marquee goes entirely */
+html[data-lite] .about > div:not([class]) { height: auto !important; }
+html[data-lite] .about .ticker { display: none !important; }
+html[data-lite] .about-section { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; }
+html[data-lite] .about-section.bottom { margin-bottom: 0 !important; }
+
+/* Pricing: cards one screen (landscape: side by side), call to action one screen beneath */
+html[data-lite] .pricing { height: auto !important; }
+html[data-lite] .pricing .section-clipping-mask { position: relative !important; height: auto !important; overflow: visible !important; }
+html[data-lite] .pricing-wrapper { height: 100vh !important; height: 100lvh !important; }
+html[data-lite] .pricing-block { visibility: visible !important; clip-path: none !important; height: auto !important; }
+html[data-lite] .pricing-cta { position: relative !important; height: 100vh !important; height: 100lvh !important; clip-path: none !important; visibility: visible !important; opacity: 1 !important; }
+html[data-lite] .portfolio { margin-top: 0 !important; }
+@media (orientation: portrait) {
+  /* cards run down the page, 1px apart */
+  html[data-lite] .pricing-wrapper { display: flex !important; flex-direction: column !important; gap: 1px !important; padding: 0 !important; margin: 0 !important; height: auto !important; }
+  html[data-lite] .pricing-block { border-radius: 0 !important; margin: 0 !important; width: 100% !important; max-width: none !important; align-self: stretch !important; box-sizing: border-box !important; min-height: 0 !important; }
+}
+
+/* Testimonials: parted-bubbles screen, the quotes as a plain scrolling list, parted-bubbles screen again.
+   MWPPerf moves the quotes into .lite-testi-list and clones the bubble screen for the end. */
+html[data-lite] .testi-wall { height: auto !important; }
+html[data-lite] .testi-wall_sticky { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; overflow: hidden !important; }
+html[data-lite] .testi-wall_stage { transform: none !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_row { opacity: 0 !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:first-child { transform: translateY(-28%) !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:last-child { transform: translateY(28%) !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:first-child > .testi-wall_row:nth-child(1) { transform: translate(-14%, -30%) !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:first-child > .testi-wall_row:nth-child(2) { transform: translate(13%, -132%) !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:last-child > .testi-wall_row:nth-child(1) { transform: translate(13%, 132%) !important; }
+html[data-lite] .testi-wall_stage > .testi-wall_half:last-child > .testi-wall_row:nth-child(2) { transform: translate(-14%, 30%) !important; }
+html[data-lite] .testi-wall_quote { transform: none !important; opacity: 1 !important; }
+html[data-lite] .lite-testi-list { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 12vh; padding: 16vh 6vw; }
+html[data-lite] .lite-testi-list .testi-wall_quote { position: static !important; width: min(832px, 100%) !important; height: auto !important; }
+
+/* No drop shadows or backdrop blur in lite (plain filter is left until the logo SVGs no longer rely on filter: invert) */
+html[data-lite] *, html[data-lite] *::before, html[data-lite] *::after { box-shadow: none !important; text-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }

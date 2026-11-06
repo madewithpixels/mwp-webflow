@@ -1,5 +1,7 @@
 # Brief: quality levels, pause-when-covered and a still-image mode (faulty-terminal v1.13.0)
 
+**ON HOLD (Michael, 6 November 2026): "I'll paste your response and ask it to hold until we're ready".** Do not start the terminal work yet. Reason: the low (lite) mode does not need any library change (the site blocks WebGL and shows a still image itself), and the brief mostly serves mid-tier devices, none of which has shown a need yet. Revisit after lite is finished and we have seen how real mid devices perform; pause-when-covered is the one item that would help every device, but its gain is unmeasured. Michael will say when to resume.
+
 **Revised 6 November 2026** after the faulty-terminal thread's review of the first version. The corrections are marked "(revised)" below. Baseline is v1.12.2 (commit 7c99a93, the one the site loads), which lives on `fix/safari-first-run-stutter`, not on main: branch from there and leave out the 1.12.3 site-wiring commit.
 
 Written 6 November 2026 from the perf watcher's device tests (`docs/perf-findings-2026-11-06.md`). For the faulty-terminal project; Michael runs this brief there himself. The site side (MWPPerf, the tier script) is Claude's and is described at the end.

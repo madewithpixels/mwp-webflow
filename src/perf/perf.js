@@ -316,8 +316,8 @@
     try {
       var lk = document.createElement('link');
       lk.rel = 'stylesheet';
-      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@5f579c2/dist/perf-low.min.css';
-      lk.integrity = 'sha384-VX9ccZtOw2LUneciCM7teL3EiiITi15mKUPeo1DrB49Ye9Tlywksd5sHyC+A80iK';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@ddfdbbe/dist/perf-low.min.css';
+      lk.integrity = 'sha384-FAJnAGPSZKMmQUHPcgwpSvCxAL7gsuQN25h55SgWAg+aTy/RIfqOhZKvryk/ok6A';
       lk.crossOrigin = 'anonymous';
       (document.head || document.documentElement).appendChild(lk);
     } catch (e) {}
@@ -357,7 +357,19 @@
         lite.state = 'testi error: ' + e.message;
       }
     };
-    var liteSetup = function () { checkPast(); liteTesti(); };
+    // pause the Folio wall's drift while it is off screen
+    var liteFolioWatch = function () {
+      try {
+        var fw = document.querySelector('.folio-wall');
+        if (!fw || !window.IntersectionObserver) return;
+        new IntersectionObserver(function (entries) {
+          var on = entries[entries.length - 1].isIntersecting;
+          if (on) document.documentElement.removeAttribute('data-lite-folio-off');
+          else document.documentElement.setAttribute('data-lite-folio-off', '1');
+        }).observe(fw);
+      } catch (e) {}
+    };
+    var liteSetup = function () { checkPast(); liteTesti(); liteFolioWatch(); };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', liteSetup);
     else liteSetup();
     var liteTimer = 0;

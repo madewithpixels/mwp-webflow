@@ -5,6 +5,12 @@
 html[data-lite] .folio-wall { height: 100vh !important; height: 100lvh !important; }
 html[data-lite] .folio-wall_sticky { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; overflow: hidden !important; }
 html[data-lite] .folio-wall_text { display: none !important; }
+/* three rows only (the middle three; the cut-off top and bottom rows go), each exactly a third of the screen, tiles kept square */
+html[data-lite] .folio-wall_row { display: none !important; }
+html[data-lite] .folio-wall_row:nth-child(n+4):nth-child(-n+6) { display: flex !important; width: max-content !important; }
+html[data-lite] .folio-wall_stage { width: max-content !important; height: auto !important; }
+html[data-lite] .folio-wall_tile { width: calc((100vh - 16px) / 3) !important; width: calc((100lvh - 16px) / 3) !important; height: calc((100vh - 16px) / 3) !important; height: calc((100lvh - 16px) / 3) !important; }
+html[data-lite] .folio-wall_tile img { width: 100% !important; height: 100% !important; }
 /* each row drifts sideways on a slow CSS loop (compositor only, no GSAP); alternating directions; paused while the wall is off screen (flag set by MWPPerf) */
 @keyframes mwp-lite-drift-a { from { transform: translate3d(-240px, 0, 0); } to { transform: translate3d(240px, 0, 0); } }
 @keyframes mwp-lite-drift-b { from { transform: translate3d(240px, 0, 0); } to { transform: translate3d(-240px, 0, 0); } }

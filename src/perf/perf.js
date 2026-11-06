@@ -177,7 +177,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, state: '', still: '', triggers: 0, tweens: 0 } },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, state: '', still: '', triggers: 0, tweens: 0, finished: 0 } },
   };
   window.MWPPerf = api;
   apply();
@@ -322,7 +322,22 @@
       try {
         var all = ST.getAll();
         lite.triggers += all.length;
+        // time-based animations already running or waiting to start (the hero intro) are not scroll-driven: finish them rather than
+        // freezing them half way. Paused ones (menu, hover) and endless loops are left out.
+        var finish = [];
+        if (G.globalTimeline) {
+          var top = G.globalTimeline.getChildren(false, true, true);
+          for (var j = 0; j < top.length; j++) {
+            var t = top[j];
+            try {
+              if (!t.scrollTrigger && !t.paused() && !t.reversed() && t.repeat() !== -1 && t.totalDuration() < 20 && t.progress() < 1) finish.push(t);
+            } catch (e) {}
+          }
+        }
         for (var i = all.length - 1; i >= 0; i--) all[i].kill(true);
+        for (var k = 0; k < finish.length; k++) {
+          try { finish[k].progress(1); lite.finished++; } catch (e) {}
+        }
         if (G.globalTimeline) {
           lite.tweens += G.globalTimeline.getChildren(true, true, true).length;
           G.globalTimeline.clear();
@@ -399,7 +414,7 @@
           'last ' + (st.recent.join('  ') || '-') + '\n' +
           'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
-          (lite.on ? 'LITE ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens ' + lite.tweens + '\n' : '') +
+          (lite.on ? 'LITE ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens ' + lite.tweens + '  finished ' + lite.finished + '\n' : '') +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }
       draw();

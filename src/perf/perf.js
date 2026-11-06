@@ -140,7 +140,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0 }, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0 },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0 },
   };
   window.MWPPerf = api;
   apply();
@@ -158,6 +158,16 @@
     });
     return s[Math.floor(s.length / 2)];
   }
+  // which section is in the middle of the screen (its first class name), so a slow reading says where
+  function secName() {
+    try {
+      var e = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+      var n = e && e.closest ? e.closest('section,footer,header') : null;
+      return n ? String(n.className || n.tagName).split(' ')[0].slice(0, 14) : '-';
+    } catch (x) {
+      return '?';
+    }
+  }
   function pushFrame(ms) {
     if (!(ms > 0) || ms > 250) return; // a stall or a hidden tab is not a frame rate
     buf.push(ms);
@@ -171,7 +181,12 @@
     st.windows++;
     if (fps < 30) st.under30++;
     if (fps < 20) st.under20++;
-    if (!st.worst.fps || fps < st.worst.fps) st.worst = { fps: fps, y: y };
+    var sec = secName();
+    if (!st.worst.fps || fps < st.worst.fps) st.worst = { fps: fps, y: y, sec: sec };
+    var b = st.bySec[sec] || (st.bySec[sec] = { n: 0, min: 999, slow: 0 });
+    b.n++;
+    if (fps < b.min) b.min = fps;
+    if (fps < 30) b.slow++;
     st.recent.push(fps + '@' + y);
     if (st.recent.length > 6) st.recent.shift();
     // thresholds are on an uncapped page (v1 caps nothing): high needs ~40fps, mid needs ~25fps
@@ -271,8 +286,9 @@
           'cores ' + (s.cores || '?') + '  mem ' + (s.memory ? s.memory + 'GB' : '?') + '  dpr ' + s.dpr + '  touch ' + s.touchPoints + (s.saveData ? '  saveData' : '') + (s.reducedMotion ? '  reduced-motion' : '') + '\n' +
           'gpu ' + (s.gpu || '(reading)') + '\n' +
           'measured ' + (st.fps || '-') + 'fps  readings ' + st.windows + '  bad run ' + st.bad + '\n' +
-          'worst ' + (st.worst.fps || '-') + 'fps at scrollY ' + st.worst.y + '  <30: ' + st.under30 + '  <20: ' + st.under20 + '\n' +
+          'worst ' + (st.worst.fps || '-') + 'fps at scrollY ' + st.worst.y + ' (' + st.worst.sec + ')  <30: ' + st.under30 + '  <20: ' + st.under20 + '\n' +
           'last ' + (st.recent.join('  ') || '-') + '\n' +
+          'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }

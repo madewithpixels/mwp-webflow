@@ -160,3 +160,20 @@ The scripts and styles are now source files in `src/` (site, home, estimate, por
 - Everything at launch prep (D-003 as it stands): the repo is the record and the build is ready, but nothing that has been ported runs on the site until the end, so any slip shows up all at once.
 **Recommendation:** switch each one as it is ported, because the porting is the risky part and one at a time is how to check it.
 **If you don't decide:** nothing is switched. The site keeps loading its code from Webflow, and the repo only holds the source and the build.
+
+## D-024 · Three separate switches for layout, input and performance tier
+**Status:** Accepted
+**Qualifier:** Michael, 6 November 2026: "your recommendation is fine"
+**Date:** 6 November 2026
+**Source:** Michael, 6 November 2026 ("right - perf watcher please", "let's go slowly - test as we build"); docs/perf-and-stability-brief.md.
+Behaviour that depends on the device is split into three independent switches, all read from `<html>` and from `window.MWPPerf` (src/site/perf.js):
+- **Layout** is screen width, the Webflow breakpoints, nothing else.
+- **Input** is `data-input="touch|pointer"`, from `(hover: hover) and (pointer: fine)`.
+- **Performance tier** is `data-perf="high|mid|low"`, with frame-rate caps of 60, 30 and 25. It starts from device signals, can be forced with `?perf=low|mid|high` (`?perf=auto` clears it), is remembered for the session, and only ever steps down, at most once per session, when measured frame rate stays poor. `?perf-debug` shows an overlay for tuning.
+An iPad Air 2 at 1024px gets the desktop layout but a low tier and touch input, which a width test alone cannot do.
+**For Michael:** Do you agree with keeping layout, input and performance tier as three separate switches?
+**Options:**
+- Three switches (recommended): each rule says which question it is asking.
+- Width only: simpler, but the iPad Air 2 and weak Android phones cannot be told apart from capable devices of the same width.
+**Recommendation:** three switches.
+**If you don't decide:** step 1 stays behaviour-neutral (it only sets attributes and reports), so nothing on the site changes.

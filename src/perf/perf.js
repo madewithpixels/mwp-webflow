@@ -316,8 +316,8 @@
     try {
       var lk = document.createElement('link');
       lk.rel = 'stylesheet';
-      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@f66b8f8/dist/perf-low.min.css';
-      lk.integrity = 'sha384-Y6zG07Ptulx1ZPWdk1fLbxplhyqww/AC6zFW2bx01Qj6sPiswh6iU3tP9QDpSQ3b';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@652d59c/dist/perf-low.min.css';
+      lk.integrity = 'sha384-hQWFj57/c83fFgEX0D94mQZKxzXHK5+wfz3EVDo0vfg10vhvlHI7f1fqiv801O1G';
       lk.crossOrigin = 'anonymous';
       (document.head || document.documentElement).appendChild(lk);
     } catch (e) {}

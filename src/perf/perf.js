@@ -36,7 +36,7 @@
     }
   }
 
-  // ---- ?perf-kill=ft,testi,folio,fx : diagnostic only. Switches one effect off so its cost shows in the overlay.
+  // ---- ?perf-kill=ft,testi,folio,fx,layers,clip,paint : diagnostic only. Switches one effect off so its cost shows in the overlay.
   // ft: WebGL contexts are refused before the Faulty Terminal script runs (this script is in the head, the terminal in the footer).
   var kill = (query('perf-kill') || '').toLowerCase().split(',').filter(Boolean);
   var realGetContext = window.HTMLCanvasElement && window.HTMLCanvasElement.prototype.getContext;
@@ -53,6 +53,10 @@
       }
       if (kill.indexOf('fx') > -1)
         css.push('*,*::before,*::after{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;mix-blend-mode:normal!important}');
+      if (kill.indexOf('layers') > -1) css.push('*,*::before,*::after{will-change:auto!important}');
+      if (kill.indexOf('clip') > -1)
+        css.push('*,*::before,*::after{clip-path:none!important;-webkit-clip-path:none!important;mask:none!important;-webkit-mask:none!important}');
+      if (kill.indexOf('paint') > -1) css.push('.about *{visibility:hidden!important}');
       if (kill.indexOf('testi') > -1) css.push('.testi-wall_row,.testi-wall_backrow{display:none!important}');
       if (kill.indexOf('folio') > -1) css.push('.folio-wall_tile{visibility:hidden!important}');
       if (css.length) {

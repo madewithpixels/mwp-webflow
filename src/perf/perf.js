@@ -36,7 +36,7 @@
     }
   }
 
-  // ---- ?perf-kill=ft,testi,folio : diagnostic only. Switches one effect off so its cost shows in the overlay.
+  // ---- ?perf-kill=ft,testi,folio,fx : diagnostic only. Switches one effect off so its cost shows in the overlay.
   // ft: WebGL contexts are refused before the Faulty Terminal script runs (this script is in the head, the terminal in the footer).
   var kill = (query('perf-kill') || '').toLowerCase().split(',').filter(Boolean);
   var realGetContext = window.HTMLCanvasElement && window.HTMLCanvasElement.prototype.getContext;
@@ -51,6 +51,8 @@
             return realGetContext.apply(this, arguments);
           };
       }
+      if (kill.indexOf('fx') > -1)
+        css.push('*,*::before,*::after{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;mix-blend-mode:normal!important}');
       if (kill.indexOf('testi') > -1) css.push('.testi-wall_row,.testi-wall_backrow{display:none!important}');
       if (kill.indexOf('folio') > -1) css.push('.folio-wall_tile{visibility:hidden!important}');
       if (css.length) {

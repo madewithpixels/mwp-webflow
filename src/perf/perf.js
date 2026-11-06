@@ -301,7 +301,9 @@
       var stillStyle = document.createElement('style');
       stillStyle.textContent =
         'html[data-lite] .ft-wrapper{opacity:1!important;visibility:visible!important;background:#243e46 url(' + stillUrl + ') center/cover no-repeat!important}' +
-        'html[data-lite] .ft-wrapper canvas{display:none!important}';
+        'html[data-lite] .ft-wrapper canvas{display:none!important}' +
+        // the terminal's own static fallback layer paints Webflow's teal (inline background-color) over the wrapper; let the still show through
+        'html[data-lite] .ft-wrapper>[class*="faulty-terminal"]{background:transparent!important}';
       (document.head || document.documentElement).appendChild(stillStyle);
       var stillImg = new Image();
       stillImg.onload = function () { lite.still = 'loaded'; };

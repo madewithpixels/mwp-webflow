@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 6 November 2026 — Claude — Perf watcher: device findings, lite mode started (MWPPerf 0.2.0)
+**Michael's note:** "right - perf watcher please"; "let's go slowly - test as we build"; after the Apple Store check: "we need another method of establishing a low end machine"; then "low is: static image for FT, GSAP anims off entirely (maybe a separate style sheet)".
+**Changed (repo):** new bundle `src/perf/` -> `dist/perf.min.js` (MWPPerf 0.1.0 to 0.2.0); D-024 and D-025 in DECISIONS; `docs/perf-findings-2026-11-06.md`; `docs/ft-quality-brief.md`. **Changed (Webflow, site madewithpixels, Michael published to staging):** hosted script "MWPPerf" registered in versions 0.1.0 to 0.2.0 and applied to the site header (read back each time; FaultyTerminal and MenuContactText unchanged). Current: 0.2.0, pinned to commit e73ea45 with SRI. Repo is public so jsDelivr serves it.
+**Found:** see `docs/perf-findings-2026-11-06.md`. Short version: iOS devices all report 4 cores / no memory, so start tier is only a guess and measurement does the work; on the iPad Air 2 the Faulty Terminal costs the hero, Folio, Intro and Pricing, About is slow on its own (GSAP), filters/shadows/Folio images/Testimonial rows are not the cause; no GSAP plus no terminal gives a steady 45 to 59fps.
+**Checked how:** 29 stubbed tests, real-browser tests of the kill switches and of the lite kill against GSAP 3.15, and screenshots of the overlay from the iPhone 15, iPad Air 2 and Samsung. **Not checked:** the lite look (About and Pricing fall into overlapping layers until the low stylesheet exists), the static terminal image, the automatic trigger, any change on desktop (none intended).
+**Needs Michael:** nothing urgent. Next: capture a still of the terminal for approval (step 2), then the low stylesheet (step 3). Run the Faulty Terminal quality brief in the terminal repo when ready.
+— Claude
+
 ## 6 November 2026 — Claude — R-122 folded into the perf watcher
 **Michael's note:** "We'll deal with this as part of the perf-watcher. There's image work to do as part of that job".
 **Changed:** docs only: ROADMAP R-122 state and its "Next up" line.

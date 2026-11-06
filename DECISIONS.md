@@ -177,3 +177,16 @@ An iPad Air 2 at 1024px gets the desktop layout but a low tier and touch input, 
 - Width only: simpler, but the iPad Air 2 and weak Android phones cannot be told apart from capable devices of the same width.
 **Recommendation:** three switches.
 **If you don't decide:** step 1 stays behaviour-neutral (it only sets attributes and reports), so nothing on the site changes.
+
+## D-025 · "Low" means a lite site: still image for the terminal, GSAP animation off, a separate low stylesheet
+**Status:** Accepted
+**Qualifier:** Michael, 6 November 2026: "I think low is. static image for FT; GSAP anims off entirely which maybe means a separate style sheet. And see where that leaves us".
+**Date:** 6 November 2026
+**Source:** device tests of the perf watcher (`docs/perf-findings-2026-11-06.md`). On the iPad Air 2, no GSAP plus no Faulty Terminal gave a steady 45 to 59fps; every cheaper option (filters off, Folio or Testimonial rows off, terminal alone) left it at 6 to 22fps in places. Device signals cannot tell an iPad Air 2 from an iPhone 15 on iOS, so low is chosen by measurement (and remembered), not by device specs.
+Low mode: (1) the Faulty Terminal is not started and its wrapper shows a still image; (2) every ScrollTrigger and tween is killed before the first scroll; (3) a separate low stylesheet (`html[data-lite]`, loaded only on low) gives the animated sections a designed static layout (About and Pricing first). Mid keeps the full page with the terminal's quality lowered (needs the quality API in the terminal library). High is unchanged.
+**For Michael:** (decided) Is a lite site acceptable on weak devices?
+**Options:**
+- Lite site on low (chosen): weak devices get a simpler, steady site.
+- Throttled full site: keeps the animation but stayed at 6 to 22fps on the iPad Air 2 even with the terminal off.
+**Recommendation:** lite site on low.
+**If you don't decide:** n/a (decided). Until step 4 (automatic trigger) is built, lite runs only when `?perf=low` is in the address.

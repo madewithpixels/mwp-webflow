@@ -312,6 +312,59 @@
     } catch (e) {
       lite.still = 'error: ' + e.message;
     }
+    // the lite stylesheet (static layouts), pinned to its commit with SRI
+    try {
+      var lk = document.createElement('link');
+      lk.rel = 'stylesheet';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@fed9440/dist/perf-low.min.css';
+      lk.integrity = 'sha384-pDrU1Zng2gWW9Q5E3Did6MfbaFXEfQMZqpRZd5bJS0LWUl5xaez9WeSNytI0GrDz';
+      lk.crossOrigin = 'anonymous';
+      (document.head || document.documentElement).appendChild(lk);
+    } catch (e) {}
+    // the hero logo shows through the sticky hero once nothing covers it; hide it when the Folio wall reaches the top
+    var pastHero = false;
+    var checkPast = function () {
+      var f = document.querySelector('.folio-wall');
+      if (!f) return;
+      var past = f.getBoundingClientRect().top <= 0;
+      if (past !== pastHero) {
+        pastHero = past;
+        if (past) document.documentElement.setAttribute('data-lite-past', '1');
+        else document.documentElement.removeAttribute('data-lite-past');
+      }
+    };
+    var pastQueued = false;
+    window.addEventListener('scroll', function () {
+      if (pastQueued) return;
+      pastQueued = true;
+      requestAnimationFrame(function () { pastQueued = false; checkPast(); });
+    }, { passive: true });
+    // Testimonials: the quotes become a plain list between two bubble screens (the second is a copy of the first, without the heading)
+    var liteTesti = function () {
+      try {
+        var sec = document.querySelector('.testi-wall');
+        if (!sec || sec.getAttribute('data-lite-done')) return;
+        var sticky = sec.querySelector('.testi-wall_sticky');
+        var quotes = sticky && sticky.querySelector('.testi-wall_quotes');
+        if (!quotes || quotes.children.length < 2) return;
+        var list = document.createElement('div');
+        list.className = 'lite-testi-list';
+        var rest = [].slice.call(quotes.children, 1);
+        for (var q = 0; q < rest.length; q++) list.appendChild(rest[q]);
+        var end = sticky.cloneNode(true);
+        var eq = end.querySelector('.testi-wall_quotes');
+        if (eq) eq.parentNode.removeChild(eq);
+        end.setAttribute('aria-hidden', 'true');
+        sticky.parentNode.insertBefore(list, sticky.nextSibling);
+        list.parentNode.insertBefore(end, list.nextSibling);
+        sec.setAttribute('data-lite-done', '1');
+      } catch (e) {
+        lite.state = 'testi error: ' + e.message;
+      }
+    };
+    var liteSetup = function () { checkPast(); liteTesti(); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', liteSetup);
+    else liteSetup();
     var liteTimer = 0;
     var liteStable = 0;
     var liteSeen = -1;

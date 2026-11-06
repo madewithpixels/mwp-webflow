@@ -140,7 +140,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0 },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0 }, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0 },
   };
   window.MWPPerf = api;
   apply();
@@ -164,8 +164,16 @@
     if (buf.length < WINDOW) return;
     var m = median(buf);
     buf = [];
-    api.stats.fps = Math.round(1000 / m);
-    api.stats.windows++;
+    var fps = Math.round(1000 / m);
+    var y = Math.round(window.scrollY || 0);
+    var st = api.stats;
+    st.fps = fps;
+    st.windows++;
+    if (fps < 30) st.under30++;
+    if (fps < 20) st.under20++;
+    if (!st.worst.fps || fps < st.worst.fps) st.worst = { fps: fps, y: y };
+    st.recent.push(fps + '@' + y);
+    if (st.recent.length > 6) st.recent.shift();
     // thresholds are on an uncapped page (v1 caps nothing): high needs ~40fps, mid needs ~25fps
     var limit = tier === 'high' ? 25 : tier === 'mid' ? 40 : Infinity;
     if (m > limit && !document.hidden) {
@@ -263,6 +271,8 @@
           'cores ' + (s.cores || '?') + '  mem ' + (s.memory ? s.memory + 'GB' : '?') + '  dpr ' + s.dpr + '  touch ' + s.touchPoints + (s.saveData ? '  saveData' : '') + (s.reducedMotion ? '  reduced-motion' : '') + '\n' +
           'gpu ' + (s.gpu || '(reading)') + '\n' +
           'measured ' + (st.fps || '-') + 'fps  readings ' + st.windows + '  bad run ' + st.bad + '\n' +
+          'worst ' + (st.worst.fps || '-') + 'fps at scrollY ' + st.worst.y + '  <30: ' + st.under30 + '  <20: ' + st.under20 + '\n' +
+          'last ' + (st.recent.join('  ') || '-') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }

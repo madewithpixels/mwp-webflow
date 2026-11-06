@@ -36,6 +36,31 @@
     }
   }
 
+  // ---- ?perf-kill=ft,testi,folio : diagnostic only. Switches one effect off so its cost shows in the overlay.
+  // ft: WebGL contexts are refused before the Faulty Terminal script runs (this script is in the head, the terminal in the footer).
+  var kill = (query('perf-kill') || '').toLowerCase().split(',').filter(Boolean);
+  var realGetContext = window.HTMLCanvasElement && window.HTMLCanvasElement.prototype.getContext;
+  if (kill.length) {
+    try {
+      var css = [];
+      if (kill.indexOf('ft') > -1) {
+        css.push('.ft-wrapper{display:none!important}');
+        if (realGetContext)
+          window.HTMLCanvasElement.prototype.getContext = function (type) {
+            if (/webgl/i.test(String(type))) return null;
+            return realGetContext.apply(this, arguments);
+          };
+      }
+      if (kill.indexOf('testi') > -1) css.push('.testi-wall_row,.testi-wall_backrow{display:none!important}');
+      if (kill.indexOf('folio') > -1) css.push('.folio-wall_tile{visibility:hidden!important}');
+      if (css.length) {
+        var ks = document.createElement('style');
+        ks.textContent = css.join('');
+        (document.head || document.documentElement).appendChild(ks);
+      }
+    } catch (e) {}
+  }
+
   // ---- input: decided by what the primary pointer can do, not by width
   var input = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches ? 'pointer' : 'touch';
 
@@ -228,7 +253,8 @@
   function readGpu() {
     try {
       var c = document.createElement('canvas');
-      var gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+      var gc = realGetContext || c.getContext;
+      var gl = gc.call(c, 'webgl') || gc.call(c, 'experimental-webgl');
       if (!gl) {
         signals.gpu = 'no WebGL';
         return;
@@ -281,7 +307,7 @@
         var s = api.signals;
         var st = api.stats;
         el.textContent =
-          'perf ' + api.tier + ' (' + api.fps + 'fps cap)  input ' + api.input + '\n' +
+          'perf ' + api.tier + ' (' + api.fps + 'fps cap)  input ' + api.input + (kill.length ? '  KILL ' + kill.join(',') : '') + '\n' +
           api.reason + '\n' +
           'cores ' + (s.cores || '?') + '  mem ' + (s.memory ? s.memory + 'GB' : '?') + '  dpr ' + s.dpr + '  touch ' + s.touchPoints + (s.saveData ? '  saveData' : '') + (s.reducedMotion ? '  reduced-motion' : '') + '\n' +
           'gpu ' + (s.gpu || '(reading)') + '\n' +

@@ -1,5 +1,7 @@
 # Brief: quality levels, pause-when-covered and a still-image mode (faulty-terminal v1.13.0)
 
+**Revised 6 November 2026** after the faulty-terminal thread's review of the first version. The corrections are marked "(revised)" below. Baseline is v1.12.2 (commit 7c99a93, the one the site loads), which lives on `fix/safari-first-run-stutter`, not on main: branch from there and leave out the 1.12.3 site-wiring commit.
+
 Written 6 November 2026 from the perf watcher's device tests (`docs/perf-findings-2026-11-06.md`). For the faulty-terminal project; Michael runs this brief there himself. The site side (MWPPerf, the tier script) is Claude's and is described at the end.
 
 ## Why
@@ -7,6 +9,8 @@ On an iPad Air 2 (iOS 15.8, 2GB, dpr 2) the live Faulty Terminal is the biggest 
 - Hero at load: **17 to 19fps with the terminal, 59fps without** (`?perf-kill=ft`).
 - With the terminal off the Folio wall, Intro and Pricing sections went from 13 to 22fps to 30 to 45fps.
 - Hiding filters, shadows, Folio images or the Testimonial rows changed nothing: the terminal's full-screen WebGL at dpr 2 is the cost.
+(revised) The site passes **no `dpr` option** (it sets only `warmStart`, `reveal`/`revealFallback` and `scale`, which is 2 above 767px wide and 1 at or below), so the library renders at its default dpr of 1, at CSS pixels times `renderScale`, capped by `maxPixels`. The iPad Air 2's own dpr of 2 is therefore not what costs the frames. The cost is the pixel count and the multi-pass phosphor. An iPad at 1024px wide also counts as desktop on the site, so it gets grid `scale` 2.
+
 The iPhone 15 holds about 59fps with the terminal running, so this is about weak devices only. High-end behaviour must not change.
 
 ## Goal
@@ -20,29 +24,29 @@ Three additions, all off by default so every existing option reproduces v1.12.2 
 | Field | Meaning |
 |---|---|
 | `renderScale` | Fraction of the canvas resolution to render at (the existing option; the API just lets the site change it live). |
-| `maxDpr` | Cap on the device pixel ratio used for the canvas. 1 means CSS pixels. |
-| `fps` | Frame-rate cap. The terminal skips frames to hold it. |
-| `extras` | `true` (default) or `false`: switches off the optional extras (phosphor persistence, fringe, anything that costs a second pass) if there are any. Say in the changelog which ones this covers. |
+| `maxDpr` | (revised) Optional, `min(current dpr, maxDpr)`: it can only lower the dpr. A no-op at the library's default dpr of 1, so `renderScale` is the real mid-tier lever. |
+| `fps` | (revised) Runtime override of the existing `targetFPS`, with the same 2ms slack as v1.12.2. |
+| `extras` | (revised) `true` (default) or `false`. `false` = phosphor off (the only multi-pass feature: scene to a render target, blend, copy to screen, three full-screen passes per frame) and chromatic aberration forced to 0. The degauss fringe is logo-only and is left alone. The changelog says so. On mid the visible change is the loss of the phosphor trail. |
 - `setQuality` must work while running (resize the drawing buffer, no flash, no re-init) and must be safe to call before first paint.
-- `autoTune` must respect the caps: it may lower quality further but never above what `setQuality` allows.
+- `autoTune` must respect the caps: it may lower quality further but never above what `setQuality` allows (one `renderScaleCap` feeding `targetScaleForSize`, `endWarm` and the autoTune climb). `holdFullScale` and the logo hold ignore it until the hand-off.
 - Starting values the site will use (to be tuned on the iPad Air 2 and the Samsung):
 | Tier | renderScale | maxDpr | fps | extras |
 |---|---|---|---|---|
 | high | unchanged | unchanged | unchanged | on |
-| mid | about 0.75 | 1.5 | 30 | off |
+| mid | about 0.75 | (not needed) | 30 | off (phosphor) |
 | low | not used: still-image mode (3) | | | |
 - Keep the existing note that the logo resolve renders at full scale until the hand-off; the site will not apply a lower tier until the resolve is done, or on mid it may skip the resolve (site decision).
 
 ## 2. Pause, resume, pause-when-covered
-- `pause()` stops requesting animation frames and holds the last frame; `resume()` restarts without a jump in time (the field must not fast-forward).
+- `pause()` stops requesting animation frames and holds the last frame; `resume()` restarts without a jump in time (the field must not fast-forward). (revised) `iTime`, the ripple, the logo timeline and `startLoop` run on the raw rAF timestamp, so this needs a paused-time offset on the clock (0 when nothing is paused). Apply the no-jump clock only to `pause()`, `setVisible` and the covered pause; the hidden-tab path stays exactly as in v1.12.2. The existing `pause` option (freezes `iTime` while the loop keeps rendering) keeps its meaning; the new `pause()` method stops the loop.
 - Option `pauseWhenHidden` (default `true`): pause when `document.hidden`.
-- Option `pauseWhenCovered` (default `false`) with the site passing the covering elements as a selector list, e.g. `coverSelectors: ['.about', '.pricing', '.portfolio']` (to be confirmed on the site; Testimonial wall is not fully opaque, so it is not on the list). When every row of the canvas is covered by an opaque listed element, pause; resume as soon as any of the canvas is visible again. Use IntersectionObserver on the cover elements, not scroll listeners.
+- Option `pauseWhenCovered` (default `false`) with the site passing the covering elements as a selector list, e.g. `coverSelectors: ['.about', '.pricing', '.portfolio']` (to be confirmed on the site; Testimonial wall is not fully opaque, so it is not on the list). When the canvas is completely covered by opaque listed elements, pause; resume as soon as any of it is visible again. (revised) The terminal is fixed behind the whole page, so an observer on the terminal itself never fires, and an IntersectionObserver on a cover element only reports viewport crossings. Use IntersectionObserver with a fine threshold array on the cover elements as the trigger, then take the union of the cover rectangles against the canvas rectangle with a small tolerance (two adjacent covers such as About then Pricing can cover it together). No scroll listeners. The selector list is trusted for opacity; transparency cannot be detected.
 - Also expose `setVisible(false|true)` so the site can drive it directly from its own timeline.
 - Reason: on every device, rendering a full-screen shader nobody can see is wasted work; on the Mac it just burns power, on the iPad it costs frames in the neighbouring sections.
 
 ## 3. Still-image mode (no WebGL)
 - Option `mode: 'live' | 'still'` (default `'live'`), or a separate call `FaultyTerminal.still(container, { src })`: whichever is simplest for the loader. In still mode:
-  - No WebGL context is created and no shader is compiled.
+  - No WebGL context is created and no shader is compiled. (revised) `createStaticInstance` already no-ops the API and fires `ready` and `logo-resolved`; the gaps are that init creates a WebGL context just to probe for software rendering, and that there is no image. For `mode: 'still'` branch before the Renderer is created and add an `<img>` with `object-fit: cover`, `aria-hidden` and `decoding="async"`.
   - The container shows an image: `src` (a URL the site gives it; the site hosts the file on jsDelivr), sized `cover`, same position and size as the canvas would have, `aria-hidden`.
   - The API stays callable and does nothing (`setFieldProgress`, `holdFullScale`, `retrigger`, logo-resolve calls resolve immediately), and fires the same events (including `faulty-terminal:logo-resolved`) so the site's timeline code does not need special cases. The HTML heart stays visible as it already is when `softwareFallback` is used.
   - Honours reduced motion already.

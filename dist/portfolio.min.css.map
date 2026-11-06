@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/portfolio/project-nav-arrows.css"],
+  "sourcesContent": ["/* R-038 (brief #153): copy of the <style> in the Portfolio Nav component's second code embed in Webflow\n   (the record, R-029). Webflow holds the live copy; keep the two in step.\n   Shared look (fixed position, vertical centre, coral, no border) is on the project-nav_arrow / project-nav_inner classes.\n   R-112 (brief #351): corner radius is 25%, the same curvature as .menu-button.back. */\na.project-nav_arrow,\na.project-nav_arrow:hover,\na.project-nav_arrow:focus-visible {\n  background: #ef8965;\n  padding: 0;\n  animation: none;\n}\na.project-nav_arrow[data-portfolio-nav='prev'] {\n  left: 0;\n  border-radius: 0 25% 25% 0;\n}\na.project-nav_arrow[data-portfolio-nav='next'] {\n  right: 0;\n  border-radius: 25% 0 0 25%;\n}\na.project-nav_arrow .project-nav_inner,\na.project-nav_arrow .grad-arrow-wrapper {\n  border-radius: inherit;\n}\na.project-nav_arrow .bg-strip-wrapper {\n  display: none;\n}\n"],
+  "mappings": ";AAIA,CAAC,CAAC,kBACF,CAAC,CADC,iBACiB,OACnB,CAAC,CAFC,iBAEiB,eACjB,WAAY,QAPd,QAQW,EACT,UAAW,IACb,CACA,CAAC,CAPC,iBAOiB,CAAC,yBAClB,KAAM,EAZR,cAaiB,EAAE,IAAI,IAAI,CAC3B,CACA,CAAC,CAXC,iBAWiB,CAAC,yBAClB,MAAO,EAhBT,cAiBiB,IAAI,EAAE,EAAE,GACzB,CACA,CAAC,CAfC,kBAekB,CAAC,kBACrB,CAAC,CAhBC,kBAgBkB,CAAC,mBACnB,cAAe,OACjB,CACA,CAAC,CAnBC,kBAmBkB,CAAC,iBACnB,QAAS,IACX",
+  "names": []
+}

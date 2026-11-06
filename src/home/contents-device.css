@@ -1,0 +1,172 @@
+/* Contents device (R-099, brief #273, extended with the About parts in brief #292, tuned in briefs #295 and #298, then to Michael's spec of 4 November 2026, Claude night shift, 4 November 2026). Home page head, appended after the R-093 block. Desktop only (992px and up). */
+  /* A quiet row of dashes at the right edge, one per main section; the current one is longer and brighter.
+   Hover or keyboard focus opens it into a small panel with the section names. Self-contained: no Webflow classes. */
+  .mwp-contents {
+    display: none;
+  }
+  @media (min-width: 992px) {
+    .mwp-contents {
+      display: block;
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      z-index: 900; /* under the blur (997) and the header (998), so the open menu covers it */
+      transform: translateY(-50%) scale(0.6); /* brief #313: much smaller at rest, full size on hover or focus */
+      transform-origin: 100% 50%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background-color: rgba(30, 41, 46, 0);
+      transition: background-color 0.25s ease, transform 0.3s ease;
+    }
+    .mwp-contents:hover,
+    .mwp-contents:focus-within {
+      transform: translateY(-50%) scale(1);
+      background-color: rgba(30, 41, 46, 0.86);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .mwp-contents__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mwp-contents__link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 2.75px 0; /* rows are 25% closer than before (brief #295) */
+      color: #fff;
+      text-decoration: none;
+      outline: none;
+    }
+    .mwp-contents__label {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+      font-size: 0.875rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-right: 0;
+      transition: max-width 0.3s ease, opacity 0.2s ease, margin-right 0.3s ease;
+    }
+    .mwp-contents:hover .mwp-contents__label,
+    .mwp-contents:focus-within .mwp-contents__label {
+      max-width: 9rem;
+      opacity: 0.7;
+      margin-right: 14px;
+    }
+    .mwp-contents__link.is-current .mwp-contents__label,
+    .mwp-contents__link:hover .mwp-contents__label,
+    .mwp-contents__link:focus-visible .mwp-contents__label {
+      opacity: 1;
+    }
+    .mwp-contents__tick {
+      flex: none;
+      display: block;
+      width: 12px;
+      height: 2px; /* every main section line is 2px (Michael's spec) */
+      border-radius: 0;
+      /* readable on every background: each dash shows what is behind it turned to pure black or white, whichever contrasts
+         (white over the slate and teal and raspberry, black over the light sections). The panel's own blur backing, while open,
+         is dark, so the dashes show white there. A plain mix-blend-mode of difference was tried first and left the teal flat. */
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      opacity: 1; /* full white (Michael's spec); the parts below are the greyed ones */
+      transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+    }
+    .mwp-contents__link.is-current .mwp-contents__tick,
+    .mwp-contents__link.is-group-current .mwp-contents__tick {
+      width: 28px;
+    }
+    /* the parts of About (Michael's spec): 1px lines, slightly greyed against the 2px main lines, hanging off a 1px dotted rail that
+       is flush with the right edge of the main lines. The rail is one element, placed by the script; it sits behind the list so
+       the current part's raspberry line (which reaches the rail) covers its dot. */
+    .mwp-contents__list {
+      position: relative;
+      z-index: 1;
+    }
+    .mwp-contents__rail {
+      position: absolute;
+      right: 12px; /* the nav's own side padding: the same right edge as the main lines */
+      width: 1px;
+      z-index: 0;
+      pointer-events: none;
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px);
+      mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px); /* 1px dot, 1px gap */
+      opacity: 0.6;
+    }
+    .mwp-contents__link.is-sub {
+      padding: 1.4px 0;
+    }
+    .mwp-contents__link.is-sub .mwp-contents__tick {
+      width: 6px;
+      height: 1px;
+      margin-right: 1px; /* a resting part line is 7px with the rail's pixel: it ends where the rail begins and never overlaps it */
+      opacity: 0.6;
+    }
+    .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
+      width: 9px; /* the current part: longer, raspberry, and it reaches the rail so the rail's dot beside it is raspberry too */
+      margin-right: 0;
+      opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: #d9466c;
+    }
+    .mwp-contents__link.is-sub .mwp-contents__label {
+      font-size: 0.8125rem;
+    }
+    .mwp-contents:hover .mwp-contents__link.is-sub .mwp-contents__label,
+    .mwp-contents:focus-within .mwp-contents__link.is-sub .mwp-contents__label {
+      opacity: 0.55;
+    }
+    .mwp-contents__link.is-sub.is-current .mwp-contents__label,
+    .mwp-contents__link.is-sub:hover .mwp-contents__label,
+    .mwp-contents__link.is-sub:focus-visible .mwp-contents__label {
+      opacity: 1;
+    }
+    .mwp-contents__link:hover .mwp-contents__tick,
+    .mwp-contents__link:focus-visible .mwp-contents__tick {
+      opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: #d9466c;
+    }
+    /* brief #313: slightly more transparent at rest, fully opaque on hover or focus. Opacity goes on each line, not on the whole device,
+       because opacity on the parent would stop the lines' backdrop filter seeing the page behind them. */
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub .mwp-contents__tick {
+      opacity: 0.4;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__rail {
+      opacity: 0.4;
+    }
+    .mwp-contents__rail {
+      transition: opacity 0.25s ease;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mwp-contents,
+    .mwp-contents__label,
+    .mwp-contents__tick {
+      transition: none;
+    }
+  }
+
+@media (min-width: 992px) {
+  .mwp-contents__rail {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}

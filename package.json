@@ -1,0 +1,14 @@
+{
+  "name": "mwp-webflow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "madewithpixels.co.uk custom code: source in src/, built bundles in dist/, served through jsDelivr",
+  "scripts": {
+    "build": "node build.cjs build",
+    "watch": "node build.cjs watch",
+    "dev": "node build.cjs dev"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

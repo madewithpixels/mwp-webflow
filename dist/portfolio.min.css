@@ -1,0 +1,3 @@
+/* madewithpixels mwp-webflow v0.1.0 - src/portfolio/index.css */
+a.project-nav_arrow,a.project-nav_arrow:hover,a.project-nav_arrow:focus-visible{background:#ef8965;padding:0;animation:none}a.project-nav_arrow[data-portfolio-nav=prev]{left:0;border-radius:0 25% 25% 0}a.project-nav_arrow[data-portfolio-nav=next]{right:0;border-radius:25% 0 0 25%}a.project-nav_arrow .project-nav_inner,a.project-nav_arrow .grad-arrow-wrapper{border-radius:inherit}a.project-nav_arrow .bg-strip-wrapper{display:none}
+/*# sourceMappingURL=portfolio.min.css.map */

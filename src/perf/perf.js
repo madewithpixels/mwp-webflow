@@ -316,8 +316,8 @@
     try {
       var lk = document.createElement('link');
       lk.rel = 'stylesheet';
-      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@fed9440/dist/perf-low.min.css';
-      lk.integrity = 'sha384-pDrU1Zng2gWW9Q5E3Did6MfbaFXEfQMZqpRZd5bJS0LWUl5xaez9WeSNytI0GrDz';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@5f579c2/dist/perf-low.min.css';
+      lk.integrity = 'sha384-VX9ccZtOw2LUneciCM7teL3EiiITi15mKUPeo1DrB49Ye9Tlywksd5sHyC+A80iK';
       lk.crossOrigin = 'anonymous';
       (document.head || document.documentElement).appendChild(lk);
     } catch (e) {}
@@ -339,24 +339,19 @@
       pastQueued = true;
       requestAnimationFrame(function () { pastQueued = false; checkPast(); });
     }, { passive: true });
-    // Testimonials: the quotes become a plain list between two bubble screens (the second is a copy of the first, without the heading)
+    // Testimonials: the heading and quotes move into a plain list that scrolls through the gap between the pinned bubble bands
     var liteTesti = function () {
       try {
         var sec = document.querySelector('.testi-wall');
         if (!sec || sec.getAttribute('data-lite-done')) return;
         var sticky = sec.querySelector('.testi-wall_sticky');
         var quotes = sticky && sticky.querySelector('.testi-wall_quotes');
-        if (!quotes || quotes.children.length < 2) return;
+        if (!quotes || !quotes.children.length) return;
         var list = document.createElement('div');
         list.className = 'lite-testi-list';
-        var rest = [].slice.call(quotes.children, 1);
-        for (var q = 0; q < rest.length; q++) list.appendChild(rest[q]);
-        var end = sticky.cloneNode(true);
-        var eq = end.querySelector('.testi-wall_quotes');
-        if (eq) eq.parentNode.removeChild(eq);
-        end.setAttribute('aria-hidden', 'true');
+        while (quotes.firstChild) list.appendChild(quotes.firstChild);
+        quotes.parentNode.removeChild(quotes);
         sticky.parentNode.insertBefore(list, sticky.nextSibling);
-        list.parentNode.insertBefore(end, list.nextSibling);
         sec.setAttribute('data-lite-done', '1');
       } catch (e) {
         lite.state = 'testi error: ' + e.message;

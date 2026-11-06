@@ -6,6 +6,7 @@ The madewithpixels website's project record (SCOPE, ROADMAP, DECISIONS, STATUS, 
 
 ```
 src/
+  perf/        every page, first     -> dist/perf.min.js  (MWPPerf tier script, R-102; its own bundle until switch-over)
   site/        every page            -> dist/site.min.js
   home/        Home page             -> dist/home.min.js + dist/home.min.css
   estimate/    Estimate page         -> dist/estimate.min.js

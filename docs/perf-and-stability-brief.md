@@ -1,6 +1,6 @@
 # Brief: device-aware performance + mobile scroll stability (R-102)
 
-Written 5 November 2026. Do this LAST, after Michael has finished the animation and layout work. Start by reading STATUS.md, then the project notes (folio wall, testimonial wall, pricing, ticker, heart morph, nav-jump-and-sticky, the faulty-terminal logo-resolve brief) and the frame-probe repo.
+Written 5 November 2026. Order changed on 5 November 2026 (evening): mobile stability is blocking the animation and layout work, so it comes first. Michael's order: R-121 (`dvh` to `svh`), R-122 (lazy-load the folio images), then the tier script with R-123 (small folio images swapped in), then R-117 (code consolidation, one script switched to jsDelivr at a time). The tier script is the first script built in the new `src/` setup. Start by reading STATUS.md, then the project notes (folio wall, testimonial wall, pricing, ticker, heart morph, nav-jump-and-sticky, the faulty-terminal logo-resolve brief) and the frame-probe repo.
 
 ## Goal
 Make the site stable and smooth on weak and touch devices without changing the desktop experience.

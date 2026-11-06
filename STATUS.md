@@ -1,5 +1,102 @@
 # madewithpixels website — Status
 
+## 6 November 2026 — Claude — R-122 folded into the perf watcher
+**Michael's note:** "We'll deal with this as part of the perf-watcher. There's image work to do as part of that job".
+**Changed:** docs only: ROADMAP R-122 state and its "Next up" line.
+**Next useful action:** the perf watcher (R-102, tier script, first script in the new `src/` setup) with R-123.
+— Claude
+
+## 6 November 2026 — Claude — R-122: tiles are already lazy (nothing changed)
+**Michael's note:** "maybe better for me to do this manuualy" (sent while I was checking).
+**Found:** on published staging all 153 Folio Wall images already carry `loading="lazy"` and a `srcset`; at the top of the page on desktop only 53 had loaded. Nothing was changed in Webflow. The Designer tools can't read or set the loading option.
+**Checked how:** ran a short read-only script in Chrome on the staging page; closed my tab afterwards. **Not checked:** the iPad Air 2 and phones (how many tiles load up front there).
+**Needs Michael:** whatever he wants to do by hand; if the iPad still loads too many up front, I'd suggest a look at R-123 or a small hold-the-`src` script.
+— Claude
+
+## 6 November 2026 — Claude — R-121 accepted; starting R-122
+**Michael's note:** "R-121 accepted and backed up".
+**Changed:** ROADMAP R-121 marked done and accepted. Nothing else.
+**Next useful action:** R-122, lazy-loading the Folio Wall images: count the tiles and read how they are set first (nothing changed until Michael has seen the numbers).
+— Claude
+
+## 6 November 2026 — Claude — R-121: lvh sweep completed (unpublished)
+**Michael's note:** "let's stick with the LVH stuff until it's complete then move onto lazy loading after checks are done".
+**Changed:** Webflow Designer, `svh` to `lvh`: About-Section height; About Top (phone height); About Bottom (height, phone height 200lvh); Contact min-height; Pricing Wrapper tablet min-height; Lightbox height; FT Wrapper.fixed height; Utility Page Wrap height and max-height; Estimate Intro min-height. 12 settings on 9 classes (and a couple of breakpoint levels), existing classes, longhand. Desktop unchanged.
+**Checked how:** each update echoed `lvh`. **Not checked:** on a device or published; project pages' and Estimate's own code for `innerHeight` use not swept (R-102).
+**Needs Michael:** publish to staging and check: About intro/bottom on phone, Contact, Pricing on tablet, a project page lightbox, the Estimate start screen, a 404/utility page. Then accept R-121; R-122 (lazy loading) is next.
+— Claude
+
+## 6 November 2026 — Claude — R-121: hero confirmed
+**Michael's note:** "i've done both manually. it works. We can move forwards".
+**Changed:** by Michael in the Designer: FT Wrapper to `100lvh` (my `.hero` `min-height: 100lvh` stays). Docs only from me.
+**Checked how:** Michael's test on his phone. **Not checked:** other devices.
+**Needs Michael:** a go-ahead for the remaining full-height boxes (About section, Contact, tablet Pricing Wrapper; then project, Estimate, lightbox, utility pages), or to leave them and move to R-122.
+— Claude
+
+## 6 November 2026 — Claude — R-121 follow-up: hero background strip (unpublished)
+**Michael's note:** hero left on `svh` (`hero-height`), but the Faulty Terminal background is missing in a slate strip at the bottom once the toolbar collapses; "yes that works" to my fix.
+**Changed:** Webflow Designer: `.hero` at the phone breakpoint gets `min-height: 100lvh` (nothing there before). `hero-height` untouched.
+**Checked how:** the update echoed the new value. **Not checked:** whether the terminal now fills the strip, or that the heart intro is unaffected; not published.
+**Needs Michael:** publish to staging and look at the hero with the toolbar collapsed; tell me if the terminal still stops short (next try: FT Wrapper at `100lvh`).
+— Claude
+
+## 6 November 2026 — Claude — R-121 follow-up: phone pinned boxes svh to lvh (unpublished)
+**Michael's note:** staging test: "noticably more stable" but slate bars/gaps under Intro, Pricing cards, Testimonial Wall bubbles, a gap above the Folio Wall separator, and the Pricing title under the burger; then "yes" to switching to `lvh`.
+**Changed:** Webflow Designer: Intro, intro_sticky, Pricing, Pricing Wrapper, Pricing CTA, Section Clipping Mask (all at the phone breakpoint), folio-wall_sticky (tablet and phone), testi-wall_sticky (phone and small): `svh` to `lvh`. Home head code: About-top sticky height `100svh` to `100lvh`; the box was written back and compared with the previous read-back: that one line is the only difference.
+**Checked how:** each update echoed `lvh`; head read-back diffed. **Not checked:** on a device (the point of the change); not published.
+**Needs Michael:** publish to staging; check the same four places plus the Pricing title position, and look at the bottom of the Intro and Pricing CTA with the toolbar showing (it can cover the bottom edge).
+— Claude
+
+## 6 November 2026 — Claude — R-121 step 4: Home head code dvh changed to svh (unpublished)
+**Michael's note:** "published, checked and backed - go ahead and do step 4".
+**Changed:** Home page head custom code in Webflow: the About top sticky height rule and the reduced-motion ticker height, `100dvh` to `100svh`. The rest of the box was written back as it was.
+**Checked how:** read the box back; no `dvh` left in it. Compared with the repo snapshot: the only differences are the 4 November changes that the snapshot predates (the snapshot of this box is stale; it should be refreshed in R-029). **Not checked:** on a device; not published. Webflow only accepts the whole box, so a typo elsewhere in it is the risk; worth a quick look at Home on staging (menu jump, contents device, Testimonial Wall).
+**Needs Michael:** publish to staging and test Home on iPad Air 2, iPhone 15, Samsung; accept R-121 or say what is still wrong. Left alone on purpose: the menu panel/nav `dvh` (section E) and `window.innerHeight` in scripts (R-102).
+**Next useful action:** R-122, lazy-loading the Folio Wall images (count the tiles first).
+— Claude
+
+## 6 November 2026 — Claude — R-121 step 3: base dvh changed to svh (unpublished)
+**Michael's note:** "published, checked, backup taken. continue. Noting that the ticker is not shown at mobile".
+**Changed:** Webflow Designer only: ticker__sticky height; Contact min-height; Contact Grid top, margin-top, margin-bottom; Ticker__Item font-size; type__mask margin-top and font-size. 8 settings, existing classes, longhand, `dvh` to `svh`. Same size on desktop browsers (the units are equal there).
+**Checked how:** each update echoed `svh` at base and at the desktop breakpoint. **Not checked:** visually on desktop or a device; not published.
+**Needs Michael:** publish to staging when ready; glance at desktop Ticker, Contact and the type mask (should be unchanged) and Contact on a phone.
+**Next useful action:** step 4, the two Home head code rules (About top height, reduced-motion ticker height).
+— Claude
+
+## 6 November 2026 — Claude — R-121 step 2: tablet and small dvh changed to svh (unpublished)
+**Michael's note:** "checked and backed up - keep going".
+**Changed:** Webflow Designer only: folio-wall_sticky (medium) height, Pricing Wrapper (medium) min-height, testi-wall_sticky (small) height, `100dvh` to `100svh`. 3 settings, existing classes, longhand. ROADMAP R-121 line added.
+**Checked how:** each update echoed the new value. **Not checked:** on a device; not published.
+**Needs Michael:** test the Folio Wall, Pricing and Testimonial Wall on the iPad Air 2 and phones once published to staging; approve step 3.
+**Next useful action:** step 3, the base values (ticker__sticky, Contact, Contact Grid, Ticker__Item, type__mask), which also reach desktop, so they need care.
+— Claude
+
+## 6 November 2026 — Claude — R-121 step 1: phone-width dvh changed to svh (unpublished)
+**Michael's note:** "step 1 first".
+**Changed:** in the Webflow Designer only, at the phone breakpoint: `dvh` to `svh` on Intro, intro_sticky, Pricing, Pricing Wrapper, Pricing CTA, Section Clipping Mask and ticker__sticky (11 settings, 7 existing classes, longhand, no new classes). Docs: R-121 line in ROADMAP; note in `docs/r121-dvh-sweep.md`.
+**Checked how:** each update echoed the new value, then I re-read all styles at all seven breakpoints: the phone values are `svh`, and the `dvh` left are exactly the step 2-4 list. **Not checked:** how it looks or scrolls on a device; not published.
+**Needs Michael:** publish to staging (say when), test on the iPhone 15 and the basic Samsung (fast scroll through Intro and Pricing, address bar showing and hiding), then approve step 2.
+**Next useful action:** step 2 (tablet and small: folio-wall_sticky, Pricing Wrapper medium, testi-wall_sticky).
+— Claude
+
+## 6 November 2026 — Claude — R-121 sweep: every dvh listed, nothing changed
+**Michael's note:** "Let's begin - i have a backup. R-121 first".
+**Changed:** nothing in Webflow. New `docs/r121-dvh-sweep.md`; a "Sweep done" line on R-121.
+**Found:** 22 `dvh` settings on 13 classes plus 2 rules in the Home head code. The phone-width Intro and Pricing sections, which the "Intro Section Mobile" and "Pricing Section Mobile" interactions pin, are still `dvh` (11 settings). The old style snapshot was out of date (it missed those and `Contact Grid`), so the list comes from the live site. No interaction, Estimate page or Estimate tool CSS uses `dvh`. `window.innerHeight` is read in 12 places in the code (R-102). Lenis has no `syncTouch`, so touch is native.
+**Checked how:** read the live styles at all seven breakpoints, the site and Home head and footer code, the Estimate page code, all 23 Home interactions and the Estimate CSS on jsDelivr. **Not checked:** other pages' own code (only Home, Estimate and the site-wide blocks), what the live page reports for `lenis.options`.
+**Needs Michael:** approval of the list (section E, the menu, is left alone unless he says).
+**Next useful action:** change section A first (phone), publish to staging when he asks, test on the iPhone and Samsung.
+— Claude
+
+## 5 November 2026 — Claude — Tomorrow's order written up (R-121, R-122, R-123; R-102, R-117 reordered)
+**Michael's note:** the order is "1. 100dvh fix > testing; 2. Folio wall images lazy loading > testing; 3. potentially smaller versions from jsDelivr swapped in by the perf watcher; 4. the custom code consolidation and deployment" and "yes we can switch each script to jsdeliver as they're ported". Then: "write it up in the roadmap it's tomorrows work".
+**Changed (docs only; nothing in Webflow touched, nothing published):** ROADMAP: new R-121 (`dvh` to `svh`, with the read-only Lenis check), R-122 (lazy-load the Folio Wall images), R-123 (smaller images swapped in by the perf watcher); a "Next up" line under the roadmap's introduction; R-102 no longer says "do this last" and records his remark that switching heavy interactions off and lightening the Testimonial Wall belong to the perf fix; R-117 now follows the others. DECISIONS: D-023 recorded as Accepted with his words. `docs/perf-and-stability-brief.md`: order note. The numbers R-118 to R-120 were taken by the night shift's new tasks, so these are R-121 to R-123.
+**Checked how:** read back the new items and the table row in the file.
+**Still open:** nothing has been swept or changed yet; the `dvh` list for R-121 comes to Michael first. The build set-up from earlier (`src/`, `dist/`, `README.md`) is uncommitted and not used by the site; whether to keep it as it is until step 4 is Michael's call.
+**Needs Michael:** a start on R-121 tomorrow (the read-only sweep).
+**Next useful action:** R-121 sweep.
+— Claude
+
 ## 5 November 2026 — Claude (night shift) — Three new tasks written up (R-118 to R-120, brief #356)
 **Changed (roadmap only):** R-118 swipe for left and right nav on project pages (task 43612384, after R-114); R-119 estimator Next needing two taps on phones (task 43612385, after R-116); R-120 stop images being dragged on project pages (task 43612386, after R-118). Guesses marked "(inferred — confirm)". No work done, nothing in Webflow touched, no tasks changed.
 **Not written up:** the other tasks listed with no item (landing pages, social campaign, launch prep, finish site, responsive layouts) are group headings, not repo work; #43612375 and #43612376 already are R-112 and R-113.

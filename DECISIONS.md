@@ -147,3 +147,16 @@ The SmashBurger update (R-030) moves to the end of the roadmap. Menu changes tha
 - Leave it as it is: the background remains until you choose a different treatment.
 **Recommendation:** Add the layer, following your stated preference.
 **If you don't decide:** I leave the page unchanged until you approve the new Designer style.
+
+## D-023 · Edit the custom code as source files and build it into a few minified bundles now; decide when each one goes live
+**Status:** Accepted
+**Qualifier:** Michael, 5 November 2026: "yes we can switch each script to jsdeliver as they're ported" (the first option)
+**Date:** 5 November 2026
+**Source:** Michael, 5 November 2026 ("re-structure not re-write … it seems fundamental"; asked for a local folder with a compiler that minifies and packages for jsDelivr, so the restructure can happen early).
+The scripts and styles are now source files in `src/` (site, home, estimate, portfolio). `npm run build` turns each folder into a minified bundle in `dist/`, which is committed because jsDelivr serves it from GitHub (R-117). The restructure keeps behaviour and moves one script at a time onto a small shared core. This does not change D-002; it adds a way to get there in steps.
+**For Michael:** Should each script switch to jsDelivr as soon as it has been ported and checked on staging, or all together at launch prep, as D-003 says?
+**Options:**
+- Switch each script when it is ported and checked (recommended): its Webflow code box becomes one loader line; the others stay inline until their turn. A bad port shows up on its own, and the new tier script (R-102) can go first.
+- Everything at launch prep (D-003 as it stands): the repo is the record and the build is ready, but nothing that has been ported runs on the site until the end, so any slip shows up all at once.
+**Recommendation:** switch each one as it is ported, because the porting is the risky part and one at a time is how to check it.
+**If you don't decide:** nothing is switched. The site keeps loading its code from Webflow, and the repo only holds the source and the build.

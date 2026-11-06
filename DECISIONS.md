@@ -190,3 +190,4 @@ Low mode: (1) the Faulty Terminal is not started and its wrapper shows a still i
 - Throttled full site: keeps the animation but stayed at 6 to 22fps on the iPad Air 2 even with the terminal off.
 **Recommendation:** lite site on low.
 **If you don't decide:** n/a (decided). Until step 4 (automatic trigger) is built, lite runs only when `?perf=low` is in the address.
+**Addendum, 6 November 2026 (evening):** steps 1 to 3 are built (MWPPerf 0.4.4). Lite keeps time-based tweens (the hero intro runs) and kills only ScrollTrigger-bound animation. Michael's layout brief is in `docs/perf-findings-2026-11-06.md`. Shadows and blurs: lite strips them, but they are not to be removed on mid/touch generally until tested on very capable iPads and phones (Michael, 6 November 2026); the same rules could be set in Webflow instead. Michael's idea for later: a few simple hard-coded GSAP animations in lite.

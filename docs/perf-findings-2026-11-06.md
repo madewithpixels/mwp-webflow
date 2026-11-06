@@ -47,14 +47,21 @@ So "GSAP off" needs a designed static layout for About and Pricing (probably als
 Low means: **static image instead of the Faulty Terminal; all GSAP animation off; a separate low stylesheet for the static layouts.** See DECISIONS.md D-025.
 
 ## What is built (MWPPerf, hosted from jsDelivr, pinned by commit with SRI)
-- 0.1.x: tier detection, `?perf=` forcing, step-down on measured fps, remembered per session, `?perf-debug` overlay (worst reading, per-section table, last six readings), `?perf-kill=ft,testi,folio,fx,layers,clip,paint` diagnostics.
-- **0.2.0 (current): lite step 1.** With `?perf=low` in the address (forced only; nothing automatic) all ScrollTriggers are killed and reverted and all tweens cleared before the first scroll; `<html data-lite="1">` is set. Tested against the real GSAP 3.15.
+- 0.1.x: tier detection, `?perf=` forcing, step-down on measured fps, remembered per session, `?perf-debug` overlay (worst reading, per-section table, last six readings, and a LITE line), `?perf-kill=ft,testi,folio,fx,layers,clip,paint` diagnostics.
+- 0.2.0: lite step 1 (`?perf=low`: ScrollTriggers killed, `<html data-lite>`).
+- **0.3.x to 0.4.4 (current, script commit 12eefd3, stylesheet 652d59c): lite steps 2 and 3.** WebGL blocked in lite so the terminal never starts; `.ft-wrapper` shows `assets/ft-still.webp` (FT's own `.ft-static` layer made transparent). Only ScrollTriggers are killed; time-based tweens stay (hero intro runs). `dist/perf-low.min.css` (all rules `html[data-lite]`) loaded with SRI. The Testimonial quotes are moved into a plain list by script. The Home footer's bubbles-to-heart script is off in lite (one-line guard on `ENABLED`, unpublished).
 - The diagnostic `?perf-kill` switches stay in the script for now; remove at tidy-up.
 
+## Michael's lite layout brief (6 November 2026) and how it was built
+- Hero: unchanged. Folio wall: static, 100lvh, no "hundreds of projects" line; three rows each 100lvh/3 drifting sideways (his option B), cut-off top and bottom rows hidden. Intro: unchanged, redundant sticky removed, logo marquee may run. Our promise: 100lvh, logo-wrapper show-through hidden. "We work with" ticker: removed. Your website built to last: 100lvh. Pricing cards: landscape three side by side with 1px gaps at 100lvh, portrait stacked with 1px gaps. Pricing CTA: 100lvh beneath; big arrow dull until clicked. Work: unchanged (items forced visible). Testimonials: parted bubbles as static pinned bands, blockquotes scrolling through the gap. Contact: unchanged except the heart script off.
+- Rules: shadows and blurs are not blanket-removed on mid/touch until tested on very capable iPads and phones; capable machines must not report as mid; logo SVGs to be made white by Michael, then the lite `filter` rules can go.
+- Result at desktop: page length about 70,000px down to 16,000 to 24,000px.
+
 ## Still to do
-1. **Static terminal image** in lite (no WebGL started; wrapper shows a still). Capture a frame from the live hero for Michael to approve.
-2. **Low stylesheet** (`perf-low.css`), loaded only on low, scoped to `html[data-lite]`: static layouts for About, then Pricing, then the rest.
+1. **iPad Air 2 full-scroll retest** of 0.4.4 with `?perf=low&perf-debug` (last numbers before the layouts: Pricing 11, About 29, Portfolio 27 fps).
+2. **Simple hard-coded GSAP touches** in lite (Michael's idea), non-scrubbed, once the retest shows headroom.
 3. **Automatic trigger**: calibrate from the terminal's first frames at load (hero 17 to 19fps on the iPad Air 2, 59 elsewhere), remember the result in localStorage for weeks, decide before the first scroll. The Samsung's trouble starts later (Testimonial wall), so scroll measurement still has to catch it.
-4. **Faulty Terminal quality API** (mid tier) and pause-when-covered: see `docs/ft-quality-brief.md`.
-5. **Resize guard** for the iPhone's 36 toolbar-driven `innerHeight` changes; settle pass; R-123 small Folio images.
-6. Watch Portfolio: one 8fps reading at scrollY 26,787 on the iPad in lite + `ft` (single reading, may be a one-off).
+4. **Faulty Terminal quality API** (mid tier) and pause-when-covered: `docs/ft-quality-brief.md` (on hold).
+5. **Resize guard** for the iPhone's 36 toolbar-driven `innerHeight` changes; settle pass; R-123 small Folio images (tiles are larger in lite).
+6. Test no-shadow/blur on capable iPads and phones before any blanket removal.
+7. Watch Portfolio: one 8fps reading at scrollY 26,787 on the iPad in lite + `ft` (single reading).

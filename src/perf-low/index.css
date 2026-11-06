@@ -5,6 +5,14 @@
 html[data-lite] .folio-wall { height: 100vh !important; height: 100lvh !important; }
 html[data-lite] .folio-wall_sticky { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; overflow: hidden !important; }
 html[data-lite] .folio-wall_text { display: none !important; }
+/* each row drifts sideways on a slow CSS loop (compositor only, no GSAP); alternating directions; paused while the wall is off screen (flag set by MWPPerf) */
+@keyframes mwp-lite-drift-a { from { transform: translate3d(-240px, 0, 0); } to { transform: translate3d(240px, 0, 0); } }
+@keyframes mwp-lite-drift-b { from { transform: translate3d(240px, 0, 0); } to { transform: translate3d(-240px, 0, 0); } }
+html[data-lite] .folio-wall_row { animation: mwp-lite-drift-a 50s ease-in-out infinite alternate; }
+html[data-lite] .folio-wall_row:nth-child(even) { animation-name: mwp-lite-drift-b; animation-duration: 62s; }
+html[data-lite] .folio-wall_row:nth-child(3n) { animation-duration: 56s; }
+html[data-lite][data-lite-folio-off] .folio-wall_row { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { html[data-lite] .folio-wall_row { animation: none; } }
 
 /* The hero logo sits behind the page (sticky hero); hide it once the Folio wall has covered the hero (flag set by MWPPerf) */
 html[data-lite][data-lite-past] .logo-wrapper { visibility: hidden !important; }

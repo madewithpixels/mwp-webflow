@@ -24,6 +24,8 @@
 
 *Three tasks (R-121 to R-123) added on 5 November 2026 are written up from your messages and still need your confirmation of the guesses marked in them.*
 
+*Nine tasks added on 9 November 2026 (R-124 to R-132, brief #360) are written up from your list and still need your confirmation of the guesses marked in them.*
+
 **Next up (your order of 5 November 2026; 6 November: R-121 done and accepted, R-122 folded into the watcher; the watcher is built and tested on devices, and its "low" is now a lite site, D-025, in progress):** the perf watcher (the first part of R-102) with R-123 (smaller images swapped in), then R-117 (the rest of the code consolidation, switching each script to jsDelivr as it is ported).
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -35,9 +37,9 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122 |
-| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131 |
+| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
@@ -422,6 +424,13 @@
 **Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
 **Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
 
+### R-132 · Remove separators from all project pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612394 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** no project page shows a separator, at any width, on published staging; the Home page separators are unchanged and nothing else on the project pages moves. (inferred — confirm)
+**Note:** This replaces the R-114 plan to apply `mwp-bleed` to the project-page separator (that part is no longer needed; the Home page one still is) (inferred — confirm). Removing the element, or hiding it, are the two options; I'd hide it first so it can be undone, and removing the spacing it leaves (inferred — confirm). Related: R-082 (layout changes to project pages), R-088 (Icon-Link removed from project pages). D-006 and D-007 apply.
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -553,6 +562,55 @@
 **Check done (6 November 2026, nothing changed):** 153 tiles (9 rows of 17, as the notes say). On published staging (desktop Chrome, 2044px wide, page at the top) every tile already has `loading="lazy"` and a `srcset` (500px at most), and only 53 of the 153 had finished loading: rows 0-2 full, row 3 16, row 4 11, row 5 6, row 6 2, rows 7-8 none. So Webflow's default is already lazy; there is nothing to switch on. The Designer tools expose no loading setting. Michael chose to look at this himself ("maybe better for me to do this manually"). Still to check on the iPad Air 2: how many load up front there, since the browser's lazy distance is in screen heights and the wall sits near the hero; if it is too many, options are in R-123 (small set) or a small script that holds the `src` until the wall is near.
 **Note:** the decoded 500x500 images are the likely cause of the iPad memory problem. Lazy loading also helps R-123: the swap to a small set can happen before any image is requested. Related: R-102, R-056.
 
+### R-125 · Ensure folio and test wall elements do not have drop shadows @tablet and below
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612388 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** at tablet and phone widths, no element of the folio wall or the testi-wall ("test wall" read as testi-wall) has a drop shadow, box shadow or glow-style filter, on published staging; desktop is unchanged. (inferred — confirm)
+**Note:** R-093 (accepted 2 November 2026) and R-040 were meant to do this. Either something was missed (a child element, a wrapper, a filter set by script) or a later change brought a shadow back, so the first step is to find which element still shows one at those widths (inferred — confirm). "Tablet and below" is read as 991px and under (inferred — confirm). Related: R-102 (lite site strips shadows on weak devices). D-006 and D-007 apply.
+
+### R-126 · Post R-121 work - where DVH has been replaced with SVH we now have once full-height sections that appear short @mobile Explore a fix
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612389 in your boss list
+**From:** your task list, added 9 November 2026. "once" is read as "some" or "once-full-height" (inferred — confirm).
+**Done when:** at phone width, every section that was full height before R-121 fills the screen again, with no slate or gap showing below it, and the pinned animations still don't jump when the toolbar shows or hides, on published staging. Options for the fix are written up for you before any change. (inferred — confirm)
+**Note:** R-121 changed `dvh` to `svh`, then many to `lvh` (6 November 2026); the ones still on `svh` (listed in R-121 and `docs/r121-dvh-sweep.md`) are the likely short ones. Options I would describe: switch the remaining ones to `lvh`; or a small script that sets a measured height variable (the fallback noted in R-121). Overlaps R-127 and R-102; do them together. D-006 and D-007 apply: options first.
+
+### R-127 · Tidy up and layout issues post making all 100svh sections 100lvh @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612391 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** at phone width, the layout problems caused by the `svh` to `lvh` change (content hidden under the toolbar at the bottom of a pinned box, offsets or spacing now wrong) are found, listed for you, and fixed, on published staging on an iPhone. (inferred — confirm)
+**Note:** R-121 noted the trade-off: with the toolbar showing, the bottom of an `lvh` box sits under it. Which elements are affected is not yet known; I would start by listing them (inferred — confirm). Related: R-126, R-128, R-130. D-006 and D-007 apply.
+
+### R-128 · Tidy up that bubbles to quote mark anim @tablet > mobile.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612390 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** at tablet and phone widths, the Contact section's bubbles-to-quote-mark animation plays cleanly forwards and back, with nothing out of place, on published staging. (inferred — confirm)
+**Note:** Read as the Contact section's bubbles-to-heart/quote-mark morph (R-079, accepted; R-039). What needs tidying is not stated, so the first step is to watch it at those widths and list what looks off (inferred — confirm). The morph is switched off in the lite site (R-102), so test on a device that isn't lite. Related: R-127.
+
+### R-129 · Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612393 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** an iPad mini held in portrait gets the tablet layout, not the phone-landscape layout, on published staging. (inferred — confirm)
+**Note:** The iPad mini in portrait is 744 to 768px wide, which falls in the Designer's phone-landscape band (479 to 767px at the Designer's breakpoints) and not in the tablet band (inferred — confirm: I haven't read the exact breakpoints). Webflow breakpoints are width-only, so options will be: accept it; adjust a breakpoint width (affects every page, so costly); or add a script or media-query tweak for that case. Options first (D-007), and a breakpoint change is yours to approve. Needs a real iPad mini (or one-to-one frame sizes). Related: R-102 (iPad counted as desktop at 1024px).
+
+### R-130 · Fix the separator positions @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612392 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** at phone width, each separator sits exactly where it should between its sections, with no gap or overlap and nothing cut off, on published staging. (inferred — confirm)
+**Note:** Which separators are wrong, and how, is not stated, so the first step is to check each one at phone width and list them (inferred — confirm). This may be a knock-on from the `lvh` change (R-127). R-114 (full width, accepted) and R-098 (gap under the separator, accepted) are related. R-034 (using the separator during scroll animations) touches the same elements. D-006 and D-007 apply.
+
+### R-131 · @mobile refreshing the page when an anchor link is in the URL bar results in layout instability
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612395 in your boss list
+**From:** your task list, added 9 November 2026.
+**Done when:** on a phone, reloading a page with an anchor in the address (for example `/#pricing`) lands on the right section with the layout stable (no jumping, wrong heights or broken pinned sections), on published staging on an iPhone. (inferred — confirm)
+**Note:** Read as a reload on the Home page (inferred — confirm). Likely causes are the browser restoring the scroll position before the pinned sections are measured, and the toolbar height changing (R-121). The site already has a back-button restore and a nav jump through Lenis, so the fix probably belongs in those (custom code, D-005). Related: R-116 and the burger anchor item R-124, R-097, R-102 (resize guard and settle pass). Needs a real phone to test.
+
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 
@@ -661,6 +719,13 @@
 **From:** your task list, added 5 November 2026. The title is cut off in the list ("…when you"), so the rest of your sentence is missing.
 **Done when:** the burger menu on the Estimate page does what you expect, and when you use it (the part of your sentence I can't see) the Home page shows what it should, on published staging, at desktop, tablet and phone widths. (inferred — confirm)
 **Note:** I read this as a bug report: opening the burger menu on the Estimate page and choosing something sends you to the Home page, and the Home page then shows something wrong (inferred — confirm). The first step is to find out what, which is the part cut off. Related: R-106 (Estimate page anchor links, accepted), R-097 (burger nav acting oddly, waiting on SmashBurger) and R-077. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015).
+
+### R-124 · Burger menu anchor destinations on estimate page are hosed
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612387 in your boss list
+**From:** your task list, added 9 November 2026. Your list now words it "Home page burger menu anchor destinations from estimate page are broken - especially on mobile".
+**Done when:** from the Estimate page, each burger menu link that points at a section of the Home page lands on that section, on desktop, tablet and phone, on published staging. (inferred — confirm)
+**Note:** R-106 wired the Estimate page anchor links (accepted) and R-116 reported a related oddity (its text is cut off). This looks like a regression or the phone case R-106 didn't cover, probably the page loading with an anchor in the address and the layout not being ready (R-131) (inferred — confirm). First step: list each menu link, where it should go and where it lands, at phone width. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015). Do with R-116 and R-131.
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

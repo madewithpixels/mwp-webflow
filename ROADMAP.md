@@ -507,8 +507,9 @@
 **Done when:** on a phone, the left and right buttons on a project page sit vertically centred against the left and right edges of the screen, just as they do on desktop, on published staging. (inferred — confirm)
 **Note:** "Left and right nav buttons" is read as the previous and next project arrows (R-038; R-103 made them stable). Desktop is the reference and stays unchanged (inferred — confirm). Related: R-112 (their rounded corners) and R-082; same pages and elements, so do them together. Check at phone width with Claude in Chrome. D-006 and D-007 apply: no new class without approval, options first.
 
-### R-114 · Separators don't always span the full viewport width @tablet and below. They should
-**State:** in progress (class made; applying it is Michael's, see below) · **Evidence:** verified (live) for the diagnosis; fix not yet applied · **Acceptance:** pending
+### R-114 · Separators don't always span the full viewport width @tablet and below. They should *(accepted by Michael in boss, 9 Nov 2026)*
+**State:** built (by Michael, 9 November 2026) · **Evidence:** verified (live) for the diagnosis; fix not yet applied · **Acceptance:** accepted (9 November 2026)
+**Accepted by Michael in boss, 9 November 2026** — checked: Looked at brief #355's result.
 **Michael's pick (boss, brief #355, 5 November 2026):** "Add one new class that pulls a separator out to the screen edges, used on both".
 **Built:** class `mwp-bleed` in Webflow (tablet breakpoint and below: width 100vw, max-width 100vw, margin-left calc(50% - 50vw)). Not applied yet: applying it to an element that already has a class needs a combo class, which the MCP cannot do (as in R-112).
 **Needs Michael:** add `mwp-bleed` to the Home top separator and to the project-page separator in the Designer, publish to staging, then check at tablet and phone width.

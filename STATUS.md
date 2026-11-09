@@ -1896,3 +1896,8 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 5 November 2026 — Accepted by Michael in boss: R-110 (checked: not stated)
 - 5 November 2026 — Accepted by Michael in boss: R-111 (checked: not stated)
 
+## 9 November 2026, 13:58 — boss runner *(Michael's roadmap order, R-120)*
+Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
+- Michael moved R-120 before R-106 (dragged its task in boss).
+- Michael moved R-119 before R-106 (dragged its task in boss).
+

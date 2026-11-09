@@ -524,14 +524,6 @@
 **Done when:** on a phone, swiping left or right on a project page goes to the next or previous project, the same as the arrow buttons, without breaking vertical scrolling, on published staging. (inferred — confirm)
 **Note:** Read as touch swipe on phones and tablets (inferred — confirm). Which direction means next (swipe left, as in most galleries) is my guess (inferred — confirm). The arrows stay. This needs custom code, since Webflow has no swipe trigger (D-004, D-005); it would go on the project page and reuse the arrows' own links. Related: R-038 and R-103 (the arrows), R-112, R-113. Check on a real phone if Claude in Chrome can't simulate touch.
 
-### R-120 · Add the CSS that stops images being dragged to the project pages
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612386 in your boss list
-**From:** your task list, added 5 November 2026.
-**Done when:** on a project page, pressing and dragging an image no longer picks up a ghost copy of it, on desktop and phone, on published staging, and nothing else on the page changes. (inferred — confirm)
-**Note:** "The CSS" is read as `-webkit-user-drag: none` and `user-select: none` on the project pages' images, probably wanted so dragging doesn't fight the swipe in R-118 (inferred — confirm). It may already exist on other pages (inferred — confirm: I haven't looked); if so I'd copy that. It would go in the project page's custom code, not a new class (D-006). Doesn't stop right-click save.
-
-
 ### R-121 · Swap `dvh` for `svh` on pinned, sticky and full-height elements (phones and tablets)
 **State:** done · **Evidence:** staging test on iPhone 15 (6 November 2026) · **Acceptance:** accepted by Michael, 6 November 2026 ("R-121 accepted and backed up")
 **Task:** none in your boss list yet
@@ -562,6 +554,20 @@
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
+
+### R-120 · Add the CSS that stops images being dragged to the project pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612386 in your boss list
+**From:** your task list, added 5 November 2026.
+**Done when:** on a project page, pressing and dragging an image no longer picks up a ghost copy of it, on desktop and phone, on published staging, and nothing else on the page changes. (inferred — confirm)
+**Note:** "The CSS" is read as `-webkit-user-drag: none` and `user-select: none` on the project pages' images, probably wanted so dragging doesn't fight the swipe in R-118 (inferred — confirm). It may already exist on other pages (inferred — confirm: I haven't looked); if so I'd copy that. It would go in the project page's custom code, not a new class (D-006). Doesn't stop right-click save.
+
+### R-119 · next button in the estimator often needs two clicks to register @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612385 in your boss list
+**From:** your task list, added 5 November 2026.
+**Done when:** on a phone, one tap on Next in the estimator always moves to the next step, on every step, on published staging. (inferred — confirm)
+**Note:** Read as the bottom Next button on phone-width screens (the top one is hidden there, R-107) (inferred — confirm). First step is to find the cause (inferred — confirm). Things to look at: my small scripts on the Estimate page footer (R-107, R-108, R-111, R-110, R-109) changing the buttons as steps change, a first tap only dismissing something, or the tool disabling Next until an answer registers. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the fix may land there (inferred — confirm). Check on published staging at phone width with Claude in Chrome; touch behaviour may need a real phone, which I'd ask you to try.
 
 ### R-106 · Wire up the primary navigation anchor links on the estimate page *(accepted by Michael in boss, 5 Nov 2026)*
 **State:** built (5 November 2026, brief #315) · **Evidence:** verified (live, partly: the links and the jump to the home page; the landing is blank, see Note) · **Acceptance:** accepted (5 November 2026)
@@ -654,13 +660,6 @@
 **From:** your task list, added 5 November 2026. The title is cut off in the list ("…when you"), so the rest of your sentence is missing.
 **Done when:** the burger menu on the Estimate page does what you expect, and when you use it (the part of your sentence I can't see) the Home page shows what it should, on published staging, at desktop, tablet and phone widths. (inferred — confirm)
 **Note:** I read this as a bug report: opening the burger menu on the Estimate page and choosing something sends you to the Home page, and the Home page then shows something wrong (inferred — confirm). The first step is to find out what, which is the part cut off. Related: R-106 (Estimate page anchor links, accepted), R-097 (burger nav acting oddly, waiting on SmashBurger) and R-077. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015).
-
-### R-119 · next button in the estimator often needs two clicks to register @mobile
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612385 in your boss list
-**From:** your task list, added 5 November 2026.
-**Done when:** on a phone, one tap on Next in the estimator always moves to the next step, on every step, on published staging. (inferred — confirm)
-**Note:** Read as the bottom Next button on phone-width screens (the top one is hidden there, R-107) (inferred — confirm). First step is to find the cause (inferred — confirm). Things to look at: my small scripts on the Estimate page footer (R-107, R-108, R-111, R-110, R-109) changing the buttons as steps change, a first tap only dismissing something, or the tool disabling Next until an answer registers. The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the fix may land there (inferred — confirm). Check on published staging at phone width with Claude in Chrome; touch behaviour may need a real phone, which I'd ask you to try.
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

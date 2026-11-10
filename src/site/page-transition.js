@@ -137,7 +137,7 @@
       if (!isFolio(url.pathname) || !isFolio(location.pathname) || reduceMotion || busy) return;
       e.preventDefault();
       busy = true;
-      const dir = directionOf(a);
+      const dir = parseInt(a.getAttribute('data-mwp-swipe'), 10) || directionOf(a); // a swipe (MWPSwipeNav) names its own direction: the content follows the finger (R-135)
       try {
         sessionStorage.setItem(KEY, String(dir));
       } catch (err) {}

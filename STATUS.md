@@ -2,6 +2,18 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Swipe slide now follows the finger (R-135 / R-134, brief #371)
+**Michael's task:** "Transition from project page swipe action plays in wrong direction" (#43612399). Same work as the queued note under R-134.
+**Changed (Webflow, site madewithpixels, published to the webflow.io staging address only):**
+- Site settings > Custom code > **Footer**: one line in the page-transition script. The direction for the slide is now `parseInt(a.getAttribute('data-mwp-swipe'), 10) || directionOf(a)`: a swipe can name its own direction, a plain arrow click has no tag and behaves as before. The rest of the footer was written back unchanged.
+- Registered script **MWPSwipeNav** 1.0.1 (version 1.0.0 could not be edited, so a new version was registered) and applied to the footer in place of 1.0.0. It tags the tapped arrow with -1 (swipe left) or 1 (swipe right) for the click, then removes the tag.
+- No page, class, CMS, variable, component or interaction was touched. Interactions are not visible to the snapshot, so I do not claim they are unchanged.
+- Repo copies: `src/site/page-transition.js`, `src/site/swipe-nav.js`, `snapshots/custom-code.json` (site footer).
+**Checked how (verified live, Chrome on the Mac Studio, desktop width; touch events simulated):** published, then fetched the staging page HTML and confirmed it equals the previous footer plus exactly that one line, and loads mwpswipenav-1.0.1. Swipe left on Futura: the slide-out animation went to translateX(-643px) (left), stored direction -1. Swipe right: +643px (right), stored direction 1, and it went to the previous project (Jessop Financial Planning). Not checked: a real phone or tablet, Safari, the slide-in on the new page (it reads the stored direction with the existing code, so it should come from the opposite side), arrow clicks after this change (code path unchanged).
+**Needs Michael:** try it on a phone or tablet on staging (steps in the report). Acceptance stays pending. No backups made (not asked for).
+**Not done by me:** Michael publishes, checks and backs up (D-008).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Roadmap tidied: duplicates folded, Next up refreshed (brief #379)
 **Changed (docs only; R-118, R-120, R-133, R-134, R-135, R-129):**
 - R-118 now says "folded into R-134" (same task 43612384), as R-122 was folded into the watcher. Its text is kept.

@@ -1,5 +1,15 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — iPad mini portrait gets the tablet hero (R-129, brief #361)
+**Michael's task:** "Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint" (#43612393); note: "Which results in the hero section being set to height: 200lvh." Item R-129 already existed, so no new one; it is now filled in.
+**Cause (read on staging in a 744px frame):** `--_structure---hero-height` is 200svh at 767px and under (phone landscape), 100svh at 991px and under, 100svh at 479px and under. An iPad mini upright (744 to 768px) falls in the 767 band, so its hero was 2040px tall at a 996px-tall frame. (Staging says `svh`, not `lvh`.)
+**Changed (R-129), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered inline script "HeroTabletPortrait" 1.0.0 and applied it to the Home page header (applied list read back; the five existing Home scripts unchanged). It adds `@media (min-width: 480px) and (max-width: 767px) and (orientation: portrait) { body { --_structure---hero-height: 100svh } }`. No class, variable, page, CMS, interaction or site-code change. Repo copy: `src/site/hero-tablet-portrait.js`.
+**Checked how:** on staging in Chrome (Mac Studio), frames of different widths: 744 wide, 1000 tall: variable 100svh (was 200svh); 768 wide: 100svh; 667 by 375 (phone landscape): still 200svh; 390 wide: 100svh. Evidence: verified (live), frame sizes only. Acceptance: pending.
+**Not checked:** a real iPad mini in Safari (the address bar and the portrait test there), the hero's scroll animations at 744px, the rest of the Home page at that width (R-126, R-127, R-130 cover it). Publishing was a whole-site publish to staging. Interactions and scripts applied this way are not in the snapshot, so snapshots/ is unchanged. Webflow backups, via the dashboard (I did not try the Designer first): "boss · brief #361 · before" and "boss · brief #361 · after", both seen in the list.
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Needs Michael:** try the Home page on the iPad mini on staging, then check and back up (D-008).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Next button needing two taps (R-119, brief #358)
 **Michael's task:** "next button in the estimator often needs two clicks to register @mobile" (#43612385). Item R-119 already existed.
 **Changed (R-119), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered inline script "EstimateNextTap" 1.0.0 and applied it to the Estimate page footer, next to the six existing scripts (applied list read back, all still there). No class, element, CMS, variable or site-code change. Repo copy: `src/estimate/estimate-next-tap.js`, imported in `src/estimate/index.js`.

@@ -608,11 +608,12 @@
 **Note:** Read as the Contact section's bubbles-to-heart/quote-mark morph (R-079, accepted; R-039). What needs tidying is not stated, so the first step is to watch it at those widths and list what looks off (inferred — confirm). The morph is switched off in the lite site (R-102), so test on a device that isn't lite. Related: R-127.
 
 ### R-129 · Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live), by frame width on staging in Chrome on the Mac Studio, 10 November 2026; not on a real iPad mini · **Acceptance:** pending
 **Task:** 43612393 in your boss list
-**From:** your task list, added 9 November 2026.
-**Done when:** an iPad mini held in portrait gets the tablet layout, not the phone-landscape layout, on published staging. (inferred — confirm)
-**Note:** The iPad mini in portrait is 744 to 768px wide, which falls in the Designer's phone-landscape band (479 to 767px at the Designer's breakpoints) and not in the tablet band (inferred — confirm: I haven't read the exact breakpoints). Webflow breakpoints are width-only, so options will be: accept it; adjust a breakpoint width (affects every page, so costly); or add a script or media-query tweak for that case. Options first (D-007), and a breakpoint change is yours to approve. Needs a real iPad mini (or one-to-one frame sizes). Related: R-102 (iPad counted as desktop at 1024px).
+**From:** your task list, added 9 November 2026. Your note: "Which results in the hero section being set to height: 200lvh. We need a fix for that."
+**Done when:** an iPad mini held in portrait gets a one-screen hero, not the doubled phone-landscape hero, on published staging.
+**Built (10 November 2026, brief #361):** the Home page's hero height comes from the variable `--_structure---hero-height`, which Webflow sets to 200svh from 767px down (phone landscape; it was `svh` on staging, not `lvh`). An iPad mini upright is 744 to 768px wide, so it got that. New inline script "HeroTabletPortrait" 1.0.0 (Home page header) adds one rule: from 480 to 767px wide AND portrait, the variable is 100svh, the value the tablet band already uses. Phones in landscape keep 200svh; phones in portrait (479px and under) are untouched. Repo copy: `src/site/hero-tablet-portrait.js`.
+**Not covered:** the rest of the page still uses the phone-landscape layout at 744px (other sections' sizes); that is R-126, R-127 and R-130. The Designer's breakpoints are not changed.
 
 ### R-130 · Fix the separator positions @mobile
 **State:** planned · **Evidence:** none · **Acceptance:** pending

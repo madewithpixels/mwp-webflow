@@ -2,6 +2,13 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Work link measured in a true short frame (R-136, brief #372, second session)
+**Changed:** ROADMAP note on R-136 only. Nothing in Webflow, scripts or snapshots.
+**Checked how (staging, Chrome on the Mac Studio):** the window still won't go short, so I loaded the staging Home page in a same-origin frame 667 by 375 px and clicked each burger link after a fresh load. Section top: About 0, Pricing 0, Work −100, Testimonials −450, Contact 0. The Work heading lands at 292–369 px of 375, hard against the bottom edge.
+**Not checked:** a real phone; Safari; touch scrolling. The frame is an approximation, not a device.
+**Needs Michael:** what you see on your phone after tapping Work sideways (is "Work" at the bottom edge, or off the top?). I did not guess a fix: "lower" is ambiguous against the numbers.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Work link landing measured, not fixed (R-136, brief #372)
 **Michael's task:** "Anchor link destination to 'work' @mobile landscape is incorrect" (#43612400): "It needs to be lower so the word 'work' is in view".
 **Changed:** ROADMAP note on R-136 only. Nothing in Webflow, scripts or snapshots. State stays planned.

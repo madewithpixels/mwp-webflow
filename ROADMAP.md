@@ -90,8 +90,8 @@
 **Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
-### R-112 · Rounded corners on Left and right buttons in project pages
-**State:** built (5 November 2026, published to staging); part 2, moving the corner styles into the Designer, is half done: the two classes exist but are not applied · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** pending
+### R-112 · Rounded corners on Left and right buttons in project pages *(accepted by Michael in boss, 10 Nov 2026)*
+**State:** built (5 November 2026, published to staging); part 2, moving the corner styles into the Designer, is half done: the two classes exist but are not applied · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** accepted (10 November 2026)
 **Blocked:** the two new classes (`project-nav_arrow-prev`, `project-nav_arrow-next`, approved by Michael in boss on 5 November 2026) are made and read back, but the Webflow tool cannot put two classes on one element (it reads a pair as a combo class, which D-006 forbids). **Unblock:** Michael adds each class to its arrow in the Designer (Portfolio Nav component); then an agent removes the radius and edge rules from the component's code. **Unblocker:** Michael.
 **Task:** 43612375 in your boss list
 **From:** your task list, added 5 November 2026.
@@ -425,7 +425,8 @@
 **Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
 
 ### R-132 · Remove separators from all project pages
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live) by fetching all 39 project pages from staging: none has a separator, each still has its content and title; no look at it in a browser yet, so spacing at each width is unchecked · **Acceptance:** pending
+**Built:** the `Seperator` component instance was removed (not hidden) from the 38 project pages that had one and from the draft "Project Page" template. Farmer Norton already had none. No class, style, interaction or custom code touched; the Home page separators are unchanged. The unused `Seperator` placement can be put back by re-adding the component at the top of Project Wrapper.
 **Task:** 43612394 in your boss list
 **From:** your task list, added 9 November 2026.
 **Done when:** no project page shows a separator, at any width, on published staging; the Home page separators are unchanged and nothing else on the project pages moves. (inferred — confirm)

@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Separators removed from all project pages (R-132, brief #363)
+**Michael's task:** "Remove separators from all project pages" (#43612394).
+**Changed (R-132), Webflow, site madewithpixels, published to the webflow.io staging address only:** removed the `Seperator` component instance (the first child of `Project Wrapper`, above `Project Container`) from 38 project pages and from the draft "Project Page" template: all pages under /portfolio except farmer-norton, which already had none. Removed rather than hidden, because the brief says remove; re-adding the component at the top of the section undoes it. No class, style, variable, interaction, CMS item or custom code touched. Home unchanged.
+**Checked how:** after publishing, I fetched all 39 project pages from staging: none has an element with the `seperator` class, all 39 still have `project-container` and the title; Home still has its separators. Evidence: verified (live) by page source only. Acceptance: pending.
+**Not checked:** how the page looks (spacing above the title where the bar used to be) at desktop, tablet and phone widths, in a browser. Interactions are not readable through the tools, so I can't say none pointed at the separator. Webflow backups: none (the brief didn't ask). Snapshots: none changed; the snapshot format doesn't cover page elements.
+**Accepted by Michael in boss:** - 10 November 2026 — Accepted by Michael in boss: R-112 (checked: Looked at brief #354's result).
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (and R-043, already accepted).
+**Not done tonight:** the five tasks with no roadmap item (MWP landing pages, Launch MWP social campaign, Launch prep, Finish MWP site, Responsive layouts) and briefs #357, #358, #359, #361: they need their own sessions.
+**Needs Michael:** try it (steps in the report), then check and back up (D-008).
+— Claude (night shift)
+
 ## 9 November 2026 — Claude (night shift) — Nine new tasks written up (R-124 to R-132, brief #360)
 **Changed:** roadmap items only, no work done and nothing touched in Webflow or boss. R-124 burger anchors from the Estimate page; R-125 folio and testi-wall shadows at tablet and below; R-126 sections that look short after the svh change; R-127 layout tidy after the lvh change; R-128 bubbles-to-quote-mark at tablet and phone; R-129 iPad mini portrait breakpoint; R-130 separator positions at phone width; R-131 reload with an anchor in the address at phone width; R-132 remove separators from project pages. Each has a Task line, a done-when and guesses marked "(inferred — confirm)". Index and phase table updated.
 **Checked how:** read back the roadmap; no tests apply.

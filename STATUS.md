@@ -1,5 +1,11 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — One new task written up (R-142, brief #418)
+**Changed:** ROADMAP only: R-142 (task #43612409, Estimate page step 6 testimonials button), in Phase 4 after R-124, with a done-when and guesses marked (inferred — confirm). No Webflow, site or task changes.
+**Other tasks in the inbox list** (MWP landing pages, Launch MWP social campaign, Launch prep, Finish MWP site, Responsive layouts) are headings covered by the phases, so no items. Deleted-task and reorder notes are unchanged from the entry below.
+**Checked how:** read the roadmap; Evidence none.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Seven new tasks written up (R-135 to R-141, brief #369)
 **Changed:** ROADMAP only: seven new items from Michael's tasks #43612399 to #43612405, each with a done-when and guesses marked (inferred — confirm). R-135 in Phase 2; R-136 to R-141 in Phase 3. No Webflow, site or task changes.
 **Overlap for Michael to decide:** R-135 (swipe direction) is the same fault as the queued note under R-134; R-139 is the tablet case of R-124.

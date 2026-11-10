@@ -28,6 +28,8 @@
 
 *Seven tasks added on 10 November 2026 (R-135 to R-141, brief #369) are written up from your list and still need your confirmation of the guesses marked in them. R-135 overlaps the queued note under R-134.*
 
+*One task added on 10 November 2026 (R-142, brief #418) is written up from your list and still needs your confirmation of the guesses marked in it.*
+
 **Next up (your order of 5 November 2026; 6 November: R-121 done and accepted, R-122 folded into the watcher; the watcher is built and tested on devices, and its "low" is now a lite site, D-025, in progress):** the perf watcher (the first part of R-102) with R-123 (smaller images swapped in), then R-117 (the rest of the code consolidation, switching each script to jsDelivr as it is ported).
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -41,7 +43,7 @@
 | 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141 |
-| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124 |
+| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
@@ -798,6 +800,13 @@
 **From:** your task list, added 9 November 2026. Your list now words it "Home page burger menu anchor destinations from estimate page are broken - especially on mobile".
 **Done when:** from the Estimate page, each burger menu link that points at a section of the Home page lands on that section, on desktop, tablet and phone, on published staging. (inferred — confirm)
 **Note:** R-106 wired the Estimate page anchor links (accepted) and R-116 reported a related oddity (its text is cut off). This looks like a regression or the phone case R-106 didn't cover, probably the page loading with an anchor in the address and the layout not being ready (R-131) (inferred — confirm). First step: list each menu link, where it should go and where it lands, at phone width. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015). Do with R-116 and R-131.
+
+### R-142 · The /estimate page step 6 testimonials button links to the home page testimonials section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612409 in your boss list
+**From:** your task list, added 10 November 2026 (brief #418).
+**Done when:** on published staging, on the Estimate page at step 6, the testimonials button opens the Testimonials section of the Home page (not the top of the Home page), at desktop, tablet and phone width. (inferred — confirm)
+**Note:** Read as: the button on step 6 currently goes somewhere else (probably the plain Home page) and should land on the Testimonials section (inferred — confirm). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change may land there, or be a link change in Webflow (inferred — confirm). It may reuse the Estimate page anchor script from R-106. Related: R-124 and R-139, which cover the burger menu's anchor landings from the Estimate page; do this after them if the landing offset is still wrong. Check on published staging with Claude in Chrome.
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Swipe left and right on project pages (R-134, brief #357)
+**Michael's task:** "Enable swipe on the project pages for left and right nav" (#43612384). New item R-134 written first.
+**Changed (R-134), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered a new inline script "MWPSwipeNav" 1.0.0 and applied it to the site footer (Site settings > Custom code > Scripts), next to FaultyTerminal, MenuContactText and MWPPerf, which are unchanged (applied list read back). The footer code block was not edited. No page, class, CMS, variable or component change. Repo copy: `src/site/swipe-nav.js`, imported in `src/site/index.js` (dist not rebuilt: dormant until R-117).
+**Checked how:** on staging (Chrome, Mac Studio) the script is in the page; simulated touch events on Futura: a 10px swipe and a mostly-vertical swipe did nothing; swipe left went to the next project, swipe right to the previous one. Evidence: verified (live). Acceptance: pending.
+**Not checked:** a real finger on a phone or tablet (including whether vertical scrolling feels unaffected), Safari/iOS, the slide animation on touch. Interactions are not in the snapshot; snapshot files unchanged (format doesn't cover scripts applied this way). Webflow backups: none (not asked).
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Needs Michael:** try it on a phone or iPad on staging, then check and back up (D-008).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Images can't be dragged on project pages (R-133, brief #359)
 **Michael's task:** "Add the CSS that stops images being dragged to the project pages" (#43612386). New item R-133 written first.
 **Changed (R-133), Webflow, site madewithpixels, published to the webflow.io staging address only:** component "Portfolio Nav", its style code embed (the second embed): appended `img { -webkit-user-drag: none; user-drag: none; }` with a comment. Nothing else in the embed changed; read back and it matched. No class, page, CMS, variable or site-code change. Repo copy added to `src/portfolio/project-nav-arrows.css`. A before copy of the embed is in /tmp/boss-webflow-before-359 (outside the repo).

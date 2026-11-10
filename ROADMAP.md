@@ -37,7 +37,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
@@ -439,6 +439,14 @@
 **Done when:** on published staging, an image on a project page can't be dragged out of the page (the computed `-webkit-user-drag` on project-page images is `none`), on at least two project pages; nothing else on the pages changes. (inferred — confirm)
 **Note:** Your snippet is `-webkit-user-drag: none; user-drag: none;`. I'd put it in the "Portfolio Nav" component's style embed, which already sits on every project page (so no new class, D-006), aimed at images on those pages (inferred — confirm). Links are still draggable; the task says images only.
 **Built:** one rule, `img { -webkit-user-drag: none; user-drag: none; }`, added to the end of the style embed in the Portfolio Nav component (40 instances, all project pages and the template). No class, style, page or site code touched. Safari wasn't tested.
+
+### R-134 · Enable swipe on the project pages for left and right nav
+**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right) with the slide transition; short and mostly-vertical swipes did nothing (Chrome, Mac Studio; a real touch screen not tried) · **Acceptance:** pending
+**Task:** 43612384 in your boss list
+**From:** your task list, added 10 November 2026 (brief #357).
+**Done when:** on a phone or tablet, on a project page, swiping left goes to the next project and swiping right to the previous one, the same as pressing the arrows; scrolling up and down still works normally. (inferred — confirm)
+**Note:** Swipe left = next, swipe right = previous, the usual way round (inferred — confirm). A swipe taps the matching arrow, so the slide transition (R-083) plays. It needs a clear sideways drag of 60px or more, quick, and mostly horizontal; swipes that begin in something that scrolls sideways are ignored.
+**Built:** a small separate script "MWPSwipeNav" 1.0.0 (footer, project pages only), added alongside the others; the big footer block was not touched. Copy in `src/site/swipe-nav.js` (R-029).
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

@@ -2,6 +2,15 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Why the bar under the folio wall isn't full width on tablet landscape: found, fix needs your choice (R-141, brief #376)
+**Michael's task:** "@tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)" (#43612405).
+**Changed:** ROADMAP note on R-141 and this entry only. Nothing in Webflow, scripts or snapshots (no snapshot export); nothing published; no backups (not asked for). State stays planned; Evidence: verified (live, partly).
+**Cause:** `.mwp-bleed` only exists inside the 991px-and-under breakpoint, so at 992px and up (iPad landscape, 1024) it does nothing and the bar stops at the intro's side padding (77px short each side at 1024). Table in R-141.
+**Checked how:** published staging Home in same-origin frames at 667, 768, 820, 991, 992, 1024, 1180, 1440, 1920, bar rect and computed styles, and the published CSS rule text. The browser window wouldn't resize.
+**Not checked:** portrait: the bar is full width at 768 and 820 in the frame, so I couldn't reproduce it; no real iPad or Safari.
+**Needs Michael:** which fix (asked in boss). Acceptance stays pending.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Burger arrow: hidden for Safari, not yet published (R-140, brief #375)
 **Michael's task:** "@tablet Burger menu shows an arrow and the burger bar geometry shifted to the right - remove the arrow" (#43612404), with an iPad photo: a small triangle left of the bars in the orange circle.
 **Changed (Webflow, site madewithpixels, Site settings > Custom code > Head):** appended one `<style>` block hiding `::-webkit-details-marker` and `::marker` on `.mwp-css-nav_summary`. The rest of the head was written back unchanged and the echo matched. No class, page, element, CMS or footer change; not published; no backups (not asked for). Repo copy updated in `snapshots/custom-code.json`. Interactions and anything the MCP can't read are not in that snapshot.

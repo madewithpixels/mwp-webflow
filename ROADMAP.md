@@ -713,6 +713,20 @@ Recommended: 1, after the unexplained extra offset is understood.
 **Done when:** on a tablet, in portrait and landscape, the separator under the folio wall runs edge to edge, on published staging. (inferred — confirm)
 **Note:** R-114 built the `mwp-bleed` class (100vw, tablet and below) and Michael applied it; this separator still falls short. Likely a parent with overflow or padding, a transform on the wrapper, or the class not applying at the 768 to 991px band (inferred — confirm). First step: read the separator's computed width and its parents at 768, 820 and 991px. No new class without approval (D-006). Related: R-114, R-130, R-125.
 
+**Cause found, 10 November 2026 (brief #376; verified live: published staging Home, Chrome on the Mac Studio, same-origin frames; the browser window itself would not resize):** the only element with `mwp-bleed` is `.seperator.has-bg-slate.is-on-intro-top`, the bar at the top of the intro, straight under the folio wall. It is `position: absolute; left: 0; right: 0` inside `.intro_sticky`, which sits inside `.intro`'s side padding (`--_structure---section-padding`). The published rule is `.mwp-bleed { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw) }` and it exists **only inside the 991px-and-under media query**. Measured (bar left edge / width):
+| Frame | Bar | intro_sticky | Full width? |
+|---|---|---|---|
+| 667 | 0 / 667 | 58 / 567 | yes |
+| 768 | 0 / 768 | 58 / 653 | yes |
+| 820 | 0 / 820 | 62 / 697 | yes |
+| 991 | 0 / 991 (rule applies) | | yes |
+| **992** | **74 / 843** | 74 / 843 | **no** |
+| **1024 (iPad landscape)** | **77 / 870** | 77 / 870 | **no** |
+| 1180 | 89 / 1003 | | no |
+| 1440 | 72 / 1296 | | no (as desktop) |
+So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class does nothing and the bar stops at the padding, 77px short on each side. I could **not** reproduce the portrait fault: at 768 and 820 the bar is edge to edge, in the frame, at every scroll position I stepped through. A real iPad in Safari may differ (inferred: `100vw` and the sticky parent); a photo of the portrait case would settle it.
+**Proposed fix (needs Michael's approval, D-006/D-007; no new class):** make `.mwp-bleed` apply at every width: move its three longhand properties (`width: 100vw`, `max-width: 100vw`, `margin-left: calc(50% - 50vw)`) from the Tablet breakpoint to the base (Desktop) breakpoint, and remove them from Tablet. Side effect: on desktop (1440) the bar would also go edge to edge, where today it is inset like the other content, and `100vw` includes the scrollbar width on Windows desktops (a few px of sideways scroll). Alternative if desktop should stay inset: keep the class as is and add the same three properties at a new "iPad landscape" band only through custom code (a media query for 992 to 1180px, D-005), which avoids touching the desktop look.
+
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 

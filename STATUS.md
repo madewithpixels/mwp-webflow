@@ -1,5 +1,13 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Reload with an anchor in the address (R-131, brief #364)
+**Michael's task:** "@mobile refreshing the page when an anchor link is in the URL bar results in layout instability" (#43612395). Item R-131 already existed.
+**Changed (R-131):** nothing. No code, Webflow or snapshot change. State stays planned.
+**Checked how:** read the repo's scripts: nothing handles a page that loads with `#something` in the address. The only scroll restore is the project-page back button (`src/site/page-transition.js`) and the contents device's own hash. On staging in Chrome (Mac Studio) I loaded `/#pricing`: it landed exactly on the Pricing section (scrollY 35235, section top 35235), Lenis present, `history.scrollRestoration` still `auto`. The browser window would not resize (it reported 1730px wide), so this was a desktop width only, not a phone.
+**Not reproduced:** the fault is phone-only (toolbar height changing, the browser restoring its own scroll position before the pinned sections are measured, R-121/R-102). I can't imitate that honestly in desktop Chrome, and a blind fix to the scroll or reload code could break the back-button restore, so I stopped.
+**Needs Michael:** a phone result (see report). Suggested next step once known: take over scroll restoration on load when there is an anchor, and re-aim at the anchor after the page settles (custom code, D-005).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — One tap works everywhere (R-119, brief #367)
 **Michael's verdict (boss, brief #367):** he tried the estimator's Next button on his phone on staging and chose "One tap works everywhere" (not "Still needs two taps sometimes"). This confirms the EstimateNextTap 1.0.0 fix from brief #358 with a real finger; the suspects listed there (Next near the bottom edge, smooth scroll after an answer) are no longer needed.
 **Changed (R-119):** docs only. Evidence on the item now includes his real-phone result. Acceptance left pending: his answer reports the test; he hasn't pressed accept.

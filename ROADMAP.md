@@ -26,6 +26,8 @@
 
 *Nine tasks added on 9 November 2026 (R-124 to R-132, brief #360) are written up from your list and still need your confirmation of the guesses marked in them.*
 
+*Seven tasks added on 10 November 2026 (R-135 to R-141, brief #369) are written up from your list and still need your confirmation of the guesses marked in them. R-135 overlaps the queued note under R-134.*
+
 **Next up (your order of 5 November 2026; 6 November: R-121 done and accepted, R-122 folded into the watcher; the watcher is built and tested on devices, and its "low" is now a lite site, D-025, in progress):** the perf watcher (the first part of R-102) with R-123 (smaller images swapped in), then R-117 (the rest of the code consolidation, switching each script to jsDelivr as it is ported).
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -37,8 +39,8 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -450,6 +452,13 @@
 **Next (queued):** make a swipe slide the content off in the direction of the swipe (swipe left: content out to the left, next project in from the right; swipe right: the reverse). A swipe currently taps the opposite arrow, so the slide runs against the finger. Plan: give the page-transition script (site footer) a way to be told the direction for a swipe, set by swipe-nav.js; arrow clicks unchanged. Needs the Webflow tools (they dropped mid-session). State is back to in progress until it is applied and checked on staging.
 **Built:** a small separate script "MWPSwipeNav" 1.0.0 (footer, project pages only), added alongside the others; the big footer block was not touched. Copy in `src/site/swipe-nav.js` (R-029).
 
+### R-135 · Transition from project page swipe action plays in wrong direction
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612399 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a phone or tablet, swiping on a project page slides the content out in the direction of the swipe and the next or previous project in from the other side, on published staging. (inferred — confirm)
+**Note:** This is the same fault as the "Next (queued)" note under R-134, which already holds Michael's words and the plan; this item is the separate task he added for it, so the two should be done together and one closed by the other (inferred — confirm). Arrow clicks must stay as they are (R-083). Related: R-103.
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -630,6 +639,48 @@
 **From:** your task list, added 9 November 2026.
 **Done when:** on a phone, reloading a page with an anchor in the address (for example `/#pricing`) lands on the right section with the layout stable (no jumping, wrong heights or broken pinned sections), on published staging on an iPhone. (inferred — confirm)
 **Note:** Read as a reload on the Home page (inferred — confirm). Likely causes are the browser restoring the scroll position before the pinned sections are measured, and the toolbar height changing (R-121). The site already has a back-button restore and a nav jump through Lenis, so the fix probably belongs in those (custom code, D-005). Related: R-116 and the burger anchor item R-124, R-097, R-102 (resize guard and settle pass). Needs a real phone to test.
+
+### R-136 · Anchor link destination to 'work' @mobile landscape is incorrect
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612400 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a phone held sideways, the Work link (burger menu and any other anchor) lands on the top of the portfolio section, on published staging. (inferred — confirm)
+**Note:** Read as the burger menu's Work link on the Home page, in the phone-landscape band (767px and under, wide) (inferred — confirm). First step: measure where it lands against where it should (inferred — confirm). Likely related to the doubled landscape heights and pinned sections (R-121, R-126, R-127, R-129) and to R-131. Do with R-137 and R-138.
+
+### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612401 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a phone held sideways, the separator stays attached to the top edge of the portfolio section as you scroll into and through it, on published staging. (inferred — confirm)
+**Note:** Read as the separator above the sideways-scrolling portfolio section on the Home page (inferred — confirm). Phone landscape only; portrait and desktop are fine as far as I know (inferred — confirm). Related: R-130 (separator positions @mobile), R-034, R-114, R-098 (accepted). D-006 and D-007 apply: no new class without approval.
+
+### R-138 · @tablet (portrait and landscape) anchor link destinations are wrong
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612402 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a tablet, in portrait and in landscape, each primary navigation anchor link lands on the top of its section on the Home page, on published staging. (inferred — confirm)
+**Note:** Read as the burger menu's links (About, Pricing, Work, Testimonials, Contact) on the Home page at tablet widths, 768 to 991px, both orientations (inferred — confirm). First step: list each link, where it should land and where it does, in each orientation (inferred — confirm). Related: R-136 (same fault at phone landscape), R-131, R-124. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015).
+
+### R-139 · @tablet (portrait and landscape) anchor link destinations from /estimate page are wrong
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612403 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a tablet, in portrait and landscape, each burger menu link on the Estimate page lands on the right section of the Home page, on published staging. (inferred — confirm)
+**Note:** The tablet case of R-124 (phone and desktop on the Estimate page) and a follow-on to R-106 (accepted, script "EstimateMenuAnchors") (inferred — confirm). Best done after R-138, since the Home page landing itself is wrong at tablet. Same cautions as R-138.
+
+### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612404 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a tablet, the burger button shows only the burger bars, with no arrow, and the bars keep their normal shape, on published staging. (inferred — confirm)
+**Note:** Read as: at tablet widths the menu button shows an arrow alongside or instead of the burger bars, and Michael wants the arrow gone. "Burger bar geometry" may mean the bars' shape is also off (inferred — confirm). Which arrow, and at what widths, is for the first look to find. The button comes from the SmashBurger navbar library: check `isFromLibrary` before editing any `mwp-css-nav_*` class (D-006); the fix may belong to SmashBurger (R-030, R-097). D-007 applies: options first.
+
+### R-141 · @tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612405 in your boss list
+**From:** your task list, added 10 November 2026 (brief #369).
+**Done when:** on a tablet, in portrait and landscape, the separator under the folio wall runs edge to edge, on published staging. (inferred — confirm)
+**Note:** R-114 built the `mwp-bleed` class (100vw, tablet and below) and Michael applied it; this separator still falls short. Likely a parent with overflow or padding, a transform on the wrapper, or the class not applying at the 768 to 991px band (inferred — confirm). First step: read the separator's computed width and its parents at 768, 820 and 991px. No new class without approval (D-006). Related: R-114, R-130, R-125.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

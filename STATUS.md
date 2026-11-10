@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Seven new tasks written up (R-135 to R-141, brief #369)
+**Changed:** ROADMAP only: seven new items from Michael's tasks #43612399 to #43612405, each with a done-when and guesses marked (inferred — confirm). R-135 in Phase 2; R-136 to R-141 in Phase 3. No Webflow, site or task changes.
+**Overlap for Michael to decide:** R-135 (swipe direction) is the same fault as the queued note under R-134; R-139 is the tablet case of R-124.
+**Other tasks in the inbox list** (MWP landing pages, Launch MWP social campaign, Launch prep, Finish MWP site, Responsive layouts) are headings already covered by the phases, so no items.
+**Deleted tasks, kept for Michael to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Order moves** (his, kept): R-094 and R-034 before R-085; R-118 before R-120; R-120 and R-119 before R-106. None breaks a dependency I can see.
+**Checked how:** read the roadmap; Evidence none for all seven.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Reload with an anchor in the address (R-131, brief #364)
 **Michael's task:** "@mobile refreshing the page when an anchor link is in the URL bar results in layout instability" (#43612395). Item R-131 already existed.
 **Changed (R-131):** nothing. No code, Webflow or snapshot change. State stays planned.

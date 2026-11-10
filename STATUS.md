@@ -38,6 +38,12 @@
 **Needs Michael:** try Next on a phone on staging, then check and back up (D-008).
 — Claude (night shift)
 
+## 10 November 2026 — Claude (night shift) — R-134: Michael's reply, direction fix queued
+**Michael, in boss:** "It works - but: the navigation arrows ... move the page elements off-screen in the direction of the clicked arrow, this swipe feature moves the page elements off-screen in the opposite direction to the swipe"; then "Queue it and do the work".
+**Found:** a swipe taps the opposite arrow, so the slide runs against the finger. **Not done:** the fix needs an edit to the page-transition code in the site footer, and the Webflow tools had dropped in this session, so nothing in Webflow or the scripts changed. Docs only: R-134 set back to in progress with the plan.
+**Needs Michael:** nothing; the next session applies and checks it on staging.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Swipe left and right on project pages (R-134, brief #357)
 **Michael's task:** "Enable swipe on the project pages for left and right nav" (#43612384). New item R-134 written first.
 **Changed (R-134), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered a new inline script "MWPSwipeNav" 1.0.0 and applied it to the site footer (Site settings > Custom code > Scripts), next to FaultyTerminal, MenuContactText and MWPPerf, which are unchanged (applied list read back). The footer code block was not edited. No page, class, CMS, variable or component change. Repo copy: `src/site/swipe-nav.js`, imported in `src/site/index.js` (dist not rebuilt: dormant until R-117).

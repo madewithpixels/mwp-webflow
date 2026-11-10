@@ -441,11 +441,13 @@
 **Built:** one rule, `img { -webkit-user-drag: none; user-drag: none; }`, added to the end of the style embed in the Portfolio Nav component (40 instances, all project pages and the template). No class, style, page or site code touched. Safari wasn't tested.
 
 ### R-134 · Enable swipe on the project pages for left and right nav
-**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right) with the slide transition; short and mostly-vertical swipes did nothing (Chrome, Mac Studio; a real touch screen not tried) · **Acceptance:** pending
+**State:** in progress (swipe built and published to staging 10 November 2026; slide direction to be reversed for swipes) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right) with the slide transition; short and mostly-vertical swipes did nothing (Chrome, Mac Studio; a real touch screen not tried) · **Acceptance:** pending
 **Task:** 43612384 in your boss list
 **From:** your task list, added 10 November 2026 (brief #357).
 **Done when:** on a phone or tablet, on a project page, swiping left goes to the next project and swiping right to the previous one, the same as pressing the arrows; scrolling up and down still works normally. (inferred — confirm)
 **Note:** Swipe left = next, swipe right = previous, the usual way round (inferred — confirm). A swipe taps the matching arrow, so the slide transition (R-083) plays. It needs a clear sideways drag of 60px or more, quick, and mostly horizontal; swipes that begin in something that scrolls sideways are ignored.
+**Michael, 10 November 2026:** *"It works - but: the navigation arrows on the project page fire a page transition that moves the page elements off-screen in the direction of the clicked arrow, this swipe feature moves the page elements off-screen in the opposite direction to the swipe"*; then *"Queue it and do the work"*.
+**Next (queued):** make a swipe slide the content off in the direction of the swipe (swipe left: content out to the left, next project in from the right; swipe right: the reverse). A swipe currently taps the opposite arrow, so the slide runs against the finger. Plan: give the page-transition script (site footer) a way to be told the direction for a swipe, set by swipe-nav.js; arrow clicks unchanged. Needs the Webflow tools (they dropped mid-session). State is back to in progress until it is applied and checked on staging.
 **Built:** a small separate script "MWPSwipeNav" 1.0.0 (footer, project pages only), added alongside the others; the big footer block was not touched. Copy in `src/site/swipe-nav.js` (R-029).
 
 ## Phase 3 · Phone and tablet

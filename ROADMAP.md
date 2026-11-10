@@ -696,11 +696,15 @@ Recommended: 1, after the unexplained extra offset is understood.
 **Note:** The tablet case of R-124 (phone and desktop on the Estimate page) and a follow-on to R-106 (accepted, script "EstimateMenuAnchors") (inferred — confirm). Best done after R-138, since the Home page landing itself is wrong at tablet. Same cautions as R-138.
 
 ### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612404 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, the burger button shows only the burger bars, with no arrow, and the bars keep their normal shape, on published staging. (inferred — confirm)
 **Note:** Read as: at tablet widths the menu button shows an arrow alongside or instead of the burger bars, and Michael wants the arrow gone. "Burger bar geometry" may mean the bars' shape is also off (inferred — confirm). Which arrow, and at what widths, is for the first look to find. The button comes from the SmashBurger navbar library: check `isFromLibrary` before editing any `mwp-css-nav_*` class (D-006); the fix may belong to SmashBurger (R-030, R-097). D-007 applies: options first.
+
+**Cause (inferred, not seen in Safari):** the photo (iPad, Safari) shows a small solid triangle to the left of the three bars, inside the orange circle, pushing the bars right. That is the browser's own disclosure triangle: the burger is a `<details>` with a `<summary>` (`.mwp-css-nav_summary`, SmashBurger library), and its only rule is `list-style: none`, which Chrome honours but Safari does not always (it wants `::-webkit-details-marker`). The triangle takes inline space, which is the "bar geometry shifted to the right". Chrome on the Mac Studio shows no marker, so I could not reproduce it here. The old `.menu-button.back` arrow button is `display: none` on Home and is not the one in the photo.
+**Built 10 November 2026 (brief #375), not yet published:** one small `<style>` block appended to the end of the Site head custom code (D-005): `.mwp-css-nav_summary::-webkit-details-marker { display: none; }` and `.mwp-css-nav_summary::marker { content: ''; }`. No class was edited (pseudo-element rules can't be set through the MCP, D-006), so the SmashBurger library copy is untouched (R-097, R-030). Echo read back intact. Repo copy: `snapshots/custom-code.json` (site head). State: built · Evidence: none (needs Safari on an iPad, after Michael publishes staging).
+**Try:** on the iPad in Safari open madewithpixels-dev.webflow.io after publishing: the burger shows only the three bars, centred in the circle. If a triangle still shows, the cause is elsewhere and the next step is a screenshot of the full header.
 
 ### R-141 · @tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)
 **State:** planned · **Evidence:** none · **Acceptance:** pending

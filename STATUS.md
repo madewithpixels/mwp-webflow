@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Burger arrow: hidden for Safari, not yet published (R-140, brief #375)
+**Michael's task:** "@tablet Burger menu shows an arrow and the burger bar geometry shifted to the right - remove the arrow" (#43612404), with an iPad photo: a small triangle left of the bars in the orange circle.
+**Changed (Webflow, site madewithpixels, Site settings > Custom code > Head):** appended one `<style>` block hiding `::-webkit-details-marker` and `::marker` on `.mwp-css-nav_summary`. The rest of the head was written back unchanged and the echo matched. No class, page, element, CMS or footer change; not published; no backups (not asked for). Repo copy updated in `snapshots/custom-code.json`. Interactions and anything the MCP can't read are not in that snapshot.
+**Cause (inferred):** the burger is a `<details>/<summary>`; its only rule is `list-style: none`, so Safari shows the native disclosure triangle and the bars shift right. Chrome (Mac Studio, 667px frame) shows no marker and the summary has no ::before/::after, so I could not reproduce it.
+**Checked how:** staging Home in Chrome: computed styles of `.mwp-css-nav_summary` and its rules read; the old `.menu-button.back` is `display:none` on Home. The window would not resize (stayed 667 wide). **Not checked:** Safari, an iPad, the fix itself.
+**Needs Michael:** publish staging, then look at the burger on the iPad in Safari.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Where the menu links land at tablet sizes: measured, cause part found, fix options written (R-138, brief #374)
 **Michael's task:** "@tablet (portrait and landscape) anchor link destinations are wrong" (#43612402): "About and Pricing @ landscape; About and Testimonials @portrait".
 **Changed:** ROADMAP (R-138 table, cause, options) and this entry only. Nothing in Webflow, scripts or snapshots (so no snapshot export); nothing published; no backups (not asked for). State stays planned; Evidence: verified (live, partly).

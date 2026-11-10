@@ -434,8 +434,8 @@
 **Done when:** no project page shows a separator, at any width, on published staging; the Home page separators are unchanged and nothing else on the project pages moves. (inferred — confirm)
 **Note:** This replaces the R-114 plan to apply `mwp-bleed` to the project-page separator (that part is no longer needed; the Home page one still is) (inferred — confirm). Removing the element, or hiding it, are the two options; I'd hide it first so it can be undone, and removing the spacing it leaves (inferred — confirm). Related: R-082 (layout changes to project pages), R-088 (Icon-Link removed from project pages). D-006 and D-007 apply.
 
-### R-133 · Add the CSS that stops images being dragged to the project pages
-**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging the computed `-webkit-user-drag` of every image is `none` on Aquaculture and Farmer Norton (Chrome, Mac, 2044px wide); an actual drag by hand not tried · **Acceptance:** pending
+### R-133 · Add the CSS that stops images being dragged to the project pages *(accepted by Michael in boss, 10 Nov 2026)*
+**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging the computed `-webkit-user-drag` of every image is `none` on Aquaculture and Farmer Norton (Chrome, Mac, 2044px wide); an actual drag by hand not tried · **Acceptance:** accepted (10 November 2026)
 **Task:** 43612386 in your boss list
 **From:** your task list, added 10 November 2026 (brief #359).
 **Done when:** on published staging, an image on a project page can't be dragged out of the page (the computed `-webkit-user-drag` on project-page images is `none`), on at least two project pages; nothing else on the pages changes. (inferred — confirm)
@@ -618,8 +618,8 @@
 **Done when:** at tablet and phone widths, the Contact section's bubbles-to-quote-mark animation plays cleanly forwards and back, with nothing out of place, on published staging. (inferred — confirm)
 **Note:** Read as the Contact section's bubbles-to-heart/quote-mark morph (R-079, accepted; R-039). What needs tidying is not stated, so the first step is to watch it at those widths and list what looks off (inferred — confirm). The morph is switched off in the lite site (R-102), so test on a device that isn't lite. Related: R-127.
 
-### R-129 · Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint
-**State:** built · **Evidence:** verified (live), by frame width on staging in Chrome on the Mac Studio, 10 November 2026; not on a real iPad mini · **Acceptance:** pending
+### R-129 · Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint *(accepted by Michael in boss, 10 Nov 2026)*
+**State:** built · **Evidence:** verified (live), by frame width on staging in Chrome on the Mac Studio, 10 November 2026; not on a real iPad mini · **Acceptance:** accepted (10 November 2026)
 **Task:** 43612393 in your boss list
 **From:** your task list, added 9 November 2026. Your note: "Which results in the hero section being set to height: 200lvh. We need a fix for that."
 **Done when:** an iPad mini held in portrait gets a one-screen hero, not the doubled phone-landscape hero, on published staging.
@@ -692,8 +692,8 @@
 **Done when:** on a project page, pressing and dragging an image no longer picks up a ghost copy of it, on desktop and phone, on published staging, and nothing else on the page changes. (inferred — confirm)
 **Note:** "The CSS" is read as `-webkit-user-drag: none` and `user-select: none` on the project pages' images, probably wanted so dragging doesn't fight the swipe in R-118 (inferred — confirm). It may already exist on other pages (inferred — confirm: I haven't looked); if so I'd copy that. It would go in the project page's custom code, not a new class (D-006). Doesn't stop right-click save.
 
-### R-119 · next button in the estimator often needs two clicks to register @mobile
-**State:** built (10 November 2026, brief #358) — Michael tried it on his phone and answered "One tap works everywhere" (boss, brief #367, 10 November 2026) · **Evidence:** verified (live): simulated touch in Chrome at 386px, then a real finger on Michael's phone, his words "One tap works everywhere" · **Acceptance:** pending (his answer is a test result; he has not pressed accept)
+### R-119 · next button in the estimator often needs two clicks to register @mobile *(accepted by Michael in boss, 10 Nov 2026)*
+**State:** built (10 November 2026, brief #358) — Michael tried it on his phone and answered "One tap works everywhere" (boss, brief #367, 10 November 2026) · **Evidence:** verified (live): simulated touch in Chrome at 386px, then a real finger on Michael's phone, his words "One tap works everywhere" · **Acceptance:** accepted (10 November 2026)
 **Task:** 43612385 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** on a phone, one tap on Next in the estimator always moves to the next step, on every step, on published staging. (inferred — confirm)

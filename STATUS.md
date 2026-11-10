@@ -1994,3 +1994,9 @@ Written in from Michael's task list in boss. The order is his; the runner only m
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 9 November 2026 — Accepted by Michael in boss: R-114 (checked: Looked at brief #355's result.)
 
+## 10 November 2026, 15:36 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 10 November 2026 — Accepted by Michael in boss: R-133 (checked: not stated)
+- 10 November 2026 — Accepted by Michael in boss: R-129 (checked: not stated)
+- 10 November 2026 — Accepted by Michael in boss: R-119 (checked: not stated)
+

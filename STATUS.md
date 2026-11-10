@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Where the menu links land at tablet sizes: measured, cause part found, fix options written (R-138, brief #374)
+**Michael's task:** "@tablet (portrait and landscape) anchor link destinations are wrong" (#43612402): "About and Pricing @ landscape; About and Testimonials @portrait".
+**Changed:** ROADMAP (R-138 table, cause, options) and this entry only. Nothing in Webflow, scripts or snapshots (so no snapshot export); nothing published; no backups (not asked for). State stays planned; Evidence: verified (live, partly).
+**Checked how:** staging Home in same-origin frames at 768x1024, 820x1180 and 1024x768 (and 1440x900 as reference), each link after a fresh load, read at 0.6 to 5 seconds, plus scaled screenshots. The table is in R-138. What matches Michael's note: portrait About lands before its text has revealed; portrait Testimonials lands in the empty "Praise for" stretch; landscape About and Pricing use the desktop numbers, and the Pricing cards' top edge sits under the menu buttons.
+**Not checked:** a real iPad; Safari; the unexplained extra offset on Work and Testimonials below 992 (the script's calculation gives the raw top, but the jump is asked for 1.2 screens more). The window would not resize, so I used scaled frames.
+**Needs Michael:** which fix option (asked in boss). Acceptance stays pending.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Why the phone-landscape separator isn't at the top of Work: found, fix proposed (R-137, brief #373)
 **Michael's task:** "@mobile landscape separator isn't stuck to the top of the portfolio section" (#43612401), with a screenshot: the three-colour bar sits partway down the dark panel, not at its top edge.
 **Changed:** ROADMAP note on R-137 and this entry only. Nothing in Webflow, scripts or snapshots; nothing published; no backups (not asked for).

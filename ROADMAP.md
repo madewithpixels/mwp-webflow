@@ -671,6 +671,22 @@
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, in portrait and in landscape, each primary navigation anchor link lands on the top of its section on the Home page, on published staging. (inferred — confirm)
 **Note:** Read as the burger menu's links (About, Pricing, Work, Testimonials, Contact) on the Home page at tablet widths, 768 to 991px, both orientations (inferred — confirm). First step: list each link, where it should land and where it does, in each orientation (inferred — confirm). Related: R-136 (same fault at phone landscape), R-131, R-124. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015).
+**Measured 10 November 2026 (brief #374, staging Home, Chrome on the Mac Studio, same-origin frames, fresh load per link, read after 3 to 5 seconds):** how far past the section's top the page lands, in px, and what is on screen.
+| Link | 768x1024 portrait | 820x1180 portrait | 1024x768 landscape | 1440x900 (reference) |
+|---|---|---|---|---|
+| About | 0; intro text half faded in, blank above | 0; same | 1.3 screens in (999px); intro and ticker mid-wipe | 1.3 screens in; intro text clear |
+| Pricing | 0 (section top) | 0 | 0.45 through the lock (1210px); cards' top edge 92px down, under the menu buttons | cards' top 190px down, clear |
+| Work | 115 past | 123 past | 154 past (0.2 screen); "Work" heading 230px down | 0.2 screen; heading 208px down |
+| Testimonials | 1229 past (1.2 screens) | 1416 past (1.2 screens); only "Praise for" and edge bubbles | 960 past (1.25 screens) | 1.25 screens; heading 346px down |
+| Contact | 0 | 0 | 0 | not measured |
+Everything stayed put for 5 seconds, so the page isn't moving after the jump.
+**Cause (verified in part):** the jump script's landing rule (Home head, "Primary nav" block) uses per-section offsets stored on the sections (`data-nav-offset` About 1.3, Work 0.2, Testimonials 1.25; `data-nav-progress` 0.45 on Pricing), and its comment says they are desktop only. At 992px and up (so 1024 landscape) it applies the desktop numbers, which were tuned on a 1440x900 screen and put About and Pricing in the wrong state at 1024x768. Below 992 the script returns the section's raw top, so About lands before its text has revealed. Testimonials and Work land further in than that rule says (1.2 screens, and 0.15 of the width) and I could not find where that extra comes from: the script's own calculation, run in the page, gives the raw top, but the jump is asked for 1416px more. Unexplained; needs a closer look before any fix.
+**Not checked:** a real iPad; Safari; the real burger tap (menu opened by script, which gave the same numbers); the frames are an approximation. The window would not resize, so screenshots were of scaled frames.
+**Fix options (for Michael; none applied):**
+1. Per-size landing numbers, in the existing jump script (custom code, D-005): add tablet and landscape values (new custom attributes on each section, or a small table in the script) and apply them below 992 and for short landscape frames. Fixes About, Pricing, Testimonials the same way desktop was tuned. Risk: each number needs a look on a real iPad; the script is shared with desktop, so a slip could move desktop jumps.
+2. Make the desktop numbers size-proof (screens-in becomes a share of the section's own length). One rule for every size, less to tune. Risk: bigger change to a script Michael accepted; re-test desktop.
+3. Designer side: change the sections' own spacing at tablet (the pricing cards' top edge, the About reveal) so the raw top is a good landing. No script change. Risk: touches layout and animations at tablet (R-126, R-127), and new classes need approval (D-006).
+Recommended: 1, after the unexplained extra offset is understood.
 
 ### R-139 · @tablet (portrait and landscape) anchor link destinations from /estimate page are wrong
 **State:** planned · **Evidence:** none · **Acceptance:** pending

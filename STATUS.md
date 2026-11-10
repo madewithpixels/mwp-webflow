@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Work link landing measured, not fixed (R-136, brief #372)
+**Michael's task:** "Anchor link destination to 'work' @mobile landscape is incorrect" (#43612400): "It needs to be lower so the word 'work' is in view".
+**Changed:** ROADMAP note on R-136 only. Nothing in Webflow, scripts or snapshots. State stays planned.
+**Checked how (staging, Chrome on the Mac Studio, 667px wide, 722px tall):** clicked each burger link and read the section top. Work lands 100px past the top of the portfolio section; Testimonials lands 867px past (the section moves as the page settles); About, Pricing and Contact land at 0.
+**Not checked:** the window would not go short (375px tall), so a true phone-landscape frame was not possible; the "word in view" fault is probably tied to that height. No fix written blind, because the top of Work moves while the sections above it settle.
+**Needs Michael:** a phone result or the brief #377 measurement before a fix.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Swipe slide now follows the finger (R-135 / R-134, brief #371)
 **Michael's task:** "Transition from project page swipe action plays in wrong direction" (#43612399). Same work as the queued note under R-134.
 **Changed (Webflow, site madewithpixels, published to the webflow.io staging address only):**

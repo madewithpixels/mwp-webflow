@@ -653,6 +653,7 @@
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a phone held sideways, the Work link (burger menu and any other anchor) lands on the top of the portfolio section, on published staging. (inferred — confirm)
 **Note:** Read as the burger menu's Work link on the Home page, in the phone-landscape band (767px and under, wide) (inferred — confirm). First step: measure where it lands against where it should (inferred — confirm). Likely related to the doubled landscape heights and pinned sections (R-121, R-126, R-127, R-129) and to R-131. Do with R-137 and R-138.
+**Measured 10 November 2026 (brief #372, staging, Chrome on the Mac Studio, 667px wide but 722px tall — the window would not go short, so this is not a true phone-landscape frame):** after each burger link, section top against the viewport top: About 0, Pricing 0, Work (`#portfolio`) −100 (lands 100px past the top), Testimonials −867 (its position moves while the page settles), Contact 0. The links are plain `#id` anchors (`#portfolio`); no repo script handles them, so Webflow and Lenis do the jump. Hypothesis (inferred — confirm): the pinned and doubled-height sections above Work change height after the jump starts, so the target moves. Needs a real short frame (or a phone) before any fix; the brief #377 measurement covers this.
 
 ### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section
 **State:** planned · **Evidence:** none · **Acceptance:** pending

@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Images can't be dragged on project pages (R-133, brief #359)
+**Michael's task:** "Add the CSS that stops images being dragged to the project pages" (#43612386). New item R-133 written first.
+**Changed (R-133), Webflow, site madewithpixels, published to the webflow.io staging address only:** component "Portfolio Nav", its style code embed (the second embed): appended `img { -webkit-user-drag: none; user-drag: none; }` with a comment. Nothing else in the embed changed; read back and it matched. No class, page, CMS, variable or site-code change. Repo copy added to `src/portfolio/project-nav-arrows.css`. A before copy of the embed is in /tmp/boss-webflow-before-359 (outside the repo).
+**Checked how:** fetched two project pages from staging (the rule is in the source), and in Chrome on the Mac Studio (2044px wide) the computed `-webkit-user-drag` of all images on Aquaculture and Farmer Norton is `none`. Evidence: verified (live). Acceptance: pending.
+**Not checked:** an actual drag with the mouse; Safari and touch devices; tablet and phone widths. Interactions and anything the tools can't read are not in the snapshot; the snapshot format doesn't cover component code embeds, so snapshots/ is unchanged. Webflow backups: none (not asked).
+**Roadmap items whose task Michael deleted, left for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Needs Michael:** try it on staging, then check and back up (D-008).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Separators removed from all project pages (R-132, brief #363)
 **Michael's task:** "Remove separators from all project pages" (#43612394).
 **Changed (R-132), Webflow, site madewithpixels, published to the webflow.io staging address only:** removed the `Seperator` component instance (the first child of `Project Wrapper`, above `Project Container`) from 38 project pages and from the draft "Project Page" template: all pages under /portfolio except farmer-norton, which already had none. Removed rather than hidden, because the brief says remove; re-adding the component at the top of the section undoes it. No class, style, variable, interaction, CMS item or custom code touched. Home unchanged.

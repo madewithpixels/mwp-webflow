@@ -24,3 +24,8 @@ a.project-nav_arrow .grad-arrow-wrapper {
 a.project-nav_arrow .bg-strip-wrapper {
   display: none;
 }
+/* R-133 (brief #359): images on project pages can't be dragged out of the page (same embed in Webflow). */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}

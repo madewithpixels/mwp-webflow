@@ -37,7 +37,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
@@ -431,6 +431,14 @@
 **From:** your task list, added 9 November 2026.
 **Done when:** no project page shows a separator, at any width, on published staging; the Home page separators are unchanged and nothing else on the project pages moves. (inferred — confirm)
 **Note:** This replaces the R-114 plan to apply `mwp-bleed` to the project-page separator (that part is no longer needed; the Home page one still is) (inferred — confirm). Removing the element, or hiding it, are the two options; I'd hide it first so it can be undone, and removing the spacing it leaves (inferred — confirm). Related: R-082 (layout changes to project pages), R-088 (Icon-Link removed from project pages). D-006 and D-007 apply.
+
+### R-133 · Add the CSS that stops images being dragged to the project pages
+**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging the computed `-webkit-user-drag` of every image is `none` on Aquaculture and Farmer Norton (Chrome, Mac, 2044px wide); an actual drag by hand not tried · **Acceptance:** pending
+**Task:** 43612386 in your boss list
+**From:** your task list, added 10 November 2026 (brief #359).
+**Done when:** on published staging, an image on a project page can't be dragged out of the page (the computed `-webkit-user-drag` on project-page images is `none`), on at least two project pages; nothing else on the pages changes. (inferred — confirm)
+**Note:** Your snippet is `-webkit-user-drag: none; user-drag: none;`. I'd put it in the "Portfolio Nav" component's style embed, which already sits on every project page (so no new class, D-006), aimed at images on those pages (inferred — confirm). Links are still draggable; the task says images only.
+**Built:** one rule, `img { -webkit-user-drag: none; user-drag: none; }`, added to the end of the style embed in the Portfolio Nav component (40 instances, all project pages and the template). No class, style, page or site code touched. Safari wasn't tested.
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

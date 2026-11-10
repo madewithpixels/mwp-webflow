@@ -2,6 +2,24 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 10 November 2026 — Claude (night shift) — Why the phone-landscape separator isn't at the top of Work: found, fix proposed (R-137, brief #373)
+**Michael's task:** "@mobile landscape separator isn't stuck to the top of the portfolio section" (#43612401), with a screenshot: the three-colour bar sits partway down the dark panel, not at its top edge.
+**Changed:** ROADMAP note on R-137 and this entry only. Nothing in Webflow, scripts or snapshots; nothing published; no backups (not asked for).
+**Checked how (verified live, published staging Home, Chrome on the Mac Studio; same-origin frames, scrolled to the top of the page):** the separator is `.seperator.has-bg-slate.is-position-sticky-top.is-in-portfolio` (sticky, top 0, z-index 500), first child of the outer `.portfolio` wrapper. Its resting place is wrapper padding-top plus its own margin-top. Read in the frame:
+| Frame | Wrapper padding-top | Separator margin-top | Separator below section top |
+|---|---|---|---|
+| 390×844 | 29.25px | −29.25px | 0 |
+| 667×375 | 150.075px | −50.025px | **100px** |
+| 744×400 | 167.4px | −55.8px | **112px** |
+| 991×600 | 222.975px | −74.325px | **149px** |
+| 1440×900 | 0 | 0 | 0 |
+Scrolling through the section at 667×375: the bar sits 100px below the section top until the section top reaches −100px, then sticks at the top of the screen to the section's end. So it is "stuck" only after the first 100px of scroll.
+**Cause:** at the medium breakpoint (991px and under) the wrapper's padding-top and the separator's negative margin-top both come from variables, and in landscape (short, wide frames) they resolve to different values: padding is 40% of the frame height (150px at 375) while the margin is only 13.3% (50px). In portrait they resolve equal, so the bar lands at 0. The Designer shows only variable ids through the tools, so I could not read which variable each uses (inferred — confirm in the Designer).
+**Proposed fix (needs Michael's approval, D-006 and D-007; no new class):** make the separator's margin-top at the medium breakpoint use the same variable as the wrapper's padding-top (negated), so the two cancel in every frame. Classes: `.seperator.has-bg-slate.is-position-sticky-top.is-in-portfolio` (margin-top) and `.portfolio` (padding-top, medium and tiny). Longhand only; read back after writing. Risk: the wrapper's 150px padding probably also sets where the Work content starts, so the content must not move: change only the separator's margin-top.
+**Not checked:** a real phone; Safari; whether the sticky separator's position is also affected by the page-order redraw (D-017). The frame is an approximation.
+**Needs Michael:** approval of the fix above (asked in boss). Acceptance stays pending.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Work link measured in a true short frame (R-136, brief #372, second session)
 **Changed:** ROADMAP note on R-136 only. Nothing in Webflow, scripts or snapshots.
 **Checked how (staging, Chrome on the Mac Studio):** the window still won't go short, so I loaded the staging Home page in a same-origin frame 667 by 375 px and clicked each burger link after a fresh load. Section top: About 0, Pricing 0, Work −100, Testimonials −450, Contact 0. The Work heading lands at 292–369 px of 375, hard against the bottom edge.

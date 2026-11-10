@@ -662,6 +662,8 @@
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a phone held sideways, the separator stays attached to the top edge of the portfolio section as you scroll into and through it, on published staging. (inferred — confirm)
 **Note:** Read as the separator above the sideways-scrolling portfolio section on the Home page (inferred — confirm). Phone landscape only; portrait and desktop are fine as far as I know (inferred — confirm). Related: R-130 (separator positions @mobile), R-034, R-114, R-098 (accepted). D-006 and D-007 apply: no new class without approval.
+**Cause found (10 November 2026, brief #373, verified live in a 667×375 frame on staging):** the separator rests 100px below the top of the Work section (112px at 744×400, 149px at 991×600; 0 in portrait and on desktop) because the wrapper's padding-top (150px) is bigger than the separator's negative margin-top (−50px) at the medium breakpoint; in portrait the two are equal. It sticks to the top of the screen only once the section has scrolled 100px. Details in the STATUS entry of that date.
+**Proposed fix (awaiting Michael's approval):** on `.seperator.has-bg-slate.is-position-sticky-top.is-in-portfolio` at the medium breakpoint, make margin-top the negative of `.portfolio` padding-top (same variable), so they cancel. No new class. (inferred — confirm which variables in the Designer)
 
 ### R-138 · @tablet (portrait and landscape) anchor link destinations are wrong
 **State:** planned · **Evidence:** none · **Acceptance:** pending

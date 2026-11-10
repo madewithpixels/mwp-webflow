@@ -1,5 +1,16 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — Next button needing two taps (R-119, brief #358)
+**Michael's task:** "next button in the estimator often needs two clicks to register @mobile" (#43612385). Item R-119 already existed.
+**Changed (R-119), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered inline script "EstimateNextTap" 1.0.0 and applied it to the Estimate page footer, next to the six existing scripts (applied list read back, all still there). No class, element, CMS, variable or site-code change. Repo copy: `src/estimate/estimate-next-tap.js`, imported in `src/estimate/index.js`.
+**What it does:** switches off the 1px hover lift on touch screens, sets `touch-action: manipulation` on the buttons, and acts on touchend for Next and Back (a moved finger or a disabled Next does nothing; a repeat within 450ms is ignored).
+**Checked how:** on staging in Chrome (Mac Studio) in a 386px-wide frame: the script and style are present; simulated touch: tap with no answer did nothing, a dragged tap did nothing, one tap advanced exactly one step. Evidence: verified (live, simulated touch only). Acceptance: pending. Before the change I also checked that Next is enabled and receives the click straight after an answer, and that nothing moves for 1.4s after an answer tap.
+**Not checked:** a real finger on an iPhone or Android (the fault could not be reproduced without one, so the cause is inferred); Safari/iOS. Interactions and scripts applied this way are not in the snapshot, so snapshots/ is unchanged. Webflow backups, via the dashboard (the Designer URL went to the dashboard, no Designer tab connected): "boss · brief #358 · before" and "boss · brief #358 · after", both seen in the list.
+**Publish note:** publishing was a whole-site publish to staging, so any other unpublished changes went out with it.
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Needs Michael:** try Next on a phone on staging, then check and back up (D-008).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Swipe left and right on project pages (R-134, brief #357)
 **Michael's task:** "Enable swipe on the project pages for left and right nav" (#43612384). New item R-134 written first.
 **Changed (R-134), Webflow, site madewithpixels, published to the webflow.io staging address only:** registered a new inline script "MWPSwipeNav" 1.0.0 and applied it to the site footer (Site settings > Custom code > Scripts), next to FaultyTerminal, MenuContactText and MWPPerf, which are unchanged (applied list read back). The footer code block was not edited. No page, class, CMS, variable or component change. Repo copy: `src/site/swipe-nav.js`, imported in `src/site/index.js` (dist not rebuilt: dormant until R-117).

@@ -424,8 +424,8 @@
 **Note:** Taken to mean the Webflow class `Icon-Link` on the project page template (and any CMS-driven copies). Check what it links to and that nothing else relies on it before deleting. (inferred — confirm)
 **Built:** the class is `Icon Link` (`.icon-link`): a 24px external-link arrow (an HTML embed) after the title inside the title link. Project pages are separate static pages, not CMS items, so 20 of the 39 had one (those that link to the client's site), plus the draft "Project Page" template. All 21 removed and published to staging. Nothing else referenced it (no custom code, no interaction found). The title is still a link to the client's site; only the arrow is gone. The unused `Icon Link` class is left in the style list for Michael to delete or keep.
 
-### R-132 · Remove separators from all project pages
-**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live) by fetching all 39 project pages from staging: none has a separator, each still has its content and title; no look at it in a browser yet, so spacing at each width is unchecked · **Acceptance:** pending
+### R-132 · Remove separators from all project pages *(accepted by Michael in boss, 10 Nov 2026)*
+**State:** built (10 November 2026, published to staging) · **Evidence:** verified (live) by fetching all 39 project pages from staging: none has a separator, each still has its content and title; no look at it in a browser yet, so spacing at each width is unchecked · **Acceptance:** accepted (10 November 2026)
 **Built:** the `Seperator` component instance was removed (not hidden) from the 38 project pages that had one and from the draft "Project Page" template. Farmer Norton already had none. No class, style, interaction or custom code touched; the Home page separators are unchanged. The unused `Seperator` placement can be put back by re-adding the component at the top of Project Wrapper.
 **Task:** 43612394 in your boss list
 **From:** your task list, added 9 November 2026.
@@ -640,7 +640,7 @@
 **Note:** "The CSS" is read as `-webkit-user-drag: none` and `user-select: none` on the project pages' images, probably wanted so dragging doesn't fight the swipe in R-118 (inferred — confirm). It may already exist on other pages (inferred — confirm: I haven't looked); if so I'd copy that. It would go in the project page's custom code, not a new class (D-006). Doesn't stop right-click save.
 
 ### R-119 · next button in the estimator often needs two clicks to register @mobile
-**State:** built (10 November 2026, brief #358) — a likely cause is fixed, not yet confirmed on a phone · **Evidence:** verified (live, simulated touch only, Chrome, 386px frame) · **Acceptance:** pending
+**State:** built (10 November 2026, brief #358) — Michael tried it on his phone and answered "One tap works everywhere" (boss, brief #367, 10 November 2026) · **Evidence:** verified (live): simulated touch in Chrome at 386px, then a real finger on Michael's phone, his words "One tap works everywhere" · **Acceptance:** pending (his answer is a test result; he has not pressed accept)
 **Task:** 43612385 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** on a phone, one tap on Next in the estimator always moves to the next step, on every step, on published staging. (inferred — confirm)

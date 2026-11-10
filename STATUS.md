@@ -1,5 +1,14 @@
 # madewithpixels website — Status
 
+## 10 November 2026 — Claude (night shift) — One tap works everywhere (R-119, brief #367)
+**Michael's verdict (boss, brief #367):** he tried the estimator's Next button on his phone on staging and chose "One tap works everywhere" (not "Still needs two taps sometimes"). This confirms the EstimateNextTap 1.0.0 fix from brief #358 with a real finger; the suspects listed there (Next near the bottom edge, smooth scroll after an answer) are no longer needed.
+**Changed (R-119):** docs only. Evidence on the item now includes his real-phone result. Acceptance left pending: his answer reports the test; he hasn't pressed accept.
+- 10 November 2026 — Accepted by Michael in boss: R-132 (checked: Looked at brief #363's result).
+**Webflow:** nothing touched, no backups made (no Webflow tool used). Snapshots unchanged.
+**Tasks deleted in Michael's list, kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-115, R-047, R-049, R-059 (R-043 already accepted).
+**Needs Michael:** nothing new; R-134's phone check is still waiting.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — iPad mini portrait gets the tablet hero (R-129, brief #361)
 **Michael's task:** "Ipad mini's in portrait mode report as the same breakpoint as webflow's mobile landscape breakpoint" (#43612393); note: "Which results in the hero section being set to height: 200lvh." Item R-129 already existed, so no new one; it is now filled in.
 **Cause (read on staging in a 744px frame):** `--_structure---hero-height` is 200svh at 767px and under (phone landscape), 100svh at 991px and under, 100svh at 479px and under. An iPad mini upright (744 to 768px) falls in the 767 band, so its hero was 2040px tall at a 996px-tall frame. (Staging says `svh`, not `lvh`.)

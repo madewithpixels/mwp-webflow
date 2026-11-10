@@ -30,7 +30,7 @@
 
 *One task added on 10 November 2026 (R-142, brief #418) is written up from your list and still needs your confirmation of the guesses marked in it.*
 
-**Next up (your order of 5 November 2026; 6 November: R-121 done and accepted, R-122 folded into the watcher; the watcher is built and tested on devices, and its "low" is now a lite site, D-025, in progress):** the perf watcher (the first part of R-102) with R-123 (smaller images swapped in), then R-117 (the rest of the code consolidation, switching each script to jsDelivr as it is ported).
+**Next up (your order of 5 November 2026, refreshed 10 November 2026):** the swipe direction fix, the open part of R-134 (it now also covers R-135, and R-118 and R-120 are folded into R-134 and R-133); then the phone and tablet fixes written up from your list on 9 and 10 November (R-124 to R-131, R-136 to R-141), starting with where the menu links land (R-136, R-138, R-139); then the perf watcher with R-123 (smaller images swapped in), whose "low" is the lite site (D-025, in progress), and R-117 (the rest of the code consolidation, switching each script to jsDelivr). Landed and accepted since 6 November: R-119, R-129, R-132 and R-133. R-131 (reload with an anchor) is waiting on a phone result from you.
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
@@ -41,7 +41,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134) |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123 |
@@ -438,7 +438,8 @@
 
 ### R-133 · Add the CSS that stops images being dragged to the project pages *(accepted by Michael in boss, 10 Nov 2026)*
 **State:** built (10 November 2026, published to staging) · **Evidence:** verified (live): on staging the computed `-webkit-user-drag` of every image is `none` on Aquaculture and Farmer Norton (Chrome, Mac, 2044px wide); an actual drag by hand not tried · **Acceptance:** accepted (10 November 2026)
-**Task:** 43612386 in your boss list
+**Task:** 43612386 in your boss list (also carried by R-120, folded into this item)
+**Folded in:** R-120 (same task), 10 November 2026.
 **From:** your task list, added 10 November 2026 (brief #359).
 **Done when:** on published staging, an image on a project page can't be dragged out of the page (the computed `-webkit-user-drag` on project-page images is `none`), on at least two project pages; nothing else on the pages changes. (inferred — confirm)
 **Note:** Your snippet is `-webkit-user-drag: none; user-drag: none;`. I'd put it in the "Portfolio Nav" component's style embed, which already sits on every project page (so no new class, D-006), aimed at images on those pages (inferred — confirm). Links are still draggable; the task says images only.
@@ -446,7 +447,8 @@
 
 ### R-134 · Enable swipe on the project pages for left and right nav
 **State:** in progress (swipe built and published to staging 10 November 2026; slide direction to be reversed for swipes) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right) with the slide transition; short and mostly-vertical swipes did nothing (Chrome, Mac Studio; a real touch screen not tried) · **Acceptance:** pending
-**Task:** 43612384 in your boss list
+**Task:** 43612384 in your boss list (also carried by R-118, folded into this item)
+**Folded in:** R-118 (same task) and R-135 (the slide-direction fault, task 43612399), 10 November 2026.
 **From:** your task list, added 10 November 2026 (brief #357).
 **Done when:** on a phone or tablet, on a project page, swiping left goes to the next project and swiping right to the previous one, the same as pressing the arrows; scrolling up and down still works normally. (inferred — confirm)
 **Note:** Swipe left = next, swipe right = previous, the usual way round (inferred — confirm). A swipe taps the matching arrow, so the slide transition (R-083) plays. It needs a clear sideways drag of 60px or more, quick, and mostly horizontal; swipes that begin in something that scrolls sideways are ignored.
@@ -455,7 +457,8 @@
 **Built:** a small separate script "MWPSwipeNav" 1.0.0 (footer, project pages only), added alongside the others; the big footer block was not touched. Copy in `src/site/swipe-nav.js` (R-029).
 
 ### R-135 · Transition from project page swipe action plays in wrong direction
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** folded into R-134, 10 November 2026 (the work is the "Next (queued)" note under R-134; this item is kept for its history) · **Evidence:** see R-134 · **Acceptance:** n/a (see R-134)
+**Folded into:** R-134. The slide-direction fix is done and checked there; when R-134's Next (queued) work is built, this task (43612399) is covered by it.
 **Task:** 43612399 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a phone or tablet, swiping on a project page slides the content out in the direction of the swipe and the next or previous project in from the other side, on published staging. (inferred — confirm)
@@ -558,7 +561,8 @@
 **Note:** "Don't always" means some separators or some widths fall short, so the first step is to find which (inferred — confirm). "Tablet and below" is read as 991px and under, as set in the Designer (inferred — confirm). Related: R-098 (gap under the separator, accepted). D-006 and D-007 apply.
 
 ### R-118 · Enable swipe on the project pages for left and right nav
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** folded into R-134, 10 November 2026 (the work is there; this item is kept for its history) · **Evidence:** see R-134 · **Acceptance:** n/a (see R-134)
+**Folded into:** R-134, the same task (43612384). R-134 holds the plan, the build (MWPSwipeNav 1.0.0, published to staging 10 November 2026) and Michael's notes. Nothing below is dropped; it is the original write-up.
 **Task:** 43612384 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** on a phone, swiping left or right on a project page goes to the next or previous project, the same as the arrow buttons, without breaking vertical scrolling, on published staging. (inferred — confirm)
@@ -688,7 +692,8 @@
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
 
 ### R-120 · Add the CSS that stops images being dragged to the project pages
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** folded into R-133, 10 November 2026 (the work is there; this item is kept for its history) · **Evidence:** see R-133 · **Acceptance:** n/a (see R-133)
+**Folded into:** R-133, the same task (43612386). R-133 holds the build (one rule in the Portfolio Nav component, published to staging) and its evidence. Nothing below is dropped; it is the original write-up.
 **Task:** 43612386 in your boss list
 **From:** your task list, added 5 November 2026.
 **Done when:** on a project page, pressing and dragging an image no longer picks up a ghost copy of it, on desktop and phone, on published staging, and nothing else on the page changes. (inferred — confirm)

@@ -1,5 +1,21 @@
 # madewithpixels website — Status
 
+**Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
+
+## 10 November 2026 — Claude (night shift) — Roadmap tidied: duplicates folded, Next up refreshed (brief #379)
+**Changed (docs only; R-118, R-120, R-133, R-134, R-135, R-129):**
+- R-118 now says "folded into R-134" (same task 43612384), as R-122 was folded into the watcher. Its text is kept.
+- R-120 now says "folded into R-133" (same task 43612386). Its text is kept.
+- R-135 now says "folded into R-134"; the slide-direction work stays as the "Next (queued)" note under R-134.
+- R-133 and R-134 each gained a "Folded in" line naming what they absorbed.
+- Phase table: R-135 marked folded. R-129 needed no change (its entry is already current and accepted).
+- Next up paragraph rewritten for what has landed since 6 November (R-119, R-129, R-132, R-133 accepted; R-134 built; R-131 waiting on a phone result).
+- STATUS: reviewed-at header added at the top (16fe86f).
+**Not changed:** no item removed or dropped; no Acceptance set (folded items show "n/a (see …)", matching R-122); no decisions, scripts, Webflow, site or boss tasks touched. The reorder notes (R-118 before R-120) are kept in history; they no longer matter since both are folded.
+**Needs Michael:** nothing new. R-118 and R-120 each carried his task number shared with R-134 and R-133, so his task ticks follow those items.
+**Checked how:** read ROADMAP and git log; Evidence n/a (docs only).
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — One new task written up (R-142, brief #418)
 **Changed:** ROADMAP only: R-142 (task #43612409, Estimate page step 6 testimonials button), in Phase 4 after R-124, with a done-when and guesses marked (inferred — confirm). No Webflow, site or task changes.
 **Other tasks in the inbox list** (MWP landing pages, Launch MWP social campaign, Launch prep, Finish MWP site, Responsive layouts) are headings covered by the phases, so no items. Deleted-task and reorder notes are unchanged from the entry below.

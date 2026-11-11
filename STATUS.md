@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Where every menu link lands, tablet and phone landscape, measured; fix options written (R-136, R-138, R-139, brief #377)
+**Changed:** new note `docs/menu-link-landings-2026-11-11.md` (both tables and three fix options); measured tables and hypotheses added to R-136, R-138, R-139 in ROADMAP; this entry. Nothing in Webflow, scripts, classes or snapshots; nothing published; no backups (not asked for). States stay planned; Evidence: verified (live, partly).
+**Checked how:** published staging in Chrome on the Mac Studio, same-origin frames at 768x1024, 820x1180, 1024x768 and 667x375; each of the five links from Home and from Estimate, fresh load each, read 4.5 seconds after the click; Work from Estimate re-read at 2, 4.5, 8 and 14 seconds. The Home 768 and 667 numbers match the earlier sessions.
+**Found:** Work lands 100 to 154px late in every band; Testimonials 450 to 1,416px late; at 1024 landscape About and Pricing land 999 and 1,210px in (desktop numbers); from Estimate at 1024, Work, Testimonials and Contact land 2,688px short and stay there.
+**Not checked:** a real iPad or phone; Safari; a real burger tap; the unexplained extra on Work and Testimonials below 992px. The window would not resize, so these are frames.
+**Needs Michael:** which fix option (A recommended; asked in boss). Acceptance stays pending.
+— Claude (night shift)
+
 ## 10 November 2026 — Claude (night shift) — Why the bar under the folio wall isn't full width on tablet landscape: found, fix needs your choice (R-141, brief #376)
 **Michael's task:** "@tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)" (#43612405).
 **Changed:** ROADMAP note on R-141 and this entry only. Nothing in Webflow, scripts or snapshots (no snapshot export); nothing published; no backups (not asked for). State stays planned; Evidence: verified (live, partly).

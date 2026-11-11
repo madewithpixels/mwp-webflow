@@ -656,6 +656,8 @@
 **Measured 10 November 2026 (brief #372, staging, Chrome on the Mac Studio, 667px wide but 722px tall — the window would not go short, so this is not a true phone-landscape frame):** after each burger link, section top against the viewport top: About 0, Pricing 0, Work (`#portfolio`) −100 (lands 100px past the top), Testimonials −867 (its position moves while the page settles), Contact 0. The links are plain `#id` anchors (`#portfolio`); no repo script handles them, so Webflow and Lenis do the jump. Hypothesis (inferred — confirm): the pinned and doubled-height sections above Work change height after the jump starts, so the target moves. Needs a real short frame (or a phone) before any fix; the brief #377 measurement covers this.
 **Measured again 10 November 2026 (brief #372, second session), true short frame:** staging Home loaded in a same-origin frame 667px wide by 375px tall inside the Chrome tab (media queries and Lenis see 667x375), each burger link clicked after a fresh load, read after 3 seconds. Section top against the viewport top: About 0, Pricing 0, Work (`#portfolio`) −100, Testimonials −450, Contact 0. The Work heading sits at 292–369px of the 375px frame, so after the jump the word "Work" is squeezed against the bottom edge: the page has gone 100px past the section top, and the heading sits low inside the section. Reading of Michael's note: the landing should leave "Work" comfortably in view, so the section top should land at 0 (100px less scrolling) and the heading then sits lower still, which suggests the section's own top padding or the pinned layout needs a look too (inferred — confirm; a phone screenshot would settle it). The link is a plain `#portfolio` anchor; no fix written yet.
 
+**Measured 11 November 2026 (brief #377, staging, same-origin frames; full table in `docs/menu-link-landings-2026-11-11.md`):** Home, offset past the section top at 667x375: About 0, Pricing 0, **Work +100**, **Testimonials +450**, Contact 0 (the same at 768 and 820: Work +115 / +123). Hypothesis (inferred — confirm): Work lands about 0.15 of the frame past its top because the jump script's landing share is applied below 992px, which the desktop rule says it should not; the Work heading then sits low inside the section. Fix options A to C in the docs note (recommended A: per-size numbers in the existing script, D-005; C for the heading spacing only). The window would not resize, so frames, not a phone.
+
 ### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612401 in your boss list
@@ -688,12 +690,32 @@ Everything stayed put for 5 seconds, so the page isn't moving after the jump.
 3. Designer side: change the sections' own spacing at tablet (the pricing cards' top edge, the About reveal) so the raw top is a good landing. No script change. Risk: touches layout and animations at tablet (R-126, R-127), and new classes need approval (D-006).
 Recommended: 1, after the unexplained extra offset is understood.
 
+**Measured again 11 November 2026 (brief #377), offsets past the section top, Home:**
+| Link | 768x1024 | 820x1180 | 1024x768 | 667x375 |
+|---|---|---|---|---|
+| About | 0 | 0 | +999 | 0 |
+| Pricing | 0 | 0 | +1,210 | 0 |
+| Work | +115 | +123 | +154 | +100 |
+| Testimonials | +1,229 | +1,416 | +960 | +450 |
+| Contact | 0 | 0 | 0 | 0 |
+Hypothesis (inferred — confirm): at 1024 the desktop numbers apply and are wrong for a 1024x768 screen; below 992 the raw top is used but Work and Testimonials still land late (unexplained). Options A to C, with risks, in `docs/menu-link-landings-2026-11-11.md`.
+
 ### R-139 · @tablet (portrait and landscape) anchor link destinations from /estimate page are wrong
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612403 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, in portrait and landscape, each burger menu link on the Estimate page lands on the right section of the Home page, on published staging. (inferred — confirm)
 **Note:** The tablet case of R-124 (phone and desktop on the Estimate page) and a follow-on to R-106 (accepted, script "EstimateMenuAnchors") (inferred — confirm). Best done after R-138, since the Home page landing itself is wrong at tablet. Same cautions as R-138.
+
+**Measured 11 November 2026 (brief #377), from the Estimate page, offset past the section top on Home:**
+| Link | 768x1024 | 820x1180 | 1024x768 | 667x375 |
+|---|---|---|---|---|
+| About | 0 | 0 | 0 | 0 |
+| Pricing | 0 | 0 | 0 | 0 |
+| Work | +115 (settles; first read −3,991) | +123 | **−2,688** | +100 |
+| Testimonials | +1,229 | +1,416 | **−2,688** | +450 |
+| Contact | 0 | 0 | **−2,688** | 0 |
+It matches the Home result except at 1024 landscape, where Work, Testimonials and Contact land 2,688px short and stay there for 14 seconds. Hypothesis (inferred — confirm): the Estimate path jumps before the pinned spacers are built (D-017) and never re-aims; at 768 it re-settles and corrects. About and Pricing there land on the raw top (they lack the desktop numbers Home uses). Fix: make the Estimate path wait for or re-aim after the settle pass (option A in the docs note). Full table and options: `docs/menu-link-landings-2026-11-11.md`.
 
 ### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow
 **State:** built · **Evidence:** none · **Acceptance:** pending

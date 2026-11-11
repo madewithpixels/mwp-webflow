@@ -94,6 +94,13 @@
 **Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
+### R-145 · The project page navigation items point nowhere
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612416 in your boss list
+**From:** your task list, added 11 November 2026 (brief #530).
+**Done when:** on published staging, on each project page, every navigation item (the primary nav and burger menu links) goes to the right place: the Home page sections and the Estimate page, at desktop, tablet and phone width. (inferred — confirm)
+**Note:** Michael gave no detail. Read as the primary navigation and burger menu links on the project pages having dead or wrong links, probably because they use in-page anchors (#work and so on) that only resolve on the Home page (inferred — confirm). It could instead mean the previous and next project arrows (R-038), which I think less likely (inferred — confirm). First step: list each nav item on a project page, where it should go and where it lands. Related: R-082 (project page layout), R-106 (Estimate page anchor links, accepted), R-124 and R-139 (anchor landings from the Estimate page). Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015). Check on published staging; Michael publishes.
+
 ### R-112 · Rounded corners on Left and right buttons in project pages *(accepted by Michael in boss, 10 Nov 2026)*
 **State:** built (5 November 2026, published to staging); part 2, moving the corner styles into the Designer, is half done: the two classes exist but are not applied · **Evidence:** verified (live), staging /portfolio/futura, Chrome on the Mac Studio at 2044px wide only; phone width not checked · **Acceptance:** accepted (10 November 2026)
 **Blocked:** the two new classes (`project-nav_arrow-prev`, `project-nav_arrow-next`, approved by Michael in boss on 5 November 2026) are made and read back, but the Webflow tool cannot put two classes on one element (it reads a pair as a combo class, which D-006 forbids). **Unblock:** Michael adds each class to its arrow in the Designer (Portfolio Nav component); then an agent removes the radius and edge rules from the component's code. **Unblocker:** Michael.

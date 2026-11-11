@@ -2,6 +2,16 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Roadmap item written for "The project page navigation items point nowhere" (R-145, brief #530)
+**Changed:** ROADMAP only: new R-145 (task 43612416), planned, placed in Phase 2 after R-082 beside the other project page items. Nothing built, nothing touched in Webflow.
+**Checked how:** read the roadmap; R-145 was the next free number.
+**Still open:** Michael gave no detail. I read "navigation items" as the primary nav and burger menu links on project pages (probably in-page anchors that only work on the Home page); the previous/next arrows are the other reading. Both marked (inferred — confirm) in the item. Not asked as a question, as it blocks nothing yet: the first step is a listing of each link and where it lands.
+**Left for Michael to decide (not blocking), from boss's inbox:**
+- Tasks he deleted whose roadmap items I have not dropped: R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-115, R-047, R-049, R-059.
+- Tasks with no roadmap item that I did not write up, as brief #530 named only the one above: #43612130 MWP landing pages, #43612133 Launch MWP social campaign, #43612126 Launch prep, #43612111 Finish MWP site, #43612304 Responsive layouts (the last four read as group headings, not work).
+**Next useful action:** list the project page nav links and where each lands (R-145).
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Work link on a sideways phone: heading now in view (R-136, brief #372)
 **Changed:** Michael answered that the word Work is cut off at the bottom after tapping Work. In the repo only, `src/home/mobile-nav-landing.js` is now 1.2.0: in landscape at 991px and under, Work lands with the "Work" heading a quarter of the screen down. Nothing in Webflow, nothing published, no snapshots. Like 1.1.0, it is not yet registered in Webflow.
 **Checked how:** staging frames (Chrome, Mac Studio), scrolling to the new landing point: heading top/bottom at 667x375 94/171, 740x360 90/172, 844x390 98/187, 991x600 150/249; bar at 0 in all. Not a real phone. Staging does not yet carry the R-137 bar fix (bar still 100px down), so the old landing would have been right at the heading's current spot; with the bar fix the old rule would have put the heading off-screen, so 1.2.0 is needed with it.

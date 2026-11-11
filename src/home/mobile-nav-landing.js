@@ -1,4 +1,8 @@
-/* "mobilenavlanding" 1.1.0 (R-138, brief #467, Claude night shift, 11 November 2026). NOT YET IN WEBFLOW: the live copy is 1.0.0,
+/* "mobilenavlanding" 1.2.0 (R-136, brief #372, Claude night shift, 11 November 2026): on a phone held sideways (landscape, 991 and
+   under) the Work link lands with the "Work" heading a quarter of the screen down. Before, it landed at the separator, which left the
+   heading squeezed against the bottom edge (667x375: heading at 292-369 of 375; and once R-137 moves the bar up it would be off screen).
+   NOT YET IN WEBFLOW, like 1.1.0 below.
+   "mobilenavlanding" 1.1.0 (R-138, brief #467, Claude night shift, 11 November 2026). NOT YET IN WEBFLOW: the live copy is 1.0.0,
    registered as a hosted script, so applying this means registering 1.1.0 and swapping it on the Home page. Not bundled into dist.
    1.0.0 (reconstructed from the live file on staging, 11 November 2026; this repo had no copy before) is everything below except the
    block marked "1.1.0".
@@ -35,6 +39,8 @@
     if (k === 'about' && innerWidth < 480 && (c = q('.about-section.top'))) return pin(c, 0.5);
     if (k === 'pricing' && innerWidth < 480) return pin(e, 0.2);
     if (k === 'portfolio') {
+      // 1.2.0: sideways phone or small tablet (landscape, 991 and under): land with the "Work" heading a quarter of the screen down
+      if (innerWidth > innerHeight && (c = e.querySelector('.portfolio-header'))) return top(c) - 0.25 * H;
       c = e.querySelector('.seperator');
       var g = getComputedStyle(e);
       return top(e) + parseFloat(g.paddingTop) + (c ? parseFloat(getComputedStyle(c).marginTop) : 0);

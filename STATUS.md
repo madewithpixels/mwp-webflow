@@ -2,6 +2,12 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Work link on a sideways phone: heading now in view (R-136, brief #372)
+**Changed:** Michael answered that the word Work is cut off at the bottom after tapping Work. In the repo only, `src/home/mobile-nav-landing.js` is now 1.2.0: in landscape at 991px and under, Work lands with the "Work" heading a quarter of the screen down. Nothing in Webflow, nothing published, no snapshots. Like 1.1.0, it is not yet registered in Webflow.
+**Checked how:** staging frames (Chrome, Mac Studio), scrolling to the new landing point: heading top/bottom at 667x375 94/171, 740x360 90/172, 844x390 98/187, 991x600 150/249; bar at 0 in all. Not a real phone. Staging does not yet carry the R-137 bar fix (bar still 100px down), so the old landing would have been right at the heading's current spot; with the bar fix the old rule would have put the heading off-screen, so 1.2.0 is needed with it.
+**Needs Michael:** register 1.1.0/1.2.0 as the hosted script and publish with the R-137 bar fix; then try Work on his phone sideways.
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Bar moved to the top of Work at 991px and under (R-137, brief #466)
 **Changed (Webflow, site madewithpixels):** registered a new inline script "PortfolioBarUp" 1.0.0 (site scripts list) and applied it in the header of the Home page (ID 683cced100c63d0f60a847af), after the existing scripts, which I left as they were. No styles, elements, page code boxes or CMS changed. Copy in the repo: `src/home/portfolio-bar-up.js`. Not published (Michael publishes, D-008). Interactions and anything the Webflow tools can't read are not in the snapshot; the snapshot has no registered scripts, so it did not change.
 **Why a script:** the Webflow tools can't write a calc() on a combo class (D-006). The first version (top margin only) pulled the whole Work section up with the bar (heading 392 to 292px at 667 wide), so the script also gives the space back through the bar's bottom margin; nothing under the bar moves.

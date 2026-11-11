@@ -44,7 +44,7 @@
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134) |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
-| 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143 |
+| 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
@@ -885,6 +885,13 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** brief #460, 11 November 2026: "Add content usage policy", pointing at https://madewithpixels.co.uk/content-usage/ (the old site's page).
 **Done when:** on published staging, /content-usage shows the policy wording, its headings and the back link, and looks right at desktop, tablet and phone width.
 **Note:** The Webflow page "Content use" (slug content-usage, ID 6af3bb4a6db27614a481ed89) was made as a copy of the 404 page, so it has the same header and the existing "Utility Page Wrap", "Utility Page Content" and "Utlity link" classes. The wording is the old page's, word for word. Headings and paragraphs carry no class (D-006: no new class without approval), so how they look depends on the site's base text styles; that is the part to check. No footer, as on the 404 page. Not published (Michael publishes; a publish would also send the unpublished burger style from R-140). Still to settle: whether the footer should link to this page, and whether the old site's address is redirected (R-059).
+
+### R-144 · Style the content usage page
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612411 in your boss list
+**From:** your task list, added 11 November 2026 (brief #465).
+**Done when:** on published staging, /content-usage looks designed rather than plain: headings, paragraphs, links and spacing match the rest of the site, at desktop, tablet and phone width. (inferred — confirm)
+**Note:** Follows R-143, which put the policy wording on the page with no classes, so it only has the site's base text styles. Styling will need new classes or edits to the three utility classes it shares with the 404 page, and editing those would also change the 404 page. Per D-006, name the classes and properties and get Michael's approval first, and per D-007 describe the options before any visual change (inferred — confirm). Michael publishes.
 
 ### R-046 · Better layout for /estimate header hero *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

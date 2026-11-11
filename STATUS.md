@@ -2,6 +2,12 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Roadmap item written for "Style the content usage page" (R-144, brief #465)
+**Changed:** R-144 added after R-143 (task 43612411), with a done-when and inferred parts marked.
+**Not written up:** tasks 43612130 (MWP landing pages), 43612133 (Launch MWP social campaign), 43612126 (Launch prep), 43612111 (Finish MWP site) and 43612304 (Responsive layouts) read as headings or work outside this site's build; brief #465 named only the content usage task. Say if any should become an item.
+**Task deleted by Michael, roadmap item kept for him to decide:** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-115, R-047, R-049, R-059.
+**Needs Michael:** nothing blocking.
+
 ## 11 November 2026 — Claude (night shift) — Swipe slide checked by Michael on a real phone: "Works" (R-135 / R-134, brief #463)
 **Changed (docs only):** recorded Michael's verdict in boss on the question "Try swiping between projects on your phone and check the slide follows your finger": he answered **"Works"**. R-134 and R-135 now show Evidence from a real finger and Acceptance accepted (11 November 2026), as his verdict, not mine. Nothing in Webflow, scripts or snapshots; nothing published; no backups (not asked for).
 **Still open:** Safari-specific behaviour wasn't named in his answer; none recorded. Nothing else outstanding on R-135.

@@ -2,6 +2,12 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Swipe slide checked by Michael on a real phone: "Works" (R-135 / R-134, brief #463)
+**Changed (docs only):** recorded Michael's verdict in boss on the question "Try swiping between projects on your phone and check the slide follows your finger": he answered **"Works"**. R-134 and R-135 now show Evidence from a real finger and Acceptance accepted (11 November 2026), as his verdict, not mine. Nothing in Webflow, scripts or snapshots; nothing published; no backups (not asked for).
+**Still open:** Safari-specific behaviour wasn't named in his answer; none recorded. Nothing else outstanding on R-135.
+**Needs Michael:** nothing.
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Content usage policy page built on staging, not yet published (R-143, brief #460)
 **Changed (Webflow, site madewithpixels):** new page "Content use", slug `content-usage`, ID 6af3bb4a6db27614a481ed89, made as a copy of the 404 page. Its heading and body were replaced with the old site's policy wording (read from https://madewithpixels.co.uk/content-usage/, word for word, "Last updated: 8 November 2026"): intro, "What is not permitted", "AI systems and automated collection", "What remains allowed", "Ask for permission", and a back-to-home link. Page title and description set. Existing classes only (Utility Page Wrap, Utility Page Content, Utlity link); the h1 and the h2s and paragraphs have no class. No new class, style, component, CMS, script or site setting change. Nothing published; no backups (not asked for). New snapshot `snapshots/pages/content-usage.json` written by hand from the element read-back (not a full export; the other snapshot files were not re-exported). Interactions and anything the MCP can't read are not in it.
 **Checked how:** read the page's element tree back through the Webflow tools: text, heading levels and link all as intended. **Not checked:** how it looks. It isn't published, and the Designer doesn't render for me, so I haven't seen it in a browser at any width.

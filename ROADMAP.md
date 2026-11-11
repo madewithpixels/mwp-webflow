@@ -446,7 +446,7 @@
 **Built:** one rule, `img { -webkit-user-drag: none; user-drag: none; }`, added to the end of the style embed in the Portfolio Nav component (40 instances, all project pages and the template). No class, style, page or site code touched. Safari wasn't tested.
 
 ### R-134 · Enable swipe on the project pages for left and right nav
-**State:** built (swipe and slide direction published to staging 10 November 2026) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right); the exit slide now follows the finger: swipe left slid the content out to the left (translateX -643px), swipe right out to the right (+643px) and went to the previous project; short and mostly-vertical swipes did nothing (Chrome, Mac Studio, desktop width; a real touch screen not tried; the slide-in on the new page was not sampled, it uses the same stored direction) · **Acceptance:** pending
+**State:** built (swipe and slide direction published to staging 10 November 2026) · **Evidence:** verified (live): on staging, simulated one-finger swipes on Futura went to the next project (swipe left) and the previous one (swipe right); the exit slide now follows the finger: swipe left slid the content out to the left (translateX -643px), swipe right out to the right (+643px) and went to the previous project; short and mostly-vertical swipes did nothing (Chrome, Mac Studio, desktop width; a real touch screen not tried; the slide-in on the new page was not sampled, it uses the same stored direction); then tried by Michael with a real finger on his phone, 11 November 2026: "Works" (brief #463) · **Acceptance:** accepted (11 November 2026, Michael's verdict in boss on the slide direction, recorded by Claude; swipe left/right navigation itself he had already reported working on 10 November)
 **Task:** 43612384 in your boss list (also carried by R-118, folded into this item)
 **Folded in:** R-118 (same task) and R-135 (the slide-direction fault, task 43612399), 10 November 2026.
 **From:** your task list, added 10 November 2026 (brief #357).
@@ -458,7 +458,7 @@
 **Built:** a small separate script "MWPSwipeNav" 1.0.0 (footer, project pages only), added alongside the others; the big footer block was not touched. Copy in `src/site/swipe-nav.js` (R-029).
 
 ### R-135 · Transition from project page swipe action plays in wrong direction
-**State:** folded into R-134, 10 November 2026; the work is built (brief #371, see R-134) · **Evidence:** see R-134 · **Acceptance:** n/a (see R-134)
+**State:** folded into R-134, 10 November 2026; the work is built (brief #371, see R-134) · **Evidence:** see R-134; Michael tried a real swipe on his phone on 11 November 2026: "Works" (brief #463) · **Acceptance:** accepted (11 November 2026, Michael's verdict in boss, recorded by Claude; same work as R-134)
 **Folded into:** R-134. The slide-direction fix is done and checked there; when R-134's Next (queued) work is built, this task (43612399) is covered by it.
 **Task:** 43612399 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).

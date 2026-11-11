@@ -673,6 +673,7 @@ Check before applying: the same `.portfolio` rule also sets `margin-top: 0px` at
 
 ### R-138 · @tablet (portrait and landscape) anchor link destinations are wrong
 **State:** planned · **Evidence:** none · **Acceptance:** pending
+**Night note 11 November 2026 (brief #467, Michael chose per-size numbers):** the unexplained extra is the hosted script "mobilenavlanding" 1.0.0 (below 992px; landings are by design: Work with the separator at the top, Testimonials at the Praise heading). Estimate-to-Home at 1024 wide fixed in the repo as 1.1.0 (`src/home/mobile-nav-landing.js`), not yet in Webflow. See STATUS 11 November 2026.
 **Task:** 43612402 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, in portrait and in landscape, each primary navigation anchor link lands on the top of its section on the Home page, on published staging. (inferred — confirm)

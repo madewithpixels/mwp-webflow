@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Menu link landings: the "unexplained extra" found, iPad-sideways fix written (R-138, brief #467)
+**Found:** the extra distance on Work and Testimonials below 992px comes from a hosted script "mobilenavlanding" 1.0.0 (R-124 / R-131 era) that was not in this repo or the notes. It lands Work with its separator at the top (section top + padding + the separator's margin: 115px at 768 wide) and Testimonials at the Praise heading (22/192 of the section's scroll length), by design. So those two are not faulty landings; the section-top measurement in R-136/R-138 was the wrong yardstick. Work will land on the section top by itself once R-137 (bar moved up) is applied, because the script reads the bar's margin. Seen on screen at 768x1024: Testimonials lands showing "Praise for madewithpixels".
+**Changed (repo only):** `src/home/mobile-nav-landing.js`: 1.0.0 copied from the live file, plus 1.1.0 for 992 to 1199px wide: when Home opens with an anchor, it makes the menu's own click, so the desktop numbers apply and the Estimate path matches the Home path. Nothing written to Webflow (night-shift limit); not published; not bundled into dist.
+**Checked how (staging, Chrome on the Mac Studio, same-origin frame 1024x768, no real iPad):** opening /#portfolio, /#testimonials and /#contact left the page 2,688px short (reproduced); then a click on the matching menu link landed +154, +960 and 0, exactly what the menu gives on Home. About at 1024x768 (+999) shows the intro fully revealed, so I left it. **Not checked:** the new file running as loaded; a real iPad; Safari; desktop re-test (the change is gated to 992 to 1199px, so 1440 is untouched by design).
+**Still open:** register 1.1.0 in Webflow and swap it on Home (the live copy is a hosted file: needs a session allowed to write to Webflow); Pricing at 1024x768 sits 92px under the menu buttons (0.45 through the lock), left as is; phone landscape Work needs R-137 first.
+**Needs Michael:** a look on an iPad held sideways once 1.1.0 is applied: open Estimate, tap Work, Testimonials, Contact in the menu.
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Roadmap item written for "Style the content usage page" (R-144, brief #465)
 **Changed:** R-144 added after R-143 (task 43612411), with a done-when and inferred parts marked.
 **Not written up:** tasks 43612130 (MWP landing pages), 43612133 (Launch MWP social campaign), 43612126 (Launch prep), 43612111 (Finish MWP site) and 43612304 (Responsive layouts) read as headings or work outside this site's build; brief #465 named only the content usage task. Say if any should become an item.

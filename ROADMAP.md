@@ -660,6 +660,7 @@
 
 ### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section
 **State:** built (not yet published) · **Evidence:** verified (local, injected into live staging frames; not yet checked on a published copy) · **Acceptance:** pending
+**Try:** After you publish staging, open madewithpixels-dev.webflow.io on your phone held sideways and scroll to the Work section: the coloured bar should sit right at the top of it, not floating about 100 pixels below. Tapping Work in the menu should also leave the word "Work" comfortably in view (R-137, with R-136).
 **Task:** 43612401 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a phone held sideways, the separator stays attached to the top edge of the portfolio section as you scroll into and through it, on published staging. (inferred — confirm)
@@ -725,6 +726,7 @@ It matches the Home result except at 1024 landscape, where Work, Testimonials an
 
 ### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow
 **State:** built · **Evidence:** none · **Acceptance:** pending
+**Try:** After you publish staging, open madewithpixels-dev.webflow.io on your iPad in Safari: the menu button should show only the three bars, centred in the orange circle, with no small triangle beside them. If a triangle still shows, send me a photo of the whole top bar.
 **Task:** 43612404 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, the burger button shows only the burger bars, with no arrow, and the bars keep their normal shape, on published staging. (inferred — confirm)
@@ -733,7 +735,6 @@ It matches the Home result except at 1024 landscape, where Work, Testimonials an
 **Cause (inferred, not seen in Safari):** the photo (iPad, Safari) shows a small solid triangle to the left of the three bars, inside the orange circle, pushing the bars right. That is the browser's own disclosure triangle: the burger is a `<details>` with a `<summary>` (`.mwp-css-nav_summary`, SmashBurger library), and its only rule is `list-style: none`, which Chrome honours but Safari does not always (it wants `::-webkit-details-marker`). The triangle takes inline space, which is the "bar geometry shifted to the right". Chrome on the Mac Studio shows no marker, so I could not reproduce it here. The old `.menu-button.back` arrow button is `display: none` on Home and is not the one in the photo.
 **Built 10 November 2026 (brief #375), not yet published:** one small `<style>` block appended to the end of the Site head custom code (D-005): `.mwp-css-nav_summary::-webkit-details-marker { display: none; }` and `.mwp-css-nav_summary::marker { content: ''; }`. No class was edited (pseudo-element rules can't be set through the MCP, D-006), so the SmashBurger library copy is untouched (R-097, R-030). Echo read back intact. Repo copy: `snapshots/custom-code.json` (site head). State: built · Evidence: none (needs Safari on an iPad, after Michael publishes staging).
 **Library check (11 November 2026, brief #378, read only):** the site has two classes with this name: `mwp-css-nav_summary` with `isFromLibrary` false (the one the page uses: `list-style: none`, no border) and a SmashBurger library copy (`isFromLibrary` true, selector `.mwp-component-library--mwp-css-nav_summary`, with a 1px solid border). The pseudo-element rules can't be written through the MCP (D-006), so the style block in the site head is the smallest fix; if Michael prefers it in the Designer, set `::-webkit-details-marker` display none on the local class only. R-097 and R-030 cover the library copy, which stays untouched. Cause still inferred (needs Safari on the iPad).
-**Try:** on the iPad in Safari open madewithpixels-dev.webflow.io after publishing: the burger shows only the three bars, centred in the circle. If a triangle still shows, the cause is elsewhere and the next step is a screenshot of the full header.
 
 ### R-141 · @tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)
 **State:** planned · **Evidence:** none · **Acceptance:** pending
@@ -884,6 +885,7 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 
 ### R-143 · Content usage policy page
 **State:** built (not published) · **Evidence:** none · **Acceptance:** pending
+**Try:** After you publish staging, open madewithpixels-dev.webflow.io/content-usage on a computer, a tablet and a phone: you should see the content usage policy wording from the old site, with its headings and a link back. It is plain on purpose, as the styling comes next (R-143).
 **From:** brief #460, 11 November 2026: "Add content usage policy", pointing at https://madewithpixels.co.uk/content-usage/ (the old site's page).
 **Done when:** on published staging, /content-usage shows the policy wording, its headings and the back link, and looks right at desktop, tablet and phone width.
 **Note:** The Webflow page "Content use" (slug content-usage, ID 6af3bb4a6db27614a481ed89) was made as a copy of the 404 page, so it has the same header and the existing "Utility Page Wrap", "Utility Page Content" and "Utlity link" classes. The wording is the old page's, word for word. Headings and paragraphs carry no class (D-006: no new class without approval), so how they look depends on the site's base text styles; that is the part to check. No footer, as on the 404 page. Not published (Michael publishes; a publish would also send the unpublished burger style from R-140). Still to settle: whether the footer should link to this page, and whether the old site's address is redirected (R-059).

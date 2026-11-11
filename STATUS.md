@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Bar moved to the top of Work at 991px and under (R-137, brief #466)
+**Changed (Webflow, site madewithpixels):** registered a new inline script "PortfolioBarUp" 1.0.0 (site scripts list) and applied it in the header of the Home page (ID 683cced100c63d0f60a847af), after the existing scripts, which I left as they were. No styles, elements, page code boxes or CMS changed. Copy in the repo: `src/home/portfolio-bar-up.js`. Not published (Michael publishes, D-008). Interactions and anything the Webflow tools can't read are not in the snapshot; the snapshot has no registered scripts, so it did not change.
+**Why a script:** the Webflow tools can't write a calc() on a combo class (D-006). The first version (top margin only) pulled the whole Work section up with the bar (heading 392 to 292px at 667 wide), so the script also gives the space back through the bar's bottom margin; nothing under the bar moves.
+**Checked how (staging, Chrome on the Mac Studio, same-origin frames, CSS injected, no real device):** bar to section top 100 to 0 at 667x375, 115 to 0 at 768x1024, 149 to 0 at 991x600; section height and heading position unchanged; 390x844 unchanged. **Not checked:** the script as published; 480 to 500px widths; a real phone or iPad; Safari; the effect on the menu's Work landing (it should now land on the section top).
+**Evidence:** verified (local). Acceptance pending.
+**Needs Michael:** publish staging, then look at Work on a phone held sideways and on an iPad upright.
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Menu link landings: the "unexplained extra" found, iPad-sideways fix written (R-138, brief #467)
 **Found:** the extra distance on Work and Testimonials below 992px comes from a hosted script "mobilenavlanding" 1.0.0 (R-124 / R-131 era) that was not in this repo or the notes. It lands Work with its separator at the top (section top + padding + the separator's margin: 115px at 768 wide) and Testimonials at the Praise heading (22/192 of the section's scroll length), by design. So those two are not faulty landings; the section-top measurement in R-136/R-138 was the wrong yardstick. Work will land on the section top by itself once R-137 (bar moved up) is applied, because the script reads the bar's margin. Seen on screen at 768x1024: Testimonials lands showing "Praise for madewithpixels".
 **Changed (repo only):** `src/home/mobile-nav-landing.js`: 1.0.0 copied from the live file, plus 1.1.0 for 992 to 1199px wide: when Home opens with an anchor, it makes the menu's own click, so the desktop numbers apply and the Estimate path matches the Home path. Nothing written to Webflow (night-shift limit); not published; not bundled into dist.

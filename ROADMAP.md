@@ -658,8 +658,8 @@
 
 **Measured 11 November 2026 (brief #377, staging, same-origin frames; full table in `docs/menu-link-landings-2026-11-11.md`):** Home, offset past the section top at 667x375: About 0, Pricing 0, **Work +100**, **Testimonials +450**, Contact 0 (the same at 768 and 820: Work +115 / +123). Hypothesis (inferred — confirm): Work lands about 0.15 of the frame past its top because the jump script's landing share is applied below 992px, which the desktop rule says it should not; the Work heading then sits low inside the section. Fix options A to C in the docs note (recommended A: per-size numbers in the existing script, D-005; C for the heading spacing only). The window would not resize, so frames, not a phone.
 
-### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section
-**State:** built (not yet published) · **Evidence:** verified (local, injected into live staging frames; not yet checked on a published copy) · **Acceptance:** pending
+### R-137 · @mobile landscape separator isn't stuck to the top of the portfolio section *(accepted by Michael in boss, 11 Nov 2026)*
+**State:** built (not yet published) · **Evidence:** verified (local, injected into live staging frames; not yet checked on a published copy) · **Acceptance:** accepted (11 November 2026)
 **Try:** After you publish staging, open madewithpixels-dev.webflow.io on your phone held sideways and scroll to the Work section: the coloured bar should sit right at the top of it, not floating about 100 pixels below. Tapping Work in the menu should also leave the word "Work" comfortably in view (R-137, with R-136).
 **Task:** 43612401 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).

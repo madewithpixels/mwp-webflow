@@ -2,6 +2,15 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 11 November 2026 — Claude (night shift) — Separator, burger arrow and folio-wall bar: exact causes and fixes written (R-137, R-140, R-141, brief #378)
+**Changed:** ROADMAP notes on R-137, R-140, R-141 and this entry only. Nothing in Webflow (read only: styles, variables), scripts or snapshots; nothing published; no backups (not asked for); I opened one Chrome tab and closed it. States stay as they were; Evidence: verified (live, partly). Acceptance untouched.
+**R-137 cause (new, exact):** at 991px and under `.portfolio` has `padding-top: calc(Section Padding x 3)`; the bar's class `.seperator.has-bg-slate.is-position-sticky-top.is-in-portfolio` has `margin-top: calc(-1 x Section Padding)` (7.5vw). The bar sits 15vw below the section top: 100px at 667x375, 115px at 768x1024; 0 at 390x844 where `.portfolio` is reset to x1. So it also affects iPad portrait. Two fix options (A bar only, recommended; B section padding) are in ROADMAP.
+**R-140:** the page uses `mwp-css-nav_summary` (`isFromLibrary` false); the SmashBurger copy is separate and untouched (R-097, R-030). Cause still inferred (Safari); the head style block from brief #375 is the fix, not yet published.
+**R-141:** `mwp-bleed` exists only at the Tablet breakpoint; at 992px and up it does nothing. Exact properties and the proposed move are in ROADMAP. Portrait not reproduced.
+**Checked how:** Webflow MCP style and variable reads; published staging in same-origin frames at 390, 667, 768 (computed styles and the matching published CSS rules). **Not checked:** a real iPad or phone, Safari; the Designer's Style panel (the MCP hides the calc multipliers).
+**Needs Michael:** pick R-137 option A or B and the R-141 fix (both already asked in boss); publish staging and check the burger in Safari. Interactions and anything the MCP can't read are not in the snapshot.
+— Claude (night shift)
+
 ## 11 November 2026 — Claude (night shift) — Where every menu link lands, tablet and phone landscape, measured; fix options written (R-136, R-138, R-139, brief #377)
 **Changed:** new note `docs/menu-link-landings-2026-11-11.md` (both tables and three fix options); measured tables and hypotheses added to R-136, R-138, R-139 in ROADMAP; this entry. Nothing in Webflow, scripts, classes or snapshots; nothing published; no backups (not asked for). States stay planned; Evidence: verified (live, partly).
 **Checked how:** published staging in Chrome on the Mac Studio, same-origin frames at 768x1024, 820x1180, 1024x768 and 667x375; each of the five links from Home and from Estimate, fresh load each, read 4.5 seconds after the click; Work from Estimate re-read at 2, 4.5, 8 and 14 seconds. The Home 768 and 667 numbers match the earlier sessions.

@@ -1,0 +1,110 @@
+{
+  "body": [
+    {
+      "name": "SB Header",
+      "type": "ComponentInstance"
+    },
+    {
+      "children": [
+        {
+          "tag": "h1",
+          "text": "Content use",
+          "type": "Heading"
+        },
+        {
+          "children": [
+            {
+              "tag": "p",
+              "text": "This website and its portfolio contain original writing, designs, layouts, graphics, images, code and other creative work by madewithpixels and its contributors. Unless a page says otherwise, these materials are protected by copyright and other applicable rights.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "h2",
+              "text": "What is not permitted",
+              "type": "Heading"
+            },
+            {
+              "tag": "p",
+              "text": "Without prior written permission from the relevant rights holder, you may not commercially reproduce, republish, distribute, sell, license or adapt material from this website. This includes using portfolio work, case studies, imagery, copy, layouts or code as the basis for a commercial product, service, campaign or template.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "p",
+              "text": "You may not use this website or its portfolio as a reference to create or commission an AI-generated website that copies or substantially imitates madewithpixels’ website, designs, layouts, distinctive visual treatment or portfolio projects. This includes speculative redesigns, mock-ups, pitches, proposals or other representations that reuse or recast portfolio content without permission.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "p",
+              "text": "You may not republish portfolio content, in whole or in substantial part, on another website, portfolio, social account, marketplace, dataset or publication without permission. Do not present our work, or client work shown here, as your own.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "h2",
+              "text": "AI systems and automated collection",
+              "type": "Heading"
+            },
+            {
+              "tag": "p",
+              "text": "Unless we have given written permission, this website’s content is not offered for use in training, fine-tuning or evaluating generative AI models, or for building a searchable copy or substitute collection of the site. This is a reservation of rights and a notice of our permissions; it is not a technical block. Our robots.txt states this preference but allows crawling. Neither this notice nor robots.txt can prevent collection by every service or guarantee how collected material is handled.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "h2",
+              "text": "What remains allowed",
+              "type": "Heading"
+            },
+            {
+              "tag": "p",
+              "text": "You may browse the site for personal, non-commercial purposes, share links to its pages, and quote short extracts where permitted by applicable law, with clear attribution and a link to the source. Nothing here removes rights or exceptions that the law does not allow us to restrict. Some portfolio work may include material owned by clients or other third parties; their rights remain with them.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "h2",
+              "text": "Ask for permission",
+              "type": "Heading"
+            },
+            {
+              "tag": "p",
+              "text": "For a licence or permission request, email michael@madewithpixels.co.uk and describe the material, intended use, audience and duration. Permission must be confirmed in writing by the relevant rights holder.",
+              "type": "Paragraph"
+            },
+            {
+              "tag": "p",
+              "text": "Last updated: 8 November 2026",
+              "type": "Paragraph"
+            },
+            {
+              "link": {
+                "linkType": "page",
+                "pageId": "683cced100c63d0f60a847af"
+              },
+              "styleNames": [
+                "Utlity link"
+              ],
+              "text": "← Back to madewithpixels",
+              "type": "Link"
+            }
+          ],
+          "styleNames": [
+            "Utility Page Content"
+          ],
+          "type": "Block"
+        }
+      ],
+      "styleNames": [
+        "Utility Page Wrap"
+      ],
+      "type": "Block"
+    }
+  ],
+  "page": {
+    "draft": false,
+    "id": "6af3bb4a6db27614a481ed89",
+    "seo": {
+      "description": "How you may and may not use the writing, designs, portfolio and code on the madewithpixels website, including AI training and automated collection.",
+      "title": "Content use | madewithpixels"
+    },
+    "slug": "content-usage",
+    "title": "Content use"
+  }
+}

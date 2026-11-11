@@ -150,8 +150,8 @@
 **From:** your task list.
 **Note:** if "marquee" means the sector ticker, the angled bands (R-025) were parked as "needs work"; this may pick that up. (inferred — confirm)
 
-### R-083 · Page transitions
-**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1500px wide, project to project both arrows) · **Acceptance:** pending
+### R-083 · Page transitions *(accepted by Michael in boss, 11 Nov 2026)*
+**State:** built (1 November 2026) · **Evidence:** verified (live; published staging, Chrome on the Mac Studio, 1500px wide, project to project both arrows) · **Acceptance:** accepted (11 November 2026)
 **Michael, in boss, 31 October 2026:** not yet — *"It's not quite right yet - the image div scrollbar appears halfway through the transition. It looks like you're treating the scroll-bars differently than the other elements, perhaps they should just slide too instead of you trying to hide them?"*
 **Michael, in boss, 31 October 2026:** not yet — *"The scroll bars from the copy and image div stay in place which ruins the effect"*
 **Try:** On a project page, the left and right arrows now slide the whole project off sideways, bit by bit, and the next project slides in from the other side. The pixel effect is gone.
@@ -724,8 +724,8 @@ Hypothesis (inferred — confirm): at 1024 the desktop numbers apply and are wro
 | Contact | 0 | 0 | **−2,688** | 0 |
 It matches the Home result except at 1024 landscape, where Work, Testimonials and Contact land 2,688px short and stay there for 14 seconds. Hypothesis (inferred — confirm): the Estimate path jumps before the pinned spacers are built (D-017) and never re-aims; at 768 it re-settles and corrects. About and Pricing there land on the raw top (they lack the desktop numbers Home uses). Fix: make the Estimate path wait for or re-aim after the settle pass (option A in the docs note). Full table and options: `docs/menu-link-landings-2026-11-11.md`.
 
-### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow
-**State:** built · **Evidence:** none · **Acceptance:** pending
+### R-140 · @tablet Burger menu shows an arrow and the burger bar geometry - remove the arrow *(accepted by Michael in boss, 11 Nov 2026)*
+**State:** built · **Evidence:** none · **Acceptance:** accepted (11 November 2026)
 **Try:** After you publish staging, open madewithpixels-dev.webflow.io on your iPad in Safari: the menu button should show only the three bars, centred in the orange circle, with no small triangle beside them. If a triangle still shows, send me a photo of the whole top bar.
 **Task:** 43612404 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
@@ -736,8 +736,9 @@ It matches the Home result except at 1024 landscape, where Work, Testimonials an
 **Built 10 November 2026 (brief #375), not yet published:** one small `<style>` block appended to the end of the Site head custom code (D-005): `.mwp-css-nav_summary::-webkit-details-marker { display: none; }` and `.mwp-css-nav_summary::marker { content: ''; }`. No class was edited (pseudo-element rules can't be set through the MCP, D-006), so the SmashBurger library copy is untouched (R-097, R-030). Echo read back intact. Repo copy: `snapshots/custom-code.json` (site head). State: built · Evidence: none (needs Safari on an iPad, after Michael publishes staging).
 **Library check (11 November 2026, brief #378, read only):** the site has two classes with this name: `mwp-css-nav_summary` with `isFromLibrary` false (the one the page uses: `list-style: none`, no border) and a SmashBurger library copy (`isFromLibrary` true, selector `.mwp-component-library--mwp-css-nav_summary`, with a 1px solid border). The pseudo-element rules can't be written through the MCP (D-006), so the style block in the site head is the smallest fix; if Michael prefers it in the Designer, set `::-webkit-details-marker` display none on the local class only. R-097 and R-030 cover the library copy, which stays untouched. Cause still inferred (needs Safari on the iPad).
 
-### R-141 · @tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape)
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+### R-141 · @tablet separator underneath the folio-wall is not full-width despite the .mwp-bleed class being applied (portrait and landscape) *(accepted by Michael in boss, 11 Nov 2026)*
+**State:** built (by Michael, 11 November 2026) · **Evidence:** none · **Acceptance:** accepted (11 November 2026)
+**Accepted by Michael in boss, 11 November 2026** — checked: Looked at brief #376's result.
 **Task:** 43612405 in your boss list
 **From:** your task list, added 10 November 2026 (brief #369).
 **Done when:** on a tablet, in portrait and landscape, the separator under the folio wall runs edge to edge, on published staging. (inferred — confirm)
@@ -883,8 +884,8 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Done when:** on published staging, on the Estimate page at step 6, the testimonials button opens the Testimonials section of the Home page (not the top of the Home page), at desktop, tablet and phone width. (inferred — confirm)
 **Note:** Read as: the button on step 6 currently goes somewhere else (probably the plain Home page) and should land on the Testimonials section (inferred — confirm). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change may land there, or be a link change in Webflow (inferred — confirm). It may reuse the Estimate page anchor script from R-106. Related: R-124 and R-139, which cover the burger menu's anchor landings from the Estimate page; do this after them if the landing offset is still wrong. Check on published staging with Claude in Chrome.
 
-### R-143 · Content usage policy page
-**State:** built (not published) · **Evidence:** none · **Acceptance:** pending
+### R-143 · Content usage policy page *(accepted by Michael in boss, 11 Nov 2026)*
+**State:** built (not published) · **Evidence:** none · **Acceptance:** accepted (11 November 2026)
 **Try:** After you publish staging, open madewithpixels-dev.webflow.io/content-usage on a computer, a tablet and a phone: you should see the content usage policy wording from the old site, with its headings and a link back. It is plain on purpose, as the styling comes next (R-143).
 **From:** brief #460, 11 November 2026: "Add content usage policy", pointing at https://madewithpixels.co.uk/content-usage/ (the old site's page).
 **Done when:** on published staging, /content-usage shows the policy wording, its headings and the back link, and looks right at desktop, tablet and phone width.

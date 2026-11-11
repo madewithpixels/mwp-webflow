@@ -2154,3 +2154,10 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
 - 11 November 2026 — Accepted by Michael in boss: R-137 (checked: not stated)
 
+## 11 November 2026, 17:10 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 11 November 2026 — Accepted by Michael in boss: R-141 (checked: Looked at brief #376's result.)
+- 11 November 2026 — Accepted by Michael in boss: R-083 (checked: not stated)
+- 11 November 2026 — Accepted by Michael in boss: R-140 (checked: not stated)
+- 11 November 2026 — Accepted by Michael in boss: R-143 (checked: not stated)
+

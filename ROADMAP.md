@@ -499,7 +499,8 @@
 Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032, R-150, R-148.
 
 ### R-152 · Slow down the sideways scrolling in the testi-wall build and tilt section - it's nausea inducing.
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** none (written in Webflow, not yet published or watched) · **Acceptance:** pending
+**Built 12 November 2026 (brief #582, Michael's pick: halve the rows' sideways slide before stretching the opening):** build sweeps halved in the "Testimonial Wall" interaction; the drift end points moved so the drift keeps its old pace. Details in STATUS. If it still feels too fast, the next step is to stretch the opening (his option 1 or 2).
 **Task:** 43612423 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** the sideways movement of the testi-wall as it builds and tilts is clearly slower and no longer uncomfortable to watch; Michael agrees on published staging. (inferred — confirm)

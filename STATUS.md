@@ -3,6 +3,20 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Testi-wall sideways slide halved (R-152, brief #582)
+**Changed (Webflow, site madewithpixels, Home page, interaction "Testimonial Wall" i-cfca0496, timeline t-4774d7e0):** following Michael's pick ("try just slowing down the horizontal movement of the bubble rows by 50%"):
+- a42 Outer sweep0: xPercent 14 → -14 became 7 → -7 (rows A, mid, E).
+- a69 Inner sweep0: xPercent -13 → 13 became -6.5 → 6.5 (rows B, D).
+- outer-drift: end -31 → -24, and inner-drift: end 30 → 23.5. The drift is a "to" move that starts from where the sweep ends, so with the smaller sweep, leaving the ends alone would have made the long drift about 40% faster. Moving the ends keeps its distance and pace exactly as before (17 and 17 percent of a row's width). The cost: at the very end of the section the rows sit 7 and 6.5 percent of a row's width further from where they used to finish. That is my call (inferred — confirm).
+- Nothing else changed: durations, positions, tilt, part, quotes, back-row drift (a variable), exit tilt, background fade. I read the whole interaction back after writing and compared it action by action; only those four values differ.
+**Not published.** Michael publishes (D-008); until then staging still has the old speed. The Designer does not run this, so the check is on published staging.
+**Not changed:** the lite site's version, tablet and phone versions, section height.
+**Snapshot:** interactions are not in the snapshot, so there is no snapshot change. Before backup: the one made in brief #579 (dashboard, 12 November 2026, 8:47 pm). No after backup was switched on.
+**Evidence:** none (written and read back; not watched in a browser). Acceptance pending.
+**Needs Michael:** publish staging, then scroll the testimonial wall opening and say whether the slide is slow enough or whether to stretch the opening as well.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Folio-wall parting at mobile (s): could not reproduce an off-centre gap, nothing changed, one question asked (R-154, brief #577)
 **Changed:** the roadmap only: new item R-154 (task 43612427). Nothing changed in Webflow, so no snapshot changes. "After" backup made on the Webflow dashboard (the Designer link redirected to the dashboard): "boss · The folio-wall parting isn't centred at mobile (s) · after", 12 November 2026, 8:53 pm, seen in the list.
 **Found (staging Home, Chrome on the Mac Studio, a same-origin frame 390 wide by 600 tall; the window itself would not go below 606 wide):**

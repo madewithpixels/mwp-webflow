@@ -205,7 +205,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, how: '', state: '', still: '', triggers: 0, tweens: 0, kept: 0 } },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, how: '', queued: '', state: '', still: '', triggers: 0, tweens: 0, kept: 0 } },
   };
   window.MWPPerf = api;
   apply();
@@ -332,89 +332,23 @@
     setTimeout(readGpu, 2000);
   });
 
-  // ---- switching to lite on the fly (D-025, Michael 12 Nov 2026: "fade and jump")
-  // The page is not torn down live: it fades to slate, reloads straight into lite (first paint, already tested on the iPads), and
-  // jumps back to the section the visitor was in, then fades the slate away. It waits for scrolling to stop first, runs once per
-  // session, and the result is remembered so later visits start in lite with no switch at all.
-  var COVER_CSS =
-    'html::before{content:"";position:fixed;left:0;top:0;right:0;bottom:0;background:#2b464e;z-index:2147483100;opacity:0;pointer-events:none;transition:opacity .35s ease}' +
-    'html[data-lite-cover]::before{opacity:1;pointer-events:auto}';
-  function addCoverCss() {
-    if (document.getElementById('mwp-lite-cover-css')) return;
-    var cs = document.createElement('style');
-    cs.id = 'mwp-lite-cover-css';
-    cs.textContent = COVER_CSS;
-    (document.head || doc).appendChild(cs);
-  }
-  function sectionClass() {
-    try {
-      var e = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
-      var n = e && e.closest ? e.closest('section,footer,header') : null;
-      return n ? String(n.className || '').split(' ')[0] : '';
-    } catch (x) {
-      return '';
-    }
-  }
-  var switching = false;
+  // ---- lite decided mid-session: remembered for the NEXT load, never swapped under the visitor
+  // (Michael, 12 Nov 2026: a fade, reload and jump was "awful" on weak devices, a second full load on the slowest ones.)
+  // The page the visitor is on is left alone. localStorage remembers lite for 30 days, so the next load starts in lite from the
+  // first paint; the session flag covers a browser that blocks localStorage. Once per session.
   function liteSwitch(why) {
-    if (switching || (api.stats.lite && api.stats.lite.on) || store('mwp-lite-tries')) return;
-    switching = true;
+    if ((api.stats.lite && api.stats.lite.on) || store('mwp-lite-tries')) return;
     store('mwp-lite-tries', '1');
     store('mwp-lite-now', '1');
     lstore(String(Date.now()));
-    api.stats.lite.switchWhy = why;
-    var go = function () {
-      try {
-        if ((window.scrollY || 0) > 150) {
-          var sec = sectionClass();
-          if (sec) store('mwp-lite-jump', sec);
-        }
-        store('mwp-lite-cover', '1');
-        addCoverCss();
-        void doc.offsetWidth;
-        doc.setAttribute('data-lite-cover', '1');
-      } catch (e) {}
-      setTimeout(function () { window.location.reload(); }, 450);
-    };
-    var lastY = -1;
-    var still = 0;
-    var n = 0;
-    (function wait() {
-      var y = window.scrollY || 0;
-      if (y === lastY) still++;
-      else {
-        still = 0;
-        lastY = y;
-      }
-      if (still >= 3 || ++n > 40) go();
-      else setTimeout(wait, 100);
-    })();
-  }
-  var coverDone = false;
-  function finishCover() {
-    if (coverDone) return;
-    coverDone = true;
-    try {
-      var sec = store('mwp-lite-jump');
-      if (sec) {
-        var el = document.querySelector('.' + (window.CSS && CSS.escape ? CSS.escape(sec) : sec));
-        if (el) {
-          var top = el.getBoundingClientRect().top + (window.scrollY || 0);
-          if (window.lenis && window.lenis.scrollTo) window.lenis.scrollTo(top, { immediate: true, force: true });
-          else window.scrollTo(0, top);
-        }
-      }
-    } catch (e) {}
-    store('mwp-lite-jump', null);
-    store('mwp-lite-cover', null);
-    setTimeout(function () { doc.removeAttribute('data-lite-cover'); }, 60);
+    api.stats.lite.queued = why;
   }
 
   // ---- first-paint check: a device that cannot run the page at load is switched before anyone scrolls
   // After load, two readings of 30 frames each, both slower than 24fps, with the page still at the top (hero + terminal on screen).
   // The older iPad reads 17 to 19fps here; the iPhone 15 and the newer iPad read 59.
   function loadCheck() {
-    if ((api.stats.lite && api.stats.lite.on) || locked || switching || store('mwp-lite-tries') || kill.length) return;
+    if ((api.stats.lite && api.stats.lite.on) || locked || store('mwp-lite-tries') || kill.length) return;
     var frames = [];
     var prev = 0;
     var slowRuns = 0;
@@ -451,13 +385,6 @@
   if (liteHow) {
     lite.on = true;
     lite.how = liteHow;
-    if (store('mwp-lite-cover') === '1') {
-      // we arrived here from a switch: keep the slate cover up from the first paint, and take scroll position into our own hands
-      try { window.history.scrollRestoration = 'manual'; } catch (e) {}
-      addCoverCss();
-      doc.setAttribute('data-lite-cover', '1');
-      setTimeout(finishCover, 8000); // never leave the page covered
-    }
     lite.state = 'waiting for GSAP';
     document.documentElement.setAttribute('data-lite', '1');
     // Still instead of the terminal: no WebGL, and the picture is the wrapper's background from first paint.
@@ -572,7 +499,6 @@
       if (liteStable >= 3 || n >= 60) {
         if (liteKill()) {
           lite.state = 'killed at ' + Math.round(window.scrollY) + 'px';
-          setTimeout(finishCover, 250);
           if (ST && ST.addEventListener) ST.addEventListener('refresh', function () {
             if (ST.getAll().length) {
               liteKill();
@@ -630,7 +556,7 @@
           'last ' + (st.recent.join('  ') || '-') + '\n' +
           'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
-          (lite.on ? 'LITE (' + lite.how + ') ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens killed ' + lite.tweens + '  kept ' + lite.kept + '\n' : '') +
+          (lite.queued ? 'LITE queued for next visit: ' + lite.queued + '\n' : '') + (lite.on ? 'LITE (' + lite.how + ') ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens killed ' + lite.tweens + '  kept ' + lite.kept + '\n' : '') +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }
       draw();

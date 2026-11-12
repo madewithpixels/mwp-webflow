@@ -3,6 +3,13 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — New tasks written up (R-154, R-160, brief #587)
+**Changed:** ROADMAP only. Task 43612433 ("The gap sits too low…") is Michael's answer in boss to R-154's question, so it is added as a second **Task:** line on R-154; no new item. Task 43612434 has the same wording as 43612432, so it is added as a second **Task:** line on R-160; no new item. Both marked (inferred — confirm). Nothing in Webflow, no snapshot change.
+**Left alone (no roadmap item written):** 43612130 MWP landing pages, 43612133 Launch MWP social campaign, 43612126 Launch prep, 43612111 Finish MWP site, 43612304 Responsive layouts. These read as headings or other-project work, not tasks with a done-when; the brief named only the two above. 43612416 is already covered by R-145.
+**Deleted-task roadmap items for Michael to decide (not dropped):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-115, R-047, R-049, R-059.
+**Evidence:** n/a. **Acceptance:** n/a.
+**Claude (night shift)**
+
 ## 12 November 2026 — Claude (night shift) — Bubbles-to-quote-mark move slowed, option B (R-160, brief #589)
 **Michael's pick (boss, brief #589):** "B" — desktop gets more scroll plus space at the top of Contact, and the timed tablet and phone move goes from about 1.2 to about 2 seconds.
 **Changed in Webflow (site madewithpixels, Home page):**

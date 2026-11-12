@@ -556,10 +556,24 @@
     } catch (e) {}
     // the hero logo shows through the sticky hero once nothing covers it; hide it when the Folio wall reaches the top
     var pastHero = false;
+    var heroFade = 0;
     var checkPast = function () {
       var f = document.querySelector('.folio-wall');
       if (!f) return;
-      var past = f.getBoundingClientRect().top <= 0;
+      var top = f.getBoundingClientRect().top;
+      var past = top <= 0;
+      // Hero copy (logo block with its strapline, the h1, the estimate button) fades out as the Folio wall comes up over it: the wall is
+      // see-through between the tiles, so the copy would otherwise show through. Starts as the wall's top edge enters the screen and is
+      // gone by the time it reaches 40% of the way up. One opacity on the hero container, written only while the wall is on the move.
+      var hc = document.querySelector('.hero-container');
+      if (hc) {
+        var vh = window.innerHeight || 1;
+        var fade = Math.max(0, Math.min(1, (vh - top) / (vh * 0.6)));
+        if (fade !== heroFade) {
+          heroFade = fade;
+          hc.style.opacity = fade ? String(1 - fade) : '';
+        }
+      }
       if (past !== pastHero) {
         pastHero = past;
         if (past) document.documentElement.setAttribute('data-lite-past', '1');

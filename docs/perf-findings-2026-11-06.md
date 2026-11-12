@@ -65,3 +65,10 @@ Low means: **static image instead of the Faulty Terminal; all GSAP animation off
 5. **Resize guard** for the iPhone's 36 toolbar-driven `innerHeight` changes; settle pass; R-123 small Folio images (tiles are larger in lite).
 6. Test no-shadow/blur on capable iPads and phones before any blanket removal.
 7. Watch Portfolio: one 8fps reading at scrollY 26,787 on the iPad in lite + `ft` (single reading).
+
+## 12 November 2026 update: automatic lite and the desktop tests
+- **iPads (staging, same address with `?perf=low&perf-debug`):** older iPad full site 7fps in About, 9 in Folio, 13 in Portfolio, 24 in Pricing; lite 59fps in every section (14 readings, none slow). Newer iPad full site 5fps in the Testimonial wall, 8 in About, 17 in Folio; lite 59fps with one 45 in Pricing. Page length about 13,300px in lite against 43,000 to 45,000px.
+- **Signals:** the newer iPad reports the same 4 cores, no memory, dpr 2, Apple GPU as the older one, so it also starts at mid.
+- **Fade, reload and jump (0.5.0)** was tried and rejected by Michael as slow and worse on weak devices. 0.5.1 remembers lite for the next load instead (D-026).
+- **Desktops:** M1 Mac Studio high, worst 100fps; M1 MacBook Air high, worst 60fps; 2009 Mac Pro Firefox high, worst 70fps. 2009 Mac Pro Chrome and Parallels Windows 10 Chrome stepped to mid with 13fps in the Testimonial wall (Parallels Chrome also 17 in About), Firefox on the same Mac Pro smooth. Parallels Edge: no WebGL, so the terminal and intro heart steps do not run, and it is slow in About (9fps). Safari 14 on the Mac Pro breaks (no `svh`/`lvh`): unsupported by decision.
+- **Decided not to do:** lite for slow desktops; any special handling of no-WebGL browsers; Safari 14 support (D-026).

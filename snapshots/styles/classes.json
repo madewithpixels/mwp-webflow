@@ -10123,15 +10123,10 @@
           "position": "relative",
           "display": "flex",
           "overflow": "hidden",
-          "min-height": "100dvh",
+          "min-height": "100lvh",
+          "padding-top": "50svh",
           "justify-content": "center",
-          "align-items": "center",
-          "padding-top": {
-            "id": "variable-46a41f8a-f0a5-7c7a-ebea-3fb433f30f2f"
-          },
-          "padding-bottom": {
-            "id": "variable-46a41f8a-f0a5-7c7a-ebea-3fb433f30f2f"
-          }
+          "align-items": "flex-end"
         }
       }
     }

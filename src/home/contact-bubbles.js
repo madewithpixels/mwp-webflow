@@ -19,12 +19,17 @@
   // is. So there it plays once, over FLY_MS, when the Contact section's top passes TRIGGER_AT of the screen: the tiles
   // ride along with the page (not the screen) and the browser animates them itself, so they stay smooth while scrolling.
   // The rest of the wall fades out at the same moment. Scrolling back up above REARM_AT puts the bubbles back for next time.
+  // v2.4 (R-160, 12 Nov 2026): slower. Desktop: the fly-in ends when Contact's top is half a screen ABOVE the screen top
+  // (END_AT -0.5) and .contact has padding-top 50svh, so the logo still lands in the same place on screen - the move now
+  // plays over 1.5 screens of scroll instead of 1. Phones / tablets: FLY_MS 1200 -> 2000, and TRIGGER_AT 0.5 -> 0.1 so
+  // the logo (now 50svh lower in Contact) is on screen when the move starts. The Contact section also carries
+  // data-nav-offset="0.5" so the desktop menu jump lands with the move finished.
   (function () {
     'use strict';
     // --- SETTINGS ---
-    var ENABLED = true; // kill switch: false = no fly-in and no loop (the heart just sits in the Contact section)
+    var ENABLED = !document.documentElement.hasAttribute('data-lite'); // kill switch: false = no fly-in and no loop (the heart just sits in the Contact section). Also off in lite perf mode (MWPPerf sets data-lite in the head).
     var START_UNIT = 182; // Testimonial Wall timeline unit (of 192) where the fly-in starts - 182 = the wall starts tilting away
-    var END_AT = 0; // the fly-in completes when the Contact section's top is this many screen heights below the screen top
+    var END_AT = -0.5; // the fly-in completes when the Contact section's top is this many screen heights below the screen top (negative = above it)
     var SPREAD = 0.35; // fly-in stagger: 0 = every tile moves together; higher = the far-away tiles set off later
     var PICK_MARGIN = 0.25; // bubbles up to this many screen widths/heights off screen are picked first (widened if too few)
     var WALL_FADE = 0.55; // the rest of the wall has faded out by this point of the fly-in (0-1)
@@ -32,8 +37,8 @@
     var SPIN_MS = 900; // loop: how long each pixel's spin + glide takes
     var RIPPLE_MS = 500; // loop: left-to-right delay across the shape (the first pixel starts this much before the last)
     // Phones / tablets (below 992px): the timed fly-in
-    var FLY_MS = 1200; // how long the whole fly-in takes (the stagger is SPREAD of this)
-    var TRIGGER_AT = 0.5; // plays when the Contact section's top is this far down the screen (0 = top, 1 = bottom)
+    var FLY_MS = 2000; // how long the whole fly-in takes (the stagger is SPREAD of this)
+    var TRIGGER_AT = 0.1; // plays when the Contact section's top is this far down the screen (0 = top, 1 = bottom)
     var REARM_AT = 0.9; // scrolling back up until the Contact top is below this resets it, ready to play again
     var WALL_OUT_MS = 400; // the rest of the wall fades out over this
     // The speech bubble, row by row (columns 0-8 of the 9 x 7 grid). r/c/t = raspberry/coral/teal, . = empty.

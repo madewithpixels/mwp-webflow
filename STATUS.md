@@ -3,6 +3,24 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Bubbles-to-quote-mark move slowed, option B (R-160, brief #589)
+**Michael's pick (boss, brief #589):** "B" — desktop gets more scroll plus space at the top of Contact, and the timed tablet and phone move goes from about 1.2 to about 2 seconds.
+**Changed in Webflow (site madewithpixels, Home page):**
+- Class `Contact` (existing, main breakpoint): added longhand `padding-top: 50svh`. Read back after writing. Nothing else on the class changed.
+- Home page footer custom code, the testimonials-to-heart script (v2.4): `END_AT` 0 to -0.5, `FLY_MS` 1200 to 2000, `TRIGGER_AT` 0.5 to 0.1; one comment block added. Whole block replaced after reading it, other scripts kept; read back and the three values confirmed. The repo copy (`src/home/contact-bubbles.js`) is also brought up to the live one (it still had the old `ENABLED` line).
+- Element: the Contact section (`#contact`) got attribute `data-nav-offset="0.5"` (the site's own desktop menu-landing setting, so the jump lands with the move finished).
+**Published to staging only (madewithpixels-dev.webflow.io), twice (after the padding and script, then after the attribute). Not the custom domain.** No backups switched on for this brief.
+**Why those numbers:** the move used exactly 1.0 screen of scroll on desktop (measured). Ending it when Contact's top is 0.5 screens above the top of the screen makes it 1.5 screens (50% longer, i.e. about a third slower). The 50svh padding keeps the logo landing in the same screen position as before (0.34 of the screen down, measured). On tablet and phone the same padding pushes the logo lower, so the trigger moves from 0.5 to 0.1, which puts the logo on screen where it was before when the move starts.
+**Checked how (verified live on staging, Claude in Chrome, Mac Studio):**
+- Desktop 1440 wide: tiles in flight until Contact's top is 0.5 screens above the top; logo lands at 0.34 to 0.76 of the screen as before; screenshot mid-move looks right. Menu Contact link: before the attribute it landed mid-move (tiles half-way, logo low); after it, Contact top -0.5, move finished, no tiles left.
+- Tablet width (674 wide): timed move plays for about 2.1 seconds (measured 42 tiles, gone by 2.14 s). The menu Contact link lands at the section top with the logo at 0.73 to 1.0 of the screen, so the top half of the screen is the new empty padding; the move then plays.
+**Not checked:** a real phone (390 wide) or Safari; scrolling back up through the move on desktop by eye (the progress maths is unchanged, so it should reverse as before); the Contact link on tablet and phone landing (R-131, R-136, R-138): it still lands at the section top, so the first thing seen there is the empty 50svh at the top (see Needs Michael). In my test browser `document.body.animate` was undefined, which makes the script skip the timed move; I deleted that property in my test tab to run it. Nothing in the site sets it, so I treat it as that browser (inferred — confirm on a real phone).
+**Snapshot:** `snapshots/styles/classes.json` (Contact class; the old entry was stale) and `snapshots/custom-code.json` (Home footer). Interactions and element attributes are not in the snapshot, so the attribute is not there.
+**Evidence:** verified (live, desktop and one tablet width, Chrome on the Mac Studio). Acceptance pending.
+**Needs Michael:** scroll into Contact on staging and say if it is slow enough; on tablet and phone, decide whether the menu Contact link should skip the empty top half (it lands on the section top, like the other menu links on those sizes).
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Bubble-to-quote-mark pacing: cause read, options asked (R-160, brief #585)
 **Changed:** nothing in Webflow (no backup, no snapshot change); ROADMAP R-160 updated with the cause.
 **Found (from `src/home/contact-bubbles.js`, not watched in a browser):** desktop fly-in is scroll-tied and ends when Contact's top reaches the top of the screen (END_AT 0), so more Contact padding-top alone would not slow it; tablet and phone play a timed 1.2 second move (FLY_MS). Options asked in boss (D-007): A desktop longer scroll plus padding-top; B = A plus slower timed move on small screens (recommended); C padding only.

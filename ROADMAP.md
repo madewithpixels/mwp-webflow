@@ -97,7 +97,9 @@
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
 ### R-145 · The project page navigation items point nowhere
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (12 November 2026, in Webflow, not yet published) · **Evidence:** verified (local): the script run by hand on staging /portfolio/futura in Chrome on the Mac Studio at 2044px wide; not yet checked as published, nor at tablet or phone width · **Acceptance:** pending
+**Built:** read as the burger menu links (the previous/next arrows were not the fault). On project pages About, Pricing, Work, Testimonials and Contact had `href="#"`, so they went nowhere. New site script "ProjectMenuAnchors" 1.0.0 (footer, only acts on /portfolio/ pages) points them at /#about, /#pricing, /#portfolio, /#testimonials, /#contact, the same way /estimate does (R-106). Source: `src/portfolio/project-menu-anchors.js`. Home link, Instant Estimate and the arrows were already right.
+**Try:** publish staging, open a project page, open the burger menu and press Testimonials: you should land on the Home page at the Testimonials section. Repeat for the other four.
 **Task:** 43612416 in your boss list
 **From:** your task list, added 11 November 2026 (brief #530).
 **Done when:** on published staging, on each project page, every navigation item (the primary nav and burger menu links) goes to the right place: the Home page sections and the Estimate page, at desktop, tablet and phone width. (inferred — confirm)

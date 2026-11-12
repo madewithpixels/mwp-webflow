@@ -2,6 +2,15 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 12 November 2026 — Claude (night shift) — Project page menu links now go to the Home sections (R-145, brief #578)
+**Changed (Webflow, site madewithpixels):** registered a new inline script "ProjectMenuAnchors" 1.0.0 and added it to the site scripts, footer. Nothing else in Webflow touched (no styles, elements, page code, CMS); not published (Michael publishes, D-008). Copy in the repo: `src/portfolio/project-menu-anchors.js` (R-029). The script only acts on /portfolio/ pages, so every other page is unaffected. Interactions and anything the Webflow tools can't read are not in the snapshot; registered scripts are not in it either, so the snapshot did not change.
+**Found:** on a project page the burger menu's About, Pricing, Work, Testimonials and Contact links were `href="#"`: nowhere to go. Home and Instant Estimate were fine. Same fault and same fix as /estimate (R-106).
+**Checked how:** staging /portfolio/futura, Chrome on the Mac Studio, 2044px wide. Ran the script by hand in the page (not saved): the five links showed the right addresses and Testimonials landed on Home at /#testimonials (scroll 52,618). **Not checked:** the published script; the other four links; tablet and phone width; Safari; a real tap. Landings on Home use the same code as the Estimate path.
+**Evidence:** verified (local). Acceptance pending.
+**Needs Michael:** publish staging, then try the five menu links on a project page.
+**Open (not blocking):** I read "navigation items" as the burger menu links; if you meant the previous/next arrows, they already point at projects.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Seven new tasks written up as roadmap items (R-147 to R-153, brief #557)
 **Changed:** ROADMAP only. Phase 2: R-147 (scroll cue on the hero, task 43612418), R-150 (scroll pacing, 43612421), R-151 (marquee into pricing cards, 43612422), R-152 (slower testi-wall sideways scroll, 43612423), R-153 (phone and email links in the open menu, 43612424). Phase 3: R-148 (pricing cards at tablet landscape, 43612419), R-149 (lite about section at tablet, 43612420). All planned, with done-whens marked (inferred — confirm). Nothing built; nothing touched in Webflow, so no snapshot or backup.
 **Checked how:** read the roadmap; R-147 was the next free number.

@@ -3,6 +3,18 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Testi-wall sideways scrolling: cause found, nothing changed, one choice asked (R-152, brief #579)
+**Changed:** nothing in Webflow content. A "before" backup was made on the Webflow dashboard (the Designer link opened the dashboard, not a canvas): "boss · Slow down the sideways scrolling in the testi-wall build and tilt section -… · before", 12 November 2026, 8:47 pm, seen in the list. No snapshot changes (nothing written).
+**Found (read-only, interaction "Testimonial Wall", i-cfca0496, timeline t-4774d7e0, 192 units long, scrub 1.5):**
+- The fast part is the opening build, units 0 to 10 (about 5% of the timeline): the outer rows slide 14% to -14% and the inner rows -13% to 13% (28% and 26% of a row's width), while the whole stage rotates -20 to 0 degrees and scales 1.45 to 1, all in the same 10 units. That is the sweep plus tilt together, in a very short scroll.
+- The exit tilt (units 182 to 192) is the same speed the other way, but only rotates and scales; no sideways slide.
+- The long drift afterwards is slow already: 31% over 182 units (inner and back rows similar).
+- Everything else is positioned from unit 12 on (part at 12, quotes from 15, closing at 171), so lengthening the build means shifting every later step.
+**Not looked at:** the lite site's own simplified version (no tilt), tablet and phone, and how it feels in the browser: I read the numbers only, so "nausea" may include the tilt as well as the slide.
+**Evidence:** none (nothing built); diagnosis from the interaction data only. Acceptance pending.
+**Needs Michael:** a choice on how to slow it (asked in boss). D-007 applies; D-017 applies to anything that changes scroll lengths.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Marquee to "Built to last" hand-over: looked, nothing changed, one choice asked (R-151, brief #581)
 **Changed:** nothing in Webflow, no snapshot or backup needed. Read-only look at staging Home (2044 wide, Chrome on the Mac Studio) and the Home interactions through the MCP.
 **Michael's note:** the angled fade that comes in before the marquee should follow it out too; then "Built to last" should come in from the right, not from beneath.

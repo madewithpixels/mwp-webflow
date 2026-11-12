@@ -503,7 +503,7 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Task:** 43612423 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** the sideways movement of the testi-wall as it builds and tilts is clearly slower and no longer uncomfortable to watch; Michael agrees on published staging. (inferred — confirm)
-**Note:** Read as slowing the horizontal travel (more scroll distance or a longer duration) in the testi-wall's build and tilt stage, in every version and at every width unless Michael says otherwise (inferred — confirm). Check timing in Claude in Chrome, not the built-in pane (AGENTS.md section 6). Webflow interactions run on GSAP ScrollTrigger: see D-017 before changing them. Related: R-094, R-150, R-074.
+**Note:** Read as slowing the horizontal travel (more scroll distance or a longer duration) in the testi-wall's build and tilt stage, in every version and at every width unless Michael says otherwise (inferred — confirm). Check timing in Claude in Chrome, not the built-in pane (AGENTS.md section 6). Webflow interactions run on GSAP ScrollTrigger: see D-017 before changing them. Related: R-094, R-150, R-074. **Looked at in brief #579 (12 November 2026):** the fast part is the first 10 of 192 timeline units (rows slide about 28% while the stage tilts and scales); nothing built, choice asked in boss. Details in STATUS.
 
 ### R-153 · telephone and email link in open navigation need work
 **State:** planned · **Evidence:** none · **Acceptance:** pending

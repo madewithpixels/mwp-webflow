@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 12 November 2026 — Claude (night shift) — Pricing cards at tablet landscape: cause found, nothing changed (R-148, brief #576)
+**Changed:** ROADMAP note on R-148 only. Nothing touched in Webflow (no snapshot or backup needed).
+**Found:** staging, 1024 x 768, Chrome on the Mac Studio. The three cards are 730px tall; the pinned clipping mask they sit in is `overflow: hidden` and only 625px tall (the window height), so the bottom of each card is cut off. Stacking them in a column makes the section about 2,200px tall, so the mask height, the pin length and the clip-path reveal all need to change with it. Grid styles are barred through the MCP (D-006), and the pinned reveal can only be judged on published staging.
+**Evidence:** verified (local) for the diagnosis only. Acceptance pending.
+**Needs Michael:** a choice on how to stack (asked in boss).
+**Next useful action:** once Michael picks, do the Designer change by hand or with him, then check at 1024 and 1180.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Project page menu links now go to the Home sections (R-145, brief #578)
 **Changed (Webflow, site madewithpixels):** registered a new inline script "ProjectMenuAnchors" 1.0.0 and added it to the site scripts, footer. Nothing else in Webflow touched (no styles, elements, page code, CMS); not published (Michael publishes, D-008). Copy in the repo: `src/portfolio/project-menu-anchors.js` (R-029). The script only acts on /portfolio/ pages, so every other page is unaffected. Interactions and anything the Webflow tools can't read are not in the snapshot; registered scripts are not in it either, so the snapshot did not change.
 **Found:** on a project page the burger menu's About, Pricing, Work, Testimonials and Contact links were `href="#"`: nowhere to go. Home and Instant Estimate were fine. Same fault and same fix as /estimate (R-106).

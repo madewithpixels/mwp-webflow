@@ -98,8 +98,8 @@
 **Done when:** the project pages have the layout changes you want, on published staging. Michael gave no detail, so what to change comes first, with options before any visual change (D-007). (inferred — confirm)
 **Note:** Check it against R-037 (project page transition) and R-038 (navigation arrows), which touch the same pages. (inferred — confirm)
 
-### R-145 · The project page navigation items point nowhere
-**State:** built (12 November 2026, in Webflow, not yet published) · **Evidence:** verified (local): the script run by hand on staging /portfolio/futura in Chrome on the Mac Studio at 2044px wide; not yet checked as published, nor at tablet or phone width · **Acceptance:** pending
+### R-145 · The project page navigation items point nowhere *(accepted by Michael in boss, 12 Nov 2026)*
+**State:** built (12 November 2026, in Webflow, not yet published) · **Evidence:** verified (local): the script run by hand on staging /portfolio/futura in Chrome on the Mac Studio at 2044px wide; not yet checked as published, nor at tablet or phone width · **Acceptance:** accepted (12 November 2026)
 **Built:** read as the burger menu links (the previous/next arrows were not the fault). On project pages About, Pricing, Work, Testimonials and Contact had `href="#"`, so they went nowhere. New site script "ProjectMenuAnchors" 1.0.0 (footer, only acts on /portfolio/ pages) points them at /#about, /#pricing, /#portfolio, /#testimonials, /#contact, the same way /estimate does (R-106). Source: `src/portfolio/project-menu-anchors.js`. Home link, Instant Estimate and the arrows were already right.
 **Try:** publish staging, open a project page, open the burger menu and press Testimonials: you should land on the Home page at the Testimonials section. Repeat for the other four.
 **Task:** 43612416 in your boss list
@@ -995,8 +995,9 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Done when:** from the Estimate page, each burger menu link that points at a section of the Home page lands on that section, on desktop, tablet and phone, on published staging. (inferred — confirm)
 **Note:** R-106 wired the Estimate page anchor links (accepted) and R-116 reported a related oddity (its text is cut off). This looks like a regression or the phone case R-106 didn't cover, probably the page loading with an anchor in the address and the layout not being ready (R-131) (inferred — confirm). First step: list each menu link, where it should go and where it lands, at phone width. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015). Do with R-116 and R-131.
 
-### R-142 · The /estimate page step 6 testimonials button links to the home page testimonials section
-**State:** built (not published) · **Evidence:** verified (local) · **Acceptance:** pending
+### R-142 · The /estimate page step 6 testimonials button links to the home page testimonials section *(accepted by Michael in boss, 12 Nov 2026)*
+**State:** built (not published) · **Evidence:** verified (local) · **Acceptance:** accepted (12 November 2026)
+**Accepted by Michael in boss, 12 November 2026** — checked: Looked at brief #575's result.
 **Task:** 43612409 in your boss list
 **From:** your task list, added 10 November 2026 (brief #418).
 **Done when:** on published staging, on the Estimate page at step 6, the Testimonials button is no longer a link to the Home page: it is just an answer you can tick, and the menu's Testimonials link still goes to the Home page section. (Michael, 12 November 2026: "madness! remove the link".)

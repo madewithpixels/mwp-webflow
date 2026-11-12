@@ -2,6 +2,16 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+
+## 12 November 2026 — Claude (night shift) — Pricing cards stack at iPad landscape (R-148, brief #580)
+**Changed (Webflow, site madewithpixels):** registered a new inline script "PricingTabletLandscape" 1.0.0 and applied it to the Home page footer, after the existing page scripts (the list was read before and after; nothing else changed). Nothing else touched: no styles, elements, interactions, CMS or site settings. **Not published.** Repo copy: `src/home/pricing-tablet-landscape.js`, imported in `src/home/index.js`.
+**What it does:** from 992 to 1180px wide it copies the pricing rules from Webflow's tablet block (991px and under) into a 992-1180 media query and kills the pricing pin. "Pricing Section Desktop" is set not to play at tablet and phone, and "Pricing Section Mobile" only plays at 479 and under, so the tablet layout is the plain stacked one. Below 992 and above 1180 nothing changes. If the window crosses 992 or 1180 the page reloads. Webflow's breakpoints are fixed at 991, which is why this is a script and not a Designer setting.
+**Checked how:** staging Home at 1024x768, Chrome on the Mac Studio. Ran the script's code by hand on a fresh load: no pin-spacer, cards 922px wide and stacked, the second card whole on screen (coral, price at the bottom). **Not checked:** the published script; 1180, 1100 and 992px; Safari or a real iPad; the Pricing menu link landing and the contents device at this width; crossing the band by resizing (reload); the lite site.
+**Evidence:** verified (local). Acceptance pending.
+**Snapshot:** none written. Registered scripts are not in snapshots/; interactions and anything the Webflow MCP can't read are not captured either.
+**Needs Michael:** publish staging, then look at Home at iPad landscape.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Estimate step 6 Testimonials option no longer links away (R-142, brief #575)
 **Changed:** in Webflow, site madewithpixels, page Estimate, footer scripts: EstimateMenuAnchors 1.0.0 replaced by 1.0.1 (registered inline script, same name; the rest of the page's script list is unchanged, only its order moved to last). It now rewrites only the burger menu's own links (`a.mwp-css-nav_link`); 1.0.0 rewrote every `#` link whose text matched, which turned the step 6 "Testimonials" answer option into a link to `/#testimonials`. Repo copy `src/estimate/estimate-menu-anchors.js` updated to match. No elements, classes, CMS or other pages touched. Backup before: "boss · The /estimate page step 6 testimonials button links to the home page… · before", made in the Designer.
 **Not published.** Staging still runs 1.0.0 until Michael publishes.

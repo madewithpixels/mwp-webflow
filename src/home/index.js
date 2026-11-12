@@ -4,6 +4,7 @@ import './contents-device.js';
 import './ticker-marquee.js';
 import './ticker-mask.js';
 import './pricing-cta-mobile-arrow.js';
+import './pricing-tablet-landscape.js';
 import './contact-bubbles.js';
 // Deliberately NOT included yet: ./custom.js (back-layer parallax). R-029 says to check it against what the site runs now;
 // if it is live, add its import here.

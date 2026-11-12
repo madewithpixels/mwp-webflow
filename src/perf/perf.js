@@ -182,6 +182,26 @@
   window.MWPPerf = api;
   apply();
 
+  // ---- wall shadows, decided by tier (Michael, 12 Nov 2026)
+  // Folio wall tile shadow moved here from the Designer (it was on .folio-wall_tile, off at the tablet breakpoint).
+  // On: high, and mid with a mouse. Off: low, mid on a touch device at ANY width (the iPad in landscape is 1024px wide), and
+  // tablet width and below (the old width rule, kept as a backstop until the tier is trusted on real tablets).
+  // Testimonial wall: its drop-shadow filter lives in the Home head code (off at 991px and below there); here it is also
+  // switched off for low and mid-touch. The inner rows' blur is a different rule and is left alone.
+  try {
+    var sh = document.createElement('style');
+    sh.setAttribute('data-mwp-perf-shadows', '');
+    sh.textContent =
+      '.folio-wall_tile{box-shadow:0 2px 10px 3px hsla(0,0%,0%,.46)}' +
+      '@media(max-width:991px){.folio-wall_tile{box-shadow:none}}' +
+      'html[data-perf="low"] .folio-wall_tile,html[data-perf="mid"][data-input="touch"] .folio-wall_tile{box-shadow:none}' +
+      'html[data-perf="low"] .testi-wall_half:first-child>.testi-wall_row:first-child,' +
+      'html[data-perf="low"] .testi-wall_half:last-child>.testi-wall_row:last-child,' +
+      'html[data-perf="mid"][data-input="touch"] .testi-wall_half:first-child>.testi-wall_row:first-child,' +
+      'html[data-perf="mid"][data-input="touch"] .testi-wall_half:last-child>.testi-wall_row:last-child{filter:none!important}';
+    (document.head || doc).appendChild(sh);
+  } catch (e) {}
+
   // ---- measured frame rate: only while loading and while scrolling (no idle rAF loop)
   var WINDOW = 45; // frames per reading
   var buf = [];

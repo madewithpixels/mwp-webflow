@@ -517,7 +517,8 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Note:** What is wrong is not said, so this needs a first look (inferred — confirm). R-105 already made them plain text, right-aligned, with icons and weight 300 on desktop (script MenuContactText), and was accepted. Likely candidates: how they look at tablet and phone, text selection or link dragging, or the animation. Ask Michael only if the first look finds nothing. Related: R-105, R-140.
 
 ### R-154 · The folio-wall parting isn't centred at mobile (s)
-**State:** in progress · **Evidence:** none · **Acceptance:** pending
+**State:** built (12 November 2026, not yet published) · **Evidence:** none (the lift rule checked in a desktop page; not seen on a phone) · **Acceptance:** pending
+**Decided:** Michael picked, in boss (brief #586): keep the full-height wall and add a small script that lifts the parting by half the address bar's height, phones only. Built as the registered Home header script `foliowalllift` 1.0.0 (source in `src/home/folio-wall-lift.js`): sets `--mwp-fw-lift` to half of (100lvh minus the visible height) and a rule at 479px and under moves `.folio-wall .folio-wall_sticky` `top` by that amount. No class, interaction or head-code block changed.
 **Task:** 43612427 in your boss list
 **From:** your task list (brief #577, 12 November 2026).
 **Done when:** on a phone (small breakpoint, 479px and under), when the folio wall parts, the gap opens centred on the screen, top and bottom equally, on published staging. (inferred — confirm)

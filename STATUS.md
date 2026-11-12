@@ -13,6 +13,18 @@
 — Claude (night shift)
 
 
+## 12 November 2026 — Claude (night shift) — Folio-wall parting lifted on phones: small script added (R-154, brief #577)
+**Michael's pick (boss, brief #586):** keep the full-height wall and add a small script that nudges the parting up by half the bar's height, phones only.
+**Changed (Webflow, site madewithpixels, Home page only):** one new registered inline script, `foliowalllift` 1.0.0, applied in the Home page header (the nine scripts already there were read back unchanged; the Home head and footer code blocks were not touched). What it does: at load and on resize it measures 100lvh minus the visible height (the address bar), halves it (capped at 120px) and stores it as `--mwp-fw-lift` on the page; a rule at 479px and under sets `.folio-wall .folio-wall_sticky` `top` to minus that. The box stays 100lvh, so no slate gaps and no change to scroll lengths. It uses a CSS rule, not an inline top, because the page's scroll-refresh code clears inline tops on sticky parents. When the bar hides the lift goes to 0. No new class, no interaction edit (D-006, D-017).
+**Copy in the repo:** `src/home/folio-wall-lift.js` (the registered source is the same code without the comment).
+**Not published.** Michael publishes (D-008).
+**Checked how:** read back the Home page script list (ten, the new one last); on staging (desktop Chrome) the rule moved the sticky box's top from 0 to -40px when the variable was set. **Not checked:** a real phone with the bar showing and hiding, and a true phone-width window (the browser would not go below 606px wide). The measure itself runs only on published code.
+**Snapshot:** no change (registered scripts and interactions are not in the snapshot; head and footer blocks are unchanged). Before: copy of the snapshots folder in /tmp/boss-webflow-before-577. **After backup:** "boss · The folio-wall parting isn't centred at mobile (s) · after", 12 November 2026, 9:25 pm, made on the Webflow dashboard, seen in the list.
+**Evidence:** none. Acceptance pending.
+**Needs Michael:** publish staging, then on your phone open https://madewithpixels-dev.webflow.io/ in Safari or Chrome, with the address bar showing, scroll to where the project wall splits, and say whether the gap now sits in the middle of what you can see.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Folio-wall parting: Michael says the gap sits too low; fix options asked (R-154, brief #577)
 **Michael's answer (boss, brief #584):** "The gap sits too low (nearer the bottom of the screen)". This fits the lvh theory below.
 **Changed:** nothing in Webflow, no snapshot change, no new backup (nothing to back up). Fix choice asked in boss, one question: (A) folio-wall_sticky to 100svh at small (may bring back the slate gaps R-121 removed); (B) keep 100lvh and lift the parting by half the toolbar height with a small script on phones (recommended); (C) leave it. D-007: nothing changes until he picks.

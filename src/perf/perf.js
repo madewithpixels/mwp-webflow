@@ -48,6 +48,17 @@
     return null;
   }
 
+  // The visitor's own choice of the full site ("View the full version" pill in lite) is remembered the same way, and beats every automatic decision.
+  var FKEY = 'mwp-full';
+  function lfull(value) {
+    try {
+      if (value === undefined) return window.localStorage.getItem(FKEY);
+      if (value === null) window.localStorage.removeItem(FKEY);
+      else window.localStorage.setItem(FKEY, value);
+    } catch (e) {}
+    return null;
+  }
+
   // ---- ?perf-kill=ft,testi,folio,fx,layers,clip,paint : diagnostic only. Switches one effect off so its cost shows in the overlay.
   // ft: WebGL contexts are refused before the Faulty Terminal script runs (this script is in the head, the terminal in the footer).
   var kill = (query('perf-kill') || '').toLowerCase().split(',').filter(Boolean);
@@ -128,10 +139,14 @@
     store('mwp-lite-tries', null);
     store('mwp-lite-cover', null);
     store('mwp-lite-jump', null);
+    store('mwp-lite-offer', null);
+    lfull(null);
   }
   var liteStored = parseInt(lstore() || '0', 10);
-  var liteRemembered = !forced && !!liteStored && Date.now() - liteStored < LTTL;
-  var liteThisSession = !forced && store('mwp-lite-now') === '1';
+  var fullStored = parseInt(lfull() || '0', 10);
+  var fullChosen = !forced && !!fullStored && Date.now() - fullStored < LTTL;
+  var liteRemembered = !forced && !fullChosen && !!liteStored && Date.now() - liteStored < LTTL;
+  var liteThisSession = !forced && !fullChosen && store('mwp-lite-now') === '1';
   var tier, reason, locked;
   var listeners = [];
   var stepped = false;
@@ -205,7 +220,7 @@
     sample: function (ms) {
       pushFrame(ms);
     },
-    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, how: '', queued: '', state: '', still: '', triggers: 0, tweens: 0, kept: 0 } },
+    stats: { fps: 0, windows: 0, bad: 0, worst: { fps: 0, y: 0, sec: '' }, bySec: {}, under30: 0, under20: 0, recent: [], innerHeight: { now: 0, min: 0, max: 0, changes: 0 }, refreshes: 0, lite: { on: false, how: '', queued: '', offer: '', state: '', still: '', triggers: 0, tweens: 0, kept: 0 } },
   };
   window.MWPPerf = api;
   apply();
@@ -337,11 +352,123 @@
   // The page the visitor is on is left alone. localStorage remembers lite for 30 days, so the next load starts in lite from the
   // first paint; the session flag covers a browser that blocks localStorage. Once per session.
   function liteSwitch(why) {
-    if ((api.stats.lite && api.stats.lite.on) || store('mwp-lite-tries')) return;
+    if ((api.stats.lite && api.stats.lite.on) || store('mwp-lite-tries') || fullChosen) return;
     store('mwp-lite-tries', '1');
     store('mwp-lite-now', '1');
     lstore(String(Date.now()));
     api.stats.lite.queued = why;
+    offerLite();
+  }
+
+  // ---- the two pills (Michael, 12 Nov 2026)
+  // 1. A device found slow is asked, once per session and only when scrolling has stopped, whether it wants the lighter site now.
+  //    "Switch" reloads into lite; "Not now" closes it (lite still starts from the first paint next visit).
+  // 2. In lite a small "View the full version" pill stays on screen. It records the visitor's choice (30 days), which beats every automatic decision.
+  function whenBody(fn) {
+    if (document.body) fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+  function pillStyle() {
+    if (document.getElementById('mwp-pill-style')) return;
+    var st = document.createElement('style');
+    st.id = 'mwp-pill-style';
+    st.textContent =
+      '.mwp-pill{position:fixed;z-index:99990;font:14px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;background:#243e46;border:1px solid rgba(255,255,255,.22);border-radius:14px;box-sizing:border-box}' +
+      '.mwp-pill button{font:inherit;font-weight:600;border-radius:999px;cursor:pointer;padding:9px 16px;min-height:40px;border:1px solid transparent}' +
+      '.mwp-pill button:focus-visible{outline:2px solid #fff;outline-offset:2px}' +
+      '.mwp-offer{left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));max-width:440px;margin:0 auto;padding:14px 16px;text-align:left}' +
+      '.mwp-offer p{margin:0 0 12px}' +
+      '.mwp-offer div{display:flex;gap:10px;flex-wrap:wrap}' +
+      '.mwp-offer .mwp-yes{background:#ef8965;color:#1b2f35}' +
+      '.mwp-offer .mwp-no{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}' +
+      '.mwp-full{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:0;border-radius:999px;background:transparent;border:0}' +
+      '.mwp-full button{background:#243e46;color:#fff;border-color:rgba(255,255,255,.3);font-size:13px;min-height:36px;padding:7px 14px}';
+    (document.head || doc).appendChild(st);
+  }
+  // the page address without ?perf=..., so a reload is not overruled by a forced tier
+  function leave(goFull) {
+    try {
+      if (goFull) {
+        lfull(String(Date.now()));
+        lstore(null);
+        store('mwp-lite-now', null);
+        store('mwp-lite-tries', '1');
+      } else {
+        lfull(null);
+        lstore(String(Date.now()));
+        store('mwp-lite-now', '1');
+        store('mwp-lite-tries', '1');
+      }
+      store(KEY, null);
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      var u = new URL(window.location.href);
+      u.searchParams.delete('perf');
+      if (u.toString() === window.location.href) window.location.reload();
+      else window.location.replace(u.toString());
+    } catch (e) {
+      window.location.reload();
+    }
+  }
+  function showOffer() {
+    if (store('mwp-lite-offer')) return;
+    store('mwp-lite-offer', 'shown');
+    api.stats.lite.offer = 'shown';
+    pillStyle();
+    var box = document.createElement('div');
+    box.className = 'mwp-pill mwp-offer';
+    box.setAttribute('role', 'status');
+    var msg = document.createElement('p');
+    msg.textContent = 'Your machine seems to be struggling. Want a lighter, faster version of the site?';
+    var row = document.createElement('div');
+    var yes = document.createElement('button');
+    yes.type = 'button';
+    yes.className = 'mwp-yes';
+    yes.textContent = 'Switch';
+    yes.addEventListener('click', function () {
+      api.stats.lite.offer = 'switched';
+      leave(false);
+    });
+    var no = document.createElement('button');
+    no.type = 'button';
+    no.className = 'mwp-no';
+    no.textContent = 'Not now';
+    no.addEventListener('click', function () {
+      api.stats.lite.offer = 'not now';
+      if (box.parentNode) box.parentNode.removeChild(box);
+    });
+    row.appendChild(yes);
+    row.appendChild(no);
+    box.appendChild(msg);
+    box.appendChild(row);
+    document.body.appendChild(box);
+  }
+  // wait until scrolling has stopped (and the tab is showing) before the offer appears
+  function offerLite() {
+    if (store('mwp-lite-offer') || fullChosen) return;
+    var t = 0;
+    var arm = function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        if (document.hidden || !document.body) return arm();
+        window.removeEventListener('scroll', arm);
+        window.removeEventListener('touchmove', arm);
+        showOffer();
+      }, 900);
+    };
+    window.addEventListener('scroll', arm, { passive: true });
+    window.addEventListener('touchmove', arm, { passive: true });
+    arm();
+  }
+  function addFullPill() {
+    pillStyle();
+    var wrap = document.createElement('div');
+    wrap.className = 'mwp-pill mwp-full';
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = 'View the full version';
+    b.addEventListener('click', function () { leave(true); });
+    wrap.appendChild(b);
+    document.body.appendChild(wrap);
   }
 
   // ---- first-paint check: a device that cannot run the page at load is switched before anyone scrolls
@@ -512,6 +639,8 @@
     })(0);
   }
 
+  if (api.stats.lite.on) whenBody(addFullPill);
+
   // ---- numbers the overlay shows (and that the later stability steps need)
   var h = api.stats.innerHeight;
   h.now = h.min = h.max = window.innerHeight;
@@ -556,7 +685,7 @@
           'last ' + (st.recent.join('  ') || '-') + '\n' +
           'sections (worst fps, slow/readings): ' + Object.keys(st.bySec).sort(function (a, c) { return st.bySec[a].min - st.bySec[c].min; }).slice(0, 5).map(function (k) { var v = st.bySec[k]; return k + ' ' + v.min + ' ' + v.slow + '/' + v.n; }).join(' | ') + '\n' +
           'innerHeight ' + st.innerHeight.now + ' (min ' + st.innerHeight.min + ', max ' + st.innerHeight.max + ', changes ' + st.innerHeight.changes + ')\n' +
-          (lite.queued ? 'LITE queued for next visit: ' + lite.queued + '\n' : '') + (lite.on ? 'LITE (' + lite.how + ') ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens killed ' + lite.tweens + '  kept ' + lite.kept + '\n' : '') +
+          (lite.queued ? 'LITE queued for next visit: ' + lite.queued + '  offer: ' + (lite.offer || 'waiting for a pause') + '\n' : '') + (fullChosen ? 'FULL VERSION chosen by the visitor\n' : '') + (lite.on ? 'LITE (' + lite.how + ') ' + lite.state + '  still ' + lite.still + '  triggers ' + lite.triggers + '  tweens killed ' + lite.tweens + '  kept ' + lite.kept + '\n' : '') +
           'ScrollTrigger refreshes ' + st.refreshes + '  scrollY ' + Math.round(window.scrollY);
       }
       draw();

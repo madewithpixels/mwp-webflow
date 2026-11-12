@@ -3,6 +3,14 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Folio-wall parting: Michael says the gap sits too low; fix options asked (R-154, brief #577)
+**Michael's answer (boss, brief #584):** "The gap sits too low (nearer the bottom of the screen)". This fits the lvh theory below.
+**Changed:** nothing in Webflow, no snapshot change, no new backup (nothing to back up). Fix choice asked in boss, one question: (A) folio-wall_sticky to 100svh at small (may bring back the slate gaps R-121 removed); (B) keep 100lvh and lift the parting by half the toolbar height with a small script on phones (recommended); (C) leave it. D-007: nothing changes until he picks.
+**Evidence:** none. Acceptance pending.
+**Needs Michael:** pick A, B or C in boss.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Testi-wall sideways slide halved (R-152, brief #582)
 **Changed (Webflow, site madewithpixels, Home page, interaction "Testimonial Wall" i-cfca0496, timeline t-4774d7e0):** following Michael's pick ("try just slowing down the horizontal movement of the bubble rows by 50%"):
 - a42 Outer sweep0: xPercent 14 → -14 became 7 → -7 (rows A, mid, E).

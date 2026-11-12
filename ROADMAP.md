@@ -30,6 +30,8 @@
 
 *One task added on 10 November 2026 (R-142, brief #418) is written up from your list and still needs your confirmation of the guesses marked in it.*
 
+*Seven tasks added on 12 November 2026 (R-147 to R-153, brief #557) are written up from your list and still need your confirmation of the guesses marked in them. R-150 carries on the pacing work of R-042.*
+
 **Next up (your order of 5 November 2026, refreshed 10 November 2026):** the swipe direction fix, the open part of R-134 (it now also covers R-135, and R-118 and R-120 are folded into R-134 and R-133); then the phone and tablet fixes written up from your list on 9 and 10 November (R-124 to R-131, R-136 to R-141), starting with where the menu links land (R-136, R-138, R-139); then the perf watcher with R-123 (smaller images swapped in), whose "low" is the lite site (D-025, in progress), and R-117 (the rest of the code consolidation, switching each script to jsDelivr). Landed and accepted since 6 November: R-119, R-129, R-132 and R-133. R-131 (reload with an anchor) is waiting on a phone result from you.
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
@@ -41,8 +43,8 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134) |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -472,6 +474,41 @@
 **Done when:** on a phone or tablet, swiping on a project page slides the content out in the direction of the swipe and the next or previous project in from the other side, on published staging. (inferred — confirm)
 **Note:** This is the same fault as the "Next (queued)" note under R-134, which already holds Michael's words and the plan; this item is the separate task he added for it, so the two should be done together and one closed by the other (inferred — confirm). Arrow clicks must stay as they are (R-083). Related: R-103.
 
+### R-147 · it's not obvious that the user can scroll from the hero
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612418 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** someone arriving on the home page can tell at a glance that the hero scrolls on: a visible cue (for example a small "scroll" prompt or an arrow) shows on the hero at desktop, tablet and phone, and goes away or fades once they start scrolling, on published staging. (inferred — confirm)
+**Note:** The kind of cue is not decided. D-007 applies: options first (for example a gentle bouncing arrow, a "Scroll" label, or a nudge of the next section into view), then Michael picks. The hero is pinned with the terminal background and the intro sequence (R-095), so the cue must not fight them. No new class without approval (D-006).
+
+### R-150 · Scroll pacing - all versions. Still needs work. I think it's still too quick in the intro and about section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612421 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** in the full and lite versions, at desktop, tablet and phone, the intro and about sections take longer to scroll through, so each beat can be read before the next arrives; Michael agrees the pace on published staging. (inferred — confirm)
+**Note:** "All versions" is read as full and lite, at every width (inferred — confirm). How much slower is for Michael to say: the section-by-section scroll lengths and five pacing options already measured are in STATUS (R-042, brief #271), which is the starting point. R-042's own task has been deleted from your list, so this item carries on that work; R-042 stays as the record until you decide to drop it. The scroll magnet is desktop only (D-019). Sticky and redraw notes behind D-017 apply before changing scroll animations. Related: R-151, R-152, R-149.
+
+### R-151 · transition from typography marquee section into the pricing cards needs work
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612422 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** scrolling from the typography marquee into the pricing cards feels deliberate: no jump, gap or abrupt cut, and the cards arrive smoothly, on published staging at desktop. (inferred — confirm)
+**Note:** What is wrong is not said (inferred — confirm: a jump, an empty gap or a hard cut). First step is to watch it in Chrome on the Mac Studio and describe what happens, then offer options (D-007). Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032, R-150, R-148.
+
+### R-152 · Slow down the sideways scrolling in the testi-wall build and tilt section - it's nausea inducing.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612423 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** the sideways movement of the testi-wall as it builds and tilts is clearly slower and no longer uncomfortable to watch; Michael agrees on published staging. (inferred — confirm)
+**Note:** Read as slowing the horizontal travel (more scroll distance or a longer duration) in the testi-wall's build and tilt stage, in every version and at every width unless Michael says otherwise (inferred — confirm). Check timing in Claude in Chrome, not the built-in pane (AGENTS.md section 6). Webflow interactions run on GSAP ScrollTrigger: see D-017 before changing them. Related: R-094, R-150, R-074.
+
+### R-153 · telephone and email link in open navigation need work
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612424 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** with the burger menu open, the telephone and email links look and behave as Michael wants, on published staging. (inferred — confirm)
+**Note:** What is wrong is not said, so this needs a first look (inferred — confirm). R-105 already made them plain text, right-aligned, with icons and weight 300 on desktop (script MenuContactText), and was accepted. Likely candidates: how they look at tablet and phone, text selection or link dragging, or the animation. Ask Michael only if the first look finds nothing. Related: R-105, R-140.
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -765,6 +802,20 @@ It matches the Home result except at 1024 landscape, where Work, Testimonials an
 So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class does nothing and the bar stops at the padding, 77px short on each side. I could **not** reproduce the portrait fault: at 768 and 820 the bar is edge to edge, in the frame, at every scroll position I stepped through. A real iPad in Safari may differ (inferred: `100vw` and the sticky parent); a photo of the portrait case would settle it.
 **Exact rule (read from the Designer, 11 November 2026, brief #378):** class `mwp-bleed` (`isFromLibrary` false) has nothing at the base (Desktop) breakpoint; at Tablet it has `width: 100vw`, `max-width: 100vw`, `margin-left: calc(50% - 50vw)`. Portrait is still not reproduced (frames at 768 and 820 are edge to edge), so the only proven fault is 992px and up.
 **Proposed fix (needs Michael's approval, D-006/D-007; no new class):** make `.mwp-bleed` apply at every width: move its three longhand properties (`width: 100vw`, `max-width: 100vw`, `margin-left: calc(50% - 50vw)`) from the Tablet breakpoint to the base (Desktop) breakpoint, and remove them from Tablet. Side effect: on desktop (1440) the bar would also go edge to edge, where today it is inset like the other content, and `100vw` includes the scrollbar width on Windows desktops (a few px of sideways scroll). Alternative if desktop should stay inset: keep the class as is and add the same three properties at a new "iPad landscape" band only through custom code (a media query for 992 to 1180px, D-005), which avoids touching the desktop look.
+
+### R-148 · Pricing cards at tablet landscape are clipped by the navigation - let's run them vertically as the easy fix
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612419 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** at tablet landscape (1024px wide and the nearby widths), the three pricing cards are no longer cut off by the navigation: they run one above the other, each whole and readable, on published staging. (inferred — confirm)
+**Note:** "Run them vertically" is read as stacking the three cards in a column instead of side by side, and "tablet landscape" as iPad landscape (1024 to about 1180px), which is Webflow's Desktop band (see R-141) (inferred — confirm). Stacking makes the section taller, so scroll length and the pricing pinned sections may need a look (R-042, R-121). D-006 and D-007 apply: no new class without approval, and options first for the visual change. Related: R-098, R-149.
+
+### R-149 · Lite version @tablet has issues with the about section content being stacked atop each other
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612420 in your boss list
+**From:** your task list, added 12 November 2026 (brief #557).
+**Done when:** in the lite version at tablet (portrait and landscape), the about section's content blocks sit one after another with no overlap, and all of it can be read, on published staging. (inferred — confirm)
+**Note:** "Lite" is the lighter build for weaker devices (D-025, D-026); "stacked atop each other" is read as overlapping, not as neatly stacked (inferred — confirm). First step: reproduce with the lite switch at 768, 820 and 1024px and say which blocks overlap. Related: R-125, R-121, R-150.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

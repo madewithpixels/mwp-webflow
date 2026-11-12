@@ -2,6 +2,13 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 12 November 2026 — Claude (night shift) — Seven new tasks written up as roadmap items (R-147 to R-153, brief #557)
+**Changed:** ROADMAP only. Phase 2: R-147 (scroll cue on the hero, task 43612418), R-150 (scroll pacing, 43612421), R-151 (marquee into pricing cards, 43612422), R-152 (slower testi-wall sideways scroll, 43612423), R-153 (phone and email links in the open menu, 43612424). Phase 3: R-148 (pricing cards at tablet landscape, 43612419), R-149 (lite about section at tablet, 43612420). All planned, with done-whens marked (inferred — confirm). Nothing built; nothing touched in Webflow, so no snapshot or backup.
+**Checked how:** read the roadmap; R-147 was the next free number.
+**Still open:** none of the seven says exactly what is wrong (R-151, R-153) or how much slower (R-150, R-152); each note says so. R-150 carries on R-042 (task deleted); R-153 follows R-105 (accepted).
+**Left for Michael (not blocking):** the earlier lists stand: roadmap items whose tasks he deleted (R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043, R-115, R-047, R-049, R-059), and heading tasks with no item (#43612130, #43612133, #43612126, #43612111, #43612304).
+**Next useful action:** first look at R-151 and R-153 to find what is wrong, options first (D-007).
+
 ## 11 November 2026 — Claude (night shift) — Roadmap item written for "The project page navigation items point nowhere" (R-145, brief #530)
 **Changed:** ROADMAP only: new R-145 (task 43612416), planned, placed in Phase 2 after R-082 beside the other project page items. Nothing built, nothing touched in Webflow.
 **Checked how:** read the roadmap; R-145 was the next free number.

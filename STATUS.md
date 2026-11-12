@@ -3,6 +3,18 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Folio-wall parting at mobile (s): could not reproduce an off-centre gap, nothing changed, one question asked (R-154, brief #577)
+**Changed:** the roadmap only: new item R-154 (task 43612427). Nothing changed in Webflow, so no snapshot changes. "After" backup made on the Webflow dashboard (the Designer link redirected to the dashboard): "boss · The folio-wall parting isn't centred at mobile (s) · after", 12 November 2026, 8:53 pm, seen in the list.
+**Found (staging Home, Chrome on the Mac Studio, a same-origin frame 390 wide by 600 tall; the window itself would not go below 606 wide):**
+- The parting is the "Folio Wall" interaction (i-cbf232de): rows 0 to 3 move up by 45, 30, 15 and 15 percent of their height, rows 5 to 8 move down by the same amounts, row 4 fades out; the text "Hundreds of projects…" fades in between. This happens at timeline units 5.2 to 7.1.
+- In my frame the gap is centred on the folio-wall box: top row ends at 155px, bottom row starts at 445px, centre 300px of 600. The text sits about 25px above that centre.
+- The box is 100lvh at the small breakpoint (R-121). My frame cannot show a phone's collapsing toolbar, where lvh is taller than the visible area, so the gap would sit lower than the middle of what is visible.
+**Not looked at:** a real phone; 479px and under in a true phone window; the lite site; landscape.
+**Evidence:** none (nothing built). Acceptance pending.
+**Needs Michael:** which way it looks off-centre on his phone (asked in boss).
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Testi-wall sideways scrolling: cause found, nothing changed, one choice asked (R-152, brief #579)
 **Changed:** nothing in Webflow content. A "before" backup was made on the Webflow dashboard (the Designer link opened the dashboard, not a canvas): "boss · Slow down the sideways scrolling in the testi-wall build and tilt section -… · before", 12 November 2026, 8:47 pm, seen in the list. No snapshot changes (nothing written).
 **Found (read-only, interaction "Testimonial Wall", i-cfca0496, timeline t-4774d7e0, 192 units long, scrub 1.5):**

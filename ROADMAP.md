@@ -44,7 +44,7 @@
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -511,6 +511,13 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** with the burger menu open, the telephone and email links look and behave as Michael wants, on published staging. (inferred — confirm)
 **Note:** What is wrong is not said, so this needs a first look (inferred — confirm). R-105 already made them plain text, right-aligned, with icons and weight 300 on desktop (script MenuContactText), and was accepted. Likely candidates: how they look at tablet and phone, text selection or link dragging, or the animation. Ask Michael only if the first look finds nothing. Related: R-105, R-140.
+
+### R-154 · The folio-wall parting isn't centred at mobile (s)
+**State:** in progress · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612427 in your boss list
+**From:** your task list (brief #577, 12 November 2026).
+**Done when:** on a phone (small breakpoint, 479px and under), when the folio wall parts, the gap opens centred on the screen, top and bottom equally, on published staging. (inferred — confirm)
+**Note:** "Mobile (s)" read as the small breakpoint (inferred — confirm); "the parting" read as the gap that opens in the middle of the folio wall under the hero. D-006, D-007 and D-017 apply: look first, offer options before changing a scroll animation. Related: R-125, R-121 (lvh heights on folio-wall_sticky), R-130.
 
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*

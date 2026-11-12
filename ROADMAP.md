@@ -494,6 +494,7 @@
 
 ### R-151 · transition from typography marquee section into the pricing cards needs work
 **State:** built · **Evidence:** verified (live, partly: staging, Chrome on the Mac Studio, 2044 wide, scrolled by script; not watched by eye while scrolling) · **Acceptance:** pending
+**Michael, in boss, 12 November 2026:** not yet — *"The angled transition isn't visible, it should be revealing the faulty terminal beneath the section. When the 'Built to Last' section comes in - it's still scrolling vertically as the 'focussed on' box moves in from the right which gives the movement an undesirable diagonal movement."*
 **Built 12 November 2026 (brief #581, Michael's pick: mirror the entry):** a second angled slate band sweeps right to left over the last 2,000px or so of the marquee, and the "Built to last" list slides in from the right instead of rising. Desktop only (off at tablet and phone, as the entry band is). Details in STATUS.
 **Task:** 43612422 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
@@ -501,8 +502,9 @@
 **Note:** What is wrong is not said (inferred — confirm: a jump, an empty gap or a hard cut). First step is to watch it in Chrome on the Mac Studio and describe what happens, then offer options (D-007). **Michael's note (12 November 2026):** the angled fade that precedes the marquee section should follow it out too; then 'Built to last' comes in from the right, not from beneath. Looked at in brief #581: nothing built yet; plan and the choice asked are in STATUS (12 November 2026, R-151).
 Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032, R-150, R-148.
 
-### R-152 · Slow down the sideways scrolling in the testi-wall build and tilt section - it's nausea inducing.
-**State:** built · **Evidence:** none (written in Webflow, not yet published or watched) · **Acceptance:** pending
+### R-152 · Slow down the sideways scrolling in the testi-wall build and tilt section - it's nausea inducing. *(accepted by Michael in boss, 12 Nov 2026)*
+**State:** built · **Evidence:** none (written in Webflow, not yet published or watched) · **Acceptance:** accepted (12 November 2026)
+**Accepted by Michael in boss, 12 November 2026** — checked: Looked at brief #582's result.
 **Built 12 November 2026 (brief #582, Michael's pick: slow the rows' sideways slide by 25% before stretching the opening):** build sweeps now 75% of the original (outer 10.5 to -10.5, inner -9.75 to 9.75) in the "Testimonial Wall" interaction; the drift end points moved so the drift keeps its old pace. An earlier pass in the same brief halved the slide (misquoting his pick as 50%); corrected. Details in STATUS. If it still feels too fast, the next step is to stretch the opening (his option 1 or 2).
 **Task:** 43612423 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
@@ -828,6 +830,7 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 
 ### R-148 · Pricing cards at tablet landscape are clipped by the navigation - let's run them vertically as the easy fix
 **State:** built (12 November 2026, not published) · **Evidence:** none · **Acceptance:** pending
+**Michael, in boss, 12 November 2026:** not yet — *"Not right yet, the mask animations on the pricing cards are still firing, remove them from the tablet breakpoint too"*
 **Task:** 43612419 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
 **Found (12 November 2026, brief #576, staging at 1024 wide, Chrome on the Mac Studio):** the three cards are 730px tall inside `.section-clipping-mask`, which is `overflow: hidden` and only as tall as the viewport (625px at 1024 x 768). So the cards are cut by the window, not only by the nav. The section is pinned (`.pricing`, 1250px, inside a pin-spacer) and the cards are revealed by a clip-path interaction. Stacking them (about 2,200px tall) means the mask, the pin length and the reveal all change. Grid styles can't be written through the MCP (D-006), so this is a Designer job. Not changed; options asked of Michael.
@@ -873,6 +876,7 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 
 ### R-160 · The bubble to quote mark transition into the contact section needs slowing down with more padding-top in the contact section to give the animation more time to play out
 **State:** built, published to staging only (option B, Michael's pick 12 November 2026, brief #589) · **Evidence:** verified (live, Chrome 1440 wide and one tablet width; not a real phone or Safari) · **Acceptance:** pending
+**Michael, in boss, 12 November 2026:** not yet — *"Slower still please"*
 **Task:** 43612432 in your boss list
 **Task:** 43612434 in your boss list (same wording as 43612432, looks like a second copy of the task; one item covers both, inferred — confirm)
 **From:** your task list, added 12 November 2026 (brief #574).

@@ -2377,3 +2377,10 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 12 November 2026 — Accepted by Michael in boss: R-142 (checked: Looked at brief #575's result.)
 - 12 November 2026 — Accepted by Michael in boss: R-145 (checked: not stated)
 
+## 12 November 2026, 22:27 — boss runner *(Michael's verdicts, R-092)*
+Written in from the Needs you queue on boss's Agents page. The verdicts are Michael's; the runner only records them.
+- 12 November 2026 — Not yet, Michael in boss: R-160 — *"Slower still please"*. Acceptance stays pending.
+- 12 November 2026 — Accepted by Michael in boss: R-152 (checked: Looked at brief #582's result.)
+- 12 November 2026 — Not yet, Michael in boss: R-151 — *"The angled transition isn't visible, it should be revealing the faulty terminal beneath the section. When the 'Built to Last' section comes in - it's still scrolling vertically as the 'focussed on' box moves in from the right which gives the movement an undesirable diagonal movement."*. Acceptance stays pending.
+- 12 November 2026 — Not yet, Michael in boss: R-148 — *"Not right yet, the mask animations on the pricing cards are still firing, remove them from the tablet breakpoint too"*. Acceptance stays pending.
+

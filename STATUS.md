@@ -3,6 +3,20 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Testi-wall sideways slide corrected to 25% slower (R-152, brief #582)
+**Correction:** Michael's answer in boss was "slowing down the horizontal movement of the bubble rows by 25%". The entry below this one recorded his pick as 50% and halved the slide. I have corrected it to 25%.
+**Changed (Webflow, site madewithpixels, Home page, interaction "Testimonial Wall" i-cfca0496, timeline t-4774d7e0):** four values, each 75% of the original travel:
+- a42 Outer sweep0: xPercent 7 → -7 became 10.5 → -10.5 (original 14 → -14).
+- a69 Inner sweep0: -6.5 → 6.5 became -9.75 → 9.75 (original -13 → 13).
+- outer-drift end -24 became -27.5; inner-drift end 23.5 became 26.75. Same reasoning as before: the drift is a "to" move from where the sweep ends, so each end keeps the original 17 percent travel and pace. At the very end of the section the rows sit 3.5 and 3.25 percent of a row's width further out than the original (inferred — confirm).
+- Read the whole interaction back before and after: all 62 actions identical except these four values. Durations, positions, tilt, part, quotes, back-row drift, exit tilt and background fade untouched.
+**Not published.** Michael publishes (D-008). Not changed: lite site, tablet and phone versions, section height.
+**Snapshot:** interactions are not in the snapshot, so no snapshot change. **Before backup:** "boss · Choose how to slow the sideways movement as the testimonial wall open… — before… · before", 12 November 2026, 9:36 pm, made on the Webflow dashboard, seen in the list. No after backup switched on.
+**Evidence:** none (written and read back; not watched in a browser). Acceptance pending.
+**Needs Michael:** publish staging, scroll the testimonial wall opening and say whether 25% is slow enough, or whether to go further or stretch the opening.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Seven new tasks written into the roadmap (R-155 to R-160, brief #574)
 **Changed (docs only; nothing in Webflow, no backup needed, no snapshot change):** six new roadmap items from Michael's list: R-155 slate too bright / muddy tricolour (task 43612426); R-156 project pages need a more modern layout (43612428); R-157 Perf-Lite stylesheet tweaks for the moved hero H1 (43612429); R-158 remove the pricing card mask anims at tablet (43612430); R-159 fix the pricing cards' vertical layout at tablet (43612431); R-160 slow the bubble-to-quote-mark transition and add Contact padding-top (43612432). Task 43612427 already has R-154 and task 43612416 already has R-145, so no duplicates. ROADMAP phase table and note updated.
 **Not given items:** the headings "MWP landing pages", "Launch MWP social campaign", "Launch prep", "Finish MWP site" and "Responsive layouts" (inbox list): the ROADMAP header already explains they are headings covered by the goal and phases.

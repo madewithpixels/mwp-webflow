@@ -495,7 +495,8 @@
 **Task:** 43612422 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** scrolling from the typography marquee into the pricing cards feels deliberate: no jump, gap or abrupt cut, and the cards arrive smoothly, on published staging at desktop. (inferred — confirm)
-**Note:** What is wrong is not said (inferred — confirm: a jump, an empty gap or a hard cut). First step is to watch it in Chrome on the Mac Studio and describe what happens, then offer options (D-007). Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032, R-150, R-148.
+**Note:** What is wrong is not said (inferred — confirm: a jump, an empty gap or a hard cut). First step is to watch it in Chrome on the Mac Studio and describe what happens, then offer options (D-007). **Michael's note (12 November 2026):** the angled fade that precedes the marquee section should follow it out too; then 'Built to last' comes in from the right, not from beneath. Looked at in brief #581: nothing built yet; plan and the choice asked are in STATUS (12 November 2026, R-151).
+Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032, R-150, R-148.
 
 ### R-152 · Slow down the sideways scrolling in the testi-wall build and tilt section - it's nausea inducing.
 **State:** planned · **Evidence:** none · **Acceptance:** pending

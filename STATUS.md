@@ -3,6 +3,19 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Marquee to "Built to last" hand-over: looked, nothing changed, one choice asked (R-151, brief #581)
+**Changed:** nothing in Webflow, no snapshot or backup needed. Read-only look at staging Home (2044 wide, Chrome on the Mac Studio) and the Home interactions through the MCP.
+**Michael's note:** the angled fade that comes in before the marquee should follow it out too; then "Built to last" should come in from the right, not from beneath.
+**Found:**
+- The angled fade is the interaction "Promise to Sectors Sweep": a wide transparent-to-slate band moving right to left (xPercent 50 to -50) as the "wipe" phase scrolls past (page 18,447 to 20,695), plus the Our promise text going to 0% at the end. There is nothing like it after the marquee: the mask phase (20,695 to 32,022) ends on plain slate.
+- "Built to last" is "About Section Bottom": its headline letters fade up in a stagger and the focus list rises (y 50% to 0) with opacity as the section scrolls in. That is the "from beneath". It is switched off at tablet and phone widths (they have their own pinned version, "About bottom mobile").
+- At 32,400 on staging the screen was empty slate with a faint dotted texture; the headline arrives later at about 32,995.
+**Plan (inferred, nothing built):** (1) a second sweep, using the same element class as the first (no new class), on the end of the mask phase, moving right to left, ending as the slate clears; (2) change the "About Section Bottom" entrance from rising (y) to sliding in from the right (x), on the same timing; (3) check on published staging at desktop, since the Designer doesn't run scroll animations. Step 1 needs a new element in the Designer and sits next to pinned sections (D-017), so I did not build it unattended. D-007 asks for options first.
+**Evidence:** none for a fix; diagnosis verified (local) only. Acceptance pending.
+**Needs Michael:** a choice on the approach (asked in boss).
+**Not checked:** tablet and phone (their own interactions); the lite site; Safari.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Pricing cards stack at iPad landscape (R-148, brief #580)
 **Changed (Webflow, site madewithpixels):** registered a new inline script "PricingTabletLandscape" 1.0.0 and applied it to the Home page footer, after the existing page scripts (the list was read before and after; nothing else changed). Nothing else touched: no styles, elements, interactions, CMS or site settings. **Not published.** Repo copy: `src/home/pricing-tablet-landscape.js`, imported in `src/home/index.js`.
 **What it does:** from 992 to 1180px wide it copies the pricing rules from Webflow's tablet block (991px and under) into a 992-1180 media query and kills the pricing pin. "Pricing Section Desktop" is set not to play at tablet and phone, and "Pricing Section Mobile" only plays at 479 and under, so the tablet layout is the plain stacked one. Below 992 and above 1180 nothing changes. If the window crosses 992 or 1180 the page reloads. Webflow's breakpoints are fixed at 991, which is why this is a script and not a Designer setting.

@@ -3,6 +3,14 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Bubble-to-quote-mark pacing: cause read, options asked (R-160, brief #585)
+**Changed:** nothing in Webflow (no backup, no snapshot change); ROADMAP R-160 updated with the cause.
+**Found (from `src/home/contact-bubbles.js`, not watched in a browser):** desktop fly-in is scroll-tied and ends when Contact's top reaches the top of the screen (END_AT 0), so more Contact padding-top alone would not slow it; tablet and phone play a timed 1.2 second move (FLY_MS). Options asked in boss (D-007): A desktop longer scroll plus padding-top; B = A plus slower timed move on small screens (recommended); C padding only.
+**Evidence:** none. Acceptance pending.
+**Needs Michael:** pick A, B or C in boss.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Testi-wall sideways slide corrected to 25% slower (R-152, brief #582)
 **Correction:** Michael's answer in boss was "slowing down the horizontal movement of the bubble rows by 25%". The entry below this one recorded his pick as 50% and halved the slide. I have corrected it to 25%.
 **Changed (Webflow, site madewithpixels, Home page, interaction "Testimonial Wall" i-cfca0496, timeline t-4774d7e0):** four values, each 75% of the original travel:

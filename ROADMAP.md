@@ -34,6 +34,8 @@
 
 **Next up (your order of 5 November 2026, refreshed 10 November 2026):** the swipe direction fix, the open part of R-134 (it now also covers R-135, and R-118 and R-120 are folded into R-134 and R-133); then the phone and tablet fixes written up from your list on 9 and 10 November (R-124 to R-131, R-136 to R-141), starting with where the menu links land (R-136, R-138, R-139); then the perf watcher with R-123 (smaller images swapped in), whose "low" is the lite site (D-025, in progress), and R-117 (the rest of the code consolidation, switching each script to jsDelivr). Landed and accepted since 6 November: R-119, R-129, R-132 and R-133. R-131 (reload with an anchor) is waiting on a phone result from you.
 
+*Six tasks added on 12 November 2026 (R-155 to R-160, brief #574) are written up from your list and still need your confirmation of the guesses marked in them. R-154 and R-145 already cover two other new tasks (#43612427, #43612416). R-156 takes over from R-082.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -43,8 +45,8 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-160 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -521,6 +523,13 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Done when:** on a phone (small breakpoint, 479px and under), when the folio wall parts, the gap opens centred on the screen, top and bottom equally, on published staging. (inferred — confirm)
 **Note:** "Mobile (s)" read as the small breakpoint (inferred — confirm); "the parting" read as the gap that opens in the middle of the folio wall under the hero. D-006, D-007 and D-017 apply: look first, offer options before changing a scroll animation. Related: R-125, R-121 (lvh heights on folio-wall_sticky), R-130.
 
+### R-155 · Is the slate BG too bright? Is it making the tricolour palette muddy?
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612426 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** you have seen the slate background and the tricolour (raspberry, and the other two palette colours) side by side, with a few slate options, and picked one (or kept it); the chosen slate is applied and the tricolour reads clean against it, on published staging. (inferred — confirm)
+**Note:** A question, not a fix: the first step is options, not a change (D-007). Suggested: show the current slate next to two or three slightly darker or less bright slates, with the tricolour on each, at desktop and phone. Slate is a Webflow variable or class colour used on the site background, the separators and the bands, so a change spreads everywhere; the marquee text colour (`#2f4d55`) and the bands (R-035, R-151) were set against the current slate and would need a check. No new class (D-006). Related: R-049 (bring through tricolour and button motifs, task deleted).
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -831,6 +840,41 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** in the lite version at tablet (portrait and landscape), the about section's content blocks sit one after another with no overlap, and all of it can be read, on published staging. (inferred — confirm)
 **Note:** "Lite" is the lighter build for weaker devices (D-025, D-026); "stacked atop each other" is read as overlapping, not as neatly stacked (inferred — confirm). First step: reproduce with the lite switch at 768, 820 and 1024px and say which blocks overlap. Related: R-125, R-121, R-150.
+
+### R-156 · Project pages need more modern layout, they’re especially poor at mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612428 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** the project pages have a more modern layout at desktop, tablet and phone, with phone the biggest improvement; Michael has picked the direction from options and it is built, on published staging. (inferred — confirm)
+**Note:** Michael gave no detail, so the first step is to look at a project page at 390, 768 and 1440px wide, list what feels dated (inferred — confirm), and offer two or three layout directions before changing anything (D-007). Nothing is rebuilt without his pick. This is the same ground as R-082 (layout changes to project pages), whose task he deleted; this new task replaces it in his list, so R-082 should be closed by this item once he agrees (inferred — confirm). Project pages share a CMS template, so one change covers all of them; no new class without approval (D-006). Keep R-103 (stable nav buttons), R-134 (swipe), R-113 and R-132. Related: R-145.
+
+### R-157 · We'll need some tweaks to the 'Perf-Lite' stylesheet now that the hero H1 has moved on Tablet and below
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612429 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** in the lite version at tablet, phone landscape and phone portrait, the hero (logo block, H1, strapline, estimate button) sits correctly and nothing overlaps or is clipped; the lite stylesheet no longer fights the H1's new position, on published staging. (inferred — confirm)
+**Note:** Read as: the hero H1 was moved in the Designer for tablet and below, and the lite stylesheet (the static-layout CSS that perf.js loads when `data-lite` is set, pinned to its commit with SRI) still has rules written for the old position (inferred — confirm). First step: switch to lite (`?perf=low`) at 768, 820 and 390px and say what is off. Lite code lives in `src/perf/perf.js`; the lite stylesheet is a separate file loaded from jsDelivr, so a change there needs a new commit and a new pinned hash (D-005, R-055). Related: R-102, R-149, D-025.
+
+### R-158 · Remove the mask anims on the pricing cards at tablet
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612430 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** at tablet (portrait and landscape), the pricing cards no longer reveal through a clip-path mask as you scroll; they simply appear in place, and nothing else on the section breaks, on published staging. (inferred — confirm)
+**Note:** Read as the clip-path reveal on the pricing cards (the interaction behind `.section-clipping-mask`) being turned off at the Tablet breakpoint only; desktop keeps it (inferred — confirm). Interactions can be switched off per breakpoint in the Designer. Closely tied to R-159 (vertical layout) and R-148 (cards stacked up to 1180px by script, which also switches off the pricing pin): do the three together. D-017 applies before changing scroll animations.
+
+### R-159 · Fix the vertical layout of the pricing cards at tablet
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612431 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** at tablet (portrait and landscape), the three pricing cards run one above the other with even spacing, each whole and readable, with no overlap, clipping or odd gaps above or below, on published staging. (inferred — confirm)
+**Note:** What is wrong is not said (inferred — confirm: likely spacing, height or overlap now that the cards are stacked by R-148 and the section is pinned). First step: look at 768, 820 and 1024px and list what is off; offer options before any visual change (D-007). Grid styles can't be written through the MCP (D-006), so part of it may be a Designer job for Michael. Related: R-148, R-158, R-098, R-101.
+
+### R-160 · The bubble to quote mark transition into the contact section needs slowing down with more padding-top in the contact section to give the animation more time to play out
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612432 in your boss list
+**From:** your task list, added 12 November 2026 (brief #574).
+**Done when:** scrolling from the testimonials into Contact, the bubbles-to-quote-mark transition plays over a longer scroll distance, so each stage can be seen, because Contact has more padding at the top; it still plays cleanly in reverse, on published staging. (inferred — confirm)
+**Note:** Read as the morph (R-079, R-128) at desktop first, and at tablet and phone unless Michael says otherwise (inferred — confirm). The fix is a taller Contact padding-top (a class value change, so D-006 approval first) and possibly a longer timeline in the interaction (D-017). Check the cause before building: whether the animation runs out of scroll or just runs fast. Padding-top changes the page height, so check the anchor landing for Contact (R-131, R-136, R-138). Check the timing in Claude in Chrome (AGENTS.md section 6). Related: R-128, R-039, R-152.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

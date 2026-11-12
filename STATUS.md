@@ -3,6 +3,16 @@
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
 
+## 12 November 2026 — Claude (night shift) — Seven new tasks written into the roadmap (R-155 to R-160, brief #574)
+**Changed (docs only; nothing in Webflow, no backup needed, no snapshot change):** six new roadmap items from Michael's list: R-155 slate too bright / muddy tricolour (task 43612426); R-156 project pages need a more modern layout (43612428); R-157 Perf-Lite stylesheet tweaks for the moved hero H1 (43612429); R-158 remove the pricing card mask anims at tablet (43612430); R-159 fix the pricing cards' vertical layout at tablet (43612431); R-160 slow the bubble-to-quote-mark transition and add Contact padding-top (43612432). Task 43612427 already has R-154 and task 43612416 already has R-145, so no duplicates. ROADMAP phase table and note updated.
+**Not given items:** the headings "MWP landing pages", "Launch MWP social campaign", "Launch prep", "Finish MWP site" and "Responsive layouts" (inbox list): the ROADMAP header already explains they are headings covered by the goal and phases.
+**Tasks Michael deleted, for him to decide (nothing dropped):** R-082 (now overlapped by R-156), R-036, R-037, R-074, R-086, R-076, R-042 (carried on by R-150), R-043, R-115, R-047, R-049, R-059.
+**Reorder from his list:** R-118 before R-120, R-120 before R-106, R-119 before R-106. R-118 and R-120 are folded into R-134 and R-133; R-106 and R-119 are accepted, so the moves put nothing ahead of work it depends on.
+**Evidence:** n/a. Acceptance pending. Guesses are marked (inferred — confirm) in each item.
+**Needs Michael:** confirm or correct the guesses in R-155 to R-160.
+— Claude (night shift)
+
+
 ## 12 November 2026 — Claude (night shift) — Folio-wall parting: Michael says the gap sits too low; fix options asked (R-154, brief #577)
 **Michael's answer (boss, brief #584):** "The gap sits too low (nearer the bottom of the screen)". This fits the lvh theory below.
 **Changed:** nothing in Webflow, no snapshot change, no new backup (nothing to back up). Fix choice asked in boss, one question: (A) folio-wall_sticky to 100svh at small (may bring back the slate gaps R-121 removed); (B) keep 100lvh and lift the parting by half the toolbar height with a small script on phones (recommended); (C) leave it. D-007: nothing changes until he picks.

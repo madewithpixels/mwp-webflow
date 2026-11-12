@@ -230,7 +230,7 @@
   // On: high, and mid with a mouse. Off: low, mid on a touch device at ANY width (the iPad in landscape is 1024px wide), and
   // tablet width and below (the old width rule, kept as a backstop until the tier is trusted on real tablets).
   // Testimonial wall: its drop-shadow filter lives in the Home head code (off at 991px and below there); here it is also
-  // switched off for low and mid-touch. The inner rows' blur is a different rule and is left alone.
+  // switched off for low (when not in lite: lite brings it back, see the lite block) and mid-touch. The inner rows' blur is a different rule and is left alone.
   try {
     var sh = document.createElement('style');
     sh.setAttribute('data-mwp-perf-shadows', '');
@@ -238,8 +238,8 @@
       '.folio-wall_tile{box-shadow:0 2px 10px 3px hsla(0,0%,0%,.46)}' +
       '@media(max-width:991px){.folio-wall_tile{box-shadow:none}}' +
       'html[data-perf="low"] .folio-wall_tile,html[data-perf="mid"][data-input="touch"] .folio-wall_tile{box-shadow:none}' +
-      'html[data-perf="low"] .testi-wall_half:first-child>.testi-wall_row:first-child,' +
-      'html[data-perf="low"] .testi-wall_half:last-child>.testi-wall_row:last-child,' +
+      'html[data-perf="low"]:not([data-lite]) .testi-wall_half:first-child>.testi-wall_row:first-child,' +
+      'html[data-perf="low"]:not([data-lite]) .testi-wall_half:last-child>.testi-wall_row:last-child,' +
       'html[data-perf="mid"][data-input="touch"] .testi-wall_half:first-child>.testi-wall_row:first-child,' +
       'html[data-perf="mid"][data-input="touch"] .testi-wall_half:last-child>.testi-wall_row:last-child{filter:none!important}';
     (document.head || doc).appendChild(sh);
@@ -534,6 +534,17 @@
     } catch (e) {
       lite.still = 'error: ' + e.message;
     }
+    // Testimonial bubble bands in lite (Michael, 12 Nov 2026): the rows are static here, so the drop shadow and the blur are cheap and come back.
+    // Front rows get the shadow at every width (the Home head code removes it at 991px and below). The animation that normally drives the inner
+    // rows' blur, tint and the back rows is killed in lite, so its variables are set to where the scroll animation ends (parted: 5px, 50%, back rows shown, drift -38%).
+    try {
+      var tb = document.createElement('style');
+      tb.setAttribute('data-mwp-lite-testi', '');
+      tb.textContent =
+        'html[data-lite] .testi-wall_half:first-child>.testi-wall_row:first-child,html[data-lite] .testi-wall_half:last-child>.testi-wall_row:last-child{filter:drop-shadow(0 .6svh 1.2svh rgba(0,0,0,.28))!important}' +
+        'html[data-lite] .testi-wall_half>.testi-wall_row,html[data-lite] .testi-wall_backrow{--_animation---testi-inner-blur:5px!important;--_animation---testi-inner-mix:50%!important;--_animation---testi-back-show:1!important;--_animation---testi-back-drift:-38%!important}';
+      (document.head || document.documentElement).appendChild(tb);
+    } catch (e) {}
     // the lite stylesheet (static layouts), pinned to its commit with SRI
     try {
       var lk = document.createElement('link');

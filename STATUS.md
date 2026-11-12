@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 12 November 2026 — Claude (night shift) — Estimate step 6 Testimonials option no longer links away (R-142, brief #575)
+**Changed:** in Webflow, site madewithpixels, page Estimate, footer scripts: EstimateMenuAnchors 1.0.0 replaced by 1.0.1 (registered inline script, same name; the rest of the page's script list is unchanged, only its order moved to last). It now rewrites only the burger menu's own links (`a.mwp-css-nav_link`); 1.0.0 rewrote every `#` link whose text matched, which turned the step 6 "Testimonials" answer option into a link to `/#testimonials`. Repo copy `src/estimate/estimate-menu-anchors.js` updated to match. No elements, classes, CMS or other pages touched. Backup before: "boss · The /estimate page step 6 testimonials button links to the home page… · before", made in the Designer.
+**Not published.** Staging still runs 1.0.0 until Michael publishes.
+**Checked how:** staging /estimate in Chrome (Mac Studio): option had `href="/#testimonials"`; re-ran 1.0.1's selection on the live DOM: five menu links get their Home section addresses, the option stays `#`. Evidence: verified (local); not verified live. Acceptance pending.
+**Snapshot:** none written. snapshots/ holds site and page freeform code only; registered scripts and the page's script list are not in it. Interactions and anything the Webflow MCP can't read are not captured either.
+**Needs Michael:** publish staging, then try step 6.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Pricing cards at tablet landscape: cause found, nothing changed (R-148, brief #576)
 **Changed:** ROADMAP note on R-148 only. Nothing touched in Webflow (no snapshot or backup needed).
 **Found:** staging, 1024 x 768, Chrome on the Mac Studio. The three cards are 730px tall; the pinned clipping mask they sit in is `overflow: hidden` and only 625px tall (the window height), so the bottom of each card is cut off. Stacking them in a column makes the section about 2,200px tall, so the mask height, the pin length and the clip-path reveal all need to change with it. Grid styles are barred through the MCP (D-006), and the pinned reveal can only be judged on published staging.

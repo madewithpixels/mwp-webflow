@@ -1,10 +1,12 @@
 /* R-106: on /estimate the burger menu's About, Pricing, Work, Testimonials and Contact links point at `#` (the library menu
    links to a section on the current page, and /estimate has none of those sections). Send them to the home page's sections
-   instead. Written by Claude. Home and the Instant Estimate button are untouched. */
+   instead. Written by Claude. Home and the Instant Estimate button are untouched.
+   R-142 (1.0.1): only the menu's own links (.mwp-css-nav_link). 1.0.0 also caught the step 6 "Testimonials" answer option
+   and sent it to the Home page. */
 (function () {
   var MAP = { About: '/#about', Pricing: '/#pricing', Work: '/#portfolio', Testimonials: '/#testimonials', Contact: '/#contact' };
   function fix(root) {
-    var links = (root || document).querySelectorAll('a[href="#"]');
+    var links = (root || document).querySelectorAll('a.mwp-css-nav_link[href="#"]');
     for (var i = 0; i < links.length; i++) {
       var to = MAP[(links[i].textContent || '').trim()];
       if (to) { links[i].setAttribute('href', to); links[i].setAttribute('data-r106', ''); }

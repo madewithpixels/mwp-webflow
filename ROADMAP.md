@@ -939,10 +939,11 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Note:** R-106 wired the Estimate page anchor links (accepted) and R-116 reported a related oddity (its text is cut off). This looks like a regression or the phone case R-106 didn't cover, probably the page loading with an anchor in the address and the layout not being ready (R-131) (inferred — confirm). First step: list each menu link, where it should go and where it lands, at phone width. Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006). Ignore the old `mwp-site-menu-*` menu (D-015). Do with R-116 and R-131.
 
 ### R-142 · The /estimate page step 6 testimonials button links to the home page testimonials section
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (not published) · **Evidence:** verified (local) · **Acceptance:** pending
 **Task:** 43612409 in your boss list
 **From:** your task list, added 10 November 2026 (brief #418).
-**Done when:** on published staging, on the Estimate page at step 6, the testimonials button opens the Testimonials section of the Home page (not the top of the Home page), at desktop, tablet and phone width. (inferred — confirm)
+**Done when:** on published staging, on the Estimate page at step 6, the Testimonials button is no longer a link to the Home page: it is just an answer you can tick, and the menu's Testimonials link still goes to the Home page section. (Michael, 12 November 2026: "madness! remove the link".)
+**Built 12 November 2026 (brief #575):** the cause was R-106's script, which turned every Estimate page link reading "Testimonials" into a Home page link, including the step 6 answer option. EstimateMenuAnchors 1.0.1 now touches only the menu's own links. Repo copy updated. Not published; needs Michael to publish and try it.
 **Note:** Read as: the button on step 6 currently goes somewhere else (probably the plain Home page) and should land on the Testimonials section (inferred — confirm). The estimate tool's code is in its own repo (MWP-Instant-Website-Estimate), so the change may land there, or be a link change in Webflow (inferred — confirm). It may reuse the Estimate page anchor script from R-106. Related: R-124 and R-139, which cover the burger menu's anchor landings from the Estimate page; do this after them if the landing offset is still wrong. Check on published staging with Claude in Chrome.
 
 ### R-143 · Content usage policy page *(accepted by Michael in boss, 11 Nov 2026)*

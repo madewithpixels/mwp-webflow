@@ -41,6 +41,20 @@
 **Needs Michael:** a choice on how to slow it (asked in boss). D-007 applies; D-017 applies to anything that changes scroll lengths.
 — Claude (night shift)
 
+## 12 November 2026 — Claude (night shift) — Marquee exit band and "Built to last" slides in from the right (R-151, brief #581)
+**Changed (Webflow, site madewithpixels, page Home):**
+1. New element: an unclassed div (aria-hidden, attributes `data-mwp-slate-wipe` and `data-mwp-slate-wipe-exit`), last child of `ticker__sticky` (element 612697d3-0446-84de-b63b-cfd0b950c5d7). It takes the entry band's look from the existing head CSS on `[data-mwp-slate-wipe]`, so no new class and no code change (D-006).
+2. New interaction "Marquee to Built to Last Sweep" (i-b026f5c9): scroll trigger on the mask phase div, start `bottom 200%`, end `bottom top`, scrub 0.15, xPercent 50 to -50 (same as the entry sweep). Off for reduced motion and at medium, small and tiny, like the entry.
+3. Edited interaction "About Section Bottom" (i-c0c9fb65): the focus list action now goes xPercent 40 to 0 (was y 50% to 0); opacity, timing, the headline stagger and the trigger are unchanged.
+**Published to staging (madewithpixels-dev.webflow.io) only**, under the staging trial (D-009), so I could check. That publish also put the earlier unpublished work on staging (R-148 PricingTabletLandscape, R-145 ProjectMenuAnchors, R-142 EstimateMenuAnchors 1.0.1, R-152 testi-wall change). Custom domain not touched.
+**Checked how:** staging Home, Chrome, 2044x1029. The mask phase ends at page y 33,735; the band moved from +2,248px to -2,248px between 31,677 and 33,735 (read at 31,500 / 32,000 / 32,600 / 33,200 / 33,700 / 34,300). Screenshots at 32,700 (slate with the heading fragments only at the bottom), 33,700 (clean slate) and 34,300 ("Your website. Built to last." arriving, list at 68px right and 64% opacity, then settling). I scrolled by script, so smoothness was not judged by eye.
+**Evidence:** verified (live, partly). Acceptance pending.
+**Not checked:** by-eye smoothness; tablet and phone (switched off by design); the lite site; Safari; the scroll magnet interplay; the headline letters still only fade (I moved the list only; the letters could slide too if you want).
+**Snapshot:** `snapshots/interactions/home-marquee-exit.json` written by hand from the read-back (the interactions and the new element). Not a full export. Interactions are otherwise not in snapshots/.
+**Backups:** brief #579's missing "after" backup made first, in the Designer, named "boss · Slow down the sideways scrolling in the testi-wall build and tilt section · after", recorded. No "before" backup for this brief. This brief's "after" backup: "boss · transition from typography marquee section into the pricing cards needs work · after" (Designer, 9:09:16 pm, 3,520 elements), recorded.
+**Needs Michael:** scroll Home on staging from the marquee into "Your website. Built to last." and say how it feels.
+— Claude (night shift)
+
 ## 12 November 2026 — Claude (night shift) — Marquee to "Built to last" hand-over: looked, nothing changed, one choice asked (R-151, brief #581)
 **Changed:** nothing in Webflow, no snapshot or backup needed. Read-only look at staging Home (2044 wide, Chrome on the Mac Studio) and the Home interactions through the MCP.
 **Michael's note:** the angled fade that comes in before the marquee should follow it out too; then "Built to last" should come in from the right, not from beneath.

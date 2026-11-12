@@ -491,7 +491,8 @@
 **Note:** "All versions" is read as full and lite, at every width (inferred — confirm). How much slower is for Michael to say: the section-by-section scroll lengths and five pacing options already measured are in STATUS (R-042, brief #271), which is the starting point. R-042's own task has been deleted from your list, so this item carries on that work; R-042 stays as the record until you decide to drop it. The scroll magnet is desktop only (D-019). Sticky and redraw notes behind D-017 apply before changing scroll animations. Related: R-151, R-152, R-149.
 
 ### R-151 · transition from typography marquee section into the pricing cards needs work
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built · **Evidence:** verified (live, partly: staging, Chrome on the Mac Studio, 2044 wide, scrolled by script; not watched by eye while scrolling) · **Acceptance:** pending
+**Built 12 November 2026 (brief #581, Michael's pick: mirror the entry):** a second angled slate band sweeps right to left over the last 2,000px or so of the marquee, and the "Built to last" list slides in from the right instead of rising. Desktop only (off at tablet and phone, as the entry band is). Details in STATUS.
 **Task:** 43612422 in your boss list
 **From:** your task list, added 12 November 2026 (brief #557).
 **Done when:** scrolling from the typography marquee into the pricing cards feels deliberate: no jump, gap or abrupt cut, and the cards arrive smoothly, on published staging at desktop. (inferred — confirm)

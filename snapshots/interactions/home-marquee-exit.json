@@ -1,0 +1,157 @@
+{
+  "exitBandElement": {
+    "attributes": {
+      "aria-hidden": "true",
+      "data-mwp-slate-wipe": "",
+      "data-mwp-slate-wipe-exit": ""
+    },
+    "classes": [],
+    "id": {
+      "component": "683cced100c63d0f60a847af",
+      "element": "612697d3-0446-84de-b63b-cfd0b950c5d7"
+    },
+    "parent": "66b1bebf-ac1f-2e9d-e389-92a0a9abb231 (ticker__sticky, last child)",
+    "type": "Block"
+  },
+  "interactions": [
+    {
+      "conditionalPlayback": [
+        {
+          "behavior": "dont-animate",
+          "type": "prefers-reduced-motion"
+        },
+        {
+          "behavior": "dont-animate",
+          "breakpoints": [
+            "medium",
+            "small",
+            "tiny"
+          ],
+          "type": "breakpoint"
+        }
+      ],
+      "id": "i-b026f5c9",
+      "name": "Marquee to Built to Last Sweep",
+      "scope": {
+        "type": "pages",
+        "value": [
+          "683cced100c63d0f60a847af"
+        ]
+      },
+      "timeline": {
+        "actions": [
+          {
+            "id": "slate-sweep-exit",
+            "name": "Wide angled transparent-to-slate sweep (exit)",
+            "properties": {
+              "wf:transform": {
+                "x": [
+                  0,
+                  0
+                ],
+                "xPercent": [
+                  50,
+                  -50
+                ]
+              }
+            },
+            "targets": [
+              {
+                "extensionKey": "wf:inst",
+                "value": [
+                  "683cced100c63d0f60a847af",
+                  "612697d3-0446-84de-b63b-cfd0b950c5d7"
+                ]
+              }
+            ],
+            "timing": {
+              "duration": 1,
+              "ease": 0,
+              "position": 0
+            },
+            "tt": 2
+          }
+        ],
+        "id": "t-a8a78250"
+      },
+      "trigger": {
+        "extensionKey": "wf:scroll",
+        "scrollTriggerConfig": {
+          "clamp": true,
+          "end": "bottom top",
+          "enter": "play",
+          "enterBack": "none",
+          "leave": "none",
+          "leaveBack": "none",
+          "scrub": 0.15,
+          "start": "bottom 200%"
+        },
+        "target": {
+          "extensionKey": "wf:inst",
+          "value": [
+            "683cced100c63d0f60a847af",
+            "73346b65-5131-a878-5c20-b10f89ebe94f"
+          ]
+        }
+      }
+    },
+    {
+      "changed": "Focus Wrapper action: y [50%,0px] replaced by xPercent [40,0]; opacity 0 to 100 and everything else unchanged",
+      "id": "i-c0c9fb65",
+      "name": "About Section Bottom",
+      "timeline": {
+        "actions": [
+          {
+            "id": "ta-ca66d23d",
+            "name": "Header Stagger",
+            "properties": {
+              "wf:transform": {
+                "opacity": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            },
+            "splitText": {
+              "mask": "chars",
+              "type": "chars"
+            },
+            "timing": {
+              "duration": 0.32,
+              "ease": 3,
+              "position": 0.04,
+              "stagger": {
+                "each": 0.011086956521739131
+              }
+            },
+            "tt": 2
+          },
+          {
+            "id": "ta-73fee7ed",
+            "name": "Focus Wrapper",
+            "properties": {
+              "wf:transform": {
+                "opacity": [
+                  "0%",
+                  "100%"
+                ],
+                "xPercent": [
+                  40,
+                  0
+                ]
+              }
+            },
+            "timing": {
+              "duration": 0.46,
+              "ease": 3,
+              "position": 0.01
+            },
+            "tt": 2
+          }
+        ],
+        "id": "t-912bddcf"
+      }
+    }
+  ],
+  "note": "Hand-written from the read-back of two Home interactions after brief #581 (R-151). Not a full export; interactions are not otherwise captured in snapshots/."
+}

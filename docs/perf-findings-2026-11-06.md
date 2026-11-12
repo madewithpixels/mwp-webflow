@@ -72,3 +72,8 @@ Low means: **static image instead of the Faulty Terminal; all GSAP animation off
 - **Fade, reload and jump (0.5.0)** was tried and rejected by Michael as slow and worse on weak devices. 0.5.1 remembers lite for the next load instead (D-026).
 - **Desktops:** M1 Mac Studio high, worst 100fps; M1 MacBook Air high, worst 60fps; 2009 Mac Pro Firefox high, worst 70fps. 2009 Mac Pro Chrome and Parallels Windows 10 Chrome stepped to mid with 13fps in the Testimonial wall (Parallels Chrome also 17 in About), Firefox on the same Mac Pro smooth. Parallels Edge: no WebGL, so the terminal and intro heart steps do not run, and it is slow in About (9fps). Safari 14 on the Mac Pro breaks (no `svh`/`lvh`): unsupported by decision.
 - **Decided not to do:** lite for slow desktops; any special handling of no-WebGL browsers; Safari 14 support (D-026).
+
+## 12 November 2026, later: pills and lite touches (0.6.0 to 0.6.2)
+- A slow device is now offered lite by a pill after the second slow reading; Switch reloads into lite, Not now closes it for the session; lite shows a persistent "View the full version" pill, remembered 30 days (D-026 amended). Michael tested on staging and confirmed it works as expected.
+- Lite keeps the Testimonial bubble shadow and blur (static there) and fades the hero copy out as the Folio wall comes up.
+- Not yet seen: any capable device showing the offer. Watch for it on the Macs and the iPhone.

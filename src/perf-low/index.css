@@ -32,6 +32,8 @@ html[data-lite] .about > div:not([class]) { height: auto !important; }
 html[data-lite] .about .ticker { display: none !important; }
 html[data-lite] .about-section { position: relative !important; top: auto !important; height: 100vh !important; height: 100lvh !important; }
 html[data-lite] .about-section.bottom { margin-bottom: 0 !important; }
+/* Tablet/mobile: the full site overlaps the two About blocks (negative top margin on the bottom one) for its pinned layering; with no pinning in lite they must stack, each as tall as its content (13 Nov) */
+@media (max-width: 991px) { html[data-lite] .about-section { height: auto !important; min-height: 0 !important; } html[data-lite] .about-section.bottom { margin-top: 0 !important; } }
 
 /* Pricing: cards one screen (landscape: side by side), call to action one screen beneath */
 html[data-lite] .pricing { height: auto !important; }

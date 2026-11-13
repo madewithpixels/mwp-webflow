@@ -549,8 +549,8 @@
     try {
       var lk = document.createElement('link');
       lk.rel = 'stylesheet';
-      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@6273209/dist/perf-low.min.css';
-      lk.integrity = 'sha384-RT5VotHw+F8Xb2iPLoevtm7wGkKRV5/w1c35eQcXne/jcx3pSCzZITh3tDEAeGoW';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@814f21d/dist/perf-low.min.css';
+      lk.integrity = 'sha384-9DgJ4SVH+avUppr2L2a+iHiJ4WqNAX41cKJdrRdwy2kfVXUENMWTdbeSlQXvE2+e';
       lk.crossOrigin = 'anonymous';
       (document.head || document.documentElement).appendChild(lk);
     } catch (e) {}

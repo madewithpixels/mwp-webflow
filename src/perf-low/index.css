@@ -42,8 +42,8 @@ html[data-lite] .pricing-wrapper { height: 100vh !important; height: 100lvh !imp
 html[data-lite] .pricing-block { visibility: visible !important; clip-path: none !important; height: auto !important; }
 html[data-lite] .pricing-cta { position: relative !important; height: 100vh !important; height: 100lvh !important; clip-path: none !important; visibility: visible !important; opacity: 1 !important; }
 html[data-lite] .portfolio { margin-top: 0 !important; }
-@media (orientation: portrait) {
-  /* cards run down the page, 1px apart */
+@media (orientation: portrait), (max-width: 1279px) {
+  /* cards run down the page, 1px apart (also tablet/phone landscape: the Designer's flex column centred in one screen let the cards spill up over the About block, 13 Nov) */
   html[data-lite] .pricing-wrapper { display: flex !important; flex-direction: column !important; gap: 1px !important; padding: 0 !important; margin: 0 !important; height: auto !important; }
   html[data-lite] .pricing-block { border-radius: 0 !important; margin: 0 !important; width: 100% !important; max-width: none !important; align-self: stretch !important; box-sizing: border-box !important; min-height: 0 !important; }
 }

@@ -2,6 +2,15 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 13 November 2026 — Codex — Webflow connection checked
+
+**Changed:** this entry only. Connection check requested by Michael, with no roadmap item.
+**Outputs and checked how:** Webflow MCP returned the madewithpixels site and reported Home as the current Designer page. Read-only check. Evidence: n/a. Acceptance: n/a.
+**Still open:** the reviewed-at header predates later commits, including the Perf-Lite Intro padding change and stylesheet update (`d46dbe4`, `e2bcee3`).
+**Needs Michael:** nothing for the connection check. No site backup needed.
+**Next useful action:** use the verified connection for the next Webflow request.
+— Codex
+
 
 ## 12 November 2026 — Claude (night shift) — New tasks written up (R-154, R-160, brief #587)
 **Changed:** ROADMAP only. Task 43612433 ("The gap sits too low…") is Michael's answer in boss to R-154's question, so it is added as a second **Task:** line on R-154; no new item. Task 43612434 has the same wording as 43612432, so it is added as a second **Task:** line on R-160; no new item. Both marked (inferred — confirm). Nothing in Webflow, no snapshot change.

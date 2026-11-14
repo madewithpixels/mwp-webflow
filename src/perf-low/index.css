@@ -26,6 +26,20 @@ html[data-lite] .intro_sticky { position: relative !important; top: auto !import
 
 /* The hero logo sits behind the page (sticky hero); hide it once the Folio wall has covered the hero (flag set by MWPPerf) */
 html[data-lite][data-lite-past] .logo-wrapper { visibility: hidden !important; }
+/* Tablet/mobile hero: the full site shows only the logo at first, then fades it out and staggers the four H1 lines in as the visitor scrolls (Hero Fade Out Tablet).
+   Lite has no scroll animation, so MWPPerf writes the scroll progress over the runway before the Folio wall (0 to 1) into --lite-p on .hero-container and the
+   logo and lines follow it: logo gone by 25%, line 1 in from 20%, then one every 10% (14 Nov 2026). Desktop is not touched. */
+@media (max-width: 991px) {
+  html[data-lite] .hero-container .logo-wrapper { opacity: clamp(0, calc(1 - var(--lite-p, 0) / 0.25), 1) !important; }
+  html[data-lite] .hero-container .h1-line-01 { opacity: clamp(0, calc((var(--lite-p, 0) - 0.2) / 0.2), 1) !important; }
+  html[data-lite] .hero-container .h1-line-02 { opacity: clamp(0, calc((var(--lite-p, 0) - 0.3) / 0.2), 1) !important; }
+  html[data-lite] .hero-container .h1-line-03 { opacity: clamp(0, calc((var(--lite-p, 0) - 0.4) / 0.2), 1) !important; }
+  html[data-lite] .hero-container .h1-line-04 { opacity: clamp(0, calc((var(--lite-p, 0) - 0.5) / 0.2), 1) !important; }
+}
+@media (max-width: 991px) and (prefers-reduced-motion: reduce) {
+  html[data-lite] .hero-container .logo-wrapper { opacity: 0 !important; }
+  html[data-lite] .hero-container .h1-line-01, html[data-lite] .hero-container .h1-line-02, html[data-lite] .hero-container .h1-line-03, html[data-lite] .hero-container .h1-line-04 { opacity: 1 !important; }
+}
 
 /* About: the scroll runway has an inline height set by script; the "We work with" marquee goes entirely */
 html[data-lite] .about > div:not([class]) { height: auto !important; }

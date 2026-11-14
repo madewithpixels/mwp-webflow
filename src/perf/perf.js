@@ -549,14 +549,15 @@
     try {
       var lk = document.createElement('link');
       lk.rel = 'stylesheet';
-      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@814f21d/dist/perf-low.min.css';
-      lk.integrity = 'sha384-9DgJ4SVH+avUppr2L2a+iHiJ4WqNAX41cKJdrRdwy2kfVXUENMWTdbeSlQXvE2+e';
+      lk.href = 'https://cdn.jsdelivr.net/gh/madewithpixels/mwp-webflow@f7b82a7/dist/perf-low.min.css';
+      lk.integrity = 'sha384-L78FTNWQb8Gfn8WnPzHb7901QaC6DdSkgP9zm1GLrkOPrQhxDRazoCQa5XxL2JfV';
       lk.crossOrigin = 'anonymous';
       (document.head || document.documentElement).appendChild(lk);
     } catch (e) {}
     // the hero logo shows through the sticky hero once nothing covers it; hide it when the Folio wall reaches the top
     var pastHero = false;
     var heroFade = 0;
+    var heroP = -1;
     var checkPast = function () {
       var f = document.querySelector('.folio-wall');
       if (!f) return;
@@ -572,6 +573,16 @@
         if (fade !== heroFade) {
           heroFade = fade;
           hc.style.opacity = fade ? String(1 - fade) : '';
+        }
+        // Tablet/phone: the full site hands the hero over from the logo to the H1 lines as the visitor scrolls (the Hero Fade Out Tablet animation).
+        // Lite has no scroll animation, so the progress (0 to 1) over the scroll runway before the Folio wall arrives goes into --lite-p, and
+        // the lite stylesheet turns it into the logo fading out and the H1 lines fading in (14 Nov 2026).
+        var sy = window.pageYOffset || 0;
+        var hp = Math.max(0, Math.min(1, sy / Math.max(200, top + sy - vh)));
+        hp = Math.round(hp * 200) / 200;
+        if (hp !== heroP) {
+          heroP = hp;
+          hc.style.setProperty('--lite-p', String(hp));
         }
       }
       if (past !== pastHero) {

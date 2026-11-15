@@ -36,6 +36,8 @@
 
 *Six tasks added on 12 November 2026 (R-155 to R-160, brief #574) are written up from your list and still need your confirmation of the guesses marked in them. R-154 and R-145 already cover two other new tasks (#43612427, #43612416). R-156 takes over from R-082.*
 
+*One task added on 14 November 2026 (R-161, from your messages) is written up from them and still needs your confirmation of the guesses marked in it. It carries on R-150.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -46,7 +48,7 @@
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-160 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-161 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -882,6 +884,13 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your task list, added 12 November 2026 (brief #574).
 **Done when:** scrolling from the testimonials into Contact, the bubbles-to-quote-mark transition plays over a longer scroll distance, so each stage can be seen, because Contact has more padding at the top; it still plays cleanly in reverse, on published staging. (inferred — confirm)
 **Note:** Read as the morph (R-079, R-128) at desktop first, and at tablet and phone unless Michael says otherwise (inferred — confirm). The fix is a taller Contact padding-top (a class value change, so D-006 approval first) and possibly a longer timeline in the interaction (D-017). Check the cause before building: whether the animation runs out of scroll or just runs fast. Padding-top changes the page height, so check the anchor landing for Contact (R-131, R-136, R-138). Check the timing in Claude in Chrome (AGENTS.md section 6). **Cause found (12 November 2026, from the script, not yet watched in a browser):** on desktop the move ends when Contact's top reaches the top of the screen, so extra padding-top alone does not give it more scroll; the end point or the interaction must change too. On tablet and phone it is a timed move of 1.2 seconds. Options A/B/C asked in boss (recommended B); Michael picked B. **Built 12 November 2026:** Contact padding-top 50svh; desktop END_AT 0 to -0.5 (move 1.0 to 1.5 screens); timed move FLY_MS 1200 to 2000 and TRIGGER_AT 0.5 to 0.1; Contact section data-nav-offset 0.5 so the desktop menu jump lands after the move. Still open: on tablet and phone the menu Contact link lands on the section top, so the new empty padding is what shows first (R-136, R-138). Related: R-128, R-039, R-152.
+
+### R-161 · Scroll pacing: add the entry-velocity overlay (lab mode) to frame-probe, then decide the pacing rules
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612451 in your boss list
+**From:** your messages, 14 November 2026 (chat about how fast people scroll into the Folio wall, intro and marquee). Placed as the last item before the estimate page and launch prep, as you asked (Phase 3, the last polish phase; move freely).
+**Done when:** frame-probe has a lab overlay, loaded only with ?probe, that shows live scroll velocity, the current section, the scroll distance spent in each pinned beat and the velocity at each section entry; you have tried it on your phone and desktop with fast and slow flicks; and the pacing rules below are agreed from those numbers. (inferred — confirm)
+**Note:** The rules to settle: (1) must-read beats (intro text stagger, logos) come off scrub and play on their own clock; (2) anything whose speed follows scroll velocity (the marquee, if it does) gets a ceiling; (3) sections that open with must-read content get an entry gate (data-snap, D-019; desktop only); (4) on phones, more scroll distance, and CSS scroll-snap with proximity is worth trying on one section (it may fight Lenis and the pins). Field logging of real visitors is only for if the lab numbers are not enough, and would need somewhere to send the data and a privacy line. The research found nothing that gives a scroll distance for GSAP sites; the closest is NN/g's scrolljacking study. Related: R-150, R-042, R-151, R-152. D-017 applies before changing scroll animations.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

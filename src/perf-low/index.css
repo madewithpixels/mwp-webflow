@@ -41,6 +41,21 @@ html[data-lite][data-lite-past] .logo-wrapper { visibility: hidden !important; }
   html[data-lite] .hero-container .h1-line-01, html[data-lite] .hero-container .h1-line-02, html[data-lite] .hero-container .h1-line-03, html[data-lite] .hero-container .h1-line-04 { opacity: 1 !important; }
 }
 
+/* H1 sizes on browsers without container query units (Safari/iPadOS before 16): the Designer sizes the lines in cqw, which those browsers drop,
+   so the lines fall back to the default size. .hero-container is the full viewport width, so vw gives the same sizes (measured 17 Nov 2026). */
+@supports not (font-size: 1cqw) {
+  @media (max-width: 991px) {
+    html[data-lite] .hero-container h1 { font-size: 10vw; }
+    html[data-lite] .hero-container .h1-line-01 { font-size: 8.9vw; }
+    html[data-lite] .hero-container .h1-line-04 { font-size: 11vw; font-weight: 400; }
+  }
+  @media (max-width: 479px) {
+    html[data-lite] .hero-container h1 { font-size: 12.5vw; }
+    html[data-lite] .hero-container .h1-line-01 { font-size: 11vw; }
+    html[data-lite] .hero-container .h1-line-04 { font-size: 14vw; }
+  }
+}
+
 /* About: the scroll runway has an inline height set by script; the "We work with" marquee goes entirely */
 html[data-lite] .about > div:not([class]) { height: auto !important; }
 html[data-lite] .about .ticker { display: none !important; }

@@ -38,7 +38,7 @@
 
 *One task added on 14 November 2026 (R-161, from your messages) is written up from them and still needs your confirmation of the guesses marked in it. It carries on R-150.*
 
-*One task added on 20 November 2026 (R-162, from your messages) is written up from them and still needs your confirmation of the guesses marked in it. It sits beside R-148.*
+*Two tasks added on 20 November 2026 (R-162 and R-163, from your messages) are written up from them and still need your confirmation of the guesses marked in them. R-162 sits beside R-148.*
 
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
@@ -50,7 +50,7 @@
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-162 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -900,6 +900,13 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your messages, 20 November 2026 (while removing the old tablet Pricing and Portfolio scripts: "it needs to be more responsive to the screen width - maybe using container queries"). Placed in Phase 3 beside R-148, which touches the same section.
 **Done when:** the spacing in and between the pricing cards (the gaps, the inner padding and the type sizes that set the line breaks) scales smoothly with the screen width, from 992px up through desktop and wide screens, with no width where the cards look cramped or loose or wrap differently, on published staging in Chrome. (inferred - confirm)
 **Note:** Container queries are your suggestion; whether they are the right tool is open, so options first (D-007). Today the desktop spacing is set in vw units in the footer "Pricing (desktop)" script (GAP_VW 2.4vw, INNER_X_VW 2.4vw, card height measured live), and the card titles use clamp(2rem, 3vw, 2.75rem), so the line counts only hold from about 1067 to 1467px (pricing-notes, Rev 9). From 992 to 1279px the cards use the stacked tablet layout from PricingTabletBand, which replaced PricingTabletLandscape and PricingNoMaskTablet (those two registrations were deleted on 20 November 2026). container-type has no control in the Style panel, so it can't be written with the style tool: it would be set in the Designer if the panel offers it, or in custom code with a comment. Related: R-098, R-148, R-032.
+
+### R-163 · Burger menu flashes when it opens and closes (SmashBurger)
+**State:** built in Webflow (site head), not published · **Evidence:** none yet · **Acceptance:** pending
+**Task:** not yet in your boss list
+**From:** your messages, 20 November 2026 (one flash on opening and two on closing; after the first fix, "much smoother" but a faint black flash on close while the Faulty Terminal is visible behind the menu).
+**Done when:** opening and closing the burger menu (button, Escape and menu links, at the top and part-way down the page) shows no flash on published staging in Chrome on the Mac, and the menu button still does not shift sideways where a classic scrollbar exists (R-081). Safari and phone to be checked by you. (inferred - confirm)
+**Note:** Cause (Codex's trace, not re-measured by me): the R-081 fix gave back a fixed 8px (`padding-right` on html and `max-width` on `.header` while Lenis has the page locked). With overlay scrollbars there is no gutter to give back, so the page shrank 2044 to 2036px on every open and close, which made ScrollTrigger refresh about 300ms after the open click and 530ms after the close click. Fix (site head, 20 November 2026): a small script measures `window.innerWidth - html.clientWidth` and sets `html.mwp-sbw` and `--mwp-sbw` only when a real scrollbar exists (never while locked); the R-081 rules use them. ScrollTrigger's own resize refresh is untouched. **R-163b:** you then saw a faint black flash on close only while the Faulty Terminal showed behind the menu. The terminal canvas sits inside `.hero`, whose blur filter (`.--is-blurred`) is removed on close; my likely explanation (not proven) is that the filter layer was torn down and the canvas showed black for a frame. `.hero { will-change: filter; }` was tried live in a separate tab first, then added to the head. It costs one permanent compositing layer; if a weak device ever suffers, remove it. Not checked: published result, Safari, Firefox, phone, a classic scrollbar. Related: R-081, R-077.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

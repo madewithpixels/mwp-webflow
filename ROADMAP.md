@@ -38,6 +38,8 @@
 
 *One task added on 14 November 2026 (R-161, from your messages) is written up from them and still needs your confirmation of the guesses marked in it. It carries on R-150.*
 
+*One task added on 20 November 2026 (R-162, from your messages) is written up from them and still needs your confirmation of the guesses marked in it. It sits beside R-148.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -48,7 +50,7 @@
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
 | 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-161 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-162 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -891,6 +893,13 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your messages, 14 November 2026 (chat about how fast people scroll into the Folio wall, intro and marquee). Placed as the last item before the estimate page and launch prep, as you asked (Phase 3, the last polish phase; move freely).
 **Done when:** frame-probe has a lab overlay, loaded only with ?probe, that shows live scroll velocity, the current section, the scroll distance spent in each pinned beat and the velocity at each section entry; you have tried it on your phone and desktop with fast and slow flicks; and the pacing rules below are agreed from those numbers. (inferred — confirm)
 **Note:** The rules to settle: (1) must-read beats (intro text stagger, logos) come off scrub and play on their own clock; (2) anything whose speed follows scroll velocity (the marquee, if it does) gets a ceiling; (3) sections that open with must-read content get an entry gate (data-snap, D-019; desktop only); (4) on phones, more scroll distance, and CSS scroll-snap with proximity is worth trying on one section (it may fight Lenis and the pins). Field logging of real visitors is only for if the lab numbers are not enough, and would need somewhere to send the data and a privacy line. The research found nothing that gives a scroll distance for GSAP sites; the closest is NN/g's scrolljacking study. Related: R-150, R-042, R-151, R-152. D-017 applies before changing scroll animations.
+
+### R-162 · Pricing cards section: make the spacing respond to the screen width (container queries?)
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** not yet in your boss list
+**From:** your messages, 20 November 2026 (while removing the old tablet Pricing and Portfolio scripts: "it needs to be more responsive to the screen width - maybe using container queries"). Placed in Phase 3 beside R-148, which touches the same section.
+**Done when:** the spacing in and between the pricing cards (the gaps, the inner padding and the type sizes that set the line breaks) scales smoothly with the screen width, from 992px up through desktop and wide screens, with no width where the cards look cramped or loose or wrap differently, on published staging in Chrome. (inferred - confirm)
+**Note:** Container queries are your suggestion; whether they are the right tool is open, so options first (D-007). Today the desktop spacing is set in vw units in the footer "Pricing (desktop)" script (GAP_VW 2.4vw, INNER_X_VW 2.4vw, card height measured live), and the card titles use clamp(2rem, 3vw, 2.75rem), so the line counts only hold from about 1067 to 1467px (pricing-notes, Rev 9). From 992 to 1279px the cards use the stacked tablet layout from PricingTabletBand, which replaced PricingTabletLandscape and PricingNoMaskTablet (those two registrations were deleted on 20 November 2026). container-type has no control in the Style panel, so it can't be written with the style tool: it would be set in the Designer if the panel offers it, or in custom code with a comment. Related: R-098, R-148, R-032.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

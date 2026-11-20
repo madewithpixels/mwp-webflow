@@ -40,6 +40,8 @@
 
 *Two tasks added on 20 November 2026 (R-162 and R-163, from your messages) are written up from them and still need your confirmation of the guesses marked in them. R-162 sits beside R-148.*
 
+*Forty-two tasks added on 20 November 2026 (R-164 to R-206, with R-184 unused, brief #590) are written up from your list and still need your confirmation of the guesses marked in them. R-162 and R-163 now carry their task numbers (#43612505, #43612486). Your task #43612451 is R-161. Four more tasks (#43612111, #43612126, #43612130, #43612133) are headings already covered above.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -49,10 +51,10 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163 |
-| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142 |
-| 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205 |
+| 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142, R-171–R-174, R-199 |
+| 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144, R-192–R-194, R-196, R-206 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
@@ -538,6 +540,139 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Done when:** you have seen the slate background and the tricolour (raspberry, and the other two palette colours) side by side, with a few slate options, and picked one (or kept it); the chosen slate is applied and the tricolour reads clean against it, on published staging. (inferred — confirm)
 **Note:** A question, not a fix: the first step is options, not a change (D-007). Suggested: show the current slate next to two or three slightly darker or less bright slates, with the tricolour on each, at desktop and phone. Slate is a Webflow variable or class colour used on the site background, the separators and the bands, so a change spreads everywhere; the marquee text colour (`#2f4d55`) and the bands (R-035, R-151) were set against the current slate and would need a check. No new class (D-006). Related: R-049 (bring through tricolour and button motifs, task deleted).
 
+### R-164 · Add more logos to the brand carousel. Make them all white SVG's
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612436 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** Dark-to-white logo carousel: more logos are in the brand carousel, each a white SVG, on published staging at desktop and phone. (inferred — confirm)
+**Note:** You supply the logos or say which brands; I don't know the list or whether you have the SVG files (inferred — confirm). Check each file is a clean single-colour SVG, small in size, with alt text. No new class without approval (D-006).
+
+### R-165 · The hero H1 is flashing at desktop likely due to the 'Hero fade out tablet' animation
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612437 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** scrolling and loading the home page at desktop width shows no flash of the hero H1, on published staging in Chrome on the Mac Studio. (inferred — confirm)
+**Note:** Your guess is that the tablet fade-out interaction also fires at desktop. Check the cause first (which interaction runs at which width) before changing it; interactions are not in the snapshot, so say what was changed. D-017 applies. Related: R-168, R-169.
+
+### R-166 · The swipe icon is clipped in its viewbox
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612438 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the swipe icon shows in full, nothing cut off at its edges, at tablet and phone widths on published staging. (inferred — confirm)
+**Note:** Likely the SVG viewBox is smaller than the drawing, or an animated part moves outside it (inferred — confirm). Related: R-147, R-169, R-170.
+
+### R-170 · Try 'Scroll' instead of icon in the hero
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612500 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the hero shows the word 'Scroll' as its cue in place of the icon, at desktop, tablet and phone, on published staging, and Michael has said whether he prefers it to the icon. (inferred — confirm)
+**Note:** This is one of the options for R-147 (a 'Scroll' label). Try it as an option, don't replace the icon until Michael picks (D-007). Related: R-147, R-166, R-169.
+
+### R-169 · Scroll/Swipe icons need adding to hero-fade-out anims
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612441 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the scroll cue (desktop) and swipe cue (touch) fade out together with the rest of the hero as it fades, with no icon left behind or flashing, on published staging. (inferred — confirm)
+**Note:** Reads as: the icons are not part of the hero-fade-out interactions, so they stay or pop. Related: R-147, R-166, R-170, R-165.
+
+### R-179 · The edge of the angled fade leading into the Ticker section is visible post our tweaks to shorten it
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612448 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** scrolling from the section above into the Ticker shows a smooth angled fade with no visible edge or step, at desktop and tablet widths, on published staging. (inferred — confirm)
+**Note:** Follows the shortened fade (R-080, R-151). Check the exact width where the edge shows.
+
+### R-180 · That initial separator grow can be MUCH better
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612452 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the separator's first grow animation has a better feel, agreed by Michael from options, on published staging at desktop. (inferred — confirm)
+**Note:** 'Initial' read as the grow when the page first loads or the first separator scrolls in (inferred — confirm). Options first (D-007): show two or three motion ideas and Michael picks. Related: R-034.
+
+### R-181 · Hero Folio Wall Explorer.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612453 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a tool for exploring the hero and folio-wall animation exists (a lab page or overlay) and Michael can use it to try settings. (inferred — confirm)
+**Note:** The task title in your list is 'Hero Folio Wall Explorer' (boss inbox); the brief called it 'Hero anim explorer'. What it should let you change is not stated, so ask before building (inferred — confirm). Not for the live site: lab only. Related: R-161, R-150.
+
+### R-183 · Our promise and Your website sections look terrible
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612480 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** both sections look right at desktop, tablet and phone to Michael, on published staging. (inferred — confirm)
+**Note:** The two sections' problems aren't described. Options first (D-007): look at them and set out what is wrong and layout choices; Michael picks. Related: R-188.
+
+### R-188 · 'Our promise' section needs a text stagger effect
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612487 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the Our promise text staggers in (line or word at a time) as it scrolls into view, on published staging, with plain text showing if motion is off. (inferred — confirm)
+**Note:** Match the existing text stagger used elsewhere (R-032) rather than invent a new one. Respect reduced motion. Related: R-183.
+
+### R-182 · The Voice Focus hover image is still mednet
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612482 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** hovering the Voice Focus project in the folio shows the Voice Focus image, not the Mednet one, on published staging. (inferred — confirm)
+**Note:** Likely a CMS image field copied from the Mednet item or a hover mapping error (inferred — confirm); check before changing. CMS items are not published by agents (D-104).
+
+### R-185 · The prev and next buttons on voice focus page don't work
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612483 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** on the Voice Focus project page, the previous and next buttons go to the neighbouring projects, by click and by swipe, on published staging. (inferred — confirm)
+**Note:** Related: R-145, R-134. Check whether the CMS order or a missing slug is the cause.
+
+### R-186 · Voice Focus SS's are odd. make better ones
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612484 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the Voice Focus project has new, well-framed screenshots in place of the odd ones, on published staging. (inferred — confirm)
+**Note:** SS read as screenshots. Taking the new screenshots is work for an agent; choosing them is yours. Uploading to the CMS: not published by agents (D-104). Related: R-182.
+
+### R-187 · Back link from project page no longer takes the user back to their position on the home page
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612485 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** from a project page, the back link returns to the same scroll position on the home page, at desktop, tablet and phone, on published staging. (inferred — confirm)
+**Note:** R-019 built this and it has stopped working; find what changed (anchors, R-195, the transition, or Lenis). Related: R-019, R-198.
+
+### R-189 · Put an extreme Faulty terminal on the 404 and Form success pages
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612488 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the 404 page and the form success page each show an 'extreme' Faulty Terminal background, and both load quickly, on published staging. (inferred — confirm)
+**Note:** 'Extreme' means a more intense look than the home page terminal; options first (D-007). Reuse the instant version from R-016. Related: R-190, R-191.
+
+### R-190 · Let's make the centre coral pixel in the heart a link that launches the FT debug panel (with fixed font colour)
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612489 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** clicking the centre coral pixel of the heart logo opens the Faulty Terminal debug panel, whose font colour is a fixed readable one, on published staging. (inferred — confirm)
+**Note:** Which heart (header or page) and whether it is for you only or everyone isn't said (inferred — confirm); recommend it is hidden from visitors in effect, since it is a developer tool. Related: R-189, R-191.
+
+### R-191 · Better Faulty Terminal logo resolve
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612501 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the Faulty Terminal's logo comes into focus more crisply and attractively, agreed by Michael, on published staging. (inferred — confirm)
+**Note:** 'Resolve' read as the moment the terminal noise settles into the logo (inferred — confirm). Options first (D-007). Related: R-189, R-190.
+
+### R-195 · The pixel heart to testi-wall bubble anim is wild - can it be toned down? The quote mark to bubble is fine.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612493 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the pixel-heart-to-testi-wall-bubble animation is calmer, with the quote-mark-to-bubble animation unchanged, on published staging. (inferred — confirm)
+**Note:** Read as the move near the Contact section (R-079, R-128, R-151, R-160). Options first (D-007): what 'toned down' means (slower, shorter paths, less spin, fewer bubbles). D-017 applies.
+
+### R-202 · Do the pricing cards need a max-width thinner than the container max-width @1440+
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612503 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a decision is made and applied: at 1440px and wider the pricing cards either keep the container width or sit at a narrower maximum, Michael agrees on published staging. (inferred — confirm)
+**Note:** A question: look at 1440, 1920 and wider and give options with screenshots (D-007). Related: R-162, R-098.
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -896,17 +1031,108 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 
 ### R-162 · Pricing cards section: make the spacing respond to the screen width (container queries?)
 **State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** not yet in your boss list
+**Task:** 43612505 in your boss list
 **From:** your messages, 20 November 2026 (while removing the old tablet Pricing and Portfolio scripts: "it needs to be more responsive to the screen width - maybe using container queries"). Placed in Phase 3 beside R-148, which touches the same section.
 **Done when:** the spacing in and between the pricing cards (the gaps, the inner padding and the type sizes that set the line breaks) scales smoothly with the screen width, from 992px up through desktop and wide screens, with no width where the cards look cramped or loose or wrap differently, on published staging in Chrome. (inferred - confirm)
 **Note:** Container queries are your suggestion; whether they are the right tool is open, so options first (D-007). Today the desktop spacing is set in vw units in the footer "Pricing (desktop)" script (GAP_VW 2.4vw, INNER_X_VW 2.4vw, card height measured live), and the card titles use clamp(2rem, 3vw, 2.75rem), so the line counts only hold from about 1067 to 1467px (pricing-notes, Rev 9). From 992 to 1279px the cards use the stacked tablet layout from PricingTabletBand, which replaced PricingTabletLandscape and PricingNoMaskTablet (those two registrations were deleted on 20 November 2026). container-type has no control in the Style panel, so it can't be written with the style tool: it would be set in the Designer if the panel offers it, or in custom code with a comment. Related: R-098, R-148, R-032.
 
 ### R-163 · Burger menu flashes when it opens and closes (SmashBurger)
 **State:** built in Webflow (site head), not published · **Evidence:** none yet · **Acceptance:** pending
-**Task:** not yet in your boss list
+**Task:** 43612486 in your boss list
 **From:** your messages, 20 November 2026 (one flash on opening and two on closing; after the first fix, "much smoother" but a faint black flash on close while the Faulty Terminal is visible behind the menu).
 **Done when:** opening and closing the burger menu (button, Escape and menu links, at the top and part-way down the page) shows no flash on published staging in Chrome on the Mac, and the menu button still does not shift sideways where a classic scrollbar exists (R-081). Safari and phone to be checked by you. (inferred - confirm)
 **Note:** Cause (Codex's trace, not re-measured by me): the R-081 fix gave back a fixed 8px (`padding-right` on html and `max-width` on `.header` while Lenis has the page locked). With overlay scrollbars there is no gutter to give back, so the page shrank 2044 to 2036px on every open and close, which made ScrollTrigger refresh about 300ms after the open click and 530ms after the close click. Fix (site head, 20 November 2026): a small script measures `window.innerWidth - html.clientWidth` and sets `html.mwp-sbw` and `--mwp-sbw` only when a real scrollbar exists (never while locked); the R-081 rules use them. ScrollTrigger's own resize refresh is untouched. **R-163b:** you then saw a faint black flash on close only while the Faulty Terminal showed behind the menu. The terminal canvas sits inside `.hero`, whose blur filter (`.--is-blurred`) is removed on close; my likely explanation (not proven) is that the filter layer was torn down and the canvas showed black for a frame. `.hero { will-change: filter; }` was tried live in a separate tab first, then added to the head. It costs one permanent compositing layer; if a weak device ever suffers, remove it. Not checked: published result, Safari, Firefox, phone, a classic scrollbar. Related: R-081, R-077.
+
+### R-167 · Responsive tweaking for Android, there were some issues with the pricing cards
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612439 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the pricing cards look right on an Android phone and tablet, in Chrome, and at the common Android widths. (inferred — confirm)
+**Note:** What the issues were isn't described; Michael to say or an agent checks at Android widths in Chrome (devices not on the Mac Studio, so Michael to check on a real phone). Related: R-148, R-159, R-162, R-203.
+
+### R-168 · I've broken the H1 tablet/moble animation by adding the word 'independent'
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612440 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the hero H1 animation at tablet and phone works with the word 'independent' in it, with all words showing and no overlap, on published staging. (inferred — confirm)
+**Note:** The extra word likely changes line breaks and the per-line animation (R-157, R-128). Check the Perf-Lite version too. Related: R-165, R-205.
+
+### R-175 · iPad landscape H4 line-height is too wide.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612444 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** H4 headings at iPad landscape (1024 and 1180 wide) have tighter line-height, on published staging. (inferred — confirm)
+**Note:** The class value would change, so D-006 approval first.
+
+### R-176 · Find the horizontal overflow
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612445 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** no page scrolls sideways at any width from 320 to 2560, on published staging; the cause or causes are named. (inferred — confirm)
+**Note:** Find only; the fix may be a separate item. Check every page, with and without the burger menu open. Related: R-114, R-141.
+
+### R-177 · Fix the top link
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612446 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the link to the top of the page takes you to the very top (and clears the anchor from the address) at desktop, tablet and phone, on published staging. (inferred — confirm)
+**Note:** Which link isn't said — read as the 'top' / back-to-top link or the logo link (inferred — confirm). Related: R-197, R-198.
+
+### R-178 · @tablet portrait needs work
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612447 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a list of what's wrong at tablet portrait is agreed with Michael and each part fixed or turned into its own item, on published staging. (inferred — confirm)
+**Note:** A broad item: first walk the home page and estimate page at 768 and 834 wide and list issues; then write each as an item. Related: R-138, R-149, R-168, R-205.
+
+### R-197 · The home link in primary nav needs to be / otherwise it holds the previous anchor link the URL bar
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612495 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** choosing Home in the primary nav leaves the address as the site root with no leftover anchor, on published staging. (inferred — confirm)
+**Note:** A link value change on the nav (Designer first, D-004). Check from the estimate page too. Related: R-198, R-131.
+
+### R-198 · After a menu click when there's an anchor destination in the URL, a refresh leaves that anchor link in.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612502 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** after using a menu link to go to a section, the address shows the section anchor; on refresh the page loads where the anchor says, and the address does not keep a stale anchor from an earlier click, on published staging. (inferred — confirm)
+**Note:** Wording read as: refresh keeps the anchor and Michael wants it cleared (inferred — confirm); ask whether he wants it cleared or kept, since keeping it is normal browser behaviour. Related: R-131, R-197.
+
+### R-200 · SB Estimate button text length @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612498 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the Estimate button in the SmashBurger menu fits on one line (or wraps neatly) at 320 to 430 wide, on published staging. (inferred — confirm)
+**Note:** Shorter text or smaller type — options first (D-007). SmashBurger is shared with other sites, so keep it site-local.
+
+### R-201 · Floating first speech mark on testi-wall block quotes @mobile
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612499 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** on phones, the opening speech mark in each testi-wall quote sits attached to the first line of the quote, not floating away, on published staging. (inferred — confirm)
+**Note:** Likely the mark is absolutely positioned or a separate element. Related: R-040, R-045, R-084.
+
+### R-203 · Fix spacing of 3rd (teal) pricing card when they're stacked - it looks like space between is set.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612504 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** when the pricing cards stack, the gap above and below the teal third card matches the gap between the others, on published staging at tablet and phone. (inferred — confirm)
+**Note:** Related: R-159, R-162.
+
+### R-204 · on tablet mobile coming out of the portfolio page to home results in the H1 being on top of the hero.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612506 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** going from a project page back to the home page at tablet and phone shows the H1 in its correct place, not over the hero, on published staging. (inferred — confirm)
+**Note:** Likely the page transition lands before the hero layout is set. Related: R-157, R-165, R-168, R-187.
+
+### R-205 · tablet primary nav destinations from tablet still hosed
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612507 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** at tablet (portrait and landscape), every primary nav link lands on its section, from the home page and the estimate page, on published staging. (inferred — confirm)
+**Note:** The anchor work already done is R-138 and R-139, which didn't fully fix it; check the current state first. Related: R-136, R-138, R-139.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*
@@ -1091,6 +1317,41 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Evidence link:** proposed wording in `docs/estimate-assessment-copy.md`.
 **Note:** the estimate tool's code is in its own repo (MWP-Instant-Website-Estimate).
 
+### R-171 · The estimate page hero needs work. Move the heart logo top right and make it smaller, remove the intro text and brin the estimate Q&A above the fold
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612442 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** at desktop, tablet and phone the estimate page shows a smaller heart logo at the top right, no intro text, and the first question visible without scrolling, on published staging. (inferred — confirm)
+**Note:** 'Brin' read as 'bring'. Builds on R-046. Heart size and position: options first (D-007).
+
+### R-172 · Look at the location of next buttons in the estimate Q&A. They need to be more visible. Perhaps on the sticky bar?
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612443 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the Next button in the estimate Q&A is easy to see at every step on desktop, tablet and phone, and works first click, on published staging. (inferred — confirm)
+**Note:** Options first (D-007): for example on the sticky bar, bigger in place, or both. Related: R-107, R-108, R-119.
+
+### R-173 · Pricing in the estimator tool
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612449 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the estimator shows pricing as Michael decides (an idea of cost as answers are chosen, a range at the end, or none), on published staging. (inferred — confirm)
+**Note:** Wording is open: whether to show prices, and how, is Michael's call — a question to ask with options. Related: R-109, R-115.
+
+### R-174 · Estimate page
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612497 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a list of what's needed on the estimate page is agreed with Michael and each part written as its own item. (inferred — confirm)
+**Note:** The task is just 'Estimate page' (a heading, or unfinished), so I haven't guessed the work. Nearby items: R-171, R-172, R-173, R-199.
+
+### R-199 · Remove that start/steps bar animation on page load it's unnecessary now.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612496 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the estimate page loads without the start/steps bar animation, on published staging. (inferred — confirm)
+**Note:** D-017 applies if the animation is an interaction. Related: R-171.
+
 ## Phase 5 · Launch prep and launch
 *From your "Launch prep" group, in the order they depend on each other: content and SEO first; fonts after the legibility check; scripts onto jsDelivr before the final speed pass (it changes how they load); then the switches that belong on launch day.*
 
@@ -1192,6 +1453,41 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612323 in your boss list
 **From:** Suggested by Claude; you agreed it on 24 October 2026 and it's now in your boss list. boss holds several things until the relaunch (its D-077): set the launch marker on the Search page, then boss's website-enquiry tracking, opportunity feed and relaunch brief can start (boss's own R-059, R-066 and R-064).
+
+### R-192 · Add a skip to content link
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612490 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a skip-to-content link is the first thing keyboard focus reaches on every page, it appears when focused and jumps to the main content, on published staging. (inferred — confirm)
+**Note:** Check it works with the SmashBurger menu and Lenis. A new class needs approval (D-006). Related: R-193.
+
+### R-193 · accessibility pass
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612491 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** keyboard, screen-reader and contrast checks are done on the home, estimate, project, 404 and success pages, with a list of fixes made and any left, on published staging. (inferred — confirm)
+**Note:** Covers focus order, alt text, reduced motion, contrast (R-043) and labels on forms. Related: R-192, R-194.
+
+### R-194 · Final PSI pass
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612492 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** PageSpeed Insights scores for the home and estimate pages are recorded on mobile and desktop after the last changes, with anything still failing listed, on published staging. (inferred — confirm)
+**Note:** Run after the scripts move to jsDelivr (R-117) and the accessibility pass. Related: R-054, R-102, R-123.
+
+### R-196 · Registered scripts aren't showing in the site settings likely due to being added via MCP . Should we clean them up and I register them by hand?
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612494 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a decision is made and applied: the MCP-added scripts are either left, or removed and registered by hand by Michael so they show in site settings, and the site loads the same scripts as before. (inferred — confirm)
+**Note:** A question for Michael. Recommend: wait until the scripts move to jsDelivr (R-117) and then register that small set by hand once, rather than twice. Removing scripts changes the site: Michael publishes (D-008).
+
+### R-206 · Perf-list version tweaks
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612478 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the changes you want to the performance (lite/low) version are made and checked on a weak device, on published staging. (inferred — confirm)
+**Note:** 'Perf-list' read as the Perf-Lite version and its stylesheet (typo, inferred — confirm); what to tweak isn't said, so ask or list candidates (R-157, R-149). Related: R-102, R-123.
 
 ## Phase 6 · After launch
 *Your "Phase 2" list. Quick wins first; the Google address check goes early because the postcard takes days; the landing pages can use boss's relaunch brief (searches, competitors and questions for each page).*

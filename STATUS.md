@@ -2,6 +2,14 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+## 20 November 2026 — Claude (night shift) — New tasks written up (R-164 to R-206, brief #590)
+**Changed:** ROADMAP only. Forty-two new items (R-164 to R-206; R-184 is unused), each with Michael's wording as the title, a done-when, guesses marked "(inferred — confirm)" and a **Task:** line. They are placed in the phase tables: Phase 2 (desktop polish), 3 (phone and tablet), 4 (estimate page), 5 (launch prep). R-162 and R-163 now carry their task numbers (#43612505, #43612486); #43612451 was already R-161. Nothing in Webflow or the site was touched, no snapshots were made, no tasks changed.
+**Left alone (headings, no item):** 43612111, 43612126, 43612130, 43612133.
+**Vague tasks written as "agree the list first":** #43612497 Estimate page (R-174), #43612447 @tablet portrait (R-178), #43612478 Perf-list version tweaks (R-206), #43612453 Hero Folio Wall Explorer (R-181).
+**Deleted-task roadmap items for Michael to decide (not dropped):** R-082, R-036, R-037, R-074, R-086, R-076, R-042, R-043 (accepted), R-115, R-047, R-049, R-059.
+**Evidence:** n/a. **Acceptance:** n/a.
+**Claude (night shift)**
+
 ## 13 November 2026 — Codex — Webflow connection checked
 
 **Changed:** this entry only. Connection check requested by Michael, with no roadmap item.

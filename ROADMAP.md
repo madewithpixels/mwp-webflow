@@ -441,6 +441,20 @@
 **Note:** Probably the same strapline as R-087, which you dropped on 1 November 2026 because it could not be reproduced (brief #186). This task suggests you are seeing it again, or a different case, so ask when and at what width it happens before digging in. (inferred — confirm) R-087's notes: the blur comes from the scroll-tied Home interaction "Hero Fade Out", and a second, empty copy of it exists. D-017 applies to scroll animation changes.
 **Re-test (4 November 2026, brief #268):** reproduced at every width, including on first load (`blur(5px)` stuck). Cause and fix options in STATUS, 4 November 2026 entry. R-087 is the same fault.
 
+### R-174 · Estimate page
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612497 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** a list of what's needed on the estimate page is agreed with Michael and each part written as its own item. (inferred — confirm)
+**Note:** The task is just 'Estimate page' (a heading, or unfinished), so I haven't guessed the work. Nearby items: R-171, R-172, R-173, R-199.
+
+### R-206 · Perf-list version tweaks
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612478 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the changes you want to the performance (lite/low) version are made and checked on a weak device, on published staging. (inferred — confirm)
+**Note:** 'Perf-list' read as the Perf-Lite version and its stylesheet (typo, inferred — confirm); what to tweak isn't said, so ask or list candidates (R-157, R-149). Related: R-102, R-123.
+
 ### R-164 · Add more logos to the brand carousel. Make them all white SVG's
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612436 in your boss list
@@ -461,20 +475,6 @@
 **From:** your task list, added 20 November 2026 (brief #590).
 **Done when:** the 404 page and the form success page each show an 'extreme' Faulty Terminal background, and both load quickly, on published staging. (inferred — confirm)
 **Note:** 'Extreme' means a more intense look than the home page terminal; options first (D-007). Reuse the instant version from R-016. Related: R-190, R-191.
-
-### R-174 · Estimate page
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612497 in your boss list
-**From:** your task list, added 20 November 2026 (brief #590).
-**Done when:** a list of what's needed on the estimate page is agreed with Michael and each part written as its own item. (inferred — confirm)
-**Note:** The task is just 'Estimate page' (a heading, or unfinished), so I haven't guessed the work. Nearby items: R-171, R-172, R-173, R-199.
-
-### R-206 · Perf-list version tweaks
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612478 in your boss list
-**From:** your task list, added 20 November 2026 (brief #590).
-**Done when:** the changes you want to the performance (lite/low) version are made and checked on a weak device, on published staging. (inferred — confirm)
-**Note:** 'Perf-list' read as the Perf-Lite version and its stylesheet (typo, inferred — confirm); what to tweak isn't said, so ask or list candidates (R-157, R-149). Related: R-102, R-123.
 
 ### R-084 · Missing closing quote svg on the Travel Ledger testimonial *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (1 November 2026, brief #168) · **Evidence:** verified (live: published staging, Chrome on the Mac Studio, 1467px wide, by script; not by eye) · **Acceptance:** accepted (31 October 2026)

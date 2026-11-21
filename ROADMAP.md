@@ -411,19 +411,19 @@
 **Done when:** the burger menu opens, closes and jumps to its links without anything odd (no shifting, flashing, shaking or sticking) on published staging, at desktop, tablet and phone widths. (inferred — confirm)
 **Note:** "Oddly" is not described, so the first step is to find what it does and when. (inferred — confirm) Related, already dealt with: R-081 (button jumping sideways, accepted) and R-077 (double flash when it closes after a link click, waiting on SmashBurger). Check `isFromLibrary` before changing any `mwp-css-nav_*` class (D-006); the fix may belong in SmashBurger and wait for R-030. Ignore the old `mwp-site-menu-*` menu (D-015).
 
-### R-167 · Responsive tweaking for Android, there were some issues with the pricing cards
-**State:** planned · **Evidence:** none · **Acceptance:** pending
-**Task:** 43612439 in your boss list
-**From:** your task list, added 20 November 2026 (brief #590).
-**Done when:** the pricing cards look right on an Android phone and tablet, in Chrome, and at the common Android widths. (inferred — confirm)
-**Note:** What the issues were isn't described; Michael to say or an agent checks at Android widths in Chrome (devices not on the Mac Studio, so Michael to check on a real phone). Related: R-148, R-159, R-162, R-203.
-
 ### R-205 · tablet primary nav destinations from tablet still hosed
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612507 in your boss list
 **From:** your task list, added 20 November 2026 (brief #590).
 **Done when:** at tablet (portrait and landscape), every primary nav link lands on its section, from the home page and the estimate page, on published staging. (inferred — confirm)
 **Note:** The anchor work already done is R-138 and R-139, which didn't fully fix it; check the current state first. Related: R-136, R-138, R-139.
+
+### R-167 · Responsive tweaking for Android, there were some issues with the pricing cards
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612439 in your boss list
+**From:** your task list, added 20 November 2026 (brief #590).
+**Done when:** the pricing cards look right on an Android phone and tablet, in Chrome, and at the common Android widths. (inferred — confirm)
+**Note:** What the issues were isn't described; Michael to say or an agent checks at Android widths in Chrome (devices not on the Mac Studio, so Michael to check on a real phone). Related: R-148, R-159, R-162, R-203.
 
 ### R-087 · When scrolling back to the top of the page, the H3.Hero-Strapline is blurred and does not resolve back to a readable state
 **State:** dropped (1 November 2026, Michael's decision in boss on brief #186: "I can't reproduce it now either - let's forget it") · **Evidence:** verified (live) for the measurements; fault not reproduced · **Acceptance:** pending

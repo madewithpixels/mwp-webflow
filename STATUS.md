@@ -2437,3 +2437,7 @@ Written in from Michael's task list in boss. The order is his; the runner only m
 - Michael moved R-189 before R-174 (dragged its task in boss).
 - Michael moved R-191 before R-181 (dragged its task in boss).
 
+## 21 November 2026, 13:23 — boss runner *(Michael's roadmap order, R-120)*
+Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
+- Michael moved R-205 before R-167 (dragged its task in boss).
+

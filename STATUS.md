@@ -2,6 +2,21 @@
 
 **Reviewed at commit:** 16fe86f (10 November 2026). Docs match the log up to R-142; the ROADMAP's duplicate items are folded (see the entry below).
 
+
+
+## 21 November 2026 — Claude — Mobile pricing stack and intro snap fixed
+**Pricing (phones, 478px and under):** the stack (raspberry, coral slides over, teal slides over) was broken by the 20 November pricing script: its below-992px clean-up ran on every scroll and blanked inline `transform` on the blocks, which the native "Pricing Section Mobile" interaction animates (coral and teal `yPercent`). Fixed in the script Michael pasted: the clean-up runs once when leaving desktop, and only clears a transform the script set itself (`data-mwp-slide`). Michael confirmed it works. Still open: the mobile and desktop text fades target `.pricing-block… > *`, which since `.price-card-content` went in is one wrapper, so each card's text fades as one block, not line by line.
+**Intro snap (phones):** registered script IntroCatch (9 November, Home footer: CSS `scroll-snap-type: y proximity` near the intro) made the intro jump hard to the top. Michael: snapping was never a design choice. Removed from Home and its registration deleted (Michael has a backup); Michael confirmed fixed. Not explained: Michael had tested it as fine on a phone before, and the 20 November registry deletions can't be the cause (none of them loaded).
+**Lesson for R-117:** before a script writes to an element, list every interaction that targets it at every breakpoint, and test all four Webflow breakpoints.
+**Claude**
+
+## 20 November 2026 — Claude — Plan for the custom code consolidation (R-117, D-027)
+**Changed:** docs only. New `docs/js-consolidation-plan.md`; ROADMAP: R-117 re-scoped and put first in "Next up", notes on R-029 and R-055; DECISIONS: D-027 (Michael's instruction, accepted in chat). Nothing in Webflow or `src/` changed by this entry.
+**Same evening, in Webflow (for the record):** Price Card Content got flex-grow 1 / align-self stretch and Price Block flex-grow 0 / margin-top auto (pricing rows line up across cards); Michael pasted a new "Pricing (desktop)" footer script (measures inside `.price-card-content`, cards capped at 600px with 48px gaps and centred, outer blocks slide in during the shrink; opening tag now `<script data-mwp="pricing">`); PricingTabletBand 1.1.0 registered and applied to Home (finds the pricing script by that tag, comment text as fallback; 1.0.0 still registered). Michael confirmed 1234px stacks again. The `src/` copies were not updated; stage 0 of the plan re-snapshots everything.
+**Needs Michael:** the three decisions at the end of the plan; commit these doc changes (the earlier uncommitted ROADMAP edits from today are there too).
+**Next useful action:** stage 0 (snapshot and inventory) in the next session.
+**Claude**
+
 ## 20 November 2026 — Claude (night shift) — New tasks written up (R-164 to R-206, brief #590)
 **Changed:** ROADMAP only. Forty-two new items (R-164 to R-206; R-184 is unused), each with Michael's wording as the title, a done-when, guesses marked "(inferred — confirm)" and a **Task:** line. They are placed in the phase tables: Phase 2 (desktop polish), 3 (phone and tablet), 4 (estimate page), 5 (launch prep). R-162 and R-163 now carry their task numbers (#43612505, #43612486); #43612451 was already R-161. Nothing in Webflow or the site was touched, no snapshots were made, no tasks changed.
 **Left alone (headings, no item):** 43612111, 43612126, 43612130, 43612133.

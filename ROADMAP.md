@@ -32,6 +32,8 @@
 
 *Seven tasks added on 12 November 2026 (R-147 to R-153, brief #557) are written up from your list and still need your confirmation of the guesses marked in them. R-150 carries on the pacing work of R-042.*
 
+**Next up (Michael, 20 November 2026): the custom code consolidation and jsDelivr switch-over (R-117, re-scoped; plan in `docs/js-consolidation-plan.md`), before more small fixes.** Earlier order, for reference:
+
 **Next up (your order of 5 November 2026, refreshed 10 November 2026):** the swipe direction fix, the open part of R-134 (it now also covers R-135, and R-118 and R-120 are folded into R-134 and R-133); then the phone and tablet fixes written up from your list on 9 and 10 November (R-124 to R-131, R-136 to R-141), starting with where the menu links land (R-136, R-138, R-139); then the perf watcher with R-123 (smaller images swapped in), whose "low" is the lite site (D-025, in progress), and R-117 (the rest of the code consolidation, switching each script to jsDelivr). Landed and accepted since 6 November: R-119, R-129, R-132 and R-133. R-131 (reload with an anchor) is waiting on a phone result from you.
 
 *Six tasks added on 12 November 2026 (R-155 to R-160, brief #574) are written up from your list and still need your confirmation of the guesses marked in them. R-154 and R-145 already cover two other new tasks (#43612427, #43612416). R-156 takes over from R-082.*
@@ -69,11 +71,13 @@
 **Task:** 43612128 in your boss list
 **From:** the first half of "ALL custom code served via jsDelivr" (Launch prep), split as D-003 suggests.
 **Exit criteria:** every script and style block now in the site head and footer, and in each page's head and footer, has a file here; a short README line says which Webflow box each file came from. `custom.js` (the back-layer parallax) is checked against what the site runs now.
+**20 November 2026:** folded into R-117 (stage 0 of `docs/js-consolidation-plan.md` re-snapshots everything; the `src/` copies are stale since 6 November).
 **Progress (5 November 2026):** 15 files are in `src/` and build into `dist/` (R-117; `README.md` says which Webflow box each came from). Still missing: the larger Home head and footer blocks and the Site head and footer blocks (in `snapshots/custom-code.json`), and the check of `custom.js`.
 
 
 ### R-117 · Restructure the custom code: one built set of files, a shared core, then port the scripts onto it
-**State:** in progress (5 November 2026: the build is set up; the shared core and the porting are not started) · **Evidence:** verified (local) for the build only · **Acceptance:** pending
+**State:** in progress (5 November 2026: the build is set up. 20 November 2026: re-scoped and brought forward to next, see below) · **Evidence:** verified (local) for the build only · **Acceptance:** pending
+**Re-scoped (Michael, 20 November 2026):** "It should ALL be collated, revised, shortened (comments mainly), consolidated and deployed via jsdeliver. I'm happy for per page jsdeliver tags so that code only loads and reaches pages it's necessary on." So this item now covers all of R-029 and R-055 (every code box, registered script and HTML embed moves into `src/`, comments are shortened, and each page loads its own bundle from jsDelivr, page by page, starting now, not at launch prep (D-027)). The shared core and porting in "Done when" (2) and (3) below are split off: they are a performance rewrite for later, and this move must leave the site behaving exactly the same. **Plan:** `docs/js-consolidation-plan.md` (stages 0 to 6: snapshot and inventory, loader and dev switch, Estimate, project pages, site-wide, Home, clean-up). **New done when:** Webflow holds only loader lines and the few pre-first-paint pieces; every bundle is served from a jsDelivr tag; the old registrations are deleted; the checks in the plan pass on staging. (inferred — confirm)
 **Task:** none in your boss list yet
 **From:** your messages of 5 November 2026: "agreed - i meant re-structure not re-write. Add this to the roadmap, it seems fundamental", and your request for a local folder with a compiler that minifies and packages the .JS and .CSS for jsDelivr, so the restructure can happen early.
 **Done when:** (1) the code is edited as source files in this repo and one command builds minified bundles for jsDelivr; (2) a small shared core exists: `MWPPerf` (the tier script from R-102), one scroll/rAF dispatcher that reads layout once per frame, and one visibility registry; (3) the busiest scripts (heart morph, ticker highlight, pricing, scroll magnet, folio hover, nav jump) are ported onto it one at a time, each checked on staging before the next, behaving exactly as before; (4) the Webflow code boxes shrink to loader lines as each bundle switches (R-055). (inferred — confirm)
@@ -974,7 +978,7 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your task list, added 12 November 2026 (brief #557).
 **Found (12 November 2026, brief #576, staging at 1024 wide, Chrome on the Mac Studio):** the three cards are 730px tall inside `.section-clipping-mask`, which is `overflow: hidden` and only as tall as the viewport (625px at 1024 x 768). So the cards are cut by the window, not only by the nav. The section is pinned (`.pricing`, 1250px, inside a pin-spacer) and the cards are revealed by a clip-path interaction. Stacking them (about 2,200px tall) means the mask, the pin length and the reveal all change. Grid styles can't be written through the MCP (D-006), so this is a Designer job. Not changed; options asked of Michael.
 **Decision (12 November 2026, from Michael in boss, brief #580):** "Use the phone and portrait tablet layout up to 1180px wide" (his pick of three options).
-**Built (12 November 2026, brief #580):** registered script PricingTabletLandscape 1.0.0, applied to the Home page footer (repo copy `src/home/pricing-tablet-landscape.js`). From 992 to 1180px it copies the pricing rules out of Webflow's tablet (991px and under) styles and switches off the pricing pin, so the cards stack as they do on a tablet. Webflow's own breakpoints can't be moved to 1180, which is why it is a script. Not published. Evidence: verified (local) only. Acceptance pending.
+**Built (12 November 2026, brief #580):** registered script PricingTabletLandscape (deleted on 20 November 2026; PricingTabletBand replaced it) 1.0.0, applied to the Home page footer (repo copy `src/home/pricing-tablet-landscape.js`). From 992 to 1180px it copies the pricing rules out of Webflow's tablet (991px and under) styles and switches off the pricing pin, so the cards stack as they do on a tablet. Webflow's own breakpoints can't be moved to 1180, which is why it is a script. Not published. Evidence: verified (local) only. Acceptance pending.
 **Done when:** at tablet landscape (1024px wide and the nearby widths), the three pricing cards are no longer cut off by the navigation: they run one above the other, each whole and readable, on published staging. (inferred — confirm)
 **Note:** "Run them vertically" is read as stacking the three cards in a column instead of side by side, and "tablet landscape" as iPad landscape (1024 to about 1180px), which is Webflow's Desktop band (see R-141) (inferred — confirm). Stacking makes the section taller, so scroll length and the pricing pinned sections may need a look (R-042, R-121). D-006 and D-007 apply: no new class without approval, and options first for the visual change. Related: R-098, R-149.
 
@@ -1037,7 +1041,8 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Note:** Container queries are your suggestion; whether they are the right tool is open, so options first (D-007). Today the desktop spacing is set in vw units in the footer "Pricing (desktop)" script (GAP_VW 2.4vw, INNER_X_VW 2.4vw, card height measured live), and the card titles use clamp(2rem, 3vw, 2.75rem), so the line counts only hold from about 1067 to 1467px (pricing-notes, Rev 9). From 992 to 1279px the cards use the stacked tablet layout from PricingTabletBand, which replaced PricingTabletLandscape and PricingNoMaskTablet (those two registrations were deleted on 20 November 2026). container-type has no control in the Style panel, so it can't be written with the style tool: it would be set in the Designer if the panel offers it, or in custom code with a comment. Related: R-098, R-148, R-032.
 
 ### R-163 · Burger menu flashes when it opens and closes (SmashBurger)
-**State:** built in Webflow (site head), not published · **Evidence:** none yet · **Acceptance:** pending
+**State:** built and published to staging (20 November 2026) · **Evidence:** verified (live; staging, Chrome on the Mac Studio, 2044px, overlay scrollbars: the page stayed 2044px wide before, during and after opening and closing the menu, and ScrollTrigger refreshed 0 times) · **Acceptance:** accepted (20 November 2026)
+**Accepted by Michael in chat, 20 November 2026** — tested and accepted, including the black flash on close while the Faulty Terminal is visible (R-163b). Not checked by me: Safari, Firefox, a phone, a classic-scrollbar browser.
 **Task:** 43612486 in your boss list
 **From:** your messages, 20 November 2026 (one flash on opening and two on closing; after the first fix, "much smoother" but a faint black flash on close while the Faulty Terminal is visible behind the menu).
 **Done when:** opening and closing the burger menu (button, Escape and menu links, at the top and part-way down the page) shows no flash on published staging in Chrome on the Mac, and the menu button still does not shift sideways where a classic scrollbar exists (R-081). Safari and phone to be checked by you. (inferred - confirm)
@@ -1086,7 +1091,8 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Note:** A broad item: first walk the home page and estimate page at 768 and 834 wide and list issues; then write each as an item. Related: R-138, R-149, R-168, R-205.
 
 ### R-197 · The home link in primary nav needs to be / otherwise it holds the previous anchor link the URL bar
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** built (20 November 2026; done in the Home head nav script, not the link) · **Evidence:** tested by Michael (chat, 20 November 2026) · **Acceptance:** accepted (20 November 2026)
+**Accepted by Michael in chat, 20 November 2026** — "Home link clears the hash". The Home link still points at `/`; the Home head nav script clears a leftover `#section` from the address bar (`history.replaceState`) when Home is chosen. Not recorded: the Estimate page case.
 **Task:** 43612495 in your boss list
 **From:** your task list, added 20 November 2026 (brief #590).
 **Done when:** choosing Home in the primary nav leaves the address as the site root with no leftover anchor, on published staging. (inferred — confirm)
@@ -1379,6 +1385,7 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **State:** planned · **Evidence:** none · **Acceptance:** pending
 **Task:** 43612128 in your boss list
 **From:** your task list (Launch prep): the switch-over. **Depends on:** R-029.
+**20 November 2026:** now done page by page as part of R-117 (D-027), not as the last job before launch. R-146 still goes at the end, on the tidied `src/*.css`.
 **Note:** jsDelivr serves from the GitHub repo, so the code must be pushed and versioned (a tag per release) for stable addresses. **Michael, 12 November 2026:** this is a launch requirement and the very last job before launch; R-146 (the CSS audit clean-up) goes with it.
 
 ### R-146 · Final custom-code CSS audit: bring styles back into the Designer
@@ -1476,7 +1483,8 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Note:** Run after the scripts move to jsDelivr (R-117) and the accessibility pass. Related: R-054, R-102, R-123.
 
 ### R-196 · Registered scripts aren't showing in the site settings likely due to being added via MCP . Should we clean them up and I register them by hand?
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** answered and applied (20 November 2026) · **Evidence:** verified (applied lists read back through the MCP) · **Acceptance:** pending
+**Answer (20 November 2026, Claude):** the premise was wrong. Registered scripts DO show in Site settings > Custom code > "Code added by Apps" once they are applied, so nothing needs registering by hand. Instead the registry was cleaned: six unapplied registrations deleted one at a time, each backed up by Michael first (faultyterminal, pricingtabletlandscape, pricingnomasktablet, portfolionooverlaptablet, portfoliobarup, mobilenavlanding); SafariHitchProbe kept by choice. Registry is now 49 entries. Full record: the project doc "script-registry-2026-11-20".
 **Task:** 43612494 in your boss list
 **From:** your task list, added 20 November 2026 (brief #590).
 **Done when:** a decision is made and applied: the MCP-added scripts are either left, or removed and registered by hand by Michael so they show in site settings, and the site loads the same scripts as before. (inferred — confirm)
@@ -1559,7 +1567,8 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Note:** SmashBurger isn't finished yet. Order (Michael, 24 October 2026): complete this site as far as possible, then finish SmashBurger, then update the site to its release. The open-menu loose ends in STATUS (the raspberry close button, the Estimate button style) wait for this. Check `isFromLibrary` before touching any `mwp-css-nav_*` class (D-006).
 
 ### R-077 · There's two flashes in quick succession when the SB menu closes after a link is clicked
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** probably fixed by R-163 (20 November 2026), awaiting Michael · **Evidence:** none specific · **Acceptance:** pending
+**Note (20 November 2026, Claude):** R-163 removed the page resize that made ScrollTrigger refresh about 300ms after a menu open and 530ms after a close, and Michael accepted that fix. This is the same moment (the menu closing after a link click), so it is probably the same fault. Michael to say whether the double flash on a link click is gone before this is marked accepted.
 **Task:** 43612334 in your boss list
 **From:** your task list, added 30 October 2026.
 **Done when:** on published staging, clicking a link in the SmashBurger menu closes it with at most one visual change, with no double flash, at desktop and phone widths. (inferred — confirm widths)

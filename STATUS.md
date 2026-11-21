@@ -2416,3 +2416,24 @@ Written in from the Needs you queue on boss's Agents page. The verdicts are Mich
 - 12 November 2026 — Not yet, Michael in boss: R-151 — *"The angled transition isn't visible, it should be revealing the faulty terminal beneath the section. When the 'Built to Last' section comes in - it's still scrolling vertically as the 'focussed on' box moves in from the right which gives the movement an undesirable diagonal movement."*. Acceptance stays pending.
 - 12 November 2026 — Not yet, Michael in boss: R-148 — *"Not right yet, the mask animations on the pricing cards are still firing, remove them from the tablet breakpoint too"*. Acceptance stays pending.
 
+## 21 November 2026, 13:00 — boss runner *(Michael's roadmap order, R-120)*
+Written in from Michael's task list in boss. The order is his; the runner only moves the items. If a move breaks a dependency, tell him; don't undo it.
+- Michael moved R-206 before R-102 (dragged its task in boss).
+- Michael moved R-162 before R-075 (dragged its task in boss).
+- Michael moved R-189 before R-084 (dragged its task in boss).
+- Michael moved R-191 before R-189 (dragged its task in boss).
+- Michael moved R-164 before R-084 (dragged its task in boss).
+- Michael moved R-186 before R-084 (dragged its task in boss).
+- Michael moved R-167 before R-087 (dragged its task in boss).
+- Michael moved R-205 before R-167 (dragged its task in boss).
+- Michael moved R-205 before R-087 (dragged its task in boss).
+- Michael moved R-174 before R-191 (dragged its task in boss).
+- Michael moved R-206 before R-191 (dragged its task in boss).
+- Michael moved R-164 before R-174 (dragged its task in boss).
+- Michael moved R-186 before R-174 (dragged its task in boss).
+- Michael moved R-174 before R-186 (dragged its task in boss).
+- Michael moved R-206 before R-186 (dragged its task in boss).
+- Michael moved R-186 before R-174 (dragged its task in boss).
+- Michael moved R-189 before R-174 (dragged its task in boss).
+- Michael moved R-191 before R-181 (dragged its task in boss).
+

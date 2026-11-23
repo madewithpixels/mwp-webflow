@@ -1,0 +1,478 @@
+<!-- Start fetching faulty-terminal while the page parses (footer tag then runs from cache). Keep the version in sync with the footer script. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<style>
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* R-081: Lenis locks scrolling (overflow hidden/clip) while the menu is open, which drops a classic scrollbar's gutter and would
+     widen the page and shift the centred header. Do not force overflow here: Lenis watches the overflow value and a forced
+     value made it start and stop in a loop (the menu shook). Instead give the scrollbar's width back: the page and the fixed header are
+     narrower by exactly that while the menu is open.
+     20 Nov 2026 (R-163, flash fix): the width used to be a fixed 8px. With overlay scrollbars (no gutter, e.g. a Mac with a trackpad)
+     that shrank the page by 8px on every open/close, which made ScrollTrigger refresh and the page flash. The width is now measured
+     by the small script below: html.mwp-sbw and --mwp-sbw are only set when a real, classic scrollbar exists, so overlay-scrollbar
+     browsers and phones get no compensation at all. */
+  html.lenis.lenis-stopped.mwp-sbw {
+    padding-right: var(--mwp-sbw);
+  }
+  html.lenis.lenis-stopped.mwp-sbw .header {
+    max-width: calc(100% - var(--mwp-sbw));
+  }
+  /* GSAP Split-Line Clipping Fix */
+  .gsap_split_line-mask,
+  .gsap_split_word-mask {
+    padding-bottom: var(--_structure---split-line-distance);
+    margin-bottom: calc(var(--_structure---split-line-distance) * -1);
+  }
+
+  .folio-list li {
+    margin-block: 0;
+  }
+  .hero,
+  .content-main > * {
+    transition: filter 0.4s ease;
+  }
+
+  .hero,
+  .seperator,
+  .intro,
+  .about,
+  .portfolio {
+    transition: filter 0.4s ease;
+  }
+
+  .--is-blurred {
+    filter: blur(4px) brightness(0.5);
+    pointer-events: none;
+  }
+
+  /* R-163b (Claude, 20 Nov 2026): the Faulty Terminal canvas lives inside .hero. When the menu closed and the hero's blur filter was removed,
+     the browser dropped the hero's filter layer and the WebGL canvas showed black for a frame. Keeping the layer alive stops that.
+     Tested live first (Michael saw the flash gone). Costs one permanent compositing layer; if a weak device ever suffers, remove this rule. */
+  .hero {
+    will-change: filter;
+  }
+
+  .ticker__row--right .ticker__track {
+    animation-name: ticker-right;
+  }
+  @keyframes ticker-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes ticker-right {
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker__track {
+      animation: none;
+    }
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .button,
+  .instant-quote-btn,
+  .project-nav_arrow {
+    padding: 1px; /* border thickness */
+    background: conic-gradient(from var(--angle), var(--raspberry) 0deg 120deg, var(--coral) 120deg 240deg, var(--teal) 240deg 360deg, var(--raspberry));
+  }
+
+  .button:hover,
+  .instant-quote-btn:hover,
+  .project-nav_arrow:hover,
+  .project-nav_arrow:focus-visible {
+    animation: spin-border 2s ease-in-out infinite;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .button,
+    .instant-quote-btn,
+    .project-nav_arrow {
+      animation: spin-border 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes spin-border {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .folio-list-link {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 1px;
+  }
+
+  ::view-transition-old(lb-title),
+  ::view-transition-new(lb-title) {
+    animation-duration: 0.35s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .iwa-panel .mwp-result-panel {
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    padding: none !important;
+  }
+  .icon-arrow:hover .grad-bg-strip.segment-01,
+  .icon-arrow:focus .grad-bg-strip.segment-01 {
+    background: var(--raspberry);
+  }
+  .icon-arrow:hover .grad-bg-strip.segment-02,
+  .icon-arrow:focus .grad-bg-strip.segment-02 {
+    background: var(--coral);
+  }
+  .icon-arrow:hover .grad-bg-strip.segment-03,
+  .icon-arrow:focus .grad-bg-strip.segment-03 {
+    background: var(--teal);
+  }
+  @media screen and (min-width: 1920px) {
+    .project-content-wrapper {
+      align-self: end !important;
+    }
+  }
+
+  /* Header phone + email buttons (SB Header, written by Claude): the label slides open while its button is hovered or
+     keyboard-focused. Everything else is in the Designer: the closed state, font and transition timing are on the
+     "Menu Button Label" class; the icon sits at a fixed padding on the Menu Button Tel / Email combos (justify start),
+     so only the label grows and the icon never moves.
+     Tablet and up only (768px+, devices with a real hover) - on mobile the buttons stay as icons and a tap just calls/emails. */
+  @media (min-width: 768px) and (hover: hover) {
+    .menu-button:is(:hover, :focus-visible) .menu-button-label {
+      max-width: 24rem;
+      margin-left: 0.75rem;
+      opacity: 1;
+    }
+  }
+</style>
+<!-- R-163 (Claude, 20 Nov 2026): measures the page's real scrollbar width for the R-081 rules above. Reads window.innerWidth - html.clientWidth,
+     which is 0 with overlay scrollbars. Never measures while Lenis has the page locked (the gutter is gone then), so the last reading stays.
+     Only sets a class and a variable on <html>; nothing changes size when they are set, so it cannot trigger a ScrollTrigger refresh. -->
+<script>
+  (function () {
+    var root = document.documentElement;
+    function measure() {
+      if (root.classList.contains('lenis-stopped')) return;
+      var w = window.innerWidth - root.clientWidth;
+      if (w >= 3) {
+        root.style.setProperty('--mwp-sbw', w + 'px');
+        root.classList.add('mwp-sbw');
+      } else {
+        root.style.removeProperty('--mwp-sbw');
+        root.classList.remove('mwp-sbw');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', measure);
+    window.addEventListener('load', measure);
+    window.addEventListener('resize', measure);
+    window.addEventListener('pageshow', measure);
+  })();
+</script>
+<!-- Project page transition (R-083; replaces the pixel transition). After a project arrow was pressed, the next project's content stays
+     hidden until the footer script slides it in (html.mwp-pt-enter); after the project back button, the home page stays hidden until it has
+     jumped to the remembered spot (html.mwp-pt-restore). The animation itself is in the site footer. R-103: the left and right project arrows are not part of it, they stay put. -->
+<style>
+  html.mwp-pt-enter :is(.project-title-wrapper, .folio-rte-wrapper, .project-page-image) {
+    opacity: 0;
+    animation: mwp-pt-safety 0s linear 3s forwards; /* failsafe if the footer script never runs */
+  }
+  html.mwp-pt-restore {
+    background: var(--slate, #2b464e);
+  }
+  html.mwp-pt-restore body {
+    visibility: hidden;
+    animation: mwp-pt-safety-body 0s linear 3s forwards; /* failsafe if the footer script never runs */
+  }
+  /* content sliding off or on the side must not make a sideways scrollbar */
+  html.mwp-pt-run {
+    overflow-x: clip !important;
+  }
+  @keyframes mwp-pt-safety {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes mwp-pt-safety-body {
+    to {
+      visibility: visible;
+    }
+  }
+</style>
+<script>
+  try {
+    if (sessionStorage.getItem('mwp-pt') && location.pathname.indexOf('/portfolio/') === 0) document.documentElement.classList.add('mwp-pt-enter');
+    if (sessionStorage.getItem('mwp-home-restore') && location.pathname === '/') document.documentElement.classList.add('mwp-pt-restore');
+  } catch (e) {}
+</script>
+<!-- Home <-> project view transition: the clicked list's hover preview morphs into the project's first image, reversed on the way back. Browsers without cross-document view transitions simply navigate normally.
+     20 Nov 2026: the project TITLE is no longer part of it (Michael) - it fades with the rest of the page. To bring it back: name .project-title 'folio-title' in the CSS, add it to the group/old/new rules, and name the clicked list title (listTitle) in pageswap and pagereveal below. -->
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+  .project-image-wrapper .project-page-image:first-child {
+    view-transition-name: folio-image;
+  }
+  ::view-transition-group(root),
+  ::view-transition-group(folio-image) {
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.45s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+</style>
+<script>
+  (function () {
+    'use strict';
+    if (!('onpageswap' in window)) return; // no cross-document view transitions: these routes just navigate normally
+
+    const FROM_KEY = 'mwp-vt-from';
+    const clean = (p) => p.replace(/\/+$/, '') || '/';
+    const pathOf = (url) => clean(new URL(url, location.href).pathname);
+    const here = () => clean(location.pathname);
+    const isHome = (p) => p === '/';
+    const isFolio = (p) => p.startsWith('/portfolio/');
+    const morphRoute = (a, b) => (isHome(a) && isFolio(b)) || (isFolio(a) && isHome(b));
+    window.MWPViewTransition = { morphRoute: (a, b) => morphRoute(clean(a), clean(b)) };
+
+    const named = [];
+    const name = (el, n) => {
+      if (!el) return;
+      el.style.viewTransitionName = n;
+      named.push(el);
+    };
+    const clearNames = () => named.splice(0).forEach((el) => (el.style.viewTransitionName = ''));
+
+    // Leaving a page: only home <-> project morphs; everything else navigates normally
+    window.addEventListener('pageswap', (e) => {
+      if (!e.viewTransition) return;
+      const to = e.activation && e.activation.entry && e.activation.entry.url;
+      if (!to || !morphRoute(here(), pathOf(to))) {
+        e.viewTransition.skipTransition();
+        return;
+      }
+      try {
+        sessionStorage.setItem(FROM_KEY, here());
+      } catch (err) {}
+      if (isHome(here())) {
+        const preview = Array.from(document.body.children).find((el) => el.style.zIndex === '9998' && el.style.opacity === '1');
+        name(preview, 'folio-image');
+      }
+    });
+
+    // Arriving on a page
+    window.addEventListener('pagereveal', (e) => {
+      if (!e.viewTransition) return;
+      let from = null;
+      let restoring = false;
+      try {
+        from = sessionStorage.getItem(FROM_KEY);
+        sessionStorage.removeItem(FROM_KEY);
+        restoring = !!sessionStorage.getItem('mwp-home-restore');
+      } catch (err) {}
+      if (isHome(here())) clearNames(); // leftovers from a back/forward-cache return
+      if (!from || restoring || !morphRoute(from, here())) {
+        e.viewTransition.skipTransition();
+        return;
+      }
+      if (isHome(here())) e.viewTransition.finished.finally(clearNames);
+    });
+  })();
+</script>
+<!-- frame-probe (github.com/madewithpixels/frame-probe): add ?probe to any page address to list slow frames for 7s. Nothing loads without it. -->
+<script>
+  if (/[?&]probe\b/.test(location.search))
+    document.write('<script src="https://cdn.jsdelivr.net/gh/madewithpixels/frame-probe@1.0.0/dist/frame-probe.min.js"><\/script>');
+</script>
+<!-- R-140: Safari draws the native disclosure triangle on the burger's <summary> (the SmashBurger button is a <details>); Chrome hides it with list-style alone. This hides it in Safari too. -->
+<style>
+  .mwp-css-nav_summary::-webkit-details-marker {
+    display: none;
+  }
+  .mwp-css-nav_summary::marker {
+    content: '';
+  }
+</style>
+<!-- Safari split-text line-height fix (written by Claude, 14 Nov 2026). DO NOT REMOVE: confirmed fix in Safari for the About H4s (desktop and iPad landscape).
+     GSAP split wrappers (word / letter / mask) are inline-blocks and the mask ones clip their overflow. Safari aligns a clipping inline-block by its
+     bottom edge instead of the text baseline, which stretches every line (about 68px instead of 57px). Aligning every split wrapper to the line top
+     takes the baseline out of it. Site-wide so any split heading, on any page, is covered. No change in Chrome. -->
+<style>
+  [class*="gsap_split"] {
+    vertical-align: top;
+  }
+</style>
+<!-- Open menu, Instant Estimate button (Claude, 20 Nov 2026): at 479px and below the base .instant-quote-btn has width: calc(100% - 4rem), written for the
+     full-width hero and pricing buttons. In the open menu its parent (.mwp-css-nav_primary) is only as wide as the button itself, so that rule took 4rem off
+     the button's own width and "Instant Estimate" wrapped onto two lines. This is menu only: the hero and pricing buttons keep the rule. To undo, delete this block. -->
+<style>
+  @media screen and (max-width: 479px) {
+    .mwp-css-nav_primary .instant-quote-btn {
+      width: auto;
+    }
+  }
+</style>
+<!-- Testimonial opening quote mark at phone width (Claude, 20 Nov 2026): the Home head CSS hangs the opening mark in the left margin only from 768px up and
+     leaves it above the quote below that. Michael wants the hanging layout on phones too (the quotes slide in from the right, so there is room). This repeats the
+     768px+ rule from the Home head for 767px and below; the doubled class beats the Home head's base rule, which would otherwise win because it comes later.
+     To undo, delete this block. -->
+<style>
+  @media screen and (max-width: 767px) {
+    .testi-wall_blockquote.testi-wall_blockquote::before {
+      position: absolute;
+      right: 100%;
+      top: calc(0.97em - 42px);
+      margin-right: 0.6em;
+      margin-bottom: 0;
+    }
+  }
+</style>
+<!-- Portfolio Nav component (project pages): the arrows' styles and script, moved out of the component's Code Embeds -->
+<style>
+  /* overrides the spinning conic-gradient border the buttons get above; delete once .project-nav_arrow is taken out of those selectors */
+  a.project-nav_arrow,
+  a.project-nav_arrow:hover,
+  a.project-nav_arrow:focus-visible {
+    background: #ef8965;
+    padding: 0;
+    animation: none;
+  }
+  a.project-nav_arrow .project-nav_inner,
+  a.project-nav_arrow .grad-arrow-wrapper {
+    border-radius: inherit;
+  }
+  /* images can't be dragged out of the page (all pages) */
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+</style>
+<script>
+  // Portfolio prev/next arrows (project pages): set each arrow's link and label, then preload both neighbours.
+  // ORDER follows the Home folio list top to bottom (wraps round): when a project is added, removed or moved there, change it here too.
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+    if (!location.pathname.startsWith('/portfolio/')) return;
+    var PORTFOLIO = [
+      { slug: 'farmer-norton', title: 'Farmer Norton' },
+      { slug: 'shepherd-machinery', title: 'Shepherd Machinery' },
+      { slug: 'halstead-glass', title: 'Halstead Glass' },
+      { slug: 'travel-ledger', title: 'Travel Ledger' },
+      { slug: 'origin-global', title: 'Origin Global' },
+      { slug: 'shogun-nutrients', title: 'Shogun Nutrients' },
+      { slug: 'dolphin-dynamics', title: 'Dolphin Dynamics' },
+      { slug: 'ay-pe', title: 'ay-pe' },
+      { slug: 'continuum-group', title: 'Continuum Group' },
+      { slug: 'marek-wojciechowski', title: 'Marek Wojciechowski' },
+      { slug: 'futura', title: 'Futura' },
+      { slug: 'jessop-financial-planning', title: 'Jessop Financial Planning' },
+      { slug: 'erich-kadow', title: 'Erich Kadow' },
+      { slug: 'now-then-magazine', title: 'Now Then Magazine' },
+      { slug: 'fairness-on-the-83', title: 'Fairness on the 83' },
+      { slug: 'opus-independents', title: 'Opus Independents' },
+      { slug: 'guild-of-st-george', title: 'Guild of St George' },
+      { slug: 'writing-sheffield', title: 'Writing Sheffield' },
+      { slug: 'trading-histories', title: 'Trading Histories' },
+      { slug: 'coronation-street-the-tour', title: 'Coronation Street The Tour' },
+      { slug: 'oxford-castle', title: 'Oxford Castle' },
+      { slug: 'kent-life', title: 'Kent Life' },
+      { slug: 'the-antonine-wall', title: 'The Antonine Wall' },
+      { slug: 'creswell-crags', title: 'Creswell Crags' },
+      { slug: 'black-cat-white-cat', title: 'Black Cat White Cat' },
+      { slug: 'mustt-audio', title: 'Mustt Audio' },
+      { slug: 'club-60', title: 'Club 60' },
+      { slug: 'dionne-bromfield', title: 'Dionne Bromfield' },
+      { slug: 'soyo', title: 'Soyo' },
+      { slug: 'soyo-live', title: 'Soyo Live' },
+      { slug: 'molly-malones', title: "Molly Malone's" },
+      { slug: 'code', title: 'Code' },
+      { slug: 'mr-wilsons', title: "Mr Wilson's" },
+      { slug: 'ohm', title: 'OHM' },
+      { slug: 'voice-focus', title: 'Voice Focus' },
+      { slug: 'mednet', title: 'Mednet' },
+      { slug: 'insight-cbt-partnership', title: 'Insight CBT Partnership' },
+      { slug: 'stephen-mcculley', title: 'Stephen McCulley' },
+      { slug: 'origin-e-commerce', title: 'Origin E-commerce' },
+      { slug: 'aquaculture', title: 'Aquaculture' }
+    ];
+    var prevEl = document.querySelector('[data-portfolio-nav="prev"]');
+    var nextEl = document.querySelector('[data-portfolio-nav="next"]');
+    if (!prevEl || !nextEl) return;
+    var slug = location.pathname.replace(/\/$/, '').split('/').pop();
+    var index = -1;
+    for (var i = 0; i < PORTFOLIO.length; i++) if (PORTFOLIO[i].slug === slug) { index = i; break; }
+    if (index === -1) return;
+    var prev = PORTFOLIO[(index - 1 + PORTFOLIO.length) % PORTFOLIO.length];
+    var next = PORTFOLIO[(index + 1) % PORTFOLIO.length];
+    prevEl.setAttribute('href', '/portfolio/' + prev.slug);
+    prevEl.setAttribute('aria-label', 'Previous project: ' + prev.title);
+    prevEl.setAttribute('title', prev.title);
+    nextEl.setAttribute('href', '/portfolio/' + next.slug);
+    nextEl.setAttribute('aria-label', 'Next project: ' + next.title);
+    nextEl.setAttribute('title', next.title);
+
+    // preload (not on data-saver / 2G)
+    var targets = ['/portfolio/' + prev.slug, '/portfolio/' + next.slug];
+    var conn = navigator.connection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+    // Chrome/Edge: speculation rules keep the prefetched pages ready
+    if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+      var rules = document.createElement('script');
+      rules.type = 'speculationrules';
+      rules.textContent = JSON.stringify({ prefetch: [{ source: 'list', urls: targets, eagerness: 'immediate' }] });
+      document.head.appendChild(rules);
+    }
+    // all browsers: fetch each page once and warm its first project image
+    function attr(tag, name) {
+      var m = tag.match(new RegExp('\\s' + name + '="([^"]+)"'));
+      return m ? m[1].replace(/&amp;/g, '&') : '';
+    }
+    function warm() {
+      targets.forEach(function (url) {
+        fetch(url, { credentials: 'same-origin' })
+          .then(function (r) { return r.ok ? r.text() : ''; })
+          .then(function (html) {
+            var tag = (html.match(/<img[^>]*class="[^"]*project-page-image[^"]*"[^>]*>/) || [])[0];
+            if (!tag) return;
+            var img = new Image();
+            if (attr(tag, 'sizes')) img.sizes = attr(tag, 'sizes');
+            if (attr(tag, 'srcset')) img.srcset = attr(tag, 'srcset');
+            if (attr(tag, 'src')) img.src = attr(tag, 'src');
+          })
+          .catch(function () {});
+      });
+    }
+    var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1500); };
+    if (document.readyState === 'complete') idle(warm);
+    else window.addEventListener('load', function () { idle(warm); });
+  });
+</script>

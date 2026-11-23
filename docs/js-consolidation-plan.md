@@ -1,6 +1,8 @@
 # Custom code consolidation and jsDelivr switch-over: the plan (R-117, D-027)
 
-Written 20 November 2026 by Claude, for the next working session. Nothing in Webflow or `src/` has changed yet.
+Written 20 November 2026 by Claude, for the next working session.
+
+**Progress, 23 November 2026:** an interim step done before stage 1: the registered scripts on Home and Estimate and the Code Embeds (Home, Portfolio Nav) were moved into the editable custom code boxes, so every page-level line is now in a box Michael can see. Box copies are in `snapshots/2026-11-23/` (part of stage 0). The Estimate fixes are one `<style>` and one `<script>`, ready to lift into `src/estimate/`. Proposed D-028 would bring the shared core (below, "Not in this job") into this job. Michael wants the pricing tablet band rethought before it is ported (STATUS, 23 November 2026).
 
 ## Why now
 On 20 November one small pricing change took an evening. Here's what went wrong:

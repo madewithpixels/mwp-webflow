@@ -125,6 +125,8 @@ On iPhone, anything moved in step with the scroll lags a frame behind it, so pho
 **Date:** 24 October 2026
 **Source:** intro-pin notes (scroll magnet v2.1); Michael chose the catch version.
 
+**Reaffirmed, 23 November 2026:** Michael, asked during the code streamlining whether the magnet could go: "the scroll magnet stays it's fundamental to pacing".
+
 ## D-020 · Folio wall images: square crops in WebP at quality 92
 **Status:** Accepted
 **Date:** 29 September 2026
@@ -209,3 +211,14 @@ Low mode: (1) the Faulty Terminal is not started and its wrapper shows a still i
 **Source:** an evening of small pricing fixes (Home footer box over its 50,000-character limit; PricingTabletBand finding the pricing script by a comment; whole-box MCP edits).
 Supersedes D-003's timing (switch at launch prep): the switch happens now, page by page, as in `docs/js-consolidation-plan.md`. D-023's "each script switches as it is ported" stands. Once a page is switched, agents change `src/` in this repo, not Webflow (D-005's qualifier). A small inline loader in the Site head holds the release version; a `?mwpdev=1` switch loads from `npm run dev` on localhost for testing before anything is pushed.
 **Settled (Michael, 20 November 2026):** (1) the version lives in one place, in the Site head loader; (2) bundles are loaded by jsDelivr tag (`@v1.0.0`), never moved; (3) the estimate tool's repo keeps only the tool's logic ("I feel like that repo can be left with just the logic"); the Estimate page fixes come into `src/estimate/` here. Exception to raise case by case: a fix that changes how the tool itself behaves (the reliable single tap on Next, R-119) is a tool bug, so it moves into the tool when that repo is next worked on.
+
+## D-028 · The shared timing core comes into the consolidation, not after it
+**Status:** Proposed
+**Qualifier:** Michael, 23 November 2026: "Js - can it be consolidated, streamlined and shortened further - I'm sure I remmeber an earlier chat where you talked about a single timing block or similar. I note multiple script and style tags." He left the order of the work to Claude ("you're the expert").
+**Date:** 23 November 2026
+**Source:** the 23 November streamlining review: Home alone has about 18 `<style>` tags (about 28k) and about 20 inline scripts (about 74k), with clamp/ease/lerp defined three times and three scripts polling separately for ScrollTrigger.
+Amends `docs/js-consolidation-plan.md`, which keeps the shared core ("one scroll dispatcher") as a separate later step. Proposed: while each page's code moves into `src/` bundles, its scripts also move onto one small core: one rAF/scroll dispatcher, one debounced resize, one breakpoint helper (479/767/991/1279, held in `window.MWP`), one "ready" signal (ScrollTrigger built, Lenis up, fonts loaded) and visibility gating. Still restructure, not rewrite (R-117 note): the tuned fixes (sticky re-measure, `mwpPlayInOrder`, Lenis timing, the scroll magnet) keep their behaviour. End state: a small inline first-paint snippet in the head, one CSS link and one deferred bundle per page.
+**For Michael:** accept, or keep the core as a separate step after the move?
+**Recommendation:** accept: the helpers get merged once instead of moved and then merged again.
+**If you don't decide:** the move goes ahead as planned and the core follows it.
+

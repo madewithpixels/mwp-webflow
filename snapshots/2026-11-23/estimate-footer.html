@@ -1,0 +1,71 @@
+<!-- MWP Instant Website Estimate v3.2.1 (repo: madewithpixels/MWP-Instant-Website-Estimate, tag 3.2.1) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/madewithpixels/mwp-instant-website-estimate@3.2.1/dist/mwp-estimate.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/madewithpixels/mwp-instant-website-estimate@3.2.1/dist/mwp-estimate.min.js"></script>
+<!-- Estimate page fixes (the CSS ones are in the page head) -->
+<script>
+  // Last step: hide Back
+  (function () {
+    var LAST_STAGE = '[data-stage="features"]';
+    function sync() {
+      var stage = document.querySelector(LAST_STAGE);
+      var back = document.querySelector('[data-mwp="back"]');
+      if (!stage || !back) return;
+      back.style.display = stage.getAttribute('data-active') === 'true' ? 'none' : '';
+    }
+    function start() {
+      var stage = document.querySelector(LAST_STAGE);
+      if (!stage) return setTimeout(start, 300);
+      sync();
+      new MutationObserver(sync).observe(stage, { attributes: true, attributeFilter: ['data-active', 'style'] });
+    }
+    start();
+  })();
+
+  // Back/Next on touch: one tap always counts (single finger, under 10px movement, 450ms de-dupe)
+  (function () {
+    var MOVE = 10, GAP = 450, sx = 0, sy = 0, moved = false, last = 0;
+    function btn(e) {
+      return e.target.closest && e.target.closest('[data-mwp="next"],[data-mwp="back"]');
+    }
+    document.addEventListener('touchstart', function (e) {
+      if (!btn(e) || e.touches.length !== 1) return;
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+      moved = false;
+    }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+      if (!btn(e) || !e.touches.length) return;
+      if (Math.abs(e.touches[0].clientX - sx) > MOVE || Math.abs(e.touches[0].clientY - sy) > MOVE) moved = true;
+    }, { passive: true });
+    document.addEventListener('touchend', function (e) {
+      var b = btn(e);
+      if (!b || moved || !e.cancelable || e.changedTouches.length !== 1) return;
+      if (b.getAttribute('aria-disabled') === 'true' || b.disabled) return;
+      var now = Date.now();
+      if (now - last < GAP) return e.preventDefault();
+      last = now;
+      e.preventDefault();
+      b.click();
+    }, { passive: false });
+  })();
+
+  // Menu: the "#" section links go to the Home page sections
+  (function () {
+    var MAP = { About: '/#about', Pricing: '/#pricing', Work: '/#portfolio', Testimonials: '/#testimonials', Contact: '/#contact' };
+    function fix() {
+      var links = document.querySelectorAll('a.mwp-css-nav_link[href="#"]');
+      for (var i = 0; i < links.length; i++) {
+        var to = MAP[(links[i].textContent || '').trim()];
+        if (to) { links[i].setAttribute('href', to); links[i].setAttribute('data-r106', ''); }
+      }
+    }
+    fix();
+    new MutationObserver(fix).observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[data-r106]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+      e.preventDefault(); e.stopPropagation();
+      window.location.href = a.getAttribute('href');
+    }, true);
+  })();
+</script>

@@ -1,0 +1,17 @@
+<!-- Estimate page fixes (stopgaps: remove each once the estimate tool does it itself) -->
+<style>
+  /* Back/Next gap */
+  .iwa-nav{gap:24px}
+  @media screen and (max-width:479px){.iwa-nav{gap:16px}}
+  /* Back/Next on touch: no tap delay, no stuck hover */
+  .iwa-btn{touch-action:manipulation}
+  @media (hover:none){.iwa-btn:hover{transform:none}}
+  @media screen and (max-width:767px){
+    /* phones: last step centred */
+    [data-stage="features"] .iwa-question,[data-stage="features"] .mwp-group-label,[data-stage="features"] .iwa-opt-help{text-align:center}
+    /* phones: no top Next button */
+    [data-mwp="next-top"]{display:none!important}
+    /* phones: stronger question text */
+    .iwa-question{font-weight:500!important;font-size:28px!important;color:#fff!important}
+  }
+</style>

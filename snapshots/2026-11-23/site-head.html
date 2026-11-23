@@ -5,14 +5,8 @@
     scrollbar-gutter: stable;
   }
 
-  /* R-081: Lenis locks scrolling (overflow hidden/clip) while the menu is open, which drops a classic scrollbar's gutter and would
-     widen the page and shift the centred header. Do not force overflow here: Lenis watches the overflow value and a forced
-     value made it start and stop in a loop (the menu shook). Instead give the scrollbar's width back: the page and the fixed header are
-     narrower by exactly that while the menu is open.
-     20 Nov 2026 (R-163, flash fix): the width used to be a fixed 8px. With overlay scrollbars (no gutter, e.g. a Mac with a trackpad)
-     that shrank the page by 8px on every open/close, which made ScrollTrigger refresh and the page flash. The width is now measured
-     by the small script below: html.mwp-sbw and --mwp-sbw are only set when a real, classic scrollbar exists, so overlay-scrollbar
-     browsers and phones get no compensation at all. */
+  /* Menu open: Lenis hides a classic scrollbar, so give its width back (measured by the script below; overlay scrollbars get nothing).
+     Don't force overflow here: Lenis watches it and loops (the menu shook). */
   html.lenis.lenis-stopped.mwp-sbw {
     padding-right: var(--mwp-sbw);
   }
@@ -29,58 +23,9 @@
   .folio-list li {
     margin-block: 0;
   }
-  .hero,
-  .content-main > * {
-    transition: filter 0.4s ease;
-  }
-
-  .hero,
-  .seperator,
-  .intro,
-  .about,
-  .portfolio {
-    transition: filter 0.4s ease;
-  }
-
-  .--is-blurred {
-    filter: blur(4px) brightness(0.5);
-    pointer-events: none;
-  }
-
-  /* R-163b (Claude, 20 Nov 2026): the Faulty Terminal canvas lives inside .hero. When the menu closed and the hero's blur filter was removed,
-     the browser dropped the hero's filter layer and the WebGL canvas showed black for a frame. Keeping the layer alive stops that.
-     Tested live first (Michael saw the flash gone). Costs one permanent compositing layer; if a weak device ever suffers, remove this rule. */
+  /* Keeps the hero's layer so the Faulty Terminal canvas doesn't flash black when the menu closes (one extra compositing layer) */
   .hero {
     will-change: filter;
-  }
-
-  .ticker__row--right .ticker__track {
-    animation-name: ticker-right;
-  }
-  @keyframes ticker-left {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes ticker-right {
-    from {
-      transform: translateX(-50%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ticker__track {
-      animation: none;
-    }
   }
 
   @property --angle {
@@ -130,21 +75,7 @@
   }
   .iwa-panel .mwp-result-panel {
     box-shadow: none;
-    border-radius: none;
     border: none;
-    padding: none !important;
-  }
-  .icon-arrow:hover .grad-bg-strip.segment-01,
-  .icon-arrow:focus .grad-bg-strip.segment-01 {
-    background: var(--raspberry);
-  }
-  .icon-arrow:hover .grad-bg-strip.segment-02,
-  .icon-arrow:focus .grad-bg-strip.segment-02 {
-    background: var(--coral);
-  }
-  .icon-arrow:hover .grad-bg-strip.segment-03,
-  .icon-arrow:focus .grad-bg-strip.segment-03 {
-    background: var(--teal);
   }
   @media screen and (min-width: 1920px) {
     .project-content-wrapper {
@@ -152,11 +83,7 @@
     }
   }
 
-  /* Header phone + email buttons (SB Header, written by Claude): the label slides open while its button is hovered or
-     keyboard-focused. Everything else is in the Designer: the closed state, font and transition timing are on the
-     "Menu Button Label" class; the icon sits at a fixed padding on the Menu Button Tel / Email combos (justify start),
-     so only the label grows and the icon never moves.
-     Tablet and up only (768px+, devices with a real hover) - on mobile the buttons stay as icons and a tap just calls/emails. */
+  /* Header phone + email: the label slides open on hover/focus (768px+ with real hover); the rest is on the Menu Button Label class */
   @media (min-width: 768px) and (hover: hover) {
     .menu-button:is(:hover, :focus-visible) .menu-button-label {
       max-width: 24rem;
@@ -165,9 +92,7 @@
     }
   }
 </style>
-<!-- R-163 (Claude, 20 Nov 2026): measures the page's real scrollbar width for the R-081 rules above. Reads window.innerWidth - html.clientWidth,
-     which is 0 with overlay scrollbars. Never measures while Lenis has the page locked (the gutter is gone then), so the last reading stays.
-     Only sets a class and a variable on <html>; nothing changes size when they are set, so it cannot trigger a ScrollTrigger refresh. -->
+<!-- Scrollbar width for the menu rule above (not measured while Lenis has the page locked) -->
 <script>
   (function () {
     var root = document.documentElement;
@@ -188,9 +113,7 @@
     window.addEventListener('pageshow', measure);
   })();
 </script>
-<!-- Project page transition (R-083; replaces the pixel transition). After a project arrow was pressed, the next project's content stays
-     hidden until the footer script slides it in (html.mwp-pt-enter); after the project back button, the home page stays hidden until it has
-     jumped to the remembered spot (html.mwp-pt-restore). The animation itself is in the site footer. R-103: the left and right project arrows are not part of it, they stay put. -->
+<!-- Project page transition (animation in the site footer): next project's content hidden until it slides in (mwp-pt-enter); Home hidden until it has jumped back to the remembered spot (mwp-pt-restore). The prev/next arrows stay put. -->
 <style>
   html.mwp-pt-enter :is(.project-title-wrapper, .folio-rte-wrapper, .project-page-image) {
     opacity: 0;
@@ -224,8 +147,7 @@
     if (sessionStorage.getItem('mwp-home-restore') && location.pathname === '/') document.documentElement.classList.add('mwp-pt-restore');
   } catch (e) {}
 </script>
-<!-- Home <-> project view transition: the clicked list's hover preview morphs into the project's first image, reversed on the way back. Browsers without cross-document view transitions simply navigate normally.
-     20 Nov 2026: the project TITLE is no longer part of it (Michael) - it fades with the rest of the page. To bring it back: name .project-title 'folio-title' in the CSS, add it to the group/old/new rules, and name the clicked list title (listTitle) in pageswap and pagereveal below. -->
+<!-- Home <-> project view transition: the list's hover preview morphs into the project's first image (and back). Other browsers just navigate. -->
 <style>
   @view-transition {
     navigation: auto;
@@ -313,7 +235,7 @@
   if (/[?&]probe\b/.test(location.search))
     document.write('<script src="https://cdn.jsdelivr.net/gh/madewithpixels/frame-probe@1.0.0/dist/frame-probe.min.js"><\/script>');
 </script>
-<!-- R-140: Safari draws the native disclosure triangle on the burger's <summary> (the SmashBurger button is a <details>); Chrome hides it with list-style alone. This hides it in Safari too. -->
+<!-- Burger button: hide Safari's disclosure triangle on the <summary> -->
 <style>
   .mwp-css-nav_summary::-webkit-details-marker {
     display: none;
@@ -322,37 +244,17 @@
     content: '';
   }
 </style>
-<!-- Safari split-text line-height fix (written by Claude, 14 Nov 2026). DO NOT REMOVE: confirmed fix in Safari for the About H4s (desktop and iPad landscape).
-     GSAP split wrappers (word / letter / mask) are inline-blocks and the mask ones clip their overflow. Safari aligns a clipping inline-block by its
-     bottom edge instead of the text baseline, which stretches every line (about 68px instead of 57px). Aligning every split wrapper to the line top
-     takes the baseline out of it. Site-wide so any split heading, on any page, is covered. No change in Chrome. -->
+<!-- Safari split-text line height: DO NOT REMOVE (Safari aligns the clipping split wrappers by their bottom edge, which stretches every line) -->
 <style>
   [class*="gsap_split"] {
     vertical-align: top;
   }
 </style>
-<!-- Open menu, Instant Estimate button (Claude, 20 Nov 2026): at 479px and below the base .instant-quote-btn has width: calc(100% - 4rem), written for the
-     full-width hero and pricing buttons. In the open menu its parent (.mwp-css-nav_primary) is only as wide as the button itself, so that rule took 4rem off
-     the button's own width and "Instant Estimate" wrapped onto two lines. This is menu only: the hero and pricing buttons keep the rule. To undo, delete this block. -->
+<!-- Open menu, phones: the Instant Estimate button sizes to its text (the base width rule is for the full-width hero and pricing buttons) -->
 <style>
   @media screen and (max-width: 479px) {
     .mwp-css-nav_primary .instant-quote-btn {
       width: auto;
-    }
-  }
-</style>
-<!-- Testimonial opening quote mark at phone width (Claude, 20 Nov 2026): the Home head CSS hangs the opening mark in the left margin only from 768px up and
-     leaves it above the quote below that. Michael wants the hanging layout on phones too (the quotes slide in from the right, so there is room). This repeats the
-     768px+ rule from the Home head for 767px and below; the doubled class beats the Home head's base rule, which would otherwise win because it comes later.
-     To undo, delete this block. -->
-<style>
-  @media screen and (max-width: 767px) {
-    .testi-wall_blockquote.testi-wall_blockquote::before {
-      position: absolute;
-      right: 100%;
-      top: calc(0.97em - 42px);
-      margin-right: 0.6em;
-      margin-bottom: 0;
     }
   }
 </style>

@@ -139,20 +139,14 @@
     -webkit-mask: var(--pixel-quote) no-repeat 0 0 / 100% 100%;
     mask: var(--pixel-quote) no-repeat 0 0 / 100% 100%;
   }
-  /* opening mark */
+  /* opening mark, hung in the left margin */
   .testi-wall_blockquote::before {
     display: block;
+    position: absolute;
+    right: 100%;
+    top: calc(0.97em - 42px); /* TUNE: raise the px value to lift it */
+    margin-right: 0.6em; /* TUNE: gap to the text */
     transform: rotate(180deg);
-    margin-bottom: 0.6em;
-  }
-  @media (min-width: 768px) {
-    .testi-wall_blockquote::before {
-      position: absolute;
-      right: 100%;
-      top: calc(0.97em - 42px); /* TUNE: raise the px value to lift it */
-      margin-right: 0.6em; /* TUNE: gap to the text */
-      margin-bottom: 0;
-    }
   }
   /* closing mark */
   .testi-wall_blockquote > em:first-child > br:last-child {
@@ -252,7 +246,8 @@
   });
 </script>
 <script>
-  // Scroll animations: sticky ancestors are unstuck while measuring; after any re-measure, scrubbed animations are redrawn in page order (window.mwpPlayInOrder)
+  // Scroll animations: sticky ancestors are unstuck while measuring; after any re-measure, scrubbed animations are redrawn in page order.
+  // window.mwpPlayInOrder (menu jumps) also redraws from the end at the very start (stops the H1 showing over the hero).
   (function () {
     function stickies(el) {
       var out = [];
@@ -262,7 +257,7 @@
       }
       return out;
     }
-    function playInOrder() {
+    function playInOrder(fromJump) {
       var ST = window.ScrollTrigger;
       if (!ST || !ST.getAll) return;
       ST.getAll()
@@ -278,18 +273,21 @@
           var a = s.animation;
           var total = a.totalDuration();
           var at = total * s.progress;
-          if (at > 0 && at < total) a.render(total, true, true); // end first, so the redraw runs backwards (part-way only: Safari hero stutter)
+          // end first, so the redraw runs backwards (after a re-measure only part-way: Safari hero stutter)
+          if (at < total && (fromJump || at > 0)) a.render(total, true, true);
           a.render(at, true, true);
         });
     }
-    window.mwpPlayInOrder = playInOrder;
+    window.mwpPlayInOrder = function () {
+      playInOrder(true);
+    };
     var queued = false;
     function queue() {
       if (queued) return;
       queued = true;
       requestAnimationFrame(function () {
         queued = false;
-        playInOrder();
+        playInOrder(false);
       });
     }
     function wrap(st) {
@@ -984,40 +982,44 @@
     });
   })();
 </script>
+<!-- Pricing on short screens (992px+ wide, under 750px tall): the stacked layout. These repeat Webflow's under-992px pricing rules: if those change in the Designer, copy them here. Keep 750 in step with the pricing script (footer). -->
+<style>
+  @media (min-width: 992px) and (max-height: 749px) {
+    .pricing { height: auto; padding-bottom: calc(var(--_structure---section-padding)*3); justify-content: center; align-items: flex-start; }
+    .pricing-wrapper { pointer-events: auto; flex-flow: column; justify-content: center; align-items: flex-start; height: auto; min-height: 100lvh; display: flex; }
+    .pricing-block { border-radius: 0px; flex-flow: column; flex: 0 0 auto; align-self: center; align-items: flex-start; width: 100vw; padding: 7.5vw 7.5vw 8vw; display: flex; position: relative; }
+    .pricing-block.raspberry { min-height: auto; }
+    .pricing-block.teal { align-self: center; }
+    .pricing-strapline { align-self: flex-start; }
+    .price-block { flex-flow: column; justify-content: flex-end; align-items: flex-start; display: flex; align-self: start !important; }
+    .price-block.growth { aspect-ratio: auto; text-align: left; background-color: rgba(0, 0, 0, 0); border-radius: 0px; justify-content: center; align-self: flex-start; align-items: flex-start; width: 100%; padding: 0px; position: static; inset: auto 0% 0%; }
+    .price { font-size: clamp(2rem, 4vw, 3rem); }
+    .pricing-cta { width: 100%; height: auto; min-height: auto; margin-top: var(--_structure---section-padding); padding-right: var(--_structure---section-padding); padding-left: var(--_structure---section-padding); gap: 1rem; border-top-left-radius: var(--_structure---border-radius); border-top-right-radius: var(--_structure---border-radius); border-bottom-left-radius: var(--_structure---border-radius); border-bottom-right-radius: var(--_structure---border-radius); padding-bottom: calc(var(--_structure---section-padding)/1); grid-template-rows: auto; grid-template-columns: 1fr 1fr; margin-left: auto; margin-right: auto; position: static; }
+    .pricing-cta:focus { background-color: color-mix(in hsl,var(--offwhite)5%,var(--transparent)95%); }
+    .instant-quote-btn { margin-top: 0px; font-size: clamp(1rem, 1.1em, 1.25rem); bottom: 4rem; }
+    .instant-quote-btn:where(.w-variant-11aecdbc-a782-fe05-9771-bb4e60cdd3fd) { font-size: clamp(0.9rem, 1.1em, 1.25rem); position: relative; inset: auto; }
+    .instant-quote-btn.mobile.about-cta { display: none; }
+    .section-clipping-mask { height: auto; padding-bottom: var(--_structure---section-padding); pointer-events: auto; position: static; }
+  }
+</style>
 <script>
-  /* Pricing 992-1279px: stacked cards, no pin (copies the under-992px rules; the pricing script's 992px check answers as 1280). Reloads across the band edges. */
-  (function () {
-    var MAX = 1279;
-    var mm = window.matchMedia.bind(window);
-    window.matchMedia = function (q) {
-      var cs = document.currentScript;
-      if (typeof q === 'string' && q.replace(/\s/g, '') === '(min-width:992px)' && cs && (cs.getAttribute('data-mwp') === 'pricing' || cs.textContent.indexOf('Pricing (desktop)') > -1)) q = '(min-width: ' + (MAX + 1) + 'px)';
-      return mm(q);
-    };
-    var inBand = function () { return innerWidth > 991 && innerWidth <= MAX; }, was = inBand(), t;
-    addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { if (inBand() !== was) location.reload(); }, 300); });
-    if (!was) return;
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!document.querySelector('.pricing')) return;
-      var css = '', re = /pricing|price|section-clipping-mask|cta-grid|instant-quote/;
-      for (var i = 0; i < document.styleSheets.length; i++) {
-        var rs; try { rs = document.styleSheets[i].cssRules; } catch (e) { continue; }
-        for (var j = 0; j < rs.length; j++) {
-          if (!rs[j].media || rs[j].conditionText !== 'screen and (max-width: 991px)') continue;
-          for (var k = 0; k < rs[j].cssRules.length; k++) if (re.test(rs[j].cssRules[k].selectorText || '')) css += rs[j].cssRules[k].cssText;
-        }
-      }
-      var s = document.createElement('style');
-      s.textContent = '@media (min-width:992px) and (max-width:' + MAX + 'px){' + css + '}';
-      document.head.appendChild(s);
-      var n = 0, h = setInterval(function () {
-        var ST = window.ScrollTrigger, done = false;
-        if (ST) ST.getAll().forEach(function (x) { if (x.trigger && /(^| )pricing( |$)/.test(x.trigger.className || '')) { x.kill(true); done = true; } });
-        if (done) ST.refresh();
-        if (done || ++n > 50) clearInterval(h);
-      }, 200);
+  /* Pricing on short screens: Webflow interactions only know widths, so switch off the desktop pricing pin here. Reloads when the window crosses 750px tall (on touch screens only when the width changes too, so a sliding toolbar can't reload the page). */
+  document.addEventListener('DOMContentLoaded', function () {
+    var q = matchMedia('(min-width: 992px) and (max-height: 749px)'), was = q.matches, w = innerWidth, t;
+    q.addEventListener('change', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        if (q.matches !== was && (innerWidth !== w || matchMedia('(pointer: fine)').matches)) location.reload();
+      }, 300);
     });
-  })();
+    if (!was) return;
+    var n = 0, h = setInterval(function () {
+      var ST = window.ScrollTrigger, done = false;
+      if (ST) ST.getAll().forEach(function (x) { if (x.trigger && /(^| )pricing( |$)/.test(x.trigger.className || '')) { x.kill(true); done = true; } });
+      if (done) ST.refresh();
+      if (done || ++n > 50) clearInterval(h);
+    }, 200);
+  });
 </script>
 <!-- Formerly Code Embeds on the page -->
 <style>

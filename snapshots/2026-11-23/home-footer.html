@@ -197,7 +197,9 @@
     var kids = boxes.map(function (c) {
       return Array.prototype.slice.call(c.children);
     });
-    var desktop = window.matchMedia('(min-width: 992px)');
+    var CLEAR_PX = 16; // space kept between the menu buttons and the cards
+    // 992px+ and 750px+ tall; shorter windows get the stacked layout (Home head, keep 750 in step)
+    var desktop = window.matchMedia('(min-width: 992px) and (min-height: 750px)');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     var wasDesktop = null;
     var insetV = 0,
@@ -262,8 +264,12 @@
       });
       cardH = tallest + inner * 2;
       insetV = Math.max(vh * MIN_INSET_VH, (vh - cardH) / 2);
+      // centred cards that would sit under the menu buttons drop to the bottom (margin = the card gap)
+      var nav = document.querySelector('.mwp-css-nav_summary');
+      if (nav && insetV < nav.getBoundingClientRect().bottom + CLEAR_PX) insetV = vh - Math.min(GAP_VW * vw, MAX_GAP_PX) - cardH;
       blocks.forEach(function (b) {
-        b.style.paddingTop = b.style.paddingBottom = insetV + inner + 'px';
+        b.style.paddingTop = insetV + inner + 'px';
+        b.style.paddingBottom = Math.max(0, vh - insetV - cardH) + inner + 'px';
       });
     }
     // only remove transforms this script set (below 992px the interactions use transform)
@@ -329,7 +335,7 @@
 </script>
 
 <script>
-  // Testimonials -> pixel speech bubble -> MWP heart. Wall bubbles fly into the Contact logo (.mwp-logo-2): tied to scroll on desktop, timed below 992px; then the pixels spin between bubble and heart.
+  // Testimonials -> pixel speech bubble -> MWP heart. Wall bubbles fly into the Contact logo (.mwp-logo-2), tied to scroll (992px and up only); then the pixels spin between bubble and heart.
   (function () {
     'use strict';
     var ENABLED = !document.documentElement.hasAttribute('data-lite'); // off in lite perf mode (data-lite)
@@ -342,11 +348,9 @@
     var SPIN_MS = 900; // spin + glide time
     var RIPPLE_MS = 500; // left-to-right ripple
     var SPIN_BACK = false; // spin when scrolling back up from the heart
-    // Below 992px:
-    var FLY_MS = 2000; // fly-in length
-    var TRIGGER_AT = 0.1; // plays when Contact's top reaches this screen fraction
-    var REARM_AT = 0.9; // resets when scrolled back above this
-    var WALL_OUT_MS = 400; // wall fade-out
+    // Below 992px (no fly-in):
+    var TRIGGER_AT = 0.1; // the bubble/heart cycle starts when Contact's top reaches this screen fraction
+    var REARM_AT = 0.9; // back to the bubble when scrolled back above this
     // speech bubble rows (r/c/t = raspberry/coral/teal); keep 14 r, 12 c, 16 t
     var BUBBLE = ['.rrrcctt.', 'rrrcccttt', 'rr.c.c.tt', 'rrrcccttt', '.rrrcctt.', '......tt.', '.......tt'];
     if (!ENABLED) return;
@@ -506,11 +510,11 @@
       return total > 0 ? s / total : 1;
     }
 
-    function assign(vh, vw, timed) {
+    function assign(vh, vw) {
       var cr = contact.getBoundingClientRect();
       // pair by start/end positions so scrolling up and down picks the same bubbles
-      var back = timed ? 0 : Math.max(0, scrolled(vh));
-      var shift = timed ? 0 : cr.top - END_AT * vh;
+      var back = Math.max(0, scrolled(vh));
+      var shift = cr.top - END_AT * vh;
       var chips = Array.prototype.slice.call(testi.querySelectorAll('.testi-wall_chip')).filter(function (c) {
         return !c.closest('.testi-wall_backrow');
       });
@@ -567,17 +571,15 @@
         p.r1 = radii(ts);
         p.el = document.createElement('div');
         p.el.style.cssText = 'position:absolute;left:0;top:0;will-change:transform;';
-        if (!timed) {
-          layer.appendChild(p.el);
-          p.chip.style.visibility = 'hidden';
-          p.cell.style.visibility = 'hidden';
-        }
+        layer.appendChild(p.el);
+        p.chip.style.visibility = 'hidden';
+        p.cell.style.visibility = 'hidden';
       });
       return out;
     }
 
     function reset() {
-      resetTimed();
+      armed = true;
       if (pairs) {
         pairs.forEach(function (p) {
           p.chip.style.visibility = p.cell.style.visibility = '';
@@ -652,116 +654,7 @@
       });
     }
 
-    // Timed fly-in (below 992px): the layer scrolls with the page and Web Animations run it, so no judder
-    var mob = { state: 'armed', pairs: null, layer: null, timer: 0, wallTimer: 0 };
-    function css(c) {
-      return 'rgb(' + c.map(Math.round).join(',') + ')';
-    }
-    function playTimed(vh, vw) {
-      var list = assign(vh, vw, true);
-      if (!list || !document.body.animate) return false;
-      var sm = stage ? matrixOf(stage) : { a: 0, s: 1 },
-        lm = matrixOf(logo),
-        lo = parseFloat(getComputedStyle(logo).opacity);
-      if (isNaN(lo)) lo = 1;
-      var lay = document.createElement('div');
-      lay.setAttribute('aria-hidden', 'true');
-      lay.style.cssText = 'position:absolute;left:0;top:0;width:0;height:0;z-index:50;pointer-events:none;';
-      document.body.appendChild(lay);
-      var o = lay.getBoundingClientRect();
-      var dur = FLY_MS * (1 - SPREAD);
-      var boxes = list.map(function (q) {
-        var a = q.chip.getBoundingClientRect(),
-          b = q.cell.getBoundingClientRect();
-        return {
-          ax: a.left + a.width / 2 - o.left,
-          ay: a.top + a.height / 2 - o.top,
-          aw: q.chip.offsetWidth * sm.s,
-          ah: q.chip.offsetHeight * sm.s,
-          bx: b.left + b.width / 2 - o.left,
-          by: b.top + b.height / 2 - o.top,
-          bw: q.cell.offsetWidth * lm.s,
-          bh: q.cell.offsetHeight * lm.s,
-        };
-      });
-      list.forEach(function (q, i) {
-        var k = boxes[i],
-          sx = k.aw / k.bw,
-          sy = k.ah / k.bh,
-          sAvg = (sx + sy) / 2 || 1;
-        q.el.style.width = k.bw + 'px';
-        q.el.style.height = k.bh + 'px';
-        lay.appendChild(q.el);
-        q.chip.style.visibility = 'hidden';
-        q.cell.style.visibility = 'hidden';
-        q.el.animate(
-          [
-            {
-              transform: 'translate(' + (k.ax - k.bw / 2) + 'px,' + (k.ay - k.bh / 2) + 'px) rotate(' + sm.a + 'deg) scale(' + sx + ',' + sy + ')',
-              backgroundColor: css(q.c0),
-              borderRadius: q.r0
-                .map(function (r) {
-                  return (r * sm.s) / sAvg + 'px';
-                })
-                .join(' '),
-              opacity: 1,
-            },
-            {
-              transform: 'translate(' + (k.bx - k.bw / 2) + 'px,' + (k.by - k.bh / 2) + 'px) rotate(' + lm.a + 'deg) scale(1,1)',
-              backgroundColor: css(q.c1),
-              borderRadius: q.r1
-                .map(function (r) {
-                  return r * lm.s + 'px';
-                })
-                .join(' '),
-              opacity: lo,
-            },
-          ],
-          { duration: dur, delay: FLY_MS * q.delay, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'both' },
-        );
-      });
-      mob.pairs = list;
-      mob.layer = lay;
-      if (stage) {
-        stage.style.transition = 'opacity ' + WALL_OUT_MS + 'ms ease';
-        stage.style.opacity = '0';
-        clearTimeout(mob.wallTimer);
-        mob.wallTimer = setTimeout(function () {
-          stage.style.visibility = 'hidden';
-        }, WALL_OUT_MS + 20);
-      }
-      clearTimeout(mob.timer);
-      mob.timer = setTimeout(landTimed, FLY_MS + 60);
-      return true;
-    }
-    function landTimed() {
-      if (mob.pairs)
-        mob.pairs.forEach(function (q) {
-          q.cell.style.visibility = '';
-        });
-      if (mob.layer) mob.layer.remove();
-      mob.layer = null;
-      if (mob.state === 'flying') {
-        mob.state = 'done';
-        lastChange = performance.now();
-      }
-    }
-    function resetTimed() {
-      clearTimeout(mob.timer);
-      clearTimeout(mob.wallTimer);
-      if (mob.pairs)
-        mob.pairs.forEach(function (q) {
-          q.chip.style.visibility = q.cell.style.visibility = '';
-        });
-      mob.pairs = null;
-      if (mob.layer) mob.layer.remove();
-      mob.layer = null;
-      if (stage && (stage.style.opacity || stage.style.visibility)) {
-        stage.style.visibility = '';
-        stage.style.opacity = '';
-      }
-      mob.state = 'armed';
-    }
+    var armed = true; // below 992px: holding the bubble until Contact arrives
 
     var onScreen = false;
     if ('IntersectionObserver' in window) {
@@ -774,7 +667,7 @@
     function frame(now) {
       requestAnimationFrame(frame);
       if (reduce.matches) {
-        if (pairs || layer.style.display !== 'none' || mob.state !== 'armed') reset();
+        if (pairs || layer.style.display !== 'none') reset();
         if (shape !== 'heart' || anim) setShape('heart');
         return;
       }
@@ -792,41 +685,30 @@
           layer.style.display = 'none';
         }
         var ct = cr.top / vh;
-        if (mob.state !== 'armed' && ct > REARM_AT) resetTimed();
-        if (mob.state === 'armed') {
+        if (!armed && ct > REARM_AT) armed = true;
+        if (armed) {
           if (shape !== 'bubble' || anim) setShape('bubble');
           lastChange = now;
-          if (ct <= TRIGGER_AT) {
-            // arriving from above plays it; other arrivals just show the bubble
-            mob.state = ct > -0.25 && playTimed(vh, vw) ? 'flying' : 'done';
-          }
-          return;
-        }
-        if (mob.state === 'flying') {
-          lastChange = now;
+          if (ct <= TRIGGER_AT) armed = false;
           return;
         }
       } else {
-        if (mob.state !== 'armed') {
-          resetTimed();
-          if (stage) stage.style.transition = '';
-        }
+        armed = true;
         var p = cr.top > vh * 4 ? 0 : progress(vh);
-      }
-      if (small.matches) {
-      } else if (p > 0 && p < 1) {
-        // flying in: hold as the bubble
-        if (shape !== 'bubble') startSpin('bubble', now, !SPIN_BACK);
-        stepSpin(now);
-        flyIn(p, vh, vw);
-        lastChange = now;
-        return;
-      }
-      if (!small.matches && (pairs || layer.style.display !== 'none')) reset();
-      if (!small.matches && p <= 0) {
-        if (shape !== 'bubble' || anim) setShape('bubble');
-        lastChange = now;
-        return;
+        if (p > 0 && p < 1) {
+          // flying in: hold as the bubble
+          if (shape !== 'bubble') startSpin('bubble', now, !SPIN_BACK);
+          stepSpin(now);
+          flyIn(p, vh, vw);
+          lastChange = now;
+          return;
+        }
+        if (pairs || layer.style.display !== 'none') reset();
+        if (p <= 0) {
+          if (shape !== 'bubble' || anim) setShape('bubble');
+          lastChange = now;
+          return;
+        }
       }
       if (stepSpin(now)) {
         lastChange = now;
@@ -1007,36 +889,9 @@
 <!-- Formerly registered scripts. defer: must run after the site-wide FaultyTerminal -->
 <script defer src="https://cdn.jsdelivr.net/gh/madewithpixels/faulty-terminal@e50b32a7894300478e1d60fd0557b8cdb6afa66b/webflow/home-logo-resolve-footer.js" integrity="sha384-kLtx75A803b2ohlMTc0WWNDmH0xe2vV1f9hgXEdUDj4QOCiOxxHu8PS8FyiR8+zi" crossorigin="anonymous"></script>
 <script>
-  /* Below 992px: no fly-in to the Contact logo */
-  if (matchMedia('(max-width:991px)').matches && document.body) {
-    try { Object.defineProperty(document.body, 'animate', { value: undefined, configurable: true }); } catch (e) {}
-  }
-</script>
-<script>
-  /* Menu-jump redraw: end first, then back (stops the H1 showing over the hero) */
-  (function () {
-    var orig = window.mwpPlayInOrder;
-    if (!orig) return;
-    window.mwpPlayInOrder = function () {
-      var ST = window.ScrollTrigger;
-      if (!ST || !ST.getAll) return orig();
-      ST.getAll()
-        .filter(function (s) { return s.vars && s.vars.scrub && s.animation; })
-        .sort(function (a, b) { return a.start - b.start; })
-        .forEach(function (s) {
-          var tw = s.getTween && s.getTween();
-          if (tw) tw.progress(1);
-          var a = s.animation, total = a.totalDuration(), at = total * s.progress;
-          if (at < total) a.render(total, true, true);
-          a.render(at, true, true);
-        });
-    };
-  })();
-</script>
-<script>
   /* Logo marquee (paused off screen; off for reduced motion) */
   (function () {
-    var SPEED = 40; // px per second - TUNE
+    var SPEED = 180; // px per second - TUNE
     function init() {
       var t = document.querySelector('.brands .logo-track');
       if (!t || t.dataset.mwpMarquee) return;

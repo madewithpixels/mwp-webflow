@@ -9,14 +9,12 @@ Written 20 November 2026 by Claude. **Updated 24 November 2026: where we are and
   - pricing short-screen rule (23 November);
   - shared timing core in the Site head, with the Site footer, Home head and Home footer on it (24 November, steps 1 to 3 in `docs/shared-core.md`).
 - Every box hash-matches its copy in `snapshots/2026-11-23/` and `snapshots/2026-11-24/`, which are the newest copies of each box. Sizes:
-  - Site head 18,397 characters; Site footer 26,147;
+  - Site head 19,383 characters; Site footer 29,193;
   - Home head 43,261; Home footer 35,761;
   - Estimate head 796; Estimate footer 3,245.
 - **Changed from the original plan:** the shared core was meant to be a later rewrite ("Not in this job", below). Michael accepted D-028, so it is done. The bundles now carry code that is already on the core.
-- **Still registered and applied site-wide:**
-  - MWPPerf (jsDelivr, head) and FaultyTerminal1123 (jsDelivr, footer): these stay until the bundles.
-  - MenuContactPills (head), MenuCloseOnLeave (footer), MWPSwipeNav (footer) and ProjectMenuAnchors (footer): not yet moved into the boxes.
-- **Registered but no longer applied (23 registrations, delete at the end):**
+- **Still registered and applied site-wide:** only MWPPerf (jsDelivr, head) and FaultyTerminal1123 (jsDelivr, footer), which stay until the bundles. MenuContactPills, MenuCloseOnLeave, MWPSwipeNav and ProjectMenuAnchors moved into the Site boxes on 24 November 2026 (step A1, done).
+- **Registered but no longer applied (27 registrations, delete at the end; the four above added to this list):**
   - logomarquee, PricingTabletBand (1.0.0, 1.1.0), homenavclearhash, HomeNavJumpDeepRedraw, foliowalllift;
   - EstimateMenuAnchors (1.0.0, 1.0.1), EstimateNextTap, EstimateQuestionStronger, EstimateNoTopNext, EstimateNavGap, EstimateLastStepCentred, EstimateNoBackOnLastStep;
   - HeroTabletPortrait, ContactLogoPlain, PricingCtaMobileArrow;
@@ -34,13 +32,14 @@ Same method throughout:
 5. Snapshot and add a STATUS entry.
 
 **A. Finish the boxes**
-1. **Move the last four site-wide registrations into boxes:**
+1. **Done 24 November 2026.** Move the last four site-wide registrations into boxes:
    - MenuContactPills and MenuCloseOnLeave go into the Site head and footer.
    - MWPSwipeNav and ProjectMenuAnchors go into the project template's own footer, if nothing else uses them, so they only load on project pages.
    - Put any scroll, resize or "wait for Lenis" code in them on `MWP`.
    - Then remove the four from the site's applied scripts.
-2. **Check the other pages' boxes** (49 pages; most are empty) and the remaining embeds (SB header and others). Write `docs/code-inventory.md`: one row per block, saying which bundle it goes to, whether it must run before first paint, and what it needs. This is the part of stage 0 that was never written.
-3. **Designer session with Michael:**
+2. **Done 24 November 2026** (`docs/code-inventory.md`; the 40 project pages' stale footer comment cleared). Check the other pages' boxes (49 pages; most are empty) and the remaining embeds (SB header and others). Write `docs/code-inventory.md`: one row per block, saying which bundle it goes to, whether it must run before first paint, and what it needs. This is the part of stage 0 that was never written.
+3. **Designer session with Michael** (the one part of A left):
+   - the skip link embed: its CSS into the Site head and its script into the Site footer, only the link stays (agreed 24 November 2026);
    - the combo classes;
    - take `.project-nav_arrow` out of the conic-border selectors, then delete the override in the Site head;
    - move into the Style panel the CSS from the boxes that it can hold (R-146).
@@ -59,7 +58,7 @@ Same method throughout:
 5. **Release:** tag; Michael pushes; change the version string in the Site head; publish.
 
 **C. Clean-up**
-1. Delete the 23 unused registrations (above), after saving homenavclearhash.
+1. Delete the 27 unused registrations (above); homenavclearhash is already saved.
    - After the bundles, also delete MWPPerf's old versions and the FaultyTerminal registration, if those move to plain tags.
    - Deleting is irreversible and changes the site: Michael confirms, Claude deletes, Michael publishes.
 2. Update `README.md` and `AGENTS.md` §6: agents edit `src/`, not Webflow.

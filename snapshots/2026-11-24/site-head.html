@@ -488,3 +488,36 @@
     else window.addEventListener('load', function () { idle(warm); });
   });
 </script>
+<!-- Menu open: the phone and email pills slide to the right edge and stay pills (labels open at 992px and up) -->
+<style>
+  header.mwp-css-nav[data-state="open"] .contact-btn-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+  }
+  header.mwp-css-nav[data-state="open"] .contact-btn-wrapper .menu-button {
+    animation: mwp-contact-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  header.mwp-css-nav[data-state="open"] .contact-btn-wrapper .menu-button.email {
+    animation-delay: 0.08s;
+  }
+  @media (min-width: 992px) {
+    header.mwp-css-nav[data-state="open"] .contact-btn-wrapper .menu-button-label {
+      max-width: 24rem;
+      margin-left: 0.75rem;
+      opacity: 1;
+    }
+  }
+  @keyframes mwp-contact-in {
+    from {
+      opacity: 0;
+      transform: translateX(1rem);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    header.mwp-css-nav[data-state="open"] .contact-btn-wrapper .menu-button {
+      animation: none;
+    }
+  }
+</style>

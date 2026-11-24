@@ -12,6 +12,30 @@
 **Open questions (not blocking):** R-210 needs the MWP:Lab images and text from you; R-218, R-219, R-220 and R-221 are experiments that start with options.
 **Claude (night shift)**
 
+## 24 November 2026 (midday) — Claude — Custom code boxes finished, apart from the Designer session (R-117, step A)
+**Michael asked:** finish the custom code boxes first, "so we can park at the point there's just JSdeliver deployment to consider". He refreshed the Designer and backed up first.
+**Checked first:** all six boxes, live and as stored in Webflow (Home showed an 11:36 update from the refresh), still match their snapshots exactly. Nothing lost.
+**Changed in Webflow, published to staging by Claude:**
+1. **Last four site-wide registered scripts moved into the Site boxes**, comments cut, code unchanged:
+   - MenuContactPills (CSS only) at the end of the Site head;
+   - MenuCloseOnLeave, ProjectMenuAnchors and MWPSwipeNav at the end of the Site footer, the last two still only on `/portfolio/` pages.
+   - The four are no longer applied. Only MWPPerf and FaultyTerminal stay registered and applied, until the bundles.
+   - The source files Michael downloaded are kept in `snapshots/2026-11-24/registered/`.
+2. **40 project pages:** a stale footer comment cleared (it pointed to where the arrows code used to be).
+**Inventory:** `docs/code-inventory.md`, covering every page's boxes (the other 10 pages are empty), the registered scripts and the embeds with code. Michael's decisions on the embeds:
+- skip link: CSS and script into the Site boxes in the Designer session (agreed);
+- SmashBurger's overlay embed stays in the component (agreed);
+- the Home viewport readout stays.
+- The Lab page embed is a self-contained scroll icon (markup and CSS together). Claude suggests leaving it; Michael to confirm.
+**Checked how:** old and new tested side by side in frames on a project page at 420 wide and on Home at 1440.
+- Project page: menu links to the Home sections and the arrows were identical. Swipes behaved the same in both: left goes to next, right to previous, and short, diagonal and slow swipes are ignored. The menu closed on leaving the page.
+- Home: the menu-open pills had identical styles and animation.
+- Live afterwards: all six boxes hash-match `snapshots/2026-11-24/` and `2026-11-23/`, the old script tags are gone, and the project page's menu links, arrows and pills work.
+- The only console errors came from Claude's simulated touches in the test frames (Lenis can't read fabricated touch objects).
+**Not checked:** a real swipe on a phone. **Evidence:** verified (live, Chrome). **Acceptance:** pending.
+**Next useful action:** the Designer session with Michael (skip link, combo classes, `.project-nav_arrow` out of the conic selectors, R-146). After that only the jsDelivr deployment (step B) and clean-up (step C) remain. Then the roadmap walk-through (boss added R-207 to R-221 at 11:31).
+**Claude**
+
 ## 24 November 2026 (parked) — Claude — Custom code refactor parked; final steps written up (R-117)
 **Michael asked:** "we park here, update the docs - work out what the final steps are." He is waiting for boss to update the roadmap with tasks added in the past few days (expect some doubles, some already done but not recorded, some dropped), then we go through it together.
 **State of staging:** all six custom code boxes are refactored and hash-match `snapshots/2026-11-24/` (Site head and footer, Home head and footer) and `snapshots/2026-11-23/` (Estimate head and footer). Nothing changed in Webflow in this entry.

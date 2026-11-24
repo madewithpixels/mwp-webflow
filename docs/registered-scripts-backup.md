@@ -101,3 +101,29 @@ var k=location.hash.slice(1);if(innerWidth>991||!K.test(k))return;
 var t=performance.now();(function f(){var y=Y(k);if(y!=null){if(window.lenis)window.lenis.scrollTo(y,{immediate:true,force:true});else scrollTo(0,y)}
 if(window.mwpPlayInOrder)window.mwpPlayInOrder();if(performance.now()-t<700)requestAnimationFrame(f)})()},1800)});
 })();
+
+https://cdn.prod.website-files.com/683cced100c63d0f60a847a3%2F689e5ba67671442434f3ca35%2F6b0079b3c9e2b6266286c47e%2Fhomenavclearhash-1.0.0.js
+
+(function () {
+  var root = document.documentElement;
+  function clear(h) {
+    if (location.hash === h && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  }
+  // Menu click on this page: the nav jump (home head) has landed after about 450ms, so drop the #hash from the address bar after that.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.mwp-css-nav_link[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (h.charAt(0) !== '#' || h.length < 2) return;
+    try { if (!document.querySelector(h)) return; } catch (x) { return; }
+    setTimeout(function () { clear(h); }, 800);
+  }, true);
+  // Arrived by a menu link from another page (/#pricing): once the arrival cover has gone, drop the #hash too.
+  if (root.classList.contains('mwp-arriving') && location.hash) {
+    var h0 = location.hash;
+    var mo = new MutationObserver(function () {
+      if (!root.classList.contains('mwp-arriving')) { mo.disconnect(); clear(h0); }
+    });
+    mo.observe(root, { attributes: true, attributeFilter: ['class'] });
+  }
+})();

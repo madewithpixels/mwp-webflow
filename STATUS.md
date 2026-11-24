@@ -11,7 +11,7 @@
 - **A. Finish the boxes:** the last four site-wide registrations, the other pages and embeds inventory, the Designer session.
 - **B. jsDelivr bundles:** refresh `src/` from the boxes, the loader, a decision on where the core lives, the page-by-page switch, the release.
 - **C. Clean-up:** delete 23 unused registrations, update the docs, device checks.
-**Needs Michael:** save the homenavclearhash source by hand before any deletes (address in the plan; Claude's browser extension blocked copying it).
+**Done since:** Michael saved the homenavclearhash source into `docs/registered-scripts-backup.md` (1,137 characters, complete), so the unused registrations are safe to delete when step C1 comes.
 **Not touched:** `ROADMAP.md`. It is left alone while boss updates it. R-117's text there is out of date (still says the shared core is a later rewrite) and gets fixed in the roadmap walk-through.
 **Next useful action:** once boss has updated the roadmap, go through it with Michael (doubles, done-but-unrecorded, dropped), then pick up step A1.
 **Claude**

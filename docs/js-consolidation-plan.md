@@ -22,8 +22,7 @@ Written 20 November 2026 by Claude. **Updated 24 November 2026: where we are and
   - HeroTabletPortrait, ContactLogoPlain, PricingCtaMobileArrow;
   - FTLogoResolveFooter (1.11.0, 1.12.0, 1.12.2, 1.12.3; the Home footer now loads 1.12.3 as a plain tag), FTLogoResolveHead 1.11.0.
   - Keep SafariHitchProbe (source in the Claude project doc `safarihitchprobe-source-1.0.0`).
-  - **Save homenavclearhash's source first.** Claude couldn't copy it out: the browser extension blocks it and the shell can't reach Webflow's CDN. Open the address below and paste the file into `docs/registered-scripts-backup.md`:
-    `https://cdn.prod.website-files.com/683cced100c63d0f60a847a3%2F689e5ba67671442434f3ca35%2F6b0079b3c9e2b6266286c47e%2Fhomenavclearhash-1.0.0.js` (1,137 characters).
+  - homenavclearhash's source is saved in `docs/registered-scripts-backup.md` (Michael, 24 November 2026).
 - **`src/` is stale** (copied 5 to 6 November). The boxes are now the source of truth until step B1.
 
 ## Final steps (proposed order; to walk through with Michael once the roadmap is updated)

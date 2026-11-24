@@ -32,7 +32,7 @@
 
 *Seven tasks added on 12 November 2026 (R-147 to R-153, brief #557) are written up from your list and still need your confirmation of the guesses marked in them. R-150 carries on the pacing work of R-042.*
 
-**Next up (Michael, 20 November 2026): the custom code consolidation and jsDelivr switch-over (R-117, re-scoped; plan in `docs/js-consolidation-plan.md`), before more small fixes.** Earlier order, for reference:
+**Next up (Michael, 24 November 2026): the rest of the design task list.** The custom code consolidation (R-117) is done up to the jsDelivr switch-over, which is parked as a launch prep step. *Before that (20 November 2026): R-117 first, before more small fixes.* Earlier order, for reference:
 
 **Next up (your order of 5 November 2026, refreshed 10 November 2026):** the swipe direction fix, the open part of R-134 (it now also covers R-135, and R-118 and R-120 are folded into R-134 and R-133); then the phone and tablet fixes written up from your list on 9 and 10 November (R-124 to R-131, R-136 to R-141), starting with where the menu links land (R-136, R-138, R-139); then the perf watcher with R-123 (smaller images swapped in), whose "low" is the lite site (D-025, in progress), and R-117 (the rest of the code consolidation, switching each script to jsDelivr). Landed and accepted since 6 November: R-119, R-129, R-132 and R-133. R-131 (reload with an anchor) is waiting on a phone result from you.
 
@@ -43,6 +43,8 @@
 *Two tasks added on 20 November 2026 (R-162 and R-163, from your messages) are written up from them and still need your confirmation of the guesses marked in them. R-162 sits beside R-148.*
 
 *Forty-two tasks added on 20 November 2026 (R-164 to R-206, with R-184 unused, brief #590) are written up from your list and still need your confirmation of the guesses marked in them. R-162 and R-163 now carry their task numbers (#43612505, #43612486). Your task #43612451 is R-161. Four more tasks (#43612111, #43612126, #43612130, #43612133) are headings already covered above.*
+
+*Two tasks added on 24 November 2026 (R-225, R-226) come from the hero chat with Claude that evening; they are not in boss yet. R-221 now carries the chosen hero layout (D-029).*
 
 *Fifteen tasks added on 24 November 2026 (R-207 to R-221, brief #595) are written up from your list and still need your confirmation of the guesses marked in them. R-211 may overlap R-179.*
 
@@ -55,7 +57,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202, R-207, R-208, R-210–R-214, R-218–R-221 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202, R-207, R-208, R-210–R-214, R-218–R-221, R-225, R-226 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205, R-209, R-215–R-217 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142, R-171–R-174, R-199 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144, R-192–R-194, R-196, R-206 |
@@ -84,7 +86,7 @@
 **From:** your messages of 5 November 2026: "agreed - i meant re-structure not re-write. Add this to the roadmap, it seems fundamental", and your request for a local folder with a compiler that minifies and packages the .JS and .CSS for jsDelivr, so the restructure can happen early.
 **Done when:** (1) the code is edited as source files in this repo and one command builds minified bundles for jsDelivr; (2) a small shared core exists: `MWPPerf` (the tier script from R-102), one scroll/rAF dispatcher that reads layout once per frame, and one visibility registry; (3) the busiest scripts (heart morph, ticker highlight, pricing, scroll magnet, folio hover, nav jump) are ported onto it one at a time, each checked on staging before the next, behaving exactly as before; (4) the Webflow code boxes shrink to loader lines as each bundle switches (R-055). (inferred — confirm)
 **Built so far (5 November 2026):** step 1 for the 15 files already in the repo. Source is in `src/` (site, home, estimate, portfolio), `npm run build` writes `dist/`, `npm run dev` serves it locally for testing on staging. See `README.md`. Not loaded by any page yet.
-**Progress (24 November 2026):** D-028 accepted, so the shared core is part of this job after all (the "split off" note above is out of date). Done in the custom code boxes and checked on staging: dead code removed, duplicates merged, the shared timing core (`window.MWP`) in the Site head with the Site footer, Home head and Home footer on it (frame loops sleep off screen), and the last four site-wide registered scripts moved in. Only MWPPerf and FaultyTerminal stay registered until the bundles. What's left: the Designer session (skip link, combo classes, `.project-nav_arrow` out of the conic selectors, R-146), then the jsDelivr bundles, then the clean-up (delete 27 unused registrations). Steps and inventory: `docs/js-consolidation-plan.md`, `docs/code-inventory.md`, `docs/shared-core.md`.
+**Progress (24 November 2026):** D-028 accepted, so the shared core is part of this job after all (the "split off" note above is out of date). Done in the custom code boxes and checked on staging: dead code removed, duplicates merged, the shared timing core (`window.MWP`) in the Site head with the Site footer, Home head and Home footer on it (frame loops sleep off screen), and the last four site-wide registered scripts moved in. Only MWPPerf and FaultyTerminal stay registered until the bundles. The Designer session was done on 24 November 2026 (skip link, project-nav arrows, project content alignment; what stays in code is listed in STATUS). **Parked (Michael, 24 November 2026):** the jsDelivr bundles and the clean-up (delete 27 unused registrations) wait until the rest of the design task list is done. They become a launch prep step. Steps and inventory: `docs/js-consolidation-plan.md`, `docs/code-inventory.md`, `docs/shared-core.md`.
 **Progress (23 November 2026):** an interim step, at Michael's request: every registered script applied to Home (9) and Estimate (7), and the Code Embeds on Home and in the Portfolio Nav component, now sit in the editable custom code boxes, comments cut. Copies in `snapshots/2026-11-23/`. Still registered and applied: the 6 site-wide scripts. Unused registrations are deleted together at the end. Next session starts with a rethink of the 992–1279px pricing band (Michael), then the dead-code pass, the Designer combo-class session, and the bundles (with the shared core if D-028 is accepted). See STATUS, 23 November 2026.
 **Note:** restructure, not rewrite: the fixes tuned over weeks (sticky re-measure, `mwpPlayInOrder`, iOS compositor-thread scroll, Lenis timing) must survive. Merging and minifying the files helps load time (R-056); the runtime gains come from the shared core (fewer layout reads per frame, scripts that stay off on weak devices). Needs R-029 finished first for the big Home and Site head/footer blocks, which are not in the repo yet. Build the shared core together with the tier script (R-102). D-023 (accepted 5 November 2026): each script switches to jsDelivr as it is ported. **Order (your message of 5 November 2026):** this comes after R-121, R-122 and the perf watcher with R-123; the watcher is the first script built and switched here.
 
@@ -814,14 +816,42 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Note:** Read as: 'apercu' is the site's Apercu font; titles go bigger and the portfolio list entries smaller (inferred — confirm). Options first (D-007). No new class without approval; longhand only (D-006). Related: R-054, R-183, R-221.
 
 ### R-221 · Hero layout experiment.
-**State:** planned · **Evidence:** none · **Acceptance:** pending
+**State:** in progress (layout chosen 24 November 2026; built as a test on Michael's side, not yet published) · **Evidence:** Michael's screenshots in chat, 24 November 2026 · **Acceptance:** layout accepted by Michael ("I think i'm sold - it starts to make sense of the typographic structure elsewhere"); build pending
 **Task:** 43612534 in your boss list
 **From:** your task list, added 24 November 2026 (brief #595).
-**Done when:** one or more alternative hero layouts have been tried and shown to you as options, and you've chosen whether to keep one, on published staging. (inferred — confirm)
-**Note:** Only the title is given, so the experiment itself is unspecified: first ask or offer sketches (D-007). Related: R-147, R-165, R-169, R-170, R-219, R-220.
+**Done when:** the new hero (D-029) is built at desktop, tablet and phone and Michael accepts it on published staging.
+**Decided (24 November 2026, chat with Claude):** see D-029. In short: the centred lockup goes. Desktop and landscape: heart top-left, tagline and nav top-right, big horizontal wordmark bottom-left on the ~220px left edge, WEB · BRAND · SOCIAL starting under the "p" descender, "SCROLL FOR MORE" bottom-right on the subline's baseline. Portrait tablet (991px and under): vertical wordmark reading top to bottom (British spine; matches the vertical category labels on Work), baseline and subline exactly flush with the heart's left edge, "p" descender hanging into the margin. Phone: not the vertical layout (Michael: "Not sure this layout works at phone at all").
+**Still to settle while building:**
+- Heart→wordmark and wordmark→subline gaps the same value (now about 45 and 48px); one variable or shared class (D-006: ask before a new class).
+- Vertical wordmark sized from height (vh/clamp), horizontal from width. Rotation method: transform rotate vs `writing-mode` (the latter needs a custom CSS line; Michael prefers the Designer).
+- Tablet: right margin to match the left (about 47px) so nav, scroll cue and tick rail line up; tagline at 768px (drop it there if it crowds).
+- Phone layout: Claude suggests the horizontal layout scaled to full width, no tagline (inferred — confirm).
+- Tagline copy (suggestion only): "Independent web design in Sheffield since 2008"; the grey could be a step brighter.
+- +5% saturation bump in the hero: keep (Michael).
+- Make sure the breakpoint badge ("1920+ 2039PX × 995PX") doesn't ship.
+**Note:** Related: R-147, R-170 (SCROLL cue), R-219, R-220, R-225 (nav move), R-226 (cue motion). Project note: `claude/hero-redesign-2026-11-24.md` in the Claude project.
 
-## Phase 3 · Phone and tablet
-*From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
+### R-225 · Animate the nav from top-right in the hero to top-left in the sections below
+**State:** planned · **first job next session (Michael, 24 November 2026)** · **Evidence:** none · **Acceptance:** pending
+**Task:** not yet in boss (add it there)
+**From:** chat with Claude, 24 November 2026. Michael: "the plan was to animate the nav move" and "I think we'd need to just jump in and work in webflow - there are a lot of what-ifs that only using the design can answer".
+**Done when:** scrolling out of the hero, the nav pill slides from top-right into the top-left slot the heart leaves, and back again when scrolling up, with the cases below handled, at desktop and tablet on published staging; Michael accepts it.
+**Approach (proposed, refine in Webflow):**
+- Threshold trigger, timed slide; not scroll-scrubbed (no nav stranded mid-screen). Reverse on the way up, with a gap between the two trigger points so it can't flicker.
+- Order: the heart scrolls away with the hero first, then the nav moves into its place.
+- About 500–700ms, strong ease-out (it travels about 1,600px on the ultrawide).
+- Landing mid-page (reload, back button, link to a section): nav already on the left, no animation. Menu jumps across the boundary end up left without anything odd.
+- Never move while the menu is open or a nav button has keyboard focus. Reduced motion: quick fade swap.
+- Phones: maybe keep the nav top-right for the whole page (thumb reach) and only move it on larger screens (inferred — confirm).
+- Native Webflow interactions (Michael's preference); rough version on staging first.
+**Note:** Breaks the usual "nav never moves" rule on purpose; the visible slide is what keeps visitors from losing it. SmashBurger is shared with other sites: site-local changes only. Related: R-221, D-029, R-163, R-197, R-198.
+
+### R-226 · Give the hero SCROLL FOR MORE cue some motion and make it a link
+**State:** planned (later, after R-225) · **Evidence:** none · **Acceptance:** pending
+**Task:** not yet in boss (add it there)
+**From:** chat with Claude, 24 November 2026. Michael has watched users go for the burger nav not realising they could scroll.
+**Done when:** the cue draws the eye on arrival (a looping native interaction, e.g. a short line or arrow beside it), fades in a beat after the intro, fades out once scrolling starts, and clicking it scrolls to the next section; reduced motion shows it still; on published staging.
+**Note:** Options first (D-007). Possibly pulse the right-hand tick rail once when the cue appears. Related: R-147, R-170, R-221.
 
 ### R-039 · Contact section is broken *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

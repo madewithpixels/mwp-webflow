@@ -2,7 +2,12 @@
 
 Written 20 November 2026 by Claude. **Updated 24 November 2026: where we are and the final steps come first; the original plan below is kept for reference, and the parts it changes are marked.**
 
-## Where we are (24 November 2026, parked)
+## Where we are (24 November 2026, evening): step A done, steps B and C parked until launch prep
+**Parked (Michael, 24 November 2026):** the jsDelivr bundles (step B) and the clean-up (step C) wait until the rest of the design task list is done, because that work may still touch the custom code. They become a launch prep step. Until then the custom code boxes stay the source of truth: change them in place, keep the snapshot and STATUS habit, and keep new code on `MWP`.
+
+**Box sizes now** (newest copies in `snapshots/2026-11-24/`): Site head 19,508; Site footer 31,217; Home head 43,572; Home footer 36,404; Estimate head 796; Estimate footer 3,245. (The figures in the list below are from earlier in the day.)
+
+### Earlier on 24 November
 - **All page code is in the custom code boxes**, and the boxes have been refactored:
   - registered scripts and embeds moved in (23 November);
   - dead code removed and duplicates merged (23 November);

@@ -222,3 +222,12 @@ Amends `docs/js-consolidation-plan.md`, which keeps the shared core ("one scroll
 **Recommendation:** accept: the helpers get merged once instead of moved and then merged again.
 **If you don't decide:** the move goes ahead as planned and the core follows it.
 
+## D-029 · New home hero: big wordmark on the left edge, horizontal on landscape screens, vertical on portrait tablet
+**Status:** Accepted for desktop and tablet; phone proposed
+**Qualifier:** Michael, 24 November 2026: "I think i'm sold - it starts to make sense of the typographic structure elsewhere"; on phone: "Not sure this layout works at phone at all"; on the flush left edge: "i feel like it's the obvious move".
+**Date:** 24 November 2026
+**Source:** chat with Claude, comparing the centred hero with left-aligned versions from Michael's screenshots (R-221).
+The centred lockup goes; it was the only centred thing on the site. Desktop and landscape: heart top-left, tagline and nav top-right, horizontal wordmark bottom-left on the ~220px left edge, subline under the "p", "SCROLL FOR MORE" bottom-right on the subline's baseline (the cue stays: users were seen reaching for the burger, not scrolling). Portrait tablet (Webflow Tablet, 991px and under): the wordmark runs vertically, top to bottom, flush with the heart's left edge, the "p" descender hanging into the margin; heart, wordmark and subline evenly spaced. This matches the big bottom-left titles ("Work") and the top-to-bottom vertical labels elsewhere. The nav moves from top-right in the hero to top-left below it, animated (R-225).
+**For Michael:** phone. Proposed: the horizontal layout at full width, no tagline, since the vertical one depends on a phone's unstable height and breaks with larger system text.
+**If you don't decide:** phone keeps the current hero until R-221 reaches it.
+

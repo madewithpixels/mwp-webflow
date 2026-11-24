@@ -4,6 +4,22 @@
 
 
 
+## 24 November 2026 (late evening) — Claude with Michael — New hero chosen (R-221, D-029); nav move is next
+- **Decided:** the new home hero (D-029). Desktop: big horizontal wordmark bottom-left, heart top-left, nav top-right, SCROLL FOR MORE bottom-right. Portrait tablet: vertical wordmark reading top to bottom, flush with the heart's left edge. Phone: not vertical; full-width horizontal proposed.
+- **Built so far:** Michael's own test versions (screenshots in chat); nothing published or written by Claude in Webflow.
+- **Added:** R-225 (animate the nav from top-right to top-left out of the hero) and R-226 (motion and link for the scroll cue). Neither is in boss yet.
+- **Next session, first job:** R-225, worked out live in the Webflow Designer with a rough version on staging first; then finish R-221 (gaps, margins, phone).
+- **Notes:** `claude/hero-redesign-2026-11-24.md` in the Claude project.
+
+## 24 November 2026 (evening) — Claude — jsDelivr deployment parked until launch prep (R-117)
+- **Michael's call:** the bundles (step B) and the clean-up (step C) wait until the rest of the design task list is done, because that work may still touch the custom code. They come back as a launch prep step.
+- **Until then:**
+  - the custom code boxes are the source of truth;
+  - every change gets a staging publish, a hash check of all six boxes, a snapshot and a STATUS entry;
+  - new scroll, resize and frame code goes on `MWP`.
+- **Box sizes now:** Site head 19508; Site footer 31217; Home head 43572; Home footer 36404; Estimate 796 / 3245.
+- **When it resumes:** `docs/js-consolidation-plan.md`, step B, starting with the one-variable Tuning test (B4), then refresh `src/` from the boxes (B1).
+
 ## 24 November 2026 (evening) — Claude with Michael — Designer session finished (R-117 step A3, R-146)
 - **Task 4, folio link underline: stays in code.** Folio List Link's background is a Designer gradient layer (raspberry, coral and teal in thirds). The Site head adds `background-repeat: no-repeat`, `background-position: bottom` and `background-size: 100% 1px` to make it a 1px underline. Michael checked: the Designer's gradient layer has no Size, Position or Tile controls, so these three lines stay. Nothing changed.
 - **What the session did:** Task 1, the skip link. Task 2, the project-nav arrows. Task 3, the project content alignment at 1440 and 1920. See the entries below.

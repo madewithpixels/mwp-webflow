@@ -7,7 +7,7 @@
 ## 24 November 2026 (late evening) — Claude with Michael — New hero chosen (R-221, D-029); nav move is next
 - **Decided:** the new home hero (D-029). Desktop: big horizontal wordmark bottom-left, heart top-left, nav top-right, SCROLL FOR MORE bottom-right. Portrait tablet: vertical wordmark reading top to bottom, flush with the heart's left edge. Phone: not vertical; full-width horizontal proposed.
 - **Built so far:** Michael's own test versions (screenshots in chat); nothing published or written by Claude in Webflow.
-- **Added:** R-225 (animate the nav from top-right to top-left out of the hero) and R-226 (motion and link for the scroll cue). Neither is in boss yet.
+- **Added:** R-225 (animate the nav from top-right to top-left out of the hero), R-226 (motion and link for the scroll cue) and R-227 (the 5% saturation boost site-wide, with a matching Faulty Terminal background colour). None is in boss yet.
 - **Next session, first job:** R-225, worked out live in the Webflow Designer with a rough version on staging first; then finish R-221 (gaps, margins, phone).
 - **Notes:** `claude/hero-redesign-2026-11-24.md` in the Claude project.
 

@@ -44,7 +44,7 @@
 
 *Forty-two tasks added on 20 November 2026 (R-164 to R-206, with R-184 unused, brief #590) are written up from your list and still need your confirmation of the guesses marked in them. R-162 and R-163 now carry their task numbers (#43612505, #43612486). Your task #43612451 is R-161. Four more tasks (#43612111, #43612126, #43612130, #43612133) are headings already covered above.*
 
-*Two tasks added on 24 November 2026 (R-225, R-226) come from the hero chat with Claude that evening; they are not in boss yet. R-221 now carries the chosen hero layout (D-029).*
+*Three tasks added on 24 November 2026 (R-225 to R-227) come from the hero chat with Claude that evening; they are not in boss yet. R-221 now carries the chosen hero layout (D-029).*
 
 *Fifteen tasks added on 24 November 2026 (R-207 to R-221, brief #595) are written up from your list and still need your confirmation of the guesses marked in them. R-211 may overlap R-179.*
 
@@ -57,7 +57,7 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202, R-207, R-208, R-210–R-214, R-218–R-221, R-225, R-226 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202, R-207, R-208, R-210–R-214, R-218–R-221, R-225–R-227 |
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205, R-209, R-215–R-217 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142, R-171–R-174, R-199 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144, R-192–R-194, R-196, R-206 |
@@ -827,7 +827,7 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 - Tablet: right margin to match the left (about 47px) so nav, scroll cue and tick rail line up; tagline at 768px (drop it there if it crowds).
 - Phone layout: Claude suggests the horizontal layout scaled to full width, no tagline (inferred — confirm).
 - Tagline copy (suggestion only): "Independent web design in Sheffield since 2008"; the grey could be a step brighter.
-- +5% saturation bump in the hero: keep (Michael).
+- +5% saturation bump: keep, and apply it site-wide (R-227, with the Faulty Terminal background change).
 - Make sure the breakpoint badge ("1920+ 2039PX × 995PX") doesn't ship.
 **Note:** Related: R-147, R-170 (SCROLL cue), R-219, R-220, R-225 (nav move), R-226 (cue motion). Project note: `claude/hero-redesign-2026-11-24.md` in the Claude project.
 
@@ -852,6 +852,18 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **From:** chat with Claude, 24 November 2026. Michael has watched users go for the burger nav not realising they could scroll.
 **Done when:** the cue draws the eye on arrival (a looping native interaction, e.g. a short line or arrow beside it), fades in a beat after the intro, fades out once scrolling starts, and clicking it scrolls to the next section; reduced motion shows it still; on published staging.
 **Note:** Options first (D-007). Possibly pulse the right-hand tick rail once when the cue appears. Related: R-147, R-170, R-221.
+
+### R-227 · Apply the 5% saturation boost site-wide, and change Faulty Terminal's background colour to match
+**State:** planned · **Evidence:** Michael's hero screenshots in chat, 24 November 2026 · **Acceptance:** pending
+**Task:** not yet in boss (add it there)
+**From:** chat with Claude, 24 November 2026. Michael: "note the 5% bump in saturation" and "add the 5% saturation boost too - noting that Faulty Terminal will need a BG colour change".
+**Done when:** the boosted colours are set once, in the Webflow colour variables, so the whole site picks them up; the Faulty Terminal background colour is changed to the new slate so the canvas and the page meet with no visible edge or flash (on load, during the intro reveal, and where sections sit over the terminal); on published staging at desktop and phone. (inferred — confirm)
+**Note:**
+- Which colours got the boost isn't recorded: read as the brand colours and the slate background (inferred — confirm). Michael has the new values from his test.
+- Faulty Terminal draws its own background, so it won't follow a Webflow variable. Where it's set needs finding first: a setting on the FT element in the Designer, `window.FaultyTerminalConfig` in the Site footer, or the library's own default (faulty-terminal repo). If it's the library default, change it through the config rather than the library if possible.
+- Also check anything else that hard-codes the old values: the lite still image of the terminal (D-025), the menu's blurred backdrop, the contact bubbles (`contact-bubbles.js` reads computed colours, so it should follow), the ticker mask, the `theme-color` meta tag, and the favicon or social images if they use the slate.
+- Contrast: Michael accepts the PageSpeed contrast hit on brand colours.
+- Related: R-221, D-029, R-226.
 
 ### R-039 · Contact section is broken *(accepted by Michael in boss, 31 Oct 2026)*
 **State:** built (by Michael, 31 October 2026) · **Evidence:** none · **Acceptance:** accepted (31 October 2026)

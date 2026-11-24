@@ -54,8 +54,12 @@ Same method throughout:
    - Either way these stay inline:
      - the pre-first-paint pieces: the arrival cover, `<link rel="expect">`, the project transition's hide classes, and the short-screen pricing CSS (avoids a flash);
      - the loader.
-4. **Switch page by page:** Estimate, then project pages, then site-wide, then Home (two sessions). Use the checks below, plus 1366×700 and 1366×800 for the pricing short-screen rule.
-5. **Release:** tag; Michael pushes; change the version string in the Site head; publish.
+4. **One place for tuning** (agreed by Michael, 24 November 2026):
+   - Plain numbers (speeds, distances, timings, breakpoints) become a Webflow Variables collection called "Tuning". The bundles read them as CSS custom properties, with the current values as fallbacks in code.
+   - Lists and text stay in code, in one `tuning` block at the top of each bundle: the speech-bubble pixel map, the sweep ranges, selectors, on/off switches, and anything that needs a calculation rather than a plain value.
+   - Start with a one-variable test: does Webflow publish a variable that no class uses? If not, a hidden holder element applies them.
+5. **Switch page by page:** Estimate, then project pages, then site-wide, then Home (two sessions). Use the checks below, plus 1366×700 and 1366×800 for the pricing short-screen rule.
+6. **Release:** tag; Michael pushes; change the version string in the Site head; publish.
 
 **C. Clean-up**
 1. Delete the 27 unused registrations (above); homenavclearhash is already saved.

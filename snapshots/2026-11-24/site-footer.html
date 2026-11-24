@@ -699,3 +699,46 @@
     );
   })();
 </script>
+<script>
+  /* Skip link (the link is in the Skip Link component; CSS in the Site head).
+     Target: [data-skip-target], else <main>; on a blank page the link removes itself.
+     The click is stopped here (preventDefault and stopPropagation) so Webflow's anchor smooth-scroll can't drag the page afterwards.
+     Where the menu has a link to the same target, that link is clicked so the nav jump lands it (pin-spacers, data-nav-offset);
+     otherwise Lenis, otherwise a plain jump. Focus moves to the target (tabindex -1, preventScroll) for screen readers. */
+  (function () {
+    function init() {
+      var link = document.querySelector('.mwp-skip-link');
+      if (!link || link.dataset.mwpSkip) return;
+      if (document.querySelector('.skip-embed script')) return; // the embed still carries its own copy
+      link.dataset.mwpSkip = '1';
+      var target = document.querySelector('[data-skip-target]') || document.querySelector('main');
+      if (!target) {
+        link.remove();
+        return;
+      }
+      if (!target.id) target.id = 'main-content';
+      link.setAttribute('href', '#' + target.id);
+      function land() {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var viaNav = document.querySelector('.mwp-css-nav_link[href="#' + target.id + '"]');
+        if (viaNav) {
+          viaNav.click();
+          setTimeout(land, 0);
+          return;
+        }
+        var base = target.closest('.pin-spacer') || target;
+        var y = base.getBoundingClientRect().top + window.scrollY;
+        if (window.lenis && window.lenis.scrollTo) window.lenis.scrollTo(y, { immediate: true, force: true });
+        else window.scrollTo(0, y);
+        land();
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+</script>

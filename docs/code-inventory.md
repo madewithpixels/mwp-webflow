@@ -22,7 +22,7 @@ Registered but not applied: 27 (the 23 listed in the plan plus MenuContactPills,
 ## HTML embeds with code (found on the published pages)
 | Embed | Where | Size | What | Proposal (Michael decides) |
 |---|---|---|---|---|
-| `.skip-embed` | every page, first in body | 2,900 | skip link: CSS and a script | **agreed (Michael, 24 November 2026):** CSS into the Site head, script into the Site footer, only the link stays in the embed. Designer session |
+| `.skip-embed` | every page, first in body | 2,900 | skip link: CSS and a script | **Done 24 November 2026:** CSS in the Site head, script in the Site footer, only the link left in the embed (duplicate instance on Home removed) |
 | `.offscreen` | SB Header component (`header.mwp-css-nav`) | 1,494 | menu overlay behaviour: CSS and a script | **leave in the component** (agreed, Michael, 24 November 2026: SmashBurger is his reusable library) |
 | (no class) | SB Header, inside `nav.mwp-css-nav_panel` | 265 | Designer-only: hides the overlay panel in the canvas | keep: CSS for the Designer canvas can only live in an embed |
 | (no class) | Home | 863 | Designer-only: `html.wf-design-mode .about, .pricing …` | keep (same reason) |

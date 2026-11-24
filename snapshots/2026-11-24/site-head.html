@@ -521,3 +521,11 @@
     }
   }
 </style>
+<style>
+/* Skip link (the link itself is in the Skip Link component, first in <body> on every page; its script is in the Site footer).
+   Hidden until keyboard focus. */
+.mwp-skip-link{position:fixed;top:0;left:1rem;z-index:2147483647;padding:.75rem 1.25rem;background:#000;color:#fff;font:600 1rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none;border-radius:0 0 .5rem .5rem;transform:translateY(-120%);transition:transform .15s ease}
+.mwp-skip-link:focus,.mwp-skip-link:focus-visible{transform:translateY(0);outline:2px solid #ef8965;outline-offset:2px}
+main[tabindex="-1"]:focus,[data-skip-target][tabindex="-1"]:focus{outline:none}
+@media (prefers-reduced-motion:reduce){.mwp-skip-link{transition:none}}
+</style>

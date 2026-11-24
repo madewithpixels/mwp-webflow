@@ -200,6 +200,15 @@
   .ticker__row.is-dragging {
     cursor: grabbing;
   }
+  /* the rows sit under the heading's clip, so the panel takes the drag (footer script) */
+  [data-sequence-state='mask'] .ticker__sticky,
+  [data-sequence-state='exit'] .ticker__sticky {
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .ticker__sticky:has(.ticker__row.is-dragging) {
+    cursor: grabbing;
+  }
   @media (prefers-reduced-motion: reduce) {
     .ticker__ch {
       transition: none;

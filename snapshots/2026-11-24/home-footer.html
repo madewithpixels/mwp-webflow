@@ -78,13 +78,12 @@
         startX = 0,
         lastX = 0,
         lastT = 0;
-      s.row.addEventListener('pointerdown', (e) => {
-        if (e.button !== 0) return;
+      s.press = (e) => {
         pressed = true;
         startX = lastX = e.clientX;
         lastT = performance.now();
         s.vel = 0;
-      });
+      };
       window.addEventListener('pointermove', (e) => {
         if (!pressed) return;
         if (!dragging && Math.abs(e.clientX - startX) > DRAG_THRESHOLD) {
@@ -111,6 +110,19 @@
       };
       window.addEventListener('pointerup', release);
       window.addEventListener('pointercancel', release);
+    });
+    // The rows are seen through the heading's letters (About sequence), and that clip also stops them catching the pointer:
+    // the panel takes the press and drags the row at that height. Nothing to drag until the rows are showing.
+    const panel = rows[0].closest('.ticker__sticky') || section;
+    panel.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      const layer = panel.querySelector('[data-ticker-mask-content]');
+      if (layer && layer.style.visibility === 'hidden') return;
+      const s = state.find((s) => {
+        const r = s.row.getBoundingClientRect();
+        return e.clientY >= r.top && e.clientY < r.bottom;
+      });
+      if (s) s.press(e);
     });
 
     function sweepProgress() {

@@ -4,6 +4,28 @@
 
 
 
+## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 1: skip link code moved into the Site boxes (R-117, step A3)
+- **Site head:** the skip link CSS (`.mwp-skip-link`, hidden until focus). **Site footer:** its script. That script stands aside while any `.skip-embed` still holds a `<script>`, so the change-over never ran two copies.
+- **Michael:** trimmed the Skip Link component's embed to a comment and the `<a>`. The original embed is saved as `snapshots/2026-11-24/skip-embed.html`.
+- **Found and fixed:** Home had a second Skip Link instance (last in Body, after Top Wrapper): a dead, focusable link. Michael deleted it; Home now has one.
+- **Checked on staging:**
+  - All 51 published pages: the embed holds only the link, the footer script is present, and every page has a target.
+  - Live clicks: Home jumps to About, with focus on `#about`. The Halstead Glass project page and Estimate focus their main content.
+  - All boxes hash-match: Site head 20123 / 1336911511, Site footer 31217 / 559210787; Home head and footer unchanged.
+  - Snapshots updated.
+- **Later (step B):** once the bundles are in, the "stand aside" line can go.
+- `claude/skip-link-notes.md` in the project still describes the CSS and script as living in the embed; update it at the clean-up (step C).
+
+## 24 November 2026 (evening) — Claude — Ticker drag back with the letter mask kept (R-117)
+- **Cause.** Since the About sequence moved the ticker rows into a layer clipped to the heading's letters, the clip also limits where the rows catch the pointer, so presses fell through to the panel and nothing dragged.
+- **Fix.**
+  - Home footer, ticker script: the panel (`.ticker__sticky`) now takes the press and starts a drag on the row at that height. Nothing drags while the rows are hidden (the read and wipe phases).
+  - Home head: grab cursor and `touch-action: pan-y` on the panel in the mask and exit phases; grabbing cursor while a row is dragging.
+- **Checked on staging.** All boxes hash-match on `/`, `/estimate` and `/portfolio/halstead-glass`. In the mask phase, rows 2 to 7 drag 220px and flick on to about 460px. The top row sits under the menu bar, which takes the press there, as before.
+- **Boxes now:** Home head 43572 / 1617375672; Home footer 36404 / -919556636. Snapshots updated in `snapshots/2026-11-24/`.
+- **Tuning decision recorded** in `docs/js-consolidation-plan.md`, step B4: a Webflow Variables "Tuning" collection for plain numbers, lists and text kept in code, starting with a one-variable test.
+- **Still to check by hand:** a real trackpad and touch drag (part of the device checks in step C).
+
 ## 24 November 2026 (night) — Claude (night shift) — Fifteen new tasks written up as roadmap items (R-207 to R-221, brief #595)
 **Changed:** `ROADMAP.md` only. One item per task, your wording as the title, a done-when, guesses marked "(inferred — confirm)", and the **Task:** line. Desktop items sit at the end of Phase 2, phone items at the end of Phase 3; the phase table and the note at the top are updated.
 **Items:** R-207 (#43612509), R-208 (#43612511), R-209 (#43612512), R-210 (#43612517, "Add MWP:Lab to portfolio section"), R-211 (#43612524, may overlap R-179), R-212 (#43612525), R-213 (#43612526), R-214 (#43612527), R-215 (#43612528), R-216 (#43612529), R-217 (#43612530), R-218 (#43612531), R-219 (#43612532), R-220 (#43612533), R-221 (#43612534).

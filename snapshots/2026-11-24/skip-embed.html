@@ -1,0 +1,53 @@
+<div class="skip-embed w-embed w-script"><!-- Skip to content link. Written by Claude 2026-11-20. Visually hidden until keyboard focus.
+     Target, in order: an element marked data-skip-target, else the page's <main>. If neither exists
+     (a blank page) the link removes itself rather than pointing nowhere.
+     Scrolling: the click is stopped here (preventDefault AND stopPropagation) so Webflow's own anchor
+     smooth-scroll can't run afterwards and drag the page to the section top - the same reason the nav jump
+     in the home page head stops its clicks. Then, where the primary nav already has a link to the same
+     target, that link is clicked and the site's own nav jump does the scrolling: blur, instant Lenis jump,
+     landing() with its pin-spacer and data-nav-offset handling, then the animation settle. Failing that,
+     Lenis directly; failing that, a plain jump.
+     Focus always moves to the target (tabindex -1, preventScroll) so screen readers carry on from there.
+     This component is the first element in <body> on every page. -->
+<a class="mwp-skip-link" href="#main-content">Skip to main content</a>
+<style>
+.mwp-skip-link{position:fixed;top:0;left:1rem;z-index:2147483647;padding:.75rem 1.25rem;background:#000;color:#fff;font:600 1rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none;border-radius:0 0 .5rem .5rem;transform:translateY(-120%);transition:transform .15s ease}
+.mwp-skip-link:focus,.mwp-skip-link:focus-visible{transform:translateY(0);outline:2px solid #ef8965;outline-offset:2px}
+main[tabindex="-1"]:focus,[data-skip-target][tabindex="-1"]:focus{outline:none}
+@media (prefers-reduced-motion:reduce){.mwp-skip-link{transition:none}}
+</style>
+<script>
+(function () {
+  function init() {
+    var link = document.querySelector('.mwp-skip-link');
+    if (!link) return;
+    var target = document.querySelector('[data-skip-target]') || document.querySelector('main');
+    if (!target) { link.remove(); return; }
+    if (!target.id) target.id = 'main-content';
+    link.setAttribute('href', '#' + target.id);
+
+    function land() {
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }
+
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var viaNav = document.querySelector('.mwp-css-nav_link[href="#' + target.id + '"]');
+      if (viaNav) {
+        viaNav.click();
+        setTimeout(land, 0);
+        return;
+      }
+      var base = target.closest('.pin-spacer') || target;
+      var y = base.getBoundingClientRect().top + window.scrollY;
+      if (window.lenis && window.lenis.scrollTo) window.lenis.scrollTo(y, { immediate: true, force: true });
+      else window.scrollTo(0, y);
+      land();
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script></div>

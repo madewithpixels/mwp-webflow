@@ -4,6 +4,17 @@
 
 
 
+## 24 November 2026 (evening) — Claude with Michael — Designer session finished (R-117 step A3, R-146)
+- **Task 4, folio link underline: stays in code.** Folio List Link's background is a Designer gradient layer (raspberry, coral and teal in thirds). The Site head adds `background-repeat: no-repeat`, `background-position: bottom` and `background-size: 100% 1px` to make it a 1px underline. Michael checked: the Designer's gradient layer has no Size, Position or Tile controls, so these three lines stay. Nothing changed.
+- **What the session did:** Task 1, the skip link. Task 2, the project-nav arrows. Task 3, the project content alignment at 1440 and 1920. See the entries below.
+- **Staying in the Site head, by decision:**
+  - the folio list item spacing (no class on 40 `<li>`s);
+  - the folio link underline (no gradient layer controls);
+  - the header phone and email labels opening on hover (parent-hover rule);
+  - the Estimate result panel's shadow and border (classes from the estimate tool's own CSS);
+  - animations, view transitions and script states.
+- **Step A is done.** Next is step B, the jsDelivr bundles, starting with the one-variable Tuning test (B4).
+
 ## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 3: project content position at 1920px into the Designer (R-146)
 - **Designer**, Project Content Wrapper:
   - Grid child `align-self: end` at the **1440px** breakpoint (Michael's call: tested at 1440 and 1680 first, no change there). It cascades to 1920.

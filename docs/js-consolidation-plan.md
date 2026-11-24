@@ -38,11 +38,11 @@ Same method throughout:
    - Put any scroll, resize or "wait for Lenis" code in them on `MWP`.
    - Then remove the four from the site's applied scripts.
 2. **Done 24 November 2026** (`docs/code-inventory.md`; the 40 project pages' stale footer comment cleared). Check the other pages' boxes (49 pages; most are empty) and the remaining embeds (SB header and others). Write `docs/code-inventory.md`: one row per block, saying which bundle it goes to, whether it must run before first paint, and what it needs. This is the part of stage 0 that was never written.
-3. **Designer session with Michael** (the one part of A left):
+3. **Designer session with Michael. Done 24 November 2026** (STATUS, evening):
    - **done 24 November 2026:** the skip link embed: its CSS into the Site head and its script into the Site footer, only the link stays;
-   - the combo classes;
+   - the combo classes: nothing specific found on 24 November 2026; the only candidate (header label hover) stays in code;
    - **done 24 November 2026:** take `.project-nav_arrow` out of the conic-border selectors, then delete the override in the Site head (Project Nav Inner's own background and radius cleared in the Designer);
-   - move into the Style panel the CSS from the boxes that it can hold (R-146).
+   - **done 24 November 2026:** move into the Style panel the CSS from the boxes that it can hold (R-146): the project content alignment moved. The folio list spacing, folio link underline, header label hover and estimate result panel stay in code (Style panel can't hold them).
 
 **B. jsDelivr bundles** (stages 1 to 5 below, re-cut for the code as it now is)
 1. **Refresh `src/` from the boxes**, one file per feature: `core`, `site`, `home`, `portfolio`, `estimate` (and `perf` as now). Build and compare against the snapshots.

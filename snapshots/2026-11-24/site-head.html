@@ -1,0 +1,490 @@
+<!-- Start fetching faulty-terminal while the page parses (footer tag then runs from cache). Keep the version in sync with the footer script. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<!-- Shared core (window.MWP, docs/shared-core.md): one scroll dispatcher, one debounced resize, frame loops that sleep off screen, ready signals and helpers. Page scripts register here instead of adding their own listeners and polls. -->
+<script>
+  (function () {
+    var scrollFns = [], resizeFns = [], lastY = null, queued = false, rt;
+    function call(list) {
+      for (var i = 0; i < list.length; i++) {
+        try {
+          list[i]();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+    // at most once per scroll position; inside Lenis's own callback while it scrolls (no frame of lag)
+    function dispatch(force) {
+      var y = window.scrollY;
+      if (!force && y === lastY) return;
+      lastY = y;
+      call(scrollFns);
+    }
+    addEventListener('scroll', function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        dispatch();
+      });
+    }, { passive: true });
+    addEventListener('resize', function () {
+      dispatch(true);
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        call(resizeFns);
+      }, 150);
+    }, { passive: true });
+    // fn(value) once test() returns something (checked every 100ms for up to 10s)
+    function when(test, fn) {
+      var n = 0;
+      (function check() {
+        var v = test();
+        if (v) fn(v);
+        else if (++n < 100) setTimeout(check, 100);
+      })();
+    }
+    var M = (window.MWP = {
+      desktop: matchMedia('(min-width: 992px)'),
+      reduce: matchMedia('(prefers-reduced-motion: reduce)'),
+      onScroll: function (fn) {
+        scrollFns.push(fn);
+      },
+      onResize: function (fn) {
+        resizeFns.push(fn);
+      },
+      lenis: function (fn) {
+        when(function () {
+          return window.lenis && window.lenis.on ? window.lenis : null;
+        }, fn);
+      },
+      scrollTrigger: function (fn) {
+        when(function () {
+          return window.ScrollTrigger && window.ScrollTrigger.getAll ? window.ScrollTrigger : null;
+        }, fn);
+      },
+      // fn(now) every frame, only while el (or one of several) is within a screen of the viewport
+      loop: function (el, fn) {
+        var els = !el ? [] : el.nodeType ? [el] : Array.prototype.slice.call(el), near = new Set();
+        var on = !els.length || !('IntersectionObserver' in window), running = false;
+        function tick(now) {
+          if (!on) return (running = false);
+          fn(now);
+          requestAnimationFrame(tick);
+        }
+        function start() {
+          if (on && !running) {
+            running = true;
+            requestAnimationFrame(tick);
+          }
+        }
+        if (on) start();
+        else {
+          var io = new IntersectionObserver(function (list) {
+            list.forEach(function (e) {
+              if (e.isIntersecting) near.add(e.target);
+              else near.delete(e.target);
+            });
+            on = near.size > 0;
+            start();
+          }, { rootMargin: '100% 0px' });
+          els.forEach(function (x) {
+            io.observe(x);
+          });
+        }
+      },
+      clamp: function (x) {
+        return x < 0 ? 0 : x > 1 ? 1 : x;
+      },
+      lerp: function (a, b, t) {
+        return a + (b - a) * t;
+      },
+      ease: function (x) {
+        return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      },
+    });
+    M.lenis(function (l) {
+      l.on('scroll', function () {
+        dispatch();
+      });
+    });
+  })();
+</script>
+<style>
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* Menu open: Lenis hides a classic scrollbar, so give its width back (measured by the script below; overlay scrollbars get nothing).
+     Don't force overflow here: Lenis watches it and loops (the menu shook). */
+  html.lenis.lenis-stopped.mwp-sbw {
+    padding-right: var(--mwp-sbw);
+  }
+  html.lenis.lenis-stopped.mwp-sbw .header {
+    max-width: calc(100% - var(--mwp-sbw));
+  }
+  /* GSAP Split-Line Clipping Fix */
+  .gsap_split_line-mask,
+  .gsap_split_word-mask {
+    padding-bottom: var(--_structure---split-line-distance);
+    margin-bottom: calc(var(--_structure---split-line-distance) * -1);
+  }
+
+  .folio-list li {
+    margin-block: 0;
+  }
+  /* Keeps the hero's layer so the Faulty Terminal canvas doesn't flash black when the menu closes (one extra compositing layer) */
+  .hero {
+    will-change: filter;
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .button,
+  .instant-quote-btn,
+  .project-nav_arrow {
+    padding: 1px; /* border thickness */
+    background: conic-gradient(from var(--angle), var(--raspberry) 0deg 120deg, var(--coral) 120deg 240deg, var(--teal) 240deg 360deg, var(--raspberry));
+  }
+
+  .button:hover,
+  .instant-quote-btn:hover,
+  .project-nav_arrow:hover,
+  .project-nav_arrow:focus-visible {
+    animation: spin-border 2s ease-in-out infinite;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .button,
+    .instant-quote-btn,
+    .project-nav_arrow {
+      animation: spin-border 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes spin-border {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .folio-list-link {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 1px;
+  }
+
+  ::view-transition-old(lb-title),
+  ::view-transition-new(lb-title) {
+    animation-duration: 0.35s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .iwa-panel .mwp-result-panel {
+    box-shadow: none;
+    border: none;
+  }
+  @media screen and (min-width: 1920px) {
+    .project-content-wrapper {
+      align-self: end !important;
+    }
+  }
+
+  /* Header phone + email: the label slides open on hover/focus (768px+ with real hover); the rest is on the Menu Button Label class */
+  @media (min-width: 768px) and (hover: hover) {
+    .menu-button:is(:hover, :focus-visible) .menu-button-label {
+      max-width: 24rem;
+      margin-left: 0.75rem;
+      opacity: 1;
+    }
+  }
+</style>
+<!-- Scrollbar width for the menu rule above (not measured while Lenis has the page locked) -->
+<script>
+  (function () {
+    var root = document.documentElement;
+    function measure() {
+      if (root.classList.contains('lenis-stopped')) return;
+      var w = window.innerWidth - root.clientWidth;
+      if (w >= 3) {
+        root.style.setProperty('--mwp-sbw', w + 'px');
+        root.classList.add('mwp-sbw');
+      } else {
+        root.style.removeProperty('--mwp-sbw');
+        root.classList.remove('mwp-sbw');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', measure);
+    window.addEventListener('load', measure);
+    window.addEventListener('resize', measure);
+    window.addEventListener('pageshow', measure);
+  })();
+</script>
+<!-- Project page transition (animation in the site footer): next project's content hidden until it slides in (mwp-pt-enter); Home hidden until it has jumped back to the remembered spot (mwp-pt-restore). The prev/next arrows stay put. -->
+<style>
+  html.mwp-pt-enter :is(.project-title-wrapper, .folio-rte-wrapper, .project-page-image) {
+    opacity: 0;
+    animation: mwp-pt-safety 0s linear 3s forwards; /* failsafe if the footer script never runs */
+  }
+  html.mwp-pt-restore {
+    background: var(--slate, #2b464e);
+  }
+  html.mwp-pt-restore body {
+    visibility: hidden;
+    animation: mwp-pt-safety-body 0s linear 3s forwards; /* failsafe if the footer script never runs */
+  }
+  /* content sliding off or on the side must not make a sideways scrollbar */
+  html.mwp-pt-run {
+    overflow-x: clip !important;
+  }
+  @keyframes mwp-pt-safety {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes mwp-pt-safety-body {
+    to {
+      visibility: visible;
+    }
+  }
+</style>
+<script>
+  try {
+    if (sessionStorage.getItem('mwp-pt') && location.pathname.indexOf('/portfolio/') === 0) document.documentElement.classList.add('mwp-pt-enter');
+    if (sessionStorage.getItem('mwp-home-restore') && location.pathname === '/') document.documentElement.classList.add('mwp-pt-restore');
+  } catch (e) {}
+</script>
+<!-- Home <-> project view transition: the list's hover preview morphs into the project's first image (and back). Other browsers just navigate. -->
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+  .project-image-wrapper .project-page-image:first-child {
+    view-transition-name: folio-image;
+  }
+  ::view-transition-group(root),
+  ::view-transition-group(folio-image) {
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.45s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+</style>
+<script>
+  (function () {
+    'use strict';
+    if (!('onpageswap' in window)) return; // no cross-document view transitions: these routes just navigate normally
+
+    const FROM_KEY = 'mwp-vt-from';
+    const clean = (p) => p.replace(/\/+$/, '') || '/';
+    const pathOf = (url) => clean(new URL(url, location.href).pathname);
+    const here = () => clean(location.pathname);
+    const isHome = (p) => p === '/';
+    const isFolio = (p) => p.startsWith('/portfolio/');
+    const morphRoute = (a, b) => (isHome(a) && isFolio(b)) || (isFolio(a) && isHome(b));
+    window.MWPViewTransition = { morphRoute: (a, b) => morphRoute(clean(a), clean(b)) };
+
+    const named = [];
+    const name = (el, n) => {
+      if (!el) return;
+      el.style.viewTransitionName = n;
+      named.push(el);
+    };
+    const clearNames = () => named.splice(0).forEach((el) => (el.style.viewTransitionName = ''));
+
+    // Leaving a page: only home <-> project morphs; everything else navigates normally
+    window.addEventListener('pageswap', (e) => {
+      if (!e.viewTransition) return;
+      const to = e.activation && e.activation.entry && e.activation.entry.url;
+      if (!to || !morphRoute(here(), pathOf(to))) {
+        e.viewTransition.skipTransition();
+        return;
+      }
+      try {
+        sessionStorage.setItem(FROM_KEY, here());
+      } catch (err) {}
+      if (isHome(here())) {
+        const preview = Array.from(document.body.children).find((el) => el.style.zIndex === '9998' && el.style.opacity === '1');
+        name(preview, 'folio-image');
+      }
+    });
+
+    // Arriving on a page
+    window.addEventListener('pagereveal', (e) => {
+      if (!e.viewTransition) return;
+      let from = null;
+      let restoring = false;
+      try {
+        from = sessionStorage.getItem(FROM_KEY);
+        sessionStorage.removeItem(FROM_KEY);
+        restoring = !!sessionStorage.getItem('mwp-home-restore');
+      } catch (err) {}
+      if (isHome(here())) clearNames(); // leftovers from a back/forward-cache return
+      if (!from || restoring || !morphRoute(from, here())) {
+        e.viewTransition.skipTransition();
+        return;
+      }
+      if (isHome(here())) e.viewTransition.finished.finally(clearNames);
+    });
+  })();
+</script>
+<!-- frame-probe (github.com/madewithpixels/frame-probe): add ?probe to any page address to list slow frames for 7s. Nothing loads without it. -->
+<script>
+  if (/[?&]probe\b/.test(location.search))
+    document.write('<script src="https://cdn.jsdelivr.net/gh/madewithpixels/frame-probe@1.0.0/dist/frame-probe.min.js"><\/script>');
+</script>
+<!-- Burger button: hide Safari's disclosure triangle on the <summary> -->
+<style>
+  .mwp-css-nav_summary::-webkit-details-marker {
+    display: none;
+  }
+  .mwp-css-nav_summary::marker {
+    content: '';
+  }
+</style>
+<!-- Safari split-text line height: DO NOT REMOVE (Safari aligns the clipping split wrappers by their bottom edge, which stretches every line) -->
+<style>
+  [class*="gsap_split"] {
+    vertical-align: top;
+  }
+</style>
+<!-- Open menu, phones: the Instant Estimate button sizes to its text (the base width rule is for the full-width hero and pricing buttons) -->
+<style>
+  @media screen and (max-width: 479px) {
+    .mwp-css-nav_primary .instant-quote-btn {
+      width: auto;
+    }
+  }
+</style>
+<!-- Portfolio Nav component (project pages): the arrows' styles and script, moved out of the component's Code Embeds -->
+<style>
+  /* overrides the spinning conic-gradient border the buttons get above; delete once .project-nav_arrow is taken out of those selectors */
+  a.project-nav_arrow,
+  a.project-nav_arrow:hover,
+  a.project-nav_arrow:focus-visible {
+    background: #ef8965;
+    padding: 0;
+    animation: none;
+  }
+  a.project-nav_arrow .project-nav_inner,
+  a.project-nav_arrow .grad-arrow-wrapper {
+    border-radius: inherit;
+  }
+  /* images can't be dragged out of the page (all pages) */
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+</style>
+<script>
+  // Portfolio prev/next arrows (project pages): set each arrow's link and label, then preload both neighbours.
+  // ORDER follows the Home folio list top to bottom (wraps round): when a project is added, removed or moved there, change it here too.
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+    if (!location.pathname.startsWith('/portfolio/')) return;
+    var PORTFOLIO = [
+      { slug: 'farmer-norton', title: 'Farmer Norton' },
+      { slug: 'shepherd-machinery', title: 'Shepherd Machinery' },
+      { slug: 'halstead-glass', title: 'Halstead Glass' },
+      { slug: 'travel-ledger', title: 'Travel Ledger' },
+      { slug: 'origin-global', title: 'Origin Global' },
+      { slug: 'shogun-nutrients', title: 'Shogun Nutrients' },
+      { slug: 'dolphin-dynamics', title: 'Dolphin Dynamics' },
+      { slug: 'ay-pe', title: 'ay-pe' },
+      { slug: 'continuum-group', title: 'Continuum Group' },
+      { slug: 'marek-wojciechowski', title: 'Marek Wojciechowski' },
+      { slug: 'futura', title: 'Futura' },
+      { slug: 'jessop-financial-planning', title: 'Jessop Financial Planning' },
+      { slug: 'erich-kadow', title: 'Erich Kadow' },
+      { slug: 'now-then-magazine', title: 'Now Then Magazine' },
+      { slug: 'fairness-on-the-83', title: 'Fairness on the 83' },
+      { slug: 'opus-independents', title: 'Opus Independents' },
+      { slug: 'guild-of-st-george', title: 'Guild of St George' },
+      { slug: 'writing-sheffield', title: 'Writing Sheffield' },
+      { slug: 'trading-histories', title: 'Trading Histories' },
+      { slug: 'coronation-street-the-tour', title: 'Coronation Street The Tour' },
+      { slug: 'oxford-castle', title: 'Oxford Castle' },
+      { slug: 'kent-life', title: 'Kent Life' },
+      { slug: 'the-antonine-wall', title: 'The Antonine Wall' },
+      { slug: 'creswell-crags', title: 'Creswell Crags' },
+      { slug: 'black-cat-white-cat', title: 'Black Cat White Cat' },
+      { slug: 'mustt-audio', title: 'Mustt Audio' },
+      { slug: 'club-60', title: 'Club 60' },
+      { slug: 'dionne-bromfield', title: 'Dionne Bromfield' },
+      { slug: 'soyo', title: 'Soyo' },
+      { slug: 'soyo-live', title: 'Soyo Live' },
+      { slug: 'molly-malones', title: "Molly Malone's" },
+      { slug: 'code', title: 'Code' },
+      { slug: 'mr-wilsons', title: "Mr Wilson's" },
+      { slug: 'ohm', title: 'OHM' },
+      { slug: 'voice-focus', title: 'Voice Focus' },
+      { slug: 'mednet', title: 'Mednet' },
+      { slug: 'insight-cbt-partnership', title: 'Insight CBT Partnership' },
+      { slug: 'stephen-mcculley', title: 'Stephen McCulley' },
+      { slug: 'origin-e-commerce', title: 'Origin E-commerce' },
+      { slug: 'aquaculture', title: 'Aquaculture' }
+    ];
+    var prevEl = document.querySelector('[data-portfolio-nav="prev"]');
+    var nextEl = document.querySelector('[data-portfolio-nav="next"]');
+    if (!prevEl || !nextEl) return;
+    var slug = location.pathname.replace(/\/$/, '').split('/').pop();
+    var index = -1;
+    for (var i = 0; i < PORTFOLIO.length; i++) if (PORTFOLIO[i].slug === slug) { index = i; break; }
+    if (index === -1) return;
+    var prev = PORTFOLIO[(index - 1 + PORTFOLIO.length) % PORTFOLIO.length];
+    var next = PORTFOLIO[(index + 1) % PORTFOLIO.length];
+    prevEl.setAttribute('href', '/portfolio/' + prev.slug);
+    prevEl.setAttribute('aria-label', 'Previous project: ' + prev.title);
+    prevEl.setAttribute('title', prev.title);
+    nextEl.setAttribute('href', '/portfolio/' + next.slug);
+    nextEl.setAttribute('aria-label', 'Next project: ' + next.title);
+    nextEl.setAttribute('title', next.title);
+
+    // preload (not on data-saver / 2G)
+    var targets = ['/portfolio/' + prev.slug, '/portfolio/' + next.slug];
+    var conn = navigator.connection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+    // Chrome/Edge: speculation rules keep the prefetched pages ready
+    if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+      var rules = document.createElement('script');
+      rules.type = 'speculationrules';
+      rules.textContent = JSON.stringify({ prefetch: [{ source: 'list', urls: targets, eagerness: 'immediate' }] });
+      document.head.appendChild(rules);
+    }
+    // all browsers: fetch each page once and warm its first project image
+    function attr(tag, name) {
+      var m = tag.match(new RegExp('\\s' + name + '="([^"]+)"'));
+      return m ? m[1].replace(/&amp;/g, '&') : '';
+    }
+    function warm() {
+      targets.forEach(function (url) {
+        fetch(url, { credentials: 'same-origin' })
+          .then(function (r) { return r.ok ? r.text() : ''; })
+          .then(function (html) {
+            var tag = (html.match(/<img[^>]*class="[^"]*project-page-image[^"]*"[^>]*>/) || [])[0];
+            if (!tag) return;
+            var img = new Image();
+            if (attr(tag, 'sizes')) img.sizes = attr(tag, 'sizes');
+            if (attr(tag, 'srcset')) img.srcset = attr(tag, 'srcset');
+            if (attr(tag, 'src')) img.src = attr(tag, 'src');
+          })
+          .catch(function () {});
+      });
+    }
+    var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1500); };
+    if (document.readyState === 'complete') idle(warm);
+    else window.addEventListener('load', function () { idle(warm); });
+  });
+</script>

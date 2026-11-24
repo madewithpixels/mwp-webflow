@@ -1,9 +1,77 @@
-# Custom code consolidation and jsDelivr switch-over: the plan (R-117, D-027)
+# Custom code consolidation and jsDelivr switch-over: the plan (R-117, D-027, D-028)
 
-Written 20 November 2026 by Claude, for the next working session.
+Written 20 November 2026 by Claude. **Updated 24 November 2026: where we are and the final steps come first; the original plan below is kept for reference, and the parts it changes are marked.**
 
-**Progress, 23 November 2026:** an interim step done before stage 1: the registered scripts on Home and Estimate and the Code Embeds (Home, Portfolio Nav) were moved into the editable custom code boxes, so every page-level line is now in a box Michael can see. Box copies are in `snapshots/2026-11-23/` (part of stage 0). The Estimate fixes are one `<style>` and one `<script>`, ready to lift into `src/estimate/`. Proposed D-028 would bring the shared core (below, "Not in this job") into this job. Michael wants the pricing tablet band rethought before it is ported (STATUS, 23 November 2026).
+## Where we are (24 November 2026, parked)
+- **All page code is in the custom code boxes**, and the boxes have been refactored:
+  - registered scripts and embeds moved in (23 November);
+  - dead code removed and duplicates merged (23 November);
+  - pricing short-screen rule (23 November);
+  - shared timing core in the Site head, with the Site footer, Home head and Home footer on it (24 November, steps 1 to 3 in `docs/shared-core.md`).
+- Every box hash-matches its copy in `snapshots/2026-11-23/` and `snapshots/2026-11-24/`, which are the newest copies of each box. Sizes:
+  - Site head 18,397 characters; Site footer 26,147;
+  - Home head 43,261; Home footer 35,761;
+  - Estimate head 796; Estimate footer 3,245.
+- **Changed from the original plan:** the shared core was meant to be a later rewrite ("Not in this job", below). Michael accepted D-028, so it is done. The bundles now carry code that is already on the core.
+- **Still registered and applied site-wide:**
+  - MWPPerf (jsDelivr, head) and FaultyTerminal1123 (jsDelivr, footer): these stay until the bundles.
+  - MenuContactPills (head), MenuCloseOnLeave (footer), MWPSwipeNav (footer) and ProjectMenuAnchors (footer): not yet moved into the boxes.
+- **Registered but no longer applied (23 registrations, delete at the end):**
+  - logomarquee, PricingTabletBand (1.0.0, 1.1.0), homenavclearhash, HomeNavJumpDeepRedraw, foliowalllift;
+  - EstimateMenuAnchors (1.0.0, 1.0.1), EstimateNextTap, EstimateQuestionStronger, EstimateNoTopNext, EstimateNavGap, EstimateLastStepCentred, EstimateNoBackOnLastStep;
+  - HeroTabletPortrait, ContactLogoPlain, PricingCtaMobileArrow;
+  - FTLogoResolveFooter (1.11.0, 1.12.0, 1.12.2, 1.12.3; the Home footer now loads 1.12.3 as a plain tag), FTLogoResolveHead 1.11.0.
+  - Keep SafariHitchProbe (source in the Claude project doc `safarihitchprobe-source-1.0.0`).
+  - **Save homenavclearhash's source first.** Claude couldn't copy it out: the browser extension blocks it and the shell can't reach Webflow's CDN. Open the address below and paste the file into `docs/registered-scripts-backup.md`:
+    `https://cdn.prod.website-files.com/683cced100c63d0f60a847a3%2F689e5ba67671442434f3ca35%2F6b0079b3c9e2b6266286c47e%2Fhomenavclearhash-1.0.0.js` (1,137 characters).
+- **`src/` is stale** (copied 5 to 6 November). The boxes are now the source of truth until step B1.
 
+## Final steps (proposed order; to walk through with Michael once the roadmap is updated)
+Same method throughout:
+1. Back up (Michael).
+2. Test on a copy of the published page in a frame, old against new.
+3. Write and publish to staging (Claude).
+4. Hash-check all six boxes.
+5. Snapshot and add a STATUS entry.
+
+**A. Finish the boxes**
+1. **Move the last four site-wide registrations into boxes:**
+   - MenuContactPills and MenuCloseOnLeave go into the Site head and footer.
+   - MWPSwipeNav and ProjectMenuAnchors go into the project template's own footer, if nothing else uses them, so they only load on project pages.
+   - Put any scroll, resize or "wait for Lenis" code in them on `MWP`.
+   - Then remove the four from the site's applied scripts.
+2. **Check the other pages' boxes** (49 pages; most are empty) and the remaining embeds (SB header and others). Write `docs/code-inventory.md`: one row per block, saying which bundle it goes to, whether it must run before first paint, and what it needs. This is the part of stage 0 that was never written.
+3. **Designer session with Michael:**
+   - the combo classes;
+   - take `.project-nav_arrow` out of the conic-border selectors, then delete the override in the Site head;
+   - move into the Style panel the CSS from the boxes that it can hold (R-146).
+
+**B. jsDelivr bundles** (stages 1 to 5 below, re-cut for the code as it now is)
+1. **Refresh `src/` from the boxes**, one file per feature: `core`, `site`, `home`, `portfolio`, `estimate` (and `perf` as now). Build and compare against the snapshots.
+2. **Loader and dev switch** in the Site head (stage 1 below); a test tag first.
+3. **Decision for Michael: where the core lives.**
+   - (a) Inline in the Site head (3.4k, runs before everything, no ordering risk).
+   - (b) First in the `site` bundle, with the page bundles loading after it in order.
+   - Recommendation: (a) until the bundles are proven, then (b).
+   - Either way these stay inline:
+     - the pre-first-paint pieces: the arrival cover, `<link rel="expect">`, the project transition's hide classes, and the short-screen pricing CSS (avoids a flash);
+     - the loader.
+4. **Switch page by page:** Estimate, then project pages, then site-wide, then Home (two sessions). Use the checks below, plus 1366×700 and 1366×800 for the pricing short-screen rule.
+5. **Release:** tag; Michael pushes; change the version string in the Site head; publish.
+
+**C. Clean-up**
+1. Delete the 23 unused registrations (above), after saving homenavclearhash.
+   - After the bundles, also delete MWPPerf's old versions and the FaultyTerminal registration, if those move to plain tags.
+   - Deleting is irreversible and changes the site: Michael confirms, Claude deletes, Michael publishes.
+2. Update `README.md` and `AGENTS.md` §6: agents edit `src/`, not Webflow.
+3. Rewrite R-117's "done when" in the ROADMAP. Its present text is marked "inferred" and still says the shared core is a later rewrite.
+4. **Device checks not yet done:** Safari on the Mac; an iPad (landscape gets the desktop paths); a real trackpad on the scroll magnet, folio hover and ticker flick.
+
+**Open, Michael deciding (not blocking):** pricing on tablets (stack broadly?); and on short wide screens, centring the cards between the menu buttons and the bottom instead of bottom-aligning (STATUS, 23 November 2026, evening).
+
+---
+
+## Original plan (20 November 2026), for reference
 ## Why now
 On 20 November one small pricing change took an evening. Here's what went wrong:
 - The Home footer box hit Webflow's 50,000-character limit.
@@ -44,7 +112,7 @@ FaultyTerminal and the estimate tool stay in their own repos on jsDelivr, as now
    - Minified output has no comments, but the source stays readable.
 7. **Release command.** `npm run release` bumps the version, builds, commits `dist/` and tags it. Michael pushes (`git push && git push --tags`), changes the version string in the Site head, and publishes. A new tag means a new address, so jsDelivr's cache never gets in the way.
 
-**Not in this job.** The old R-117 "shared core" (one scroll dispatcher, ported animations) is a performance rewrite and stays a separate later step. This job only moves, shortens and untangles code, and the site should behave exactly the same afterwards.
+**Not in this job** *(superseded 24 November 2026: D-028 accepted, the core is done; see the top of this file)*. The old R-117 "shared core" (one scroll dispatcher, ported animations) is a performance rewrite and stays a separate later step. This job only moves, shortens and untangles code, and the site should behave exactly the same afterwards.
 
 ## Stages
 Each stage: move the code, switch the page to the bundle, publish to staging, run the checks, and only then remove the old copies. Michael backs up before each publish (D-008).

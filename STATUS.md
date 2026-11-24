@@ -4,6 +4,55 @@
 
 
 
+## 24 November 2026 (parked) — Claude — Custom code refactor parked; final steps written up (R-117)
+**Michael asked:** "we park here, update the docs - work out what the final steps are." He is waiting for boss to update the roadmap with tasks added in the past few days (expect some doubles, some already done but not recorded, some dropped), then we go through it together.
+**State of staging:** all six custom code boxes are refactored and hash-match `snapshots/2026-11-24/` (Site head and footer, Home head and footer) and `snapshots/2026-11-23/` (Estimate head and footer). Nothing changed in Webflow in this entry.
+**Written:** `docs/js-consolidation-plan.md` now opens with "Where we are" and "Final steps", checked against the live registrations today:
+- **A. Finish the boxes:** the last four site-wide registrations, the other pages and embeds inventory, the Designer session.
+- **B. jsDelivr bundles:** refresh `src/` from the boxes, the loader, a decision on where the core lives, the page-by-page switch, the release.
+- **C. Clean-up:** delete 23 unused registrations, update the docs, device checks.
+**Needs Michael:** save the homenavclearhash source by hand before any deletes (address in the plan; Claude's browser extension blocked copying it).
+**Not touched:** `ROADMAP.md`. It is left alone while boss updates it. R-117's text there is out of date (still says the shared core is a later rewrite) and gets fixed in the roadmap walk-through.
+**Next useful action:** once boss has updated the roadmap, go through it with Michael (doubles, done-but-unrecorded, dropped), then pick up step A1.
+**Claude**
+
+## 24 November 2026 (morning) — Claude — Shared timing core, step 3: Home footer; frame loops sleep off screen (R-117, D-028)
+**Michael asked:** "Carry on" (step 3 of `docs/shared-core.md`).
+**Earlier stages checked first:** all six custom code boxes on staging still hash-matched their snapshots before this step started (last publish 00:13).
+**Changed in Webflow, published to staging by Claude:**
+1. **Site head, shared core:** `MWP.loop` now takes one element or several and runs while any of them is within a screen (needed by Contact, below).
+2. **Home footer, ticker:** its always-running frame loop is now `MWP.loop(section, tick)`: it stops when the About sequence is more than a screen away. Resize through `MWP.onResize`; `MWP.desktop`.
+3. **Home footer, pricing:** one `MWP.onScroll(render)` replaces its scroll listener and its Lenis hook (that hook never attached: Lenis didn't exist yet when the script ran, so pricing was drawn a frame behind Lenis; it now draws inside Lenis's own scroll callback). Resize through `MWP.onResize` (150ms debounce, was 120ms). Shared `clamp`, `ease`, `reduce`.
+4. **Home footer, Contact logo:** its always-running frame loop (reading the layout every frame on every part of the page) is now `MWP.loop([testimonial wall, Contact], frame)`: it runs while either is within a screen, so the fly-in still starts on time. Resize through `MWP.onResize` (still ignores toolbar-only resizes). Shared `clamp`, `ease`, `lerp`, `reduce`.
+5. **Home footer, About sequence:** scroll through `MWP.onScroll`; resize kept as its own listener (it must re-measure at once). `MWP.reduce`.
+6. **Home footer, logo marquee:** resize through `MWP.onResize`.
+**Result:** about 200 fewer animation frame callbacks per second at the top of the page (604 → 404 in the test frame) and about 100 fewer at Contact. Home footer 36,630 → 35,761 characters.
+**Checked how:** old and new code side by side in frames. At 1440 wide, 167 scroll positions down the whole page: pricing shapes, About phase, Contact fly-in layer, wall fade and logo pixels identical at every position; 4 positions differed by one lit ticker letter, which also changes on its own at a fixed position (the drift is time-based), so not a difference. At 800 wide, 74 of 74 positions identical and the Contact bubble re-arms when scrolling back up. Live at 2044×973: pricing forms mid-pin; at the bottom the Contact logo finishes the fly-in, holds about 4s, then spins. Estimate loads with the core, no errors anywhere. All six published boxes hash-match `snapshots/2026-11-24/`. **Not checked:** Safari, a real trackpad flick on the ticker. **Evidence:** verified (live, Chrome). **Acceptance:** pending.
+**Next useful action:** the shared core steps are done. Then: update `docs/js-consolidation-plan.md` for the jsDelivr bundles (core + Site footer + Home head/footer as files), the Designer combo-class session, and deleting the unused script registrations (save the homenavclearhash source first; keep safarihitchprobe).
+**Claude**
+
+## 24 November 2026 (later) — Claude — Shared timing core, step 2: Home head (R-117, D-028)
+**Michael asked:** "Continue", and check that nothing from earlier stages has gone missing.
+**Earlier stages checked first:** after Michael's Designer publish at 00:09, all six custom code boxes on staging (Site head and footer, Home head and footer, Estimate head and footer) still hash-match their snapshots in `snapshots/2026-11-23/` and `2026-11-24/`. Nothing lost.
+**Changed in Webflow (Home head), published to staging by Claude:**
+1. **Scroll-redraw hook** (sticky unstick + redraw in page order): its 100ms "wait for ScrollTrigger" poll is now `MWP.scrollTrigger(...)`. The rest is untouched.
+2. **Contents device:** `MWP.desktop` for the desktop check; one `MWP.onScroll(queue)` replaces its own scroll, resize and Lenis listeners (the core also runs scroll subscribers on every resize); the rail is re-placed through `MWP.onResize`.
+**Left as they are, on purpose:** the hash-landing settle loop (waits for the layout to stop changing, not just for ScrollTrigger), the pricing short-screen switch-off (waits for the pricing pin itself), and the phone folio-wall lift (needs every resize at once, no debounce).
+**Checked how:** old and new Home head side by side in frames at 1440 wide: contents device current section identical at 61 scroll positions and during a smooth scroll, rail placement identical through a resize, menu jumps to Pricing, Work and Home landed on the same pixel, 22 of 22 scroll animations wrapped before and after a re-measure, no errors. Then live: same results, jump to Testimonials, no console errors. Published Home head hash-matches `snapshots/2026-11-24/home-head.html` (43,261 characters). **Evidence:** verified (live, Chrome). **Acceptance:** pending.
+**Next useful action:** step 3, Home footer (pricing, ticker and contact loops sleep off screen via `MWP.loop`, About sequence onto `MWP.onScroll`).
+**Claude**
+
+## 24 November 2026 — Claude — Shared timing core, step 1: core in the Site head, Site footer on it (R-117, D-028)
+**Michael asked:** "Shared timing - yes. Continue" (D-028 accepted; plan in `docs/shared-core.md`).
+**Changed in Webflow (site level), published to staging by Claude:**
+1. **Site head:** the shared core (`window.MWP`, about 3.1k) added right after the jsDelivr preconnect, so it exists before any page script. Nothing else in the head changed.
+2. **Site footer, folio hover:** its own `scroll` listener and 100ms "wait for Lenis" poll replaced by `MWP.onScroll(queue)`.
+3. **Site footer, scroll magnet:** its Lenis poll replaced by `MWP.lenis(...)`; `reduce` is `MWP.reduce`; its copy of the ease-in-out curve removed (settle glide uses `MWP.ease`, the same curve). The catch's ease-out curve stays (different curve).
+4. **Comments:** the folio hover, project page transition and scroll magnet headers cut to two to four lines; the KEEP IT IN STEP warning and the `data-snap` usage note kept.
+**Checked how:** test copy of the published Home page in a frame at 1440 wide, then the published pages. Scroll magnet catches at Portfolio and Testimonials, the slow settle glides into About, free scrolling between sections untouched, programmatic scrolls (menu jumps) not caught. Folio row highlight matched the row under the pointer on 12 of 12 step scrolls and 6 of 6 samples during a smooth scroll, the same as the old code. Project page arrows (Halstead Glass to Travel Ledger) slide and land, prev/next links set. No console errors. Published Site head and footer hash-match the intended files on Home, a project page and Estimate (copies in `snapshots/2026-11-24/`). **Not checked:** Safari, real trackpad by hand. **Evidence:** verified (live, Chrome). **Acceptance:** pending.
+**Next useful action:** step 2, Home head (scroll-redraw hook, contents device, hash landing, pricing short-screen switch-off) onto `MWP`, same method.
+**Claude**
+
 ## 23 November 2026 (late) — Claude — Custom code refactor, first batches in the custom code boxes (R-117, D-027)
 **Michael asked:** start the custom code refactor in the Webflow custom code boxes first, test it, and only then build the jsDelivr versions. Approach: test each batch on a copy of the published page in a frame, write the box, publish to staging, hash-check the published code.
 **Changed in Webflow (published to staging by Claude, each box hash-matched after publishing; copies in `snapshots/2026-11-23/`):**

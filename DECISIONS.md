@@ -213,7 +213,7 @@ Supersedes D-003's timing (switch at launch prep): the switch happens now, page 
 **Settled (Michael, 20 November 2026):** (1) the version lives in one place, in the Site head loader; (2) bundles are loaded by jsDelivr tag (`@v1.0.0`), never moved; (3) the estimate tool's repo keeps only the tool's logic ("I feel like that repo can be left with just the logic"); the Estimate page fixes come into `src/estimate/` here. Exception to raise case by case: a fix that changes how the tool itself behaves (the reliable single tap on Next, R-119) is a tool bug, so it moves into the tool when that repo is next worked on.
 
 ## D-028 · The shared timing core comes into the consolidation, not after it
-**Status:** Proposed
+**Status:** Accepted (Michael, 23 November 2026: "Shared timing - yes. Continue")
 **Qualifier:** Michael, 23 November 2026: "Js - can it be consolidated, streamlined and shortened further - I'm sure I remmeber an earlier chat where you talked about a single timing block or similar. I note multiple script and style tags." He left the order of the work to Claude ("you're the expert").
 **Date:** 23 November 2026
 **Source:** the 23 November streamlining review: Home alone has about 18 `<style>` tags (about 28k) and about 20 inline scripts (about 74k), with clamp/ease/lerp defined three times and three scripts polling separately for ScrollTrigger.

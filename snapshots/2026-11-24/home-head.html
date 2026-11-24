@@ -1,0 +1,1073 @@
+<!-- Hold first paint until #portfolio is parsed (the back-navigation view transition needs the list title) -->
+<link rel="expect" href="#portfolio" blocking="render" />
+<!-- Hash arrivals from another page: slate cover until the menu script lands the page (4.5s failsafe); no view transition -->
+<script>
+  (function () {
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (!nav || nav.type !== 'navigate') return;
+    if (!/^#(about|pricing|portfolio|testimonials|contact)$/.test(location.hash)) return;
+    document.documentElement.classList.add('mwp-arriving');
+    window.addEventListener('pagereveal', function (e) {
+      if (e.viewTransition && e.viewTransition.skipTransition) e.viewTransition.skipTransition();
+    });
+  })();
+</script>
+<style>
+  html.mwp-arriving::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    background-color: var(--slate, #2b464e);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    animation: mwp-arrive-failsafe 1ms linear 4.5s forwards;
+  }
+  html.mwp-arriving.mwp-landed::after {
+    opacity: 0;
+    pointer-events: none;
+  }
+  @keyframes mwp-arrive-failsafe {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.mwp-arriving::after {
+      transition: none;
+    }
+  }
+</style>
+<style>
+  /* Testimonial Wall: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .testi-wall {
+      height: auto;
+    }
+    .testi-wall_sticky {
+      position: relative;
+      height: auto;
+      overflow: visible;
+      display: block;
+    }
+    .testi-wall_stage {
+      display: none;
+    }
+    .testi-wall_quotes {
+      position: relative;
+      flex-direction: column;
+      row-gap: 1rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .testi-wall_quote {
+      position: relative;
+    }
+  }
+  /* Testimonial Wall: inner rows recede (the interaction animates the Testi Inner/Back variables) */
+  .testi-wall_half > .testi-wall_row {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+  }
+  /* one drop-shadow per outer row (cheaper than per tile) */
+  .testi-wall_half:first-child > .testi-wall_row:first-child,
+  .testi-wall_half:last-child > .testi-wall_row:last-child {
+    filter: drop-shadow(0 0.6svh 1.2svh rgba(0, 0, 0, 0.28));
+  }
+  .testi-wall_half:first-child > .testi-wall_row:last-child,
+  .testi-wall_half:last-child > .testi-wall_row:first-child {
+    z-index: 0;
+    filter: blur(var(--_animation---testi-inner-blur, 0px));
+  }
+  .testi-wall_half:first-child > .testi-wall_row:last-child .testi-wall_chip,
+  .testi-wall_half:last-child > .testi-wall_row:first-child .testi-wall_chip {
+    background-color: color-mix(in srgb, var(--coral) var(--_animation---testi-inner-mix, 100%), var(--slate));
+  }
+  .testi-wall_half:first-child > .testi-wall_row:last-child .testi-wall_chip.is-teal,
+  .testi-wall_half:last-child > .testi-wall_row:first-child .testi-wall_chip.is-teal {
+    background-color: color-mix(in srgb, var(--teal) var(--_animation---testi-inner-mix, 100%), var(--slate));
+  }
+  .testi-wall_half:first-child > .testi-wall_row:last-child .testi-wall_chip.is-raspberry,
+  .testi-wall_half:last-child > .testi-wall_row:first-child .testi-wall_chip.is-raspberry {
+    background-color: color-mix(in srgb, var(--raspberry) var(--_animation---testi-inner-mix, 100%), var(--slate));
+  }
+  /* Back rows: script-made copies of the inner rows' tiles */
+  .testi-wall_backrow {
+    --testi-back-reveal: 50%; /* TUNE: lower = tucked further under */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    column-gap: 2svh;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--_animation---testi-back-show, 0);
+    filter: blur(calc(var(--_animation---testi-inner-blur, 0px) * 2));
+    transform-origin: 50% 50%;
+  }
+  .testi-wall_half:first-child .testi-wall_backrow {
+    transform: translateX(var(--_animation---testi-back-drift, 0%)) translateY(calc(var(--_animation---testi-back-show, 0) * var(--testi-back-reveal))) scale(0.8);
+  }
+  .testi-wall_half:last-child .testi-wall_backrow {
+    transform: translateX(var(--_animation---testi-back-drift, 0%)) translateY(calc(var(--_animation---testi-back-show, 0) * var(--testi-back-reveal) * -1)) scale(0.8);
+  }
+  .testi-wall_half > .testi-wall_row > .testi-wall_backrow.testi-wall_backrow > .testi-wall_chip.testi-wall_chip {
+    background-color: color-mix(in srgb, var(--coral) calc(var(--_animation---testi-inner-mix, 100%) / 2), var(--slate));
+  }
+  .testi-wall_half > .testi-wall_row > .testi-wall_backrow.testi-wall_backrow > .testi-wall_chip.testi-wall_chip.is-teal {
+    background-color: color-mix(in srgb, var(--teal) calc(var(--_animation---testi-inner-mix, 100%) / 2), var(--slate));
+  }
+  .testi-wall_half > .testi-wall_row > .testi-wall_backrow.testi-wall_backrow > .testi-wall_chip.testi-wall_chip.is-raspberry {
+    background-color: color-mix(in srgb, var(--raspberry) calc(var(--_animation---testi-inner-mix, 100%) / 2), var(--slate));
+  }
+  /* Testimonial quotes: pixel quote marks */
+  .testi-wall_blockquote {
+    --pixel-quote: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 47' shape-rendering='crispEdges'%3E%3Crect x='6' y='0' width='5' height='5'/%3E%3Crect x='12' y='0' width='5' height='5'/%3E%3Crect x='18' y='0' width='5' height='5'/%3E%3Crect x='0' y='6' width='5' height='5'/%3E%3Crect x='6' y='6' width='5' height='5'/%3E%3Crect x='12' y='6' width='5' height='5'/%3E%3Crect x='18' y='6' width='5' height='5'/%3E%3Crect x='24' y='6' width='5' height='5'/%3E%3Crect x='0' y='12' width='5' height='5'/%3E%3Crect x='6' y='12' width='5' height='5'/%3E%3Crect x='12' y='12' width='5' height='5'/%3E%3Crect x='18' y='12' width='5' height='5'/%3E%3Crect x='24' y='12' width='5' height='5'/%3E%3Crect x='0' y='18' width='5' height='5'/%3E%3Crect x='6' y='18' width='5' height='5'/%3E%3Crect x='12' y='18' width='5' height='5'/%3E%3Crect x='18' y='18' width='5' height='5'/%3E%3Crect x='24' y='18' width='5' height='5'/%3E%3Crect x='12' y='24' width='5' height='5'/%3E%3Crect x='18' y='24' width='5' height='5'/%3E%3Crect x='24' y='24' width='5' height='5'/%3E%3Crect x='12' y='30' width='5' height='5'/%3E%3Crect x='18' y='30' width='5' height='5'/%3E%3Crect x='24' y='30' width='5' height='5'/%3E%3Crect x='6' y='36' width='5' height='5'/%3E%3Crect x='12' y='36' width='5' height='5'/%3E%3Crect x='18' y='36' width='5' height='5'/%3E%3Crect x='0' y='42' width='5' height='5'/%3E%3Crect x='6' y='42' width='5' height='5'/%3E%3Crect x='12' y='42' width='5' height='5'/%3E%3C/svg%3E");
+    position: relative;
+  }
+  .testi-wall_blockquote::before,
+  .testi-wall_blockquote > em:first-child::after {
+    content: '';
+    width: 29px;
+    height: 47px;
+    background-color: #495f64; /* TUNE: mark colour */
+    -webkit-mask: var(--pixel-quote) no-repeat 0 0 / 100% 100%;
+    mask: var(--pixel-quote) no-repeat 0 0 / 100% 100%;
+  }
+  /* opening mark, hung in the left margin */
+  .testi-wall_blockquote::before {
+    display: block;
+    position: absolute;
+    right: 100%;
+    top: calc(0.97em - 42px); /* TUNE: raise the px value to lift it */
+    margin-right: 0.6em; /* TUNE: gap to the text */
+    transform: rotate(180deg);
+  }
+  /* closing mark */
+  .testi-wall_blockquote > em:first-child > br:last-child {
+    display: none;
+  }
+  .testi-wall_blockquote > .cite {
+    display: block;
+  }
+  .testi-wall_blockquote > em:first-child::after {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: 0.35em; /* TUNE: drop below the line top */
+    margin-left: 0.4em; /* TUNE: gap after the last word */
+    margin-bottom: -47px;
+  }
+
+  /* Menu open: page blur */
+  .mwp-nav-blur {
+    position: fixed;
+    inset: 0;
+    z-index: 997;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -webkit-backdrop-filter: blur(4px) brightness(0.5);
+    backdrop-filter: blur(4px) brightness(0.5);
+  }
+  .mwp-nav-blur.is-on {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mwp-nav-blur {
+      transition: none;
+    }
+  }
+
+  /* Ticker highlight (.is-on is set by the footer script) */
+  .ticker__ch {
+    transition: color 0.2s ease;
+  }
+  .ticker__ch.is-on {
+    color: #d9466c;
+  }
+  .ticker__row {
+    cursor: grab;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .ticker__row.is-dragging {
+    cursor: grabbing;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker__ch {
+      transition: none;
+    }
+  }
+
+  /* Pricing CTA hover: !important beats the inline colours left by the scroll build */
+  .icon-arrow:hover .grad-bg-strip.segment-01,
+  .icon-arrow:focus .grad-bg-strip.segment-01 {
+    background-color: var(--raspberry) !important;
+  }
+  .icon-arrow:hover .grad-bg-strip.segment-02,
+  .icon-arrow:focus .grad-bg-strip.segment-02 {
+    background-color: var(--coral) !important;
+  }
+  .icon-arrow:hover .grad-bg-strip.segment-03,
+  .icon-arrow:focus .grad-bg-strip.segment-03 {
+    background-color: var(--teal) !important;
+  }
+
+  /* Pricing (desktop): hidden start state for the footer script's colour shapes (only with JS) */
+  @media (min-width: 992px) {
+    .pricing.js-form .pricing-block {
+      clip-path: inset(0px 0px 100% 0px round 0px 0px 0px 0px);
+      will-change: clip-path;
+    }
+  }
+</style>
+<script>
+  // Testimonial back rows: copy each inner row's tiles into a .testi-wall_backrow
+  document.addEventListener('DOMContentLoaded', function () {
+    var inner = document.querySelectorAll('.testi-wall_half:first-child > .testi-wall_row:last-child, .testi-wall_half:last-child > .testi-wall_row:first-child');
+    Array.prototype.forEach.call(inner, function (row) {
+      var back = document.createElement('div');
+      back.className = 'testi-wall_backrow';
+      back.setAttribute('aria-hidden', 'true');
+      Array.prototype.forEach.call(row.querySelectorAll(':scope > .testi-wall_chip'), function (chip) {
+        back.appendChild(chip.cloneNode(true));
+      });
+      // offset by half a tile
+      back.style.marginLeft = '-11svh';
+      row.appendChild(back);
+    });
+  });
+</script>
+<script>
+  // Scroll animations: sticky ancestors are unstuck while measuring; after any re-measure, scrubbed animations are redrawn in page order.
+  // window.mwpPlayInOrder (menu jumps) also redraws from the end at the very start (stops the H1 showing over the hero).
+  (function () {
+    function stickies(el) {
+      var out = [];
+      while (el && el !== document.body) {
+        if (getComputedStyle(el).position === 'sticky') out.push(el);
+        el = el.parentElement;
+      }
+      return out;
+    }
+    function playInOrder(fromJump) {
+      var ST = window.ScrollTrigger;
+      if (!ST || !ST.getAll) return;
+      ST.getAll()
+        .filter(function (s) {
+          return s.vars && s.vars.scrub && s.animation;
+        })
+        .sort(function (a, b) {
+          return a.start - b.start;
+        })
+        .forEach(function (s) {
+          var tw = s.getTween && s.getTween();
+          if (tw) tw.progress(1);
+          var a = s.animation;
+          var total = a.totalDuration();
+          var at = total * s.progress;
+          // end first, so the redraw runs backwards (after a re-measure only part-way: Safari hero stutter)
+          if (at < total && (fromJump || at > 0)) a.render(total, true, true);
+          a.render(at, true, true);
+        });
+    }
+    window.mwpPlayInOrder = function () {
+      playInOrder(true);
+    };
+    var queued = false;
+    function queue() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        playInOrder(false);
+      });
+    }
+    function wrap(st) {
+      if (st.__mwpWrapped || typeof st.refresh !== 'function') return;
+      st.__mwpWrapped = true;
+      var measure = st.refresh;
+      st.refresh = function () {
+        var list = st.trigger ? stickies(st.trigger) : [];
+        list.forEach(function (e) {
+          e.style.position = 'relative';
+          e.style.top = 'auto';
+          e.style.bottom = 'auto';
+        });
+        try {
+          return measure.apply(this, arguments);
+        } finally {
+          list.forEach(function (e) {
+            e.style.position = e.style.top = e.style.bottom = '';
+          });
+          queue();
+        }
+      };
+    }
+    MWP.scrollTrigger(function (ST) {
+      function wrapAll() {
+        ST.getAll().forEach(wrap);
+      }
+      // wait until Webflow has built its scroll animations, wrap them, re-measure once
+      function whenBuilt() {
+        var last = -1,
+          same = 0,
+          tries = 0;
+        (function check() {
+          var count = ST.getAll().length;
+          if (count > 0 && count === last) same++;
+          else same = 0;
+          last = count;
+          if (same >= 3 || ++tries > 60) {
+            wrapAll();
+            // only when opened part-way down (at the top it made the hero heart hitch in Safari)
+            if (window.scrollY > window.innerHeight * 0.5) ST.refresh();
+          } else setTimeout(check, 150);
+        })();
+      }
+      ST.addEventListener('refresh', wrapAll);
+      if (document.readyState === 'complete') whenBuilt();
+      else window.addEventListener('load', whenBuilt);
+    });
+  })();
+
+  // Menu jump: blur, instant jump, redraw until the blur lifts. The only landing logic (don't re-add MobileNavLanding).
+  // Target attributes: data-nav-offset (screens) or data-nav-progress (through a pin); suffix -medium / -small / -tiny per band; none = top.
+  document.addEventListener('DOMContentLoaded', function () {
+    var SETTLE_MS = 450; // safety margin for the scrubs
+    var menu = document.querySelector('[data-mwp-menu]');
+    if (!menu) {
+      document.documentElement.classList.remove('mwp-arriving');
+      return;
+    }
+
+    var blur = document.createElement('div');
+    blur.className = 'mwp-nav-blur';
+    blur.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(blur);
+
+    var jumping = false;
+    function sync() {
+      if (!jumping) blur.classList.toggle('is-on', menu.open);
+    }
+    new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['open'] });
+
+    function settleTimelines() {
+      var ST = window.ScrollTrigger;
+      if (!ST || !ST.getAll) return;
+      ST.update();
+      if (window.mwpPlayInOrder) window.mwpPlayInOrder();
+    }
+
+    function band() {
+      var w = window.innerWidth;
+      return w >= 992 ? '' : w >= 768 ? 'Medium' : w >= 479 ? 'Small' : 'Tiny';
+    }
+
+    function landing(target) {
+      if (target === 0) return 0;
+      var spacer = target.closest('.pin-spacer');
+      var base = spacer || target;
+      var y = base.getBoundingClientRect().top + window.scrollY;
+      var d = target.dataset || {};
+      var b = band();
+      var progress = parseFloat(d['navProgress' + b]);
+      var offset = parseFloat(d['navOffset' + b]);
+      if (spacer && !isNaN(progress)) {
+        var pinned = spacer.firstElementChild;
+        var lock = spacer.offsetHeight - (pinned ? pinned.offsetHeight : 0);
+        return y + progress * Math.max(0, lock);
+      }
+      if (!isNaN(offset)) return y + offset * window.innerHeight;
+      return y;
+    }
+
+    document.addEventListener(
+      'click',
+      function (e) {
+        var a = e.target.closest('.mwp-css-nav_link[href]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        var target = href === '/' ? 0 : href.charAt(0) === '#' ? document.querySelector(href) : null;
+        if (target === null) return;
+        e.preventDefault();
+        e.stopPropagation(); // stop Webflow's anchor scroll
+        jumping = true;
+        blur.classList.add('is-on');
+        if (menu.open) menu.open = false;
+        // section links set the #hash; Home clears it
+        if (history.replaceState) {
+          if (href.charAt(0) === '#') history.replaceState(null, '', href);
+          else if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+        }
+        setTimeout(function () {
+          var y = landing(target);
+          if (window.lenis) window.lenis.scrollTo(y, { immediate: true, force: true });
+          else window.scrollTo(0, y);
+          // redraw every frame while the blur is up
+          var started = performance.now();
+          (function hold() {
+            settleTimelines();
+            if (performance.now() - started < SETTLE_MS) requestAnimationFrame(hold);
+            else {
+              jumping = false;
+              sync();
+            }
+          })();
+        }, 0);
+      },
+      true,
+    );
+
+    // Hash arrival: land like the menu once the layout settles, then lift the cover. Back/forward/reload below 992px: land after 1.8s.
+    var root = document.documentElement;
+    var arriving = root.classList.contains('mwp-arriving');
+    function uncover() {
+      if (!arriving) return;
+      root.classList.add('mwp-landed');
+      setTimeout(function () {
+        root.classList.remove('mwp-arriving', 'mwp-landed');
+      }, 600);
+    }
+    // loaded, animations built, count + height stable for 500ms (3s max)
+    function whenSettled(go) {
+      var started = performance.now();
+      var lastSig = '';
+      var since = started;
+      (function check() {
+        var ST = window.ScrollTrigger;
+        var n = ST && ST.getAll ? ST.getAll().length : 0;
+        var sig = n + '/' + document.documentElement.scrollHeight;
+        var now = performance.now();
+        if (sig !== lastSig) {
+          lastSig = sig;
+          since = now;
+        }
+        if ((document.readyState === 'complete' && n > 0 && now - since >= 500) || now - started > 3000) go();
+        else setTimeout(check, 100);
+      })();
+    }
+    if (location.hash.length > 1 && (arriving || band() !== '')) {
+      var wanted = location.hash;
+      var land = function () {
+        var linked = Array.prototype.some.call(document.querySelectorAll('.mwp-css-nav_link[href]'), function (l) {
+          return l.getAttribute('href') === wanted;
+        });
+        var target = null;
+        try {
+          target = document.querySelector(wanted);
+        } catch (err) {}
+        if (!linked || !target) {
+          uncover();
+          return;
+        }
+        var y = landing(target);
+        if (window.lenis) window.lenis.scrollTo(y, { immediate: true, force: true });
+        else window.scrollTo(0, y);
+        var began = performance.now();
+        var shown = false;
+        (function hold() {
+          settleTimelines();
+          var t = performance.now() - began;
+          if (!shown && t > 200) {
+            shown = true;
+            uncover();
+          }
+          if (t < 700) requestAnimationFrame(hold);
+        })();
+      };
+      if (arriving) whenSettled(land);
+      else setTimeout(land, 1800);
+    }
+  });
+</script>
+<!-- About sequence: promise, slate sweep and mask share a sticky stage -->
+<style>
+  [data-mwp-sequence] {
+    position: relative;
+  }
+  [data-sequence-phase] {
+    position: absolute;
+    left: 0;
+    width: 1px;
+    pointer-events: none;
+  }
+  [data-mwp-slate-wipe] {
+    display: none;
+  }
+  [data-mwp-sequence]:not([data-mwp-sequence-ready]) > .about-section.top {
+    position: relative;
+    height: auto;
+    margin-bottom: 0;
+  }
+  [data-mwp-sequence]:not([data-mwp-sequence-ready]) .ticker {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  [data-mwp-sequence-ready] > .about-section.top {
+    position: sticky;
+    top: 0;
+    height: 100lvh;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  [data-mwp-sequence-ready] .ticker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 2;
+    background-color: transparent;
+    background-image: none;
+  }
+  [data-mwp-sequence-ready] .ticker__sticky {
+    position: relative;
+    top: 0;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+  [data-mwp-sequence-ready] [data-mwp-slate-wipe] {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -10%;
+    width: 220%;
+    height: 120%;
+    pointer-events: none;
+    transform: translateX(50%);
+    /* first 30svh fully clear (no faint edge on the left) */
+    background-image: linear-gradient(104deg, transparent 0 30svh, var(--slate, #2b464e) 42%, var(--slate, #2b464e) 100%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-mwp-sequence-ready] {
+      height: auto !important;
+    }
+    [data-mwp-sequence-ready] > .about-section.top {
+      position: relative;
+      height: auto;
+    }
+    [data-mwp-sequence-ready] .ticker {
+      position: relative;
+      height: 100svh;
+    }
+    [data-mwp-sequence-ready] .ticker__sticky {
+      background-color: var(--slate, #2b464e);
+    }
+    [data-mwp-sequence-ready] [data-mwp-slate-wipe] {
+      display: none;
+    }
+    [data-mwp-sequence-ready] .about-top-track {
+      opacity: 1 !important;
+    }
+  }
+</style>
+<!-- No testimonial front-row shadow below 992px -->
+<style>
+  @media (max-width: 991px) {
+    .testi-wall_half:first-child > .testi-wall_row:first-child,
+    .testi-wall_half:last-child > .testi-wall_row:last-child {
+      filter: none;
+    }
+  }
+</style>
+<!-- Contents device (desktop only) -->
+<style>
+  .mwp-contents {
+    display: none;
+  }
+  @media (min-width: 992px) {
+    .mwp-contents {
+      display: block;
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      z-index: 900; /* under the blur and the header */
+      transform: translateY(-50%) scale(0.6);
+      transform-origin: 100% 50%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background-color: rgba(30, 41, 46, 0);
+      transition: background-color 0.25s ease, transform 0.3s ease;
+    }
+    .mwp-contents:hover,
+    .mwp-contents:focus-within {
+      transform: translateY(-50%) scale(1);
+      background-color: rgba(30, 41, 46, 0.86);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .mwp-contents__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .mwp-contents__link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 2.75px 0;
+      color: #fff;
+      text-decoration: none;
+      outline: none;
+    }
+    .mwp-contents__label {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+      font-size: 0.875rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-right: 0;
+      transition: max-width 0.3s ease, opacity 0.2s ease, margin-right 0.3s ease;
+    }
+    .mwp-contents:hover .mwp-contents__label,
+    .mwp-contents:focus-within .mwp-contents__label {
+      max-width: 9rem;
+      opacity: 0.7;
+      margin-right: 14px;
+    }
+    .mwp-contents__link.is-current .mwp-contents__label,
+    .mwp-contents__link:hover .mwp-contents__label,
+    .mwp-contents__link:focus-visible .mwp-contents__label {
+      opacity: 1;
+    }
+    .mwp-contents__tick {
+      flex: none;
+      display: block;
+      width: 12px;
+      height: 2px;
+      border-radius: 0;
+      /* inverts what's behind it: readable on every background */
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      opacity: 1;
+      transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+    }
+    .mwp-contents__link.is-current .mwp-contents__tick,
+    .mwp-contents__link.is-group-current .mwp-contents__tick {
+      width: 28px;
+    }
+    /* About parts hang off a dotted rail */
+    .mwp-contents__list {
+      position: relative;
+      z-index: 1;
+    }
+    .mwp-contents__rail {
+      position: absolute;
+      right: 12px;
+      width: 1px;
+      z-index: 0;
+      pointer-events: none;
+      background-color: transparent;
+      -webkit-backdrop-filter: grayscale(1) invert(1) contrast(100);
+      backdrop-filter: grayscale(1) invert(1) contrast(100);
+      -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px);
+      mask-image: repeating-linear-gradient(to bottom, #000 0, #000 1px, transparent 1px, transparent 2px);
+      opacity: 0.6;
+    }
+    .mwp-contents__link.is-sub {
+      padding: 1.4px 0;
+    }
+    .mwp-contents__link.is-sub .mwp-contents__tick {
+      width: 6px;
+      height: 1px;
+      margin-right: 1px;
+      opacity: 0.6;
+    }
+    .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
+      width: 9px;
+      margin-right: 0;
+      opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: #d9466c;
+    }
+    .mwp-contents__link.is-sub .mwp-contents__label {
+      font-size: 0.8125rem;
+    }
+    .mwp-contents:hover .mwp-contents__link.is-sub .mwp-contents__label,
+    .mwp-contents:focus-within .mwp-contents__link.is-sub .mwp-contents__label {
+      opacity: 0.55;
+    }
+    .mwp-contents__link.is-sub.is-current .mwp-contents__label,
+    .mwp-contents__link.is-sub:hover .mwp-contents__label,
+    .mwp-contents__link.is-sub:focus-visible .mwp-contents__label {
+      opacity: 1;
+    }
+    .mwp-contents__link:hover .mwp-contents__tick,
+    .mwp-contents__link:focus-visible .mwp-contents__tick {
+      opacity: 1;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: #d9466c;
+    }
+    /* opacity per line: on the parent it would break the backdrop filter */
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub .mwp-contents__tick {
+      opacity: 0.4;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__link.is-sub.is-current .mwp-contents__tick {
+      opacity: 0.65;
+    }
+    .mwp-contents:not(:hover):not(:focus-within) .mwp-contents__rail {
+      opacity: 0.4;
+    }
+    .mwp-contents__rail {
+      transition: opacity 0.25s ease;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mwp-contents,
+    .mwp-contents__label,
+    .mwp-contents__tick {
+      transition: none;
+    }
+  }
+</style>
+<script>
+  // Contents device: marks the current section; jumps through the menu's handler
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!MWP.desktop.matches) return;
+    // built 1s after the hero logo resolves (3s max) to avoid a Safari hitch
+    var built = false;
+    function start() {
+      if (built) return;
+      built = true;
+      build();
+    }
+    document.addEventListener('faulty-terminal:logo-resolved', function () {
+      setTimeout(start, 1000);
+    });
+    setTimeout(start, 3000);
+    function build() {
+    function docTop(el) {
+      return el.getBoundingClientRect().top + window.scrollY;
+    }
+    function topOf(target) {
+      if (target === 0) return 0;
+      var base = target.closest('.pin-spacer') || target;
+      return docTop(base);
+    }
+    function sel(s) {
+      return document.querySelector(s);
+    }
+    var ENTRIES = [
+      { label: 'Home', href: '/', start: function () { return 0; } },
+      { label: 'About', href: '#about', start: function () { return topOf(sel('#about')); }, ok: '#about' },
+      { label: 'Intro', sub: true, start: function () { return topOf(sel('#about')); }, ok: '#about' },
+      { label: 'Our promise', sub: true, start: function () { return docTop(sel('section.about')); }, ok: 'section.about', land: 0.1 },
+      { label: 'We work with', sub: true, start: function () { return docTop(sel('[data-sequence-phase="mask"]')); }, ok: '[data-sequence-phase="mask"]', land: 1 },
+      {
+        label: 'Built to last',
+        sub: true,
+        start: function () {
+          var m = sel('[data-sequence-phase="mask"]');
+          return docTop(m) + m.offsetHeight;
+        },
+        ok: '[data-sequence-phase="mask"]',
+        land: 1.2,
+      },
+      { label: 'Pricing', href: '#pricing', start: function () { return topOf(sel('#pricing')); }, ok: '#pricing' },
+      { label: 'Work', href: '#portfolio', start: function () { return topOf(sel('#portfolio')); }, ok: '#portfolio' },
+      { label: 'Testimonials', href: '#testimonials', start: function () { return topOf(sel('#testimonials')); }, ok: '#testimonials' },
+      { label: 'Contact', href: '#contact', start: function () { return topOf(sel('#contact')); }, ok: '#contact' },
+    ];
+    var READ_LINE = 0.5; // a section is current once its start passes this fraction of the screen
+    var items = [];
+    var nav = document.createElement('nav');
+    nav.className = 'mwp-contents';
+    nav.setAttribute('aria-label', 'Page contents');
+    var list = document.createElement('ul');
+    list.className = 'mwp-contents__list';
+    var parent = null;
+    ENTRIES.forEach(function (entry) {
+      if (entry.ok && !sel(entry.ok)) return;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'mwp-contents__link' + (entry.sub ? ' is-sub' : '');
+      a.href = entry.href && entry.href !== '/' ? entry.href : '#';
+      var label = document.createElement('span');
+      label.className = 'mwp-contents__label';
+      label.textContent = entry.label;
+      var tick = document.createElement('span');
+      tick.className = 'mwp-contents__tick';
+      tick.setAttribute('aria-hidden', 'true');
+      a.appendChild(label);
+      a.appendChild(tick);
+      if (entry.sub) li.className = 'is-sub';
+      li.appendChild(a);
+      list.appendChild(li);
+      var it = { a: a, entry: entry, parent: entry.sub ? parent : null };
+      if (!entry.sub) parent = it;
+      items.push(it);
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var navLink = entry.href ? document.querySelector('.mwp-css-nav_link[href="' + entry.href + '"]') : null;
+        if (navLink) {
+          navLink.click();
+          return;
+        }
+        var y = entry.start() + (entry.land || 0) * window.innerHeight;
+        if (entry.href === undefined && document.querySelector('[data-mwp-menu]')) {
+          // About parts: hidden nav link pointing at a marker
+          var marker = document.createElement('div');
+          marker.id = 'mwp-contents-jump';
+          marker.style.cssText = 'position:absolute;left:0;top:0;width:1px;height:0;pointer-events:none;';
+          document.body.appendChild(marker);
+          marker.style.top = y - docTop(marker) + 'px';
+          var go = document.createElement('a');
+          go.className = 'mwp-css-nav_link';
+          go.setAttribute('href', '#mwp-contents-jump');
+          go.hidden = true;
+          document.body.appendChild(go);
+          go.click();
+          setTimeout(function () {
+            go.remove();
+            marker.remove();
+            if (location.hash === '#mwp-contents-jump' && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+          }, 1000);
+        } else if (window.lenis) {
+          window.lenis.scrollTo(y, { immediate: true, force: true });
+        } else {
+          window.scrollTo(0, y);
+        }
+      });
+    });
+    if (items.length < 2) return;
+    nav.appendChild(list);
+    // dotted rail, 8px past the first and last part
+    var RAIL_OVERHANG = 8;
+    var rail = document.createElement('div');
+    rail.className = 'mwp-contents__rail';
+    rail.setAttribute('aria-hidden', 'true');
+    nav.insertBefore(rail, list);
+    document.body.appendChild(nav);
+    function placeRail() {
+      var subs = list.querySelectorAll('li.is-sub');
+      if (!subs.length) {
+        rail.style.display = 'none';
+        return;
+      }
+      var navRect = nav.getBoundingClientRect();
+      var k = navRect.height / nav.offsetHeight || 1; // the device is scaled down at rest: measure unscaled
+      var navTop = navRect.top;
+      var a = subs[0].getBoundingClientRect();
+      var b = subs[subs.length - 1].getBoundingClientRect();
+      var top = Math.round((a.top - navTop + a.height / 2) / k - RAIL_OVERHANG);
+      var bottom = Math.round((b.top - navTop + b.height / 2) / k + RAIL_OVERHANG);
+      rail.style.display = '';
+      rail.style.top = top + 'px';
+      rail.style.height = bottom - top + 'px';
+    }
+    placeRail();
+    MWP.onResize(placeRail);
+    window.addEventListener('load', placeRail);
+
+    var current = -1;
+    var queued = false;
+    function update() {
+      queued = false;
+      var line = window.scrollY + window.innerHeight * READ_LINE;
+      var now = 0;
+      items.forEach(function (it, i) {
+        if (it.entry.start() <= line) now = i;
+      });
+      if (now === current) return;
+      current = now;
+      items.forEach(function (it, i) {
+        var on = i === now;
+        var group = items[now].parent === it;
+        it.a.classList.toggle('is-current', on);
+        it.a.classList.toggle('is-group-current', group);
+        if (on) it.a.setAttribute('aria-current', 'true');
+        else it.a.removeAttribute('aria-current');
+      });
+    }
+    function queue() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    }
+    MWP.onScroll(queue); // also runs on every resize
+    window.addEventListener('load', queue);
+    update();
+    }
+  });
+</script>
+<style>
+@media (min-width: 992px) {
+  .mwp-contents__rail {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
+</style>
+<!-- Phones (below 768px): About top panel not sticky -->
+<style>
+  @media (max-width: 767px) {
+    [data-mwp-sequence-ready] > .about-section.top {
+      position: relative;
+      height: auto;
+    }
+  }
+</style>
+<!-- Formerly registered scripts -->
+<style>
+  /* Pricing CTA arrow: phones only */
+  @media screen and (min-width:479px){.instant-quote-btn.mobile .grad-arrow-wrapper{display:none!important}}
+  @media screen and (max-width:478px){.instant-quote-btn.mobile .button-inner>div:first-child{grid-area:auto!important}}
+  /* Upright tablets keep the tablet hero height */
+  @media (min-width:480px) and (max-width:767px) and (orientation:portrait){body{--_structure---hero-height:100svh}}
+  /* Slate under the browser toolbar at the end of the page */
+  html{background-color:var(--slate,#2b464e)}
+</style>
+<script>
+  /* FT logo resolve, head part (faulty-terminal repo): hides .mwp-logo until resolved; defines window.mwpLogoPlace */
+  (function(){var d=document,h=d.documentElement;try{matchMedia("(prefers-reduced-motion: reduce)").matches||h.classList.add("ft-lr")}catch(a){}var c=d.createElement("style");c.textContent="html.ft-lr .mwp-logo{visibility:hidden;animation:ft-lr-safety 0s linear 10s forwards}@keyframes ft-lr-safety{to{visibility:visible}}",d.head.appendChild(c);var r=null;window.mwpLogoPlace=function(a){var t=window.devicePixelRatio||1,n=getComputedStyle;if(!r){var u=a.querySelector(".pixel");r={s:parseFloat(n(u).width)||16,g:parseFloat(n(a).columnGap)||2,r:parseFloat(n(u).borderTopLeftRadius)||3}}var m=Math.round(r.s*t),f=Math.max(1,Math.round(r.g*t)),i=m/t,l=f/t,o=i+l,e=a.style;e.gridTemplateColumns="repeat(9,"+i+"px)",e.gridTemplateRows="repeat(7,"+i+"px)",e.columnGap=e.rowGap=l+"px",e.width=9*o-l+"px",e.height=7*o-l+"px",a.querySelectorAll(".pixel").forEach(function(p){p.style.width=p.style.height=i+"px",p.style.borderRadius=Math.round(r.r*t)/t+"px"}),e.translate="0px 0px";var s=a.getBoundingClientRect();return e.translate=Math.round(s.left*t)/t-s.left+"px "+(Math.round(s.top*t)/t-s.top)+"px",{pitch:o,size:i}}})();
+</script>
+<script>
+  /* Folio wall lift (phones): raises the sticky wall by half the toolbar height change */
+  (function () {
+    var r = document.documentElement, s = document.createElement('style'), p;
+    s.textContent = '@media (max-width:479px){.folio-wall .folio-wall_sticky{top:calc(var(--mwp-fw-lift,0px)*-1)}}';
+    document.head.appendChild(s);
+    function set() {
+      var d = Math.round((p.offsetHeight - window.innerHeight) / 2);
+      r.style.setProperty('--mwp-fw-lift', Math.min(120, Math.max(0, d)) + 'px');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      p = document.createElement('div');
+      p.setAttribute('aria-hidden', 'true');
+      p.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100lvh;visibility:hidden;pointer-events:none';
+      document.body.appendChild(p);
+      set();
+      window.addEventListener('resize', set, { passive: true });
+      window.addEventListener('orientationchange', set);
+    });
+  })();
+</script>
+<!-- Pricing on short screens (992px+ wide, under 750px tall): the stacked layout. These repeat Webflow's under-992px pricing rules: if those change in the Designer, copy them here. Keep 750 in step with the pricing script (footer). -->
+<style>
+  @media (min-width: 992px) and (max-height: 749px) {
+    .pricing { height: auto; padding-bottom: calc(var(--_structure---section-padding)*3); justify-content: center; align-items: flex-start; }
+    .pricing-wrapper { pointer-events: auto; flex-flow: column; justify-content: center; align-items: flex-start; height: auto; min-height: 100lvh; display: flex; }
+    .pricing-block { border-radius: 0px; flex-flow: column; flex: 0 0 auto; align-self: center; align-items: flex-start; width: 100vw; padding: 7.5vw 7.5vw 8vw; display: flex; position: relative; }
+    .pricing-block.raspberry { min-height: auto; }
+    .pricing-block.teal { align-self: center; }
+    .pricing-strapline { align-self: flex-start; }
+    .price-block { flex-flow: column; justify-content: flex-end; align-items: flex-start; display: flex; align-self: start !important; }
+    .price-block.growth { aspect-ratio: auto; text-align: left; background-color: rgba(0, 0, 0, 0); border-radius: 0px; justify-content: center; align-self: flex-start; align-items: flex-start; width: 100%; padding: 0px; position: static; inset: auto 0% 0%; }
+    .price { font-size: clamp(2rem, 4vw, 3rem); }
+    .pricing-cta { width: 100%; height: auto; min-height: auto; margin-top: var(--_structure---section-padding); padding-right: var(--_structure---section-padding); padding-left: var(--_structure---section-padding); gap: 1rem; border-top-left-radius: var(--_structure---border-radius); border-top-right-radius: var(--_structure---border-radius); border-bottom-left-radius: var(--_structure---border-radius); border-bottom-right-radius: var(--_structure---border-radius); padding-bottom: calc(var(--_structure---section-padding)/1); grid-template-rows: auto; grid-template-columns: 1fr 1fr; margin-left: auto; margin-right: auto; position: static; }
+    .pricing-cta:focus { background-color: color-mix(in hsl,var(--offwhite)5%,var(--transparent)95%); }
+    .instant-quote-btn { margin-top: 0px; font-size: clamp(1rem, 1.1em, 1.25rem); bottom: 4rem; }
+    .instant-quote-btn:where(.w-variant-11aecdbc-a782-fe05-9771-bb4e60cdd3fd) { font-size: clamp(0.9rem, 1.1em, 1.25rem); position: relative; inset: auto; }
+    .instant-quote-btn.mobile.about-cta { display: none; }
+    .section-clipping-mask { height: auto; padding-bottom: var(--_structure---section-padding); pointer-events: auto; position: static; }
+  }
+</style>
+<script>
+  /* Pricing on short screens: Webflow interactions only know widths, so switch off the desktop pricing pin here. Reloads when the window crosses 750px tall (on touch screens only when the width changes too, so a sliding toolbar can't reload the page). */
+  document.addEventListener('DOMContentLoaded', function () {
+    var q = matchMedia('(min-width: 992px) and (max-height: 749px)'), was = q.matches, w = innerWidth, t;
+    q.addEventListener('change', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        if (q.matches !== was && (innerWidth !== w || matchMedia('(pointer: fine)').matches)) location.reload();
+      }, 300);
+    });
+    if (!was) return;
+    var n = 0, h = setInterval(function () {
+      var ST = window.ScrollTrigger, done = false;
+      if (ST) ST.getAll().forEach(function (x) { if (x.trigger && /(^| )pricing( |$)/.test(x.trigger.className || '')) { x.kill(true); done = true; } });
+      if (done) ST.refresh();
+      if (done || ++n > 50) clearInterval(h);
+    }, 200);
+  });
+</script>
+<!-- Formerly Code Embeds on the page -->
+<style>
+  /* Hero scroll cue (letters are an embed inside .scroll-wrapper) */
+  .mwp-scroll-cue {
+    display: inline-flex;
+    color: var(--offwhite, currentColor);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    margin-right: -0.45em; /* cancels the trailing letter-spacing so the word stays centred */
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .mwp-scroll-cue > span {
+    opacity: 0.35;
+    animation: mwp-scroll-cue-pulse 2.4s ease-in-out infinite;
+  }
+  .mwp-scroll-cue > span:nth-child(2) { animation-delay: 0.12s; }
+  .mwp-scroll-cue > span:nth-child(3) { animation-delay: 0.24s; }
+  .mwp-scroll-cue > span:nth-child(4) { animation-delay: 0.36s; }
+  .mwp-scroll-cue > span:nth-child(5) { animation-delay: 0.48s; }
+  .mwp-scroll-cue > span:nth-child(6) { animation-delay: 0.6s; }
+  @keyframes mwp-scroll-cue-pulse {
+    0%, 60%, 100% { opacity: 0.35; }
+    30% { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mwp-scroll-cue > span { animation: none; opacity: 0.6; }
+  }
+  /* Marquee exit reveal (desktop): angled mask driven by the "Ticker Exit Edge" variable (Marquee Exit Reveal interaction) */
+  @media (min-width: 992px) {
+    [data-mwp-sequence-ready] .ticker .ticker__sticky {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%), linear-gradient(104deg, #000 calc(var(--_animation---ticker-exit-edge, 135%) - 35%), transparent var(--_animation---ticker-exit-edge, 135%));
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%), linear-gradient(104deg, #000 calc(var(--_animation---ticker-exit-edge, 135%) - 35%), transparent var(--_animation---ticker-exit-edge, 135%));
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+    }
+  }
+  /* cqw fallback for Safari before 16: DO NOT REMOVE (hero text dropped to 16px; vw gives the same sizes) */
+  @supports not (font-size: 1cqw) {
+    .hero-container,
+    .ticker__mask,
+    .grad-arrow-wrapper {
+      font-size: 1vw;
+    }
+    .scroll-wrapper {
+      font-size: clamp(0.7rem, 1vw, 1.125rem);
+    }
+    @media (max-width: 991px) {
+      .hero-container h1 { font-size: 10vw; }
+      .hero-container .h1-line-01 { font-size: 8.9vw; }
+      .hero-container .h1-line-04 { font-size: 11vw; }
+    }
+    @media (max-width: 479px) {
+      .hero-container h1 { font-size: 12.5vw; }
+      .hero-container .h1-line-01 { font-size: 11vw; }
+      .hero-container .h1-line-04 { font-size: 14vw; }
+    }
+  }
+</style>

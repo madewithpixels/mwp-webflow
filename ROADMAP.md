@@ -44,6 +44,8 @@
 
 *Forty-two tasks added on 20 November 2026 (R-164 to R-206, with R-184 unused, brief #590) are written up from your list and still need your confirmation of the guesses marked in them. R-162 and R-163 now carry their task numbers (#43612505, #43612486). Your task #43612451 is R-161. Four more tasks (#43612111, #43612126, #43612130, #43612133) are headings already covered above.*
 
+*Fifteen tasks added on 24 November 2026 (R-207 to R-221, brief #595) are written up from your list and still need your confirmation of the guesses marked in them. R-211 may overlap R-179.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -53,8 +55,8 @@
 | Phase | What | Items |
 |---|---|---|
 | 1 | Groundwork | R-029, R-117 |
-| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202 |
-| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205 |
+| 2 | Desktop polish | R-031–R-038, R-074–R-076, R-079–R-088, R-094–R-099, R-112, R-132, R-133, R-134, R-135 (R-135 folded into R-134), R-147, R-150–R-153, R-155, R-164–R-166, R-169, R-170, R-179–R-183, R-185–R-188–R-191, R-195, R-202, R-207, R-208, R-210–R-214, R-218–R-221 |
+| 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205, R-209, R-215–R-217 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142, R-171–R-174, R-199 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144, R-192–R-194, R-196, R-206 |
 | 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
@@ -713,6 +715,83 @@ Related: R-035 (marquee typography), R-098 (gap above the pricing cards), R-032,
 **Done when:** a decision is made and applied: at 1440px and wider the pricing cards either keep the container width or sit at a narrower maximum, Michael agrees on published staging. (inferred — confirm)
 **Note:** A question: look at 1440, 1920 and wider and give options with screenshots (D-007). Related: R-162, R-098.
 
+### R-207 · change 'Ai automation' to 'Apps and business tools'
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612509 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the text 'Ai automation' is replaced by 'Apps and business tools' everywhere it appears (Sectors & Specialisms marquee, any sector list, the lite version), on published staging at desktop and phone. (inferred — confirm)
+**Note:** Read as a wording change in the sector ticker and anywhere else the phrase is used (inferred — confirm). Check the text still fits its band and the line breaks. Related: R-080, R-035.
+
+### R-208 · There's still a bit of vertical movement visible when 'Your website built to last' appears - kill it by giving the animations more time before the staggers begin
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612511 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** when 'Your website. Built to last.' appears, nothing visibly moves up or down; only the intended slide and stagger are seen, on published staging in Chrome at desktop. (inferred — confirm)
+**Note:** Your fix: lengthen the lead-in so the section settles before the staggers start. Carries on R-151 (the slide in from the right built 12 November 2026, brief #581). Animation timing: check in Claude in Chrome, and see the D-017 notes before changing scroll animations. Related: R-179, R-183.
+
+### R-210 · Add MWP:Lab to portfolio section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612517 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** MWP:Lab appears in the portfolio section on the Home page like the other projects, with its image, title and link, on published staging. (inferred — confirm)
+**Note:** The task reads 'Add MWP' in the brief; boss's list has it as 'Add MWP:Lab to portfolio section'. Whether it is a new project page or a link out, and where it sits in the order, aren't said, and the images and text need to come from you (inferred — confirm). Portfolio items are CMS items; creating one is not done without your say-so.
+
+### R-211 · The edges of the slanted gradient fade at the start of the Tickler Marquee section are visible as the section scrolls over the 'Our promise' content.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612524 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** scrolling the marquee section over 'Our promise', the slanted gradient fade shows no visible edge or hard line at any scroll position, on published staging in Chrome at desktop. (inferred — confirm)
+**Note:** Same fault family as R-179 (the edge of the angled fade into the Ticker section visible after the fade was shortened); check whether R-179 already covers it and merge if so (inferred — confirm). Related: R-025, R-035, R-183.
+
+### R-212 · There's still a bit of vertical movement visible when the pricing cards scroll off-screen in the pricing CTA section - hide it by giving the pricing CTA animations more time to appear (or similar)
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612525 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** as the pricing cards scroll off-screen in the pricing CTA section there's no visible vertical drift; it is hidden by giving the animations more time to appear, on published staging in Chrome at desktop. (inferred — confirm)
+**Note:** Your fix: more time before the CTA animations appear 'or similar', so another way of hiding it is fine (inferred — confirm). Related: R-032, R-098, R-151, R-202. Check D-017 before changing scroll animations.
+
+### R-213 · The brand logos marquee should just be slowly playing
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612526 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the brand logos marquee scrolls slowly and continuously by itself, with no scroll-linking, speed-up or reversal, on published staging at desktop and phone. (inferred — confirm)
+**Note:** Read as: remove the scroll-driven behaviour and set one slow steady speed (inferred — confirm; the speed is a guess to be tuned by you). Related: R-164 (more logos to the carousel).
+
+### R-214 · The 5th, 6th and 7th lines of the Ticker Marquee are scrolling in the wrong direction - reverse them
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612527 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** lines 5, 6 and 7 of the Ticker Marquee move in the opposite direction to now, so the lines alternate as intended, on published staging at desktop. (inferred — confirm)
+**Note:** 'Ticker Marquee' is read as the typography marquee in the About / sector ticker (inferred — confirm). Direction is probably set in the Home footer ticker code. Count lines from the top (inferred — confirm). Related: R-006, R-035, R-080.
+
+### R-218 · Colour saturation boost
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612531 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the site's colours are more saturated, with you agreeing the amount on published staging. (inferred — confirm)
+**Note:** Only the title is given, so options first (D-007): where it applies (whole palette, slate, tricolour accents), and how much, shown as before and after. Related: R-155 (is the slate too bright, tricolour muddy), which touches the same palette. Any new variable or class needs approval (D-006).
+
+### R-219 · Play with the hero folio-wall initial zoom level
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612532 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** you've seen two or three zoom levels for the folio wall at the start of the hero and chosen one, which is then set, on published staging at desktop. (inferred — confirm)
+**Note:** An experiment: offer a few starting zoom levels as options (D-007). Related: R-181 (Hero Folio Wall Explorer), R-086, R-021, R-154.
+
+### R-220 · Typography. Big apercu titles, smaller folio list entries
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612533 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the main titles are set large in Apercu and the folio (portfolio) list entries are smaller, on published staging at desktop and phone, with you agreeing the sizes. (inferred — confirm)
+**Note:** Read as: 'apercu' is the site's Apercu font; titles go bigger and the portfolio list entries smaller (inferred — confirm). Options first (D-007). No new class without approval; longhand only (D-006). Related: R-054, R-183, R-221.
+
+### R-221 · Hero layout experiment.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612534 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** one or more alternative hero layouts have been tried and shown to you as options, and you've chosen whether to keep one, on published staging. (inferred — confirm)
+**Note:** Only the title is given, so the experiment itself is unspecified: first ask or offer sketches (D-007). Related: R-147, R-165, R-169, R-170, R-219, R-220.
+
 ## Phase 3 · Phone and tablet
 *From your "Responsive layouts" group. After the desktop polish, before launch prep, because the font-weight trim and the speed fixes depend on the final mobile type.*
 
@@ -1154,6 +1233,34 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **From:** your task list, added 20 November 2026 (brief #590).
 **Done when:** going from a project page back to the home page at tablet and phone shows the H1 in its correct place, not over the hero, on published staging. (inferred — confirm)
 **Note:** Likely the page transition lands before the hero layout is set. Related: R-157, R-165, R-168, R-187.
+
+### R-209 · The blockquotes appear off-centre @mobile - I don't think they are, but do think they need a nudge 5-10% to the right at their 'beat' in the animation
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612512 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** at phone width, the testimonial blockquotes sit 5 to 10% further right at their 'beat' (the held moment) in the animation, and read as centred, on published staging. (inferred — confirm)
+**Note:** Read as the testi-wall block quotes (inferred — confirm). Check iPhone and Android widths; the exact nudge is tuned by eye. Related: R-201 (floating first speech mark on those quotes).
+
+### R-215 · Mobile pricing section animations are broken probably from nov20th work on the pricing section.
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612528 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the pricing section animations at phone width run as they did before 20 November 2026, with no broken or missing steps, on published staging on a phone. (inferred — confirm)
+**Note:** First step: find which change on 20 November 2026 broke it (STATUS and git log for the pricing work, R-162, R-202, R-203) and report before fixing (inferred — confirm). Related: R-148, R-158, R-159, R-167. Needs a real phone or a narrow Chrome window.
+
+### R-216 · Get rid of pinned sections at mobile - a font-size made larger breaks the layout irrevocably
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612529 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** at phone width the Home sections scroll normally instead of being pinned, and making the font size larger no longer breaks the layout, on published staging on a phone with a larger text size. (inferred — confirm)
+**Note:** Read as: unpin the pinned sections (About, pricing and similar) at phone width, and make the animations work without pinning (inferred — confirm which sections; options first, D-007). This is a big change to the scroll animations: see the D-017 notes. Related: R-121, R-126, R-127, R-129, R-131, R-217.
+
+### R-217 · Stagger anims for mobile about section
+**State:** planned · **Evidence:** none · **Acceptance:** pending
+**Task:** 43612530 in your boss list
+**From:** your task list, added 24 November 2026 (brief #595).
+**Done when:** the About section at phone width has staggered entrance animations for its text and elements, on published staging on a phone. (inferred — confirm)
+**Note:** Read as the About sequence's phone version, which may be unpinned (R-216) (inferred — confirm). Related: R-188 (stagger on 'Our promise'), R-149, R-216.
 
 ## Phase 4 · Estimate page
 *From your "Adjust Estimator" group. Before launch prep, because "Test forms" and the GA4 form event need the final forms. Copy last, once the screens have settled (you planned the copy pass for after the UI).*

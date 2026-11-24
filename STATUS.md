@@ -4,6 +4,14 @@
 
 
 
+## 24 November 2026 (night) — Claude (night shift) — Fifteen new tasks written up as roadmap items (R-207 to R-221, brief #595)
+**Changed:** `ROADMAP.md` only. One item per task, your wording as the title, a done-when, guesses marked "(inferred — confirm)", and the **Task:** line. Desktop items sit at the end of Phase 2, phone items at the end of Phase 3; the phase table and the note at the top are updated.
+**Items:** R-207 (#43612509), R-208 (#43612511), R-209 (#43612512), R-210 (#43612517, "Add MWP:Lab to portfolio section"), R-211 (#43612524, may overlap R-179), R-212 (#43612525), R-213 (#43612526), R-214 (#43612527), R-215 (#43612528), R-216 (#43612529), R-217 (#43612530), R-218 (#43612531), R-219 (#43612532), R-220 (#43612533), R-221 (#43612534).
+**Not done:** no work on any item; nothing changed in Webflow or the site, so no snapshot files; your tasks untouched. The other tasks listed without items (#43612130, #43612133, #43612126, #43612111) are headings already covered, so they got none. The roadmap-order moves listed in the inbox were left as the runner made them.
+**Evidence:** n/a (documents only). **Acceptance:** pending.
+**Open questions (not blocking):** R-210 needs the MWP:Lab images and text from you; R-218, R-219, R-220 and R-221 are experiments that start with options.
+**Claude (night shift)**
+
 ## 24 November 2026 (parked) — Claude — Custom code refactor parked; final steps written up (R-117)
 **Michael asked:** "we park here, update the docs - work out what the final steps are." He is waiting for boss to update the roadmap with tasks added in the past few days (expect some doubles, some already done but not recorded, some dropped), then we go through it together.
 **State of staging:** all six custom code boxes are refactored and hash-match `snapshots/2026-11-24/` (Site head and footer, Home head and footer) and `snapshots/2026-11-23/` (Estimate head and footer). Nothing changed in Webflow in this entry.

@@ -4,6 +4,20 @@
 
 
 
+## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 3: project content position at 1920px into the Designer (R-146)
+- **Designer**, Project Content Wrapper:
+  - Grid child `align-self: end` at the **1440px** breakpoint (Michael's call: tested at 1440 and 1680 first, no change there). It cascades to 1920.
+  - Michael's first two passes landed on the wrapper's own grid `align-content` and cleared the 1920px `margin-bottom: 10rem`. At his request I set it with the style tool:
+    - removed `align-content` at 1440;
+    - added `align-self: end` at 1440;
+    - put `margin-bottom: 10rem` back at 1920.
+  - Read back: 1440 `align-self: end`; 1920 `top: 10svh`, `margin-bottom: 10rem`; tablet `height: auto` (already there).
+- **Site head:** the `@media (min-width:1920px) .project-content-wrapper { align-self: end !important }` block deleted; nothing else set `align-self` on it. Site head now 19508 / -920268385.
+- **Checked on staging** (Halstead Glass at 1280, 1440, 1680, 1920 and 2400px): the wrapper sits in the same place and at the same size as before at every width; `align-content` is back to normal. All boxes hash-match. Snapshot updated.
+- **Left in code, by decision:** `.folio-list li { margin-block: 0 }`. It cancels the site-wide All List Items margin, and the 40 `<li>`s have no class, so moving it would need a new class on each.
+- **Not yet looked at:** the folio link underline (`background-repeat/position/size` for a background image that is a variable).
+- The two unused standalone `project-nav_arrow-prev/-next` classes were already gone.
+
 ## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 2: project-nav arrows' look all in the Designer (R-117 step A3, R-146)
 - **Michael (Designer):** Project Nav Inner lost its own coral background and its corner radius (read back: display, size and padding only). The tab, Project Nav Arrow with `is-prev` / `is-next`, now shows through.
 - **Site head:**

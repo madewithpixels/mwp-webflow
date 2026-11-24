@@ -12,6 +12,30 @@
 **Open questions (not blocking):** R-210 needs the MWP:Lab images and text from you; R-218, R-219, R-220 and R-221 are experiments that start with options.
 **Claude (night shift)**
 
+## 24 November 2026 (afternoon) — Claude — Roadmap review with Michael (after boss added R-207 to R-221)
+**Michael asked:** a summary of the roadmap, to sort doubles, things done but not recorded, and things dropped. Claude grouped the 117 open items; Michael answered each group.
+**Recorded in `ROADMAP.md`** (state lines, marked "Michael, roadmap review 24 November 2026"):
+- **Done (38):**
+  - R-036, R-037, R-076, R-077, R-147, R-170, R-182, R-185, R-187, R-192, R-196, R-207, R-214;
+  - R-124, R-126, R-131, R-136, R-138, R-139, R-158, R-159, R-165, R-168, R-179, R-183, R-188, R-198, R-201, R-203, R-204, R-205, R-208, R-209, R-211, R-212, R-215, R-216, R-217.
+- **Dropped:** R-166 and R-169 (the hero scroll icon was replaced by the SCROLL letters); R-057 (the debug panel stays: R-190, the heart's centre pixel opens it).
+- **Folded into R-117:** R-029, R-055.
+- **Still to do:** R-127, R-186, R-189, R-213, R-218, R-219, R-220, R-210 (likely phase two).
+- R-117 has a progress note (shared core now part of the job; what's left). R-146 is now part of the Designer session.
+**One thing to know:** R-198 and R-131 (anchor left in the address after a menu click) are marked done as Michael said. The script written for them (homenavclearhash) was never applied, so if the anchor comes back, its source is in `docs/registered-scripts-backup.md`.
+**Then, answers and boss:** Michael answered the open questions:
+- R-042 and R-150 (pacing) are done.
+- R-181 and R-164 are still wanted (R-181 probably phase two).
+- R-075, R-097 and R-030 are dropped.
+
+Claude then read boss's task list directly (Supabase project `.boss`, read-only queries) and compared every roadmap item linked to a boss task:
+- **32 more items marked done from boss ticks** (the roadmap's own rule: acceptance comes from the tick), including the accessibility pass, final PSI pass, R-102 and R-190.
+- **Three subtasks boss never wrote up**, now added: R-222 (lite version: brand logos animation not working), R-223 (lite version: the Estimate page needs no tuning, and the pill is in the way), R-224 (Estimate page: assessment, CTA buttons and forms final tweaks).
+- **Notes added:** R-174 and R-206 (their subtasks), R-210 (the six Lab projects), R-069 (both landing pages), R-073 (Webflow profile).
+- **Settled with Michael:** R-183 and R-217 stay planned. R-213 is done (he may go back to a scroll-based animation). R-127 is done.
+- **No longer in boss:** R-082 and R-074 are dropped. R-086 (clickable folio wall) is still wanted, probably phase two. R-047 (forms), R-049 (tricolour and button motifs on the Estimate page) and R-059 (redirects and domain move, needed for launch) are still needed: these four have no boss task now, so Michael may want to add them back there.
+**Claude**
+
 ## 24 November 2026 (midday) — Claude — Custom code boxes finished, apart from the Designer session (R-117, step A)
 **Michael asked:** finish the custom code boxes first, "so we can park at the point there's just JSdeliver deployment to consider". He refreshed the Designer and backed up first.
 **Checked first:** all six boxes, live and as stored in Webflow (Home showed an 11:36 update from the refresh), still match their snapshots exactly. Nothing lost.

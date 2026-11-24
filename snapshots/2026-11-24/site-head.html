@@ -145,23 +145,19 @@
   }
 
   .button,
-  .instant-quote-btn,
-  .project-nav_arrow {
+  .instant-quote-btn {
     padding: 1px; /* border thickness */
     background: conic-gradient(from var(--angle), var(--raspberry) 0deg 120deg, var(--coral) 120deg 240deg, var(--teal) 240deg 360deg, var(--raspberry));
   }
 
   .button:hover,
-  .instant-quote-btn:hover,
-  .project-nav_arrow:hover,
-  .project-nav_arrow:focus-visible {
+  .instant-quote-btn:hover {
     animation: spin-border 2s ease-in-out infinite;
   }
 
   @media (hover: none) and (pointer: coarse) {
     .button,
-    .instant-quote-btn,
-    .project-nav_arrow {
+    .instant-quote-btn {
       animation: spin-border 2s ease-in-out infinite;
     }
   }
@@ -368,20 +364,8 @@
     }
   }
 </style>
-<!-- Portfolio Nav component (project pages): the arrows' styles and script, moved out of the component's Code Embeds -->
+<!-- Portfolio Nav component (project pages): the arrows' script, moved out of the component's Code Embeds (their look is all in the Designer) -->
 <style>
-  /* overrides the spinning conic-gradient border the buttons get above; delete once .project-nav_arrow is taken out of those selectors */
-  a.project-nav_arrow,
-  a.project-nav_arrow:hover,
-  a.project-nav_arrow:focus-visible {
-    background: #ef8965;
-    padding: 0;
-    animation: none;
-  }
-  a.project-nav_arrow .project-nav_inner,
-  a.project-nav_arrow .grad-arrow-wrapper {
-    border-radius: inherit;
-  }
   /* images can't be dragged out of the page (all pages) */
   img {
     -webkit-user-drag: none;

@@ -4,6 +4,21 @@
 
 
 
+## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 2: project-nav arrows' look all in the Designer (R-117 step A3, R-146)
+- **Michael (Designer):** Project Nav Inner lost its own coral background and its corner radius (read back: display, size and padding only). The tab, Project Nav Arrow with `is-prev` / `is-next`, now shows through.
+- **Site head:**
+  - `.project-nav_arrow` taken out of the three spinning-border selector lists (base, hover/focus, touch).
+  - The override block deleted: coral background, padding 0 and animation none on the arrows, plus `border-radius: inherit` on `.project-nav_inner` / `.grad-arrow-wrapper`.
+  - The site-wide image-drag rule stays.
+  - Site head now 19625 / -1280785350.
+- **Tested first** on a copy of Halstead Glass, old against new, side by side: the arrows looked the same.
+- **Checked on staging** (Halstead Glass and Aquaculture):
+  - Both arrows: coral, no gradient, padding 0, corners 0/25%/25%/0 and 25%/0/0/25%, no animation, same size and place (56px).
+  - The inner square is transparent, with no radius.
+  - The Instant Estimate button keeps its spinning border.
+  - All boxes hash-match. Snapshot updated.
+- **Still in R-146:** the unused standalone classes `project-nav_arrow-prev` / `-next`. The Project Nav Arrow base also has only three corner radii set; it doesn't show, because the combos set all four.
+
 ## 24 November 2026 (evening, Designer session) — Claude with Michael — Task 1: skip link code moved into the Site boxes (R-117, step A3)
 - **Site head:** the skip link CSS (`.mwp-skip-link`, hidden until focus). **Site footer:** its script. That script stands aside while any `.skip-embed` still holds a `<script>`, so the change-over never ran two copies.
 - **Michael:** trimmed the Skip Link component's embed to a comment and the `<a>`. The original embed is saved as `snapshots/2026-11-24/skip-embed.html`.

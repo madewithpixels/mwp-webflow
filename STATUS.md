@@ -4,6 +4,14 @@
 
 
 
+## 25 November 2026 (evening) — Claude with Michael — Tuning stage, batch 1: Site head and Site footer read the Tuning variables
+- **Plan (Michael's call):** tuning first, then bundles. Plain numbers live in the Webflow Variables collection "Tuning" (65 variables, clear names, glossary in `docs/tuning-glossary.md`). Code reads them as `--_tuning---<name>` through `MWP.tune(name, fallback)` with today's value as the fallback. Lists, selectors, easing curves and media-query widths stay in code.
+- **Batch 1 wired:** Site head (27,103 characters): resize wait, page morph timings, contact bubble margin/gap/hide delay/copied message. Site footer (32,874 characters): terminal scales, folio preview, project slide, scroll magnet, swipe.
+- **Checked on staging:** both boxes match their hashes on `/`, `/estimate` and `/portfolio/halstead-glass`; test frame 0 errors; changing Contact Bubble Button Gap from 14 to 30 and publishing changed the live gap, then restored to 14 and verified.
+- **Snapshots:** `snapshots/2026-11-25-tuning-batch1/` (site-head.html, site-footer.html). Baseline stays in `snapshots/2026-11-25/`.
+- **Next:** batch 2 = Home footer (30 variables) and Home head (6), plus removing the dead `.mwp-scroll-cue` rules.
+- **Published to staging only.**
+
 ## 25 November 2026 (late afternoon) — Claude with Michael — Header phone/email: hover bubble with Copy replaces the sliding label
 - **Why:** with the nav on the right in the hero, the email label slid open off the right edge of the screen. Michael didn't like the expanding treatment anyway. Instruction: all JS and CSS in the custom code boxes, no registered scripts (Michael, 16:49).
 - **Site head:** removed the hover rule `.menu-button:is(:hover, :focus-visible) .menu-button-label` (768px+, hover). Kept the menu-open rule (labels open at 992px+ while the menu is open). Added at the end: `.mwp-contact-tip` styles and a script that adds one bubble after each `.contact-btn-wrapper .menu-button` (phone, email): number/address text (from the Menu Button Label) + a Copy button (clipboard API, execCommand fallback, "Copied" for 1.6s). Shows on hover (hover-capable devices) or keyboard focus; stays while the pointer is on the bubble; hides 250ms after leaving, on Escape, on scroll and resize. Placed under the button (above if there's no room), clamped 12px inside both screen edges, pointer follows the button. Lives inside the wrapper so Tab goes link → Copy → next link. Rest of the Site head unchanged (echo checked).

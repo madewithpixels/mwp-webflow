@@ -6,7 +6,7 @@ Names end with their unit: `ms` = milliseconds (1000 = 1 second), `s` = seconds,
 
 Changes take effect after a publish. Nothing here changes layout widths or the 992 / 767 / 750 breakpoints (see the end).
 
-Status: **Not wired yet.** Until each box is switched over, editing a variable does nothing. This table is updated as boxes are switched.
+Status: **All four boxes wired (25 Nov 2026, staging).** Site head, Site footer, Home head and Home footer read these variables, with today's value as the fallback. Change a value in the Variables panel, then publish. Not yet published to the live domain.
 
 ## Faulty terminal (the hero's background text)
 | Name | Now | What it does |

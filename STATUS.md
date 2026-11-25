@@ -4,6 +4,14 @@
 
 
 
+## 25 November 2026 (night) — Claude with Michael — Tuning stage, batch 2: Home head and Home footer read the Tuning variables
+- **Wired:** Home footer (37,564 characters, 24 settings: ticker, pricing, heart, logo marquee) and Home head (44,706 characters, 6 settings: menu jump settle, contents line and rail, scroll cue sweep, arrival cover failsafe, back landing delay). All 65 variables are now used.
+- **Checked on staging:** both boxes match their hashes; no errors scrolling pricing, ticker, heart; Logo Marquee Speed 180 to 360 halved the loop time and Scroll Cue Sweep 2.4 to 4.8 showed live, then both restored to 180 and 2.4 and verified. Pricing right at 1366x800 (pinned, cards dropped clear of the menu) and 1366x700 (stacked).
+- **Dead `.mwp-scroll-cue` rules:** already gone from the Home head, nothing to remove.
+- **Snapshots:** `snapshots/2026-11-25-tuning-batch2/` holds all four boxes as now published.
+- **Next:** bundle stages (B1 refresh src per feature, build, compare).
+- **Published to staging only.**
+
 ## 25 November 2026 (evening) — Claude with Michael — Tuning stage, batch 1: Site head and Site footer read the Tuning variables
 - **Plan (Michael's call):** tuning first, then bundles. Plain numbers live in the Webflow Variables collection "Tuning" (65 variables, clear names, glossary in `docs/tuning-glossary.md`). Code reads them as `--_tuning---<name>` through `MWP.tune(name, fallback)` with today's value as the fallback. Lists, selectors, easing curves and media-query widths stay in code.
 - **Batch 1 wired:** Site head (27,103 characters): resize wait, page morph timings, contact bubble margin/gap/hide delay/copied message. Site footer (32,874 characters): terminal scales, folio preview, project slide, scroll magnet, swipe.

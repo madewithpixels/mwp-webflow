@@ -2,6 +2,11 @@
 
 Written 20 November 2026 by Claude. **Updated 24 November 2026: where we are and the final steps come first; the original plan below is kept for reference, and the parts it changes are marked.**
 
+## Where we are (25 November 2026, night): tuning done, bundles held for the deployment stage
+- **Tuning is done** (Michael's order: tuning first, then bundles). 65 variables in the Webflow Variables collection "Tuning"; Site head, Site footer, Home head and Home footer read them as `--_tuning---<name>` through `MWP.tune(name, fallback)`. Glossary: `docs/tuning-glossary.md`; inventory: `docs/tuning-inventory.md`. Newest box copies: `snapshots/2026-11-25-tuning-batch2/` (Site head 27,103; Site footer 32,874; Home head 44,706; Home footer 37,564). Staging only.
+- **Held (Michael, 25 November 2026):** B1 to B6 (bundles) and C (clean-up) happen as part of the deployment stage. Step B4 ("one place for tuning") is done by the above. `docs/bundle-map.md` is the starting point for B1.
+- **Still true:** `src/` is stale; the boxes are the source of truth.
+
 ## Where we are (24 November 2026, evening): step A done, steps B and C parked until launch prep
 **Parked (Michael, 24 November 2026):** the jsDelivr bundles (step B) and the clean-up (step C) wait until the rest of the design task list is done, because that work may still touch the custom code. They become a launch prep step. Until then the custom code boxes stay the source of truth: change them in place, keep the snapshot and STATUS habit, and keep new code on `MWP`.
 

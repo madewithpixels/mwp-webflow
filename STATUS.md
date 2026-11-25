@@ -4,6 +4,12 @@
 
 
 
+## 25 November 2026 (night) — Claude with Michael — Tuning finished; bundles held until the deployment stage
+- **Decision (Michael):** hold here. The jsDelivr bundles (plan steps B1 to B6) and the clean-up (step C) are done as part of the deployment stage, not now. Until then the custom code boxes stay the source of truth and `src/` stays stale.
+- **State:** tuning is complete: 65 Tuning variables, all four boxes (Site head and footer, Home head and footer) read them. Newest copies of the boxes are in `snapshots/2026-11-25-tuning-batch2/`. Everything is on staging only; nothing published to the live domain.
+- **Prepared for the deployment stage:** `docs/bundle-map.md` (where each block goes, what stays inline, the timing question to settle when cutting). Nothing moved.
+- **Still open for Michael:** pricing on tablets, centring the pricing cards on short wide screens, re-adding the boss tasks.
+
 ## 25 November 2026 (night) — Claude with Michael — Tuning stage, batch 2: Home head and Home footer read the Tuning variables
 - **Wired:** Home footer (37,564 characters, 24 settings: ticker, pricing, heart, logo marquee) and Home head (44,706 characters, 6 settings: menu jump settle, contents line and rail, scroll cue sweep, arrival cover failsafe, back landing delay). All 65 variables are now used.
 - **Checked on staging:** both boxes match their hashes; no errors scrolling pricing, ticker, heart; Logo Marquee Speed 180 to 360 halved the loop time and Scroll Cue Sweep 2.4 to 4.8 showed live, then both restored to 180 and 2.4 and verified. Pricing right at 1366x800 (pinned, cards dropped clear of the menu) and 1366x700 (stacked).

@@ -231,3 +231,11 @@ The centred lockup goes; it was the only centred thing on the site. Desktop and 
 **For Michael:** phone. Proposed: the horizontal layout at full width, no tagline, since the vertical one depends on a phone's unstable height and breaks with larger system text.
 **If you don't decide:** phone keeps the current hero until R-221 reaches it.
 
+## D-030 · The colour lab is a separate dev bundle, kept out of the launch code and the Webflow boxes
+**Status:** Proposed
+**Qualifier:** Michael, 27 November 2026: "it's a big chunk of work that will delay launch. let's put the code in the mwp-webflow repo and serve it via jsdeliver for use in phase 2. Then clean up those scripts."
+**Date:** 27 November 2026
+**Source:** chat with Claude, building the light-mode colour panel (R-228).
+The panel is its own bundle (`src/lab`, built to `dist/lab.min.js`, about 19 kB), so it never joins the site, home or perf bundles. It runs only on `*.webflow.io` and only with `?lab`, and a small loader (in `docs/colour-lab.md`) loads it from jsDelivr, pinned to a commit. It was tried first as a pasted script (over the footer's character limit) and then as six compressed registered scripts; both were dropped because the compressed copies are hard to read and maintain and add requests on the live domain. Nothing is loaded for it today.
+**For Michael:** confirm, or say if you'd rather keep the lab out of this repo.
+**If you don't decide:** it stays as above, unloaded, until phase 2.

@@ -48,6 +48,8 @@
 
 *Fifteen tasks added on 24 November 2026 (R-207 to R-221, brief #595) are written up from your list and still need your confirmation of the guesses marked in them. R-211 may overlap R-179.*
 
+*One task added on 27 November 2026 (R-228, from your messages) is written up from them and still needs your confirmation of the guesses marked in it.*
+
 *The order is a suggestion: why each phase sits where it does is under its heading. Move things freely; the numbers stay with the items.*
 
 *Four items (R-045, R-052, R-059, R-063) were suggested by Claude and agreed by Michael on 24 October 2026; they're now in his boss list too.*
@@ -61,7 +63,7 @@
 | 3 | Phone and tablet | R-039–R-045, R-093, R-113, R-114, R-121, R-122, R-125–R-131, R-136–R-141, R-148, R-149, R-154, R-156–R-163, R-167, R-168, R-175–R-178, R-197, R-198, R-200, R-201, R-203–R-205, R-209, R-215–R-217 |
 | 4 | Estimate page | R-046–R-051, R-106–R-111, R-115, R-116, R-124, R-142, R-171–R-174, R-199 |
 | 5 | Launch prep and launch | R-052–R-063, R-102, R-123, R-143, R-144, R-192–R-194, R-196, R-206 |
-| 6 | After launch (your Phase 2) | R-064–R-073, R-100 |
+| 6 | After launch (your Phase 2) | R-064–R-073, R-100, R-228 |
 | 7 | SmashBurger, once it's finished | R-030, R-077, R-078 |
 | — | Already built | R-001–R-028 |
 
@@ -1927,3 +1929,13 @@ So at tablet **landscape** (1024 and up is Webflow's Desktop band) the class doe
 **Task:** 43612307 in your boss list
 **From:** your task list (Webflow '26), ticked complete on 24 October 2026.
 **Note:** Now a speech bubble that spins into the logo; timed fly-in on phones (D-018). Not yet tried on Android.
+
+### R-228 · Light-mode colour lab: a panel to try colour schemes on staging (phase 2)
+**State:** built (tool only; not loaded on the site) · **Evidence:** verified (local): headless browser test of the built file; ran on staging 27 November 2026 · **Acceptance:** pending
+**Task:** not yet in boss (add it there)
+**From:** chat with Claude, 27 November 2026. Michael wondered whether the dark slate site could be inverted for a light mode ("it would need some tweaks for accessibility"), then asked for "a demo of the site with a control panel that allows me to tweak all the colours", starting from the inverse. Held back so it doesn't delay launch: "serve it via jsdeliver for use in phase 2".
+**Done when:** (the tool) the panel is in the repo as its own bundle and documented, and nothing loads it on the site. (the later work, phase 2) the panel is switched on with the loader in `docs/colour-lab.md`, Michael picks a light scheme with it, and the chosen values go into the Webflow colour variables; then the accessibility pass (contrast of text, buttons, ticker bands, pricing cards) and a light look for the Faulty Terminal (see R-227's note on where the terminal's background is set).
+**Note:**
+- Code: `src/lab/index.js`, built `dist/lab.min.js`, written up in `docs/colour-lab.md`. Decision: D-030.
+- The Webflow registered scripts used while testing (MWPLab1 to 6 and the loader) are deleted.
+- Nothing was published by Claude; nothing from the lab reaches the live domain.

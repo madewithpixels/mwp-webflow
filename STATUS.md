@@ -4,6 +4,20 @@
 
 
 
+
+## 27 November 2026 (night) — Claude with Michael — Colour lab moved into the repo for phase 2 (R-228, D-030)
+- **Changed:** the light-mode colour panel (inverse start, whole-palette sliders, Faulty Terminal filter and overlay with blend modes, "keep changes on refresh") is now `src/lab/index.js`, built `dist/lab.min.js`, written up in `docs/colour-lab.md`. New roadmap item R-228 (phase 6) and decision D-030 (proposed).
+- **Webflow:** the six registered scripts and the loader used for testing (MWPLab1 to 6, MWPLabLoader) are removed from the site and deleted. Nothing about the lab is left on staging or the live domain. Michael's site code boxes were not touched.
+- **Checked how:** the built file was run in a headless browser against a stand-in page (panel opens, blend and overlay apply, changes survive a reload, untick clears them, remove panel leaves nothing behind, no errors). Before the move, the registered copy was checked byte for byte against the source and ran on staging with `?lab`. Not re-checked on staging after the move, because it is no longer loaded.
+- **Not done:** the loader is not registered anywhere (phase 2). `dist/lab.min.js` was built alone with the same esbuild settings as `build.cjs`; the other bundles in `dist/` were not rebuilt.
+- **Needs Michael:** confirm D-030; add R-228 to your boss list if you want it there; commit (nothing is committed).
+- **Next useful action:** in phase 2, add the loader from `docs/colour-lab.md` pinned to a commit, pick the light scheme, then move the values into the Webflow variables.
+
+## 25 November 2026 (night, late) — Claude with Michael — Scroll cue: "Scroll" letter roll, then the sweep on "for more" (R-226)
+- **Designer:** the scroll cue is now two TextBlocks in Scroll Wrapper: "Scroll" (Scroll Cue Text + new combo `is-roll`, display flex) and "for more" (Scroll Cue Text + new combo `is-sweep`, carries the gradient clipped to the text). Base Scroll Cue Text no longer carries the gradient. New combo classes logged under D-006.
+- **Home head:** the scroll cue block is replaced. A script splits "Scroll" into masked letters, each holding two identical copies, and adds a hidden copy of the word for screen readers. Each letter rolls downwards (the copy drops in from -100% as the letter leaves to 100%), staggered 50ms per letter. Then the highlight sweeps across "for more". Both run on one clock and loop: the Tuning variable Scroll Cue Sweep s (default 2.4s) is the whole cycle (roll in the first ~18%, sweep from ~32% to ~82%). Reduced motion: no roll, and "for more" is plain at 60% offwhite.
+- **Still to check (Michael):** publish to staging and watch it; the Scroll Wrapper bottom multipliers at 1280/1440/1920 in the Designer; Scroll Cue Text margin-right against the letter-spacing.
+
 ## 25 November 2026 (night) — Claude with Michael — Tuning finished; bundles held until the deployment stage
 - **Decision (Michael):** hold here. The jsDelivr bundles (plan steps B1 to B6) and the clean-up (step C) are done as part of the deployment stage, not now. Until then the custom code boxes stay the source of truth and `src/` stays stale.
 - **State:** tuning is complete: 65 Tuning variables, all four boxes (Site head and footer, Home head and footer) read them. Newest copies of the boxes are in `snapshots/2026-11-25-tuning-batch2/`. Everything is on staging only; nothing published to the live domain.
